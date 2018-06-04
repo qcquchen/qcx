@@ -32,27 +32,12 @@ Page({
   },
   onShow(){
     let self = this
-    // util.setEntities({
-    //   key: 'callback',
-    //   value: this.initData
-    // })
     app.getWechatInfo().then(() => {
       wx.showLoading({
         title: '加载中',
       })
       self.initData(null, 'authorized')
     })
-    // util.isAuthorized().then((res) => {
-    //   if(res == 'authorized'){
-    //   }else{
-    //     self.setData({
-    //       isAuthorized: true
-    //     })
-    //   }
-    // })
-    // app.getWechatInfo().then(() => {
-    //   this.initData()
-    // })
   },
   initData(){
     const { options } = this.data

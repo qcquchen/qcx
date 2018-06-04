@@ -35,11 +35,6 @@
             "setLocation"
         ]
     },{
-        "root": "src/shareTravelDetails",
-        "pages": [
-            "shareTravelDetails"
-        ]
-    },{
         "root": "src/submitorder",
         "pages": [
             "submitorder",
