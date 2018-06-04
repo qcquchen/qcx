@@ -1,10 +1,10 @@
 {
-  "name": "kuban-wechat-app",
+  "name": "quchuxing-wechat-app",
   "version": "1.0.0",
   "description": "",
   "main": "",
   "scripts": {},
-  "author": "kuban",
+  "author": "quchuxing",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {

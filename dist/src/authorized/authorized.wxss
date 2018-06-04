@@ -1,0 +1,60 @@
+/*.authorized{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	position: fixed;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;*/
+.code {
+  background: #ffffff;
+  padding: 12px;
+  text-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  border-radius: 12px;
+  position: relative; }
+  .code .logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    margin: 24px 0; }
+  .code .tipe {
+    font-size: 14px;
+    color: #616266;
+    padding-top: 6px; }
+  .code .authorized_btn {
+    background: linear-gradient(to right, #2EBFFF, #4287FF);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    width: 60%;
+    padding: 6px 12px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 14px;
+    margin: 24px 0; }
+    .code .authorized_btn > image {
+      width: 24px;
+      height: 20px;
+      margin-right: 8px; }
+  .code > button::after {
+    border: none; }
+  .code .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 16px;
+    height: 16px; }
+
+/*}*/

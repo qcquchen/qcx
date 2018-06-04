@@ -1,0 +1,158 @@
+<view class="map">
+  <map name="travelInfo_map" 
+    longitude="{{travelInfo.start[0]}}"
+    latitude="{{travelInfo.start[1]}}"
+    markers="{{markers}}"
+    polyline="{{polyline}}"
+    scale="12"
+    show-location
+    style="height: {{video_height.windowHeight - 341}}px">
+    <cover-view>
+      <cover-image class="reduction" src="../../images/btn_locate@3x.png"></cover-image>
+    </cover-view>
+  </map>
+</view>
+
+<swiper>
+  <swiper-item>
+    <view class="code">
+      <view class="user_info">
+        <view class="user_img">
+          <image src="{{ travelInfo.ownerPicture }}"></image>
+        </view>
+        <view class="user_text">
+          <view class="name">
+            <view>{{ travelInfo.ownerNickName }}</view>
+            <image src="../../images/img_men@3x.png"></image>
+          </view>
+          <view class="car_name">{{ travelInfo.ownerCar != null ? travelInfo.ownerCar : '' }} {{ travelInfo.lastTimeOnlineTxt }}</view>
+        </view>
+      </view>
+      <view class="travel_info">
+        <view class="travel_list">
+          <image src="../../images/icon_time@3x.png"></image>
+          <view>{{ travelInfo.startTimeTxt }}</view>
+          <!-- <view class="shun_road">80%顺路</view> -->
+        </view>
+        <view class="travel_list">
+          <image src="../../images/icon_start@3x.png"></image>
+          <view class="address_ellipsis">{{ travelInfo.startAddress }}</view>
+          <view>{{ start_distance.distance }}km</view>
+        </view>
+        <view class="travel_list">
+          <image src="../../images/icon_end@3x.png"></image>
+          <view class="address_ellipsis">{{ travelInfo.endAddress }}</view>
+          <view>{{ end_distance.distance }}km</view>
+        </view>
+      </view>
+      <view class="travel_numprice">
+        <block wx:if="true">
+          <view class="travel_numprice_list">
+            <block wx:if="{{ options.travelType == '1' }}">
+              <view class="text">乘车人数</view>
+              <view class="count">{{ travelInfo.seats }}</view>
+            </block>
+            <block wx:if="{{ options.travelType == '0' }}">
+              <image wx:for="{{ travelInfo.seat_true }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
+              <image wx:for="{{ travelInfo.seat_false }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
+            </block>
+          </view>
+        </block>
+        <view class="travel_numprice_list">
+          <view class="count">{{ travelInfo.travelPrice }}</view>
+          <view class="text">{{ travelType == '0' ? '元' : '元/座' }}</view>
+        </view>
+      </view>
+      <view class="phone">
+        <button class="phone_btn" bindtap="callPhone" data-id="{{travelInfo.ownerPhone}}" hover-class="btn_hover">
+          <image src="../../images/btn_menu_phone@3x.png"></image>
+          <view>电话</view>
+        </button>
+      </view>
+      <view class="tipe">左滑查看路线详情 {{left}}</view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="code">
+      <view class="line_info">线路详情</view>
+      <view class="nav_info">
+        <view class="switch_loc" style="margin-bottom: 4px;">
+          <image src="../../images/icon_start@3x.png"></image>
+          <view class="{{ switch_loc == 0 ? 'switch_type' : '' }}" bindtap="switchLoc" data-type="0">当前位置</view>
+          <view class="{{ switch_loc == 1 ? 'switch_type' : '' }}" bindtap="switchLoc" data-type="1">{{ travelInfo.recommendStartType == 0 ? '家' : '公司' }}</view>
+        </view>
+        <view class="walking_distance">
+          <image src="../../images/iocn_map_buxingdaohang@3x.png"></image>
+          <block wx:if="{{ options.travelType == '0' }}">
+            <view>步行{{ start_walk.distance }}公里(约{{ start_walk.duration }})</view>
+          </block>
+          <block wx:if="{{ options.travelType == '1' }}">
+            <view>驾车{{ start_distance.distance }}公里(约{{ start_distance.duration }})</view>
+          </block>
+        </view>
+        <view class="address">
+          <view class="address_list">
+            <view class="address_list_left">
+              <image src="../../images/icon_map_scd@3x.png"></image>
+              <view class="address_ellipsis" style="width: 150px">{{recommend_start_add}}</view>
+            </view>
+            <block wx:if="{{ options.travelType == '0' }}">
+              <view class="address_list_right" bindtap="updateLoc" data-type="start">
+                <view>修改</view>
+                <image src="../../images/icon_return_left@3x.png"></image>
+              </view>
+            </block>
+          </view>
+          <view class="address_list">
+            <view class="address_list_left">
+              <image src="../../images/icon_map_xcd@3x.png"></image>
+              <view class="address_ellipsis" style="width: 150px">{{recommend_end_add}}</view>
+            </view>
+            <block wx:if="{{ options.travelType == '0' }}">
+              <view class="address_list_right" bindtap="updateLoc" data-type="end">
+                <view>修改</view>
+                <image src="../../images/icon_return_left@3x.png"></image>
+              </view>
+            </block>
+          </view>
+        </view>
+        <view class="walking_distance">
+          <image src="../../images/iocn_map_buxingdaohang@3x.png"></image>
+          <block wx:if="{{ options.travelType == '0' }}">
+            <view>步行{{ end_walk.distance }}公里(约{{ end_walk.duration }})</view>
+          </block>
+          <block wx:if="{{ options.travelType == '1' }}">
+            <view>驾车{{ end_distance.distance }}公里(约{{ end_distance.duration }})</view>
+          </block>
+        </view>
+        <view class="switch_loc">
+          <image src="../../images/icon_end@3x.png"></image>
+          <view style="color: #484848; margin-top: 1px;">{{ travelInfo.recommendStartType == 0 ? '公司' : '家' }}</view>
+        </view>
+      </view>
+      <view class="tipe">{{right}} 右滑返回</view>
+    </view>
+  </swiper-item>
+</swiper>
+<view class="foot_btn">
+  <block wx:if="{{ options.travelType == '0' }}">
+    <view class="foot_left">
+      <view>全程大约需要{{ planning_time }}</view>
+      <!-- <view class="pick_me_up">请他接我</view> -->
+    </view>
+    <view class="foot_right" bindtap="bookNow">
+        <image src="../../images/icon_confirm@3x.png"></image>
+        <view>订座</view>
+    </view>
+  </block>
+  <block wx:if="{{ options.travelType == '1' }}">
+      <view class="foot_right" bindtap="{{ travelInfo.travelStatus != 1 ? 'grabAsingLe' : '' }}">
+        <image src="../../images/icon_confirm@3x.png"></image>
+        <view>{{ travelInfo.travelStatus != 1 ? '抢单' : '被抢单' }}</view>
+      </view>
+  </block>
+</view>
+<block wx:if="{{isAuthorized}}">
+  <authorized id="authorized"
+              bind:cancelEvent="_cancelEvent"></authorized>
+</block>

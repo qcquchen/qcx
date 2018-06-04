@@ -1,0 +1,235 @@
+.map {
+  width: 100%; }
+  .map > map {
+    width: 100%;
+    position: relative; }
+  .map .reduction {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: block; }
+
+swiper {
+  height: 295px; }
+
+.code .user_info {
+  padding: 12px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  border-bottom: 1px solid #ededf1; }
+  .code .user_info .user_img {
+    width: 50px;
+    height: 50px; }
+    .code .user_info .user_img > image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
+  .code .user_info .user_text {
+    margin-left: 5px;
+    font-size: 13px; }
+    .code .user_info .user_text .name {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      color: #232426; }
+      .code .user_info .user_text .name > image {
+        width: 14px;
+        height: 14px;
+        margin-left: 5px; }
+    .code .user_info .user_text .car_name {
+      color: #939499;
+      font-size: 12px; }
+
+.code .travel_info {
+  padding: 12px; }
+  .code .travel_info .travel_list {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
+    .code .travel_info .travel_list > view {
+      margin-right: 5px;
+      font-size: 14px;
+      color: #232426; }
+    .code .travel_info .travel_list > image {
+      margin-right: 5px;
+      width: 14px;
+      height: 14px; }
+    .code .travel_info .travel_list > view:last-child {
+      color: #939499;
+      font-size: 12px; }
+    .code .travel_info .travel_list .shun_road {
+      color: #FFAA1F !important; }
+
+.code .travel_numprice {
+  padding: 12px;
+  border-bottom: 1px solid #ededf1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center; }
+  .code .travel_numprice .travel_numprice_list {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
+    .code .travel_numprice .travel_numprice_list .text {
+      font-size: 12px;
+      color: #616266; }
+    .code .travel_numprice .travel_numprice_list > image {
+      width: 25px;
+      height: 25px;
+      margin-right: 6px;
+      border-radius: 50%; }
+    .code .travel_numprice .travel_numprice_list .count {
+      font-size: 16px;
+      color: #484848; }
+    .code .travel_numprice .travel_numprice_list > view:last-child {
+      margin-left: 5px; }
+
+.code .phone {
+  border-bottom: 1px solid #ededf1; }
+  .code .phone .phone_btn {
+    background: #ffffff;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    font-size: 14px;
+    color: #616266;
+    border-radius: 0px; }
+    .code .phone .phone_btn > image {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px; }
+  .code .phone .btn_hover {
+    background: #ededf1; }
+  .code .phone > button::after {
+    border: none; }
+
+.code .tipe {
+  text-align: center;
+  font-size: 12px;
+  color: #939499;
+  padding: 12px; }
+
+.code .line_info {
+  font-size: 14px;
+  color: #616266;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ededf1; }
+
+.code .nav_info {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ededf1; }
+  .code .nav_info .switch_loc {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 0 12px; }
+    .code .nav_info .switch_loc > view {
+      font-size: 14px;
+      color: #616266;
+      margin-left: 8px; }
+    .code .nav_info .switch_loc > image {
+      width: 14px;
+      height: 14px; }
+    .code .nav_info .switch_loc .switch_type {
+      background: #616266;
+      border-radius: 12px;
+      padding: 0 8px;
+      color: #ffffff; }
+  .code .nav_info .walking_distance {
+    padding: 0 12px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
+    .code .nav_info .walking_distance > view {
+      font-size: 14px;
+      color: #939499;
+      margin-left: 5px; }
+    .code .nav_info .walking_distance > image {
+      width: 3px;
+      height: 20px;
+      margin: 0 6px; }
+  .code .nav_info .address {
+    border: 1px solid #ededf1;
+    margin: 8px 0;
+    border-radius: 8px; }
+    .code .nav_info .address .address_list {
+      padding: 10px 12px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+      .code .nav_info .address .address_list .address_list_left, .code .nav_info .address .address_list .address_list_right {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center; }
+        .code .nav_info .address .address_list .address_list_left > view, .code .nav_info .address .address_list .address_list_right > view {
+          margin: 0 5px;
+          font-size: 14px; }
+      .code .nav_info .address .address_list .address_list_right {
+        color: #939499; }
+        .code .nav_info .address .address_list .address_list_right > image {
+          width: 14px;
+          height: 14px; }
+    .code .nav_info .address .address_list:first-child {
+      border-bottom: 1px solid #ededf1; }
+
+.foot_btn {
+  background: #484848;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+  .foot_btn > view {
+    padding: 12px; }
+  .foot_btn .foot_left {
+    -ms-flex: 7;
+        flex: 7;
+    font-size: 14px;
+    color: #C8C9CC;
+    text-align: center; }
+    .foot_btn .foot_left .pick_me_up {
+      background: #ffffff;
+      border-radius: 5px;
+      color: #484848;
+      width: 80px; }
+  .foot_btn .foot_right {
+    -ms-flex: 3;
+        flex: 3;
+    background: #2F3033;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center; }
+    .foot_btn .foot_right > image {
+      width: 20px;
+      height: 20px; }
+    .foot_btn .foot_right > view {
+      color: #ffffff;
+      font-size: 14px;
+      margin-left: 5px; }
+
+.address_ellipsis {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }

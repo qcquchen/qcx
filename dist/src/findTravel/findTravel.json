@@ -1,0 +1,6 @@
+{
+    "onReachBottomDistance": 50,
+    "usingComponents": {
+	    "authorized": "/component/authorized/authorized"
+	  }
+}
