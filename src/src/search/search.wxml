@@ -1,0 +1,131 @@
+<view class="header">
+  <view class="header_left">
+    <view class="location">
+      <image class="loc_icon" src="../../images/icon_map_star@3x.png"></image>
+      <input style="width: 100%" value="{{ start_addr }}" type="text" placeholder="我的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+    </view>
+    <view class="location">
+      <image class="loc_icon" src="../../images/icon_map_end@3x.png"></image>
+      <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="请输入目的地" disabled="true" bindtap="getLocation" data-id="end"/>
+    </view>
+  </view>
+  <view class="header_right">
+    <image bindtap="convertLoc" class="exchange" src="../../images/btn_exchange@3x.png"></image>
+  </view>
+</view>
+<scroll-view class="scroll_hostory" scroll-y="true" style="height:{{ video_height.windowHeight - 99 }}px; margin-top: 5px;">
+  <block wx:if="{{ history_type }}">
+    <view class="search_history" wx:for-items="{{ history_L }}" wx:key="{{ index }}" bindtap="clickHistory" data-id="{{ index }}">
+      <image class="history_icon" src="../../images/icon_place@3x.png"></image>
+      <view class="history_li">
+        <view class="history_loc">{{ item.start_addr }}</view>
+        <image class="history_direction_icon" src="../../images/icon_arrow_black@3x.png"></image>
+        <view class="history_loc">{{ item.end_addr }}</view>
+      </view>
+    </view>
+    <block wx:if="{{ history_L.length != 0 }}">
+      <view class="clearHistory" bindtap="clearHistory">清除历史搜索</view>
+    </block>
+    <block wx:else>
+      <view class="clearHistory">暂无历史搜索行程</view>
+    </block>
+  </block>
+  <block wx:else>
+    <block wx:if="{{ groupLines.length != 0 }}">
+      <view class="search_list">
+        <view class="sea_list_tit">线路</view>
+        <view class="search_line" wx:for-items="{{ groupLines }}" wx:key="{{ index }}" catchtap="gotoLineInfo" data-id="{{ item.groupId }}" data-type="{{ item.groupType }}">
+          <view class="search_line_list">
+            <view class="search_line_left">
+              <image class="searchLine_imgOne" src="{{ item.GroupImg }}"></image>
+              <view class="searchLine_detail">
+                <view class="search_info_tit">{{ item.GroupTitle }}</view>
+                <view class="search_info_peopleNum">人数{{ item.peopleNum }}</view>
+                <view class="search_ingo_synopsis">{{ item.GroupNotice }}</view>
+              </view>
+            </view>
+            <image class="{{ !item.inGroup ? 'searchLine_imgTwo' : 'searchLine_imgTwo_type' }}" src="../../images/{{ !item.inGroup ? 'btn_join_mini@3x' : 'btn_followed_nomal@3x'}}.png" catchtap="{{ !item.inGroup ? 'joinGroup' : 'leaveGroup' }}" data-id="{{ item.groupId }}"></image>
+          </view>
+        </view>
+        <block wx:if="{{ groupLines.length >= 2 }}">
+          <view class="lookAll" catchtap="gotoLineList">
+            <view>查看更多</view>
+            <image src="../../images/icon_return_left@3x.png"></image>
+          </view>
+        </block>
+      </view>
+    </block>
+    <view class="search_list" wx:for-items="{{ searchTravels }}" wx:key="{{ index }}">
+      <view class="sea_list_tit">顺路行程</view>
+      <view class="search_travel">
+         <view class="travel_head">
+           <view class="travel_head_left">
+             <image class="travel_people_img" src="{{ item.ownerPicture }}"></image>
+             <view class="travel_people_info">
+               <view class="tra_peo_name">
+                 <view>{{ item.ownerNickName }}</view>
+                 <image src="../../images/img_men@3x.png"></image>
+               </view>
+               <view class="travel_people_code">{{ item.ownerCar != null ? item.ownerCar : '' }} 10分钟前</view>
+             </view>
+           </view>
+           <view class="travel_head_right">
+             <button data-id="{{ item.ownerPhone }}" bindtap="{{ !item.attentioned ? 'likeHe' : 'pullAttention' }}">{{ !item.attentioned ? '关注' : '已关注' }}</button>
+           </view>
+         </view>
+         <view class="travel_body">
+            <view class="travel_code {{ item.travelVo.type == 1 ? 'passenger_travel_bg' : 'driver_travel_bg' }}" catchtap="gotoTravelShare" data-id="{{ item.travelVo.travelId }}" data-type="{{ item.travelVo.type }}">
+              <view class="travel_code-one">
+                <view class="travel_code-one_left">
+                  <view class="travel_tit {{ item.travelVo.type == 1 ? 'passenger_color' : 'driver_color' }}">{{ item.travelVo.type == 1 ? '乘客行程' : '车主行程' }}</view>
+                  <view class="travel_date">{{ item.travelVo.startTimeTxt }}</view>
+                </view>
+                <view class="travel_btn {{ item.travelVo.type == 1 ? 'passenger_bg' : 'driver_bg' }}">{{ item.travelVo.type == 1 ? '抢单' : '订座' }}</view>
+              </view>
+              <view class="travel_code-two">
+                <view>{{ item.travelVo.startAddress }}</view>
+                <image src="../../images/icon_white@3x.png"></image>
+                <view>{{ item.travelVo.endAddress }}</view>
+              </view>
+              <view class="travel_code-three">
+                <block wx:if="{{ item.travelVo.type == 1 }}">
+                  <view class="seat_num">
+                    <text>乘车人数</text>
+                    <text>{{ item.travelVo.seats }}</text>
+                  </view>
+                </block>
+                <block wx:else>
+                  <view class="driver_seat">
+                    <image wx:for="{{ item.travelVo.seat_true }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
+                    <image wx:for="{{ item.travelVo.seat_false }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
+                  </view>
+                </block>
+                <view class="travel_price">
+                  <text>{{ item.travelVo.type == 1 ? '车费(元)' : '票价(元)' }}</text>
+                  <text>{{ item.travelVo.travelPrice }}</text>
+                </view>
+              </view>
+            </view>
+         </view>
+         <view class="travel_foot">
+           <view class="scan_num">{{ item.travelVo.pageViews }}人浏览</view>
+           <view class="likeAndShare">
+             <view class="likeAndShare_list" bindtap="{{ item.travelVo.liked ? 'travelUnlike' : 'postLike'}}" data-id="{{ item.travelVo.travelId }}">
+               <image src="../../images/{{ item.travelVo.liked ? 'btn_goodyes_mini@3x' : 'btn_good_mini@3x' }}.png"></image>
+               <view class="number-operating">{{ item.travelVo.likesNum }}</view>
+             </view>
+           </view>
+         </view>
+      </view>
+    </view>
+    <block wx:if="{{ searchTravels.length == 0 && groupLines.length != 0 }}">
+      <view class="none_data">没有匹配到行程</view>
+    </block>
+    <block wx:if="{{ searchTravels.length != 0 && groupLines.length == 0 }}">
+      <view class="none_data">没有匹配到线路</view>
+    </block>
+    <block wx:if="{{ groupLines.length == 0 && searchTravels.length == 0 }}">
+      <view class="none_data">没有匹配到线路和行程</view>
+    </block>
+  </block>
+</scroll-view>

@@ -1,0 +1,19 @@
+<view class="body">
+	<view class="group_list" wx:for-items="{{ myGroup }}" wx:key="{{ index }}" bindtap="gotoLineInfo" data-type="{{ item.groupType }}" data-id="{{ item.groupId }}">
+		<view class="group_img">
+			<image src="{{ item.groupBanner || item.GroupImg }}"></image>
+		</view>
+		<view class="group_info">
+			<view class="group_tit">{{ item.groupTitle || item.GroupTitle }}</view>
+			<view class="group_code">
+				<view class="attractions">{{ item.groupTypeTxt }}</view>
+				<view class="people_num">人数{{ item.groupNum || item.peopleNum }}</view>
+				<block wx:if="{{ item.groupType != 1 }}">
+					<view class="other_bg">路程{{ item.distance }}km</view>
+					<view class="other_bg">推荐价{{ item.groupAdvicePrice }}元</view>
+				</block>
+			</view>
+			<view class="group_news">{{ item.groupNotice || item.GroupNotice }}</view>
+		</view>
+	</view>
+</view>

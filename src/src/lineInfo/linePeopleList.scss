@@ -1,0 +1,56 @@
+.body{
+	padding: 12px;
+	.group_list{
+		border-bottom: 1px solid #ededf1;
+		display: flex;
+		padding: 8px 0;
+		.group_img{
+			width: 60px;
+			height: 60px;
+			>image{
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+			}
+		}
+		.group_info{
+			margin-left: 8px;
+			.group_tit{
+				font-size: 14px;
+				color: #484848;
+				font-weight: bold;
+			}
+			.group_code{
+				display: flex;
+				align-items: center;
+				padding: 4px 0;
+				>view{
+					font-size: 10px;
+					color: #ffffff;
+					padding: 2px 6px;
+					margin-right: 5px;
+					border-radius: 4px;
+				}
+				.attractions{
+					background: #8B9BFF;
+				}
+				.people_num{
+					background: #499EFF;
+				}
+				.other_bg{
+					background: #FFAA1F;	
+				}
+			}
+			.group_news{
+				font-size: 13px;
+				color: #737373;
+			}
+		}
+	}
+	.group_list:first-child{
+		padding-top: 0px;
+	}
+	.group_list:last-child{
+		border-bottom: none;
+	}
+}

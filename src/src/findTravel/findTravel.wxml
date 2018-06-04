@@ -1,0 +1,60 @@
+<view class="body">
+  <view class="search">
+    <image src="../../images/btn_home_seach@3x.png"></image>
+    <input type="text" placeholder="搜索" disabled="true" bindtap="gotoSearch" />
+  </view>
+  <view class="line" style="padding-bottom: 0px;" wx:if="{{ !isRecommend }}">
+    <view class="line_title line_title_type">
+      <view>我的拼车群</view>
+      <view class="lookAll" wx:if="{{ myGroup.length > 5 }}" bindtap="gotoMygroupList">查看更多</view>
+    </view>
+    <view class="myLine">
+      <view class="myLine_li" bindtap="gotoLineInfo" data-type="{{ item.groupType }}" data-id="{{ item.groupId }}" wx:for-items="{{ myGroup }}" wx:key="{{ index }}">
+        <block wx:if="{{ index < 6 }}">
+          <view class="myLine_li_info">
+            <image src="{{ item.groupBanner }}"></image>
+            <view class="my_attractions">{{ item.groupTypeTxt }}</view>
+            <view class="line_name">{{ item.groupTitle }}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="line">
+    <view class="line_title">推荐拼车群</view>
+    <view class="hotLine">
+      <view class="hotLine_li" wx:for-items="{{ hotGroups }}" wx:key="{{ index }}">
+        <view class="hotLine_li_left" bindtap="gotoLineInfo" data-type="{{ item.groupType }}" data-id="{{ item.groupId }}">
+          <view class="hotLine_imgOne">
+            <image src="{{ item.groupBanner }}"></image>
+          </view>
+          <view class="hotLine_detail">
+            <view class="hot_info_tit">{{ item.groupTitle }}</view>
+            <view class="hot_info_peopleNum">
+              <view class="attractions">{{ item.groupTypeTxt }}</view>
+              <view class="people_num">人数{{ item.groupMemberNum }}</view>
+              <block wx:if="{{ item.groupType != 1 }}">
+                <view class="other_bg">路程{{ item.distance }}km</view>
+                <view class="other_bg">推荐价{{ item.advisePrice }}元</view>
+              </block>
+            </view>
+            <view class="hot_ingo_synopsis">{{item.groupNotice}}</view>
+          </view>
+        </view>
+        <block wx:if="{{ !item.isJoined }}">
+          <view class="hotLine_imgTwo">
+            <image data-id="{{ item.groupId }}" bindtap="joinGroup" class="" src="../../images/btn_join_mini@3x.png"></image>
+          </view>
+        </block>
+        <!-- <block wx:else>
+          <image class="isJoined" src="../../images/btn_followed_nomal@3x.png"></image>
+        </block> -->
+      </view>
+    </view>
+    <block wx:if="{{ hotGroups.length == 0 }}">
+      <view class="none_line">
+        <view>{{ loadingTxt }}</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,164 @@
+.body{
+  padding: 0 12px;
+  .search{
+    padding: 8px;
+    background: #F2F2F5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    >image{
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+    >input{
+      margin-left: 5px;
+      width: 100%;
+    }
+  }
+  .line{
+    padding: 12px 0;
+    .line_title{
+      font-size: 17px;
+      color: #484848;
+      font-weight: bold;
+    }
+    .line_title_type{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .lookAll{
+        font-size: 12px;
+        font-weight: normal;
+        color: #cccccc;
+      }
+    }
+    .myLine{
+      display: flex;
+      align-items: center;
+      flex-flow: row wrap;
+      /*justify-content: space-between;*/
+      .myLine_li{
+        width: 33%;
+        text-align: center;
+        .myLine_li_info{
+          padding: 8px 0;
+          .my_attractions{
+            background: #8B9BFF;
+            font-size: 10px;
+            color: #ffffff;
+            padding: 0 3px;
+            border-radius: 4px;
+            width: 30px;
+            margin: 5px auto;
+            white-space: nowrap;
+          }
+          >image{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+          }
+          .line_name{
+            margin-top: 8px;
+            font-size: 11px;
+            color: #484848;
+            width: 60px;
+            height: 30px;
+            overflow:hidden;
+            text-overflow:ellipsis; 
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            text-align: center;
+            overflow: hidden;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    .hotLine{
+      .hotLine_li{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0 12px 0;
+        border-bottom: 1px solid #ededf1;
+
+        .hotLine_imgTwo{
+          >image{
+            width: 30px;
+            height: 30px;
+            display: block;
+          }
+        }
+        .hotLine_li_left{
+          display: flex;
+          .hotLine_imgOne{
+            >image{
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+            }
+          }
+          .hotLine_detail{
+            color: #484848;
+            font-size: 13px;
+            margin: 0 8px;
+            .hot_info_tit{
+              font-size: 14px;
+              width: 180px;
+              overflow: hidden;
+              text-overflow:ellipsis;
+              white-space: nowrap;
+              font-weight: bold;
+            }
+            .hot_info_peopleNum{
+              display: flex;
+              align-items: center;
+              padding: 4px 0;
+              flex-wrap: wrap;
+              >view{
+                font-size: 10px;
+                color: #ffffff;
+                padding: 2px 6px;
+                margin-right: 5px;
+                border-radius: 4px;
+                margin-bottom: 3px;
+              }
+              .attractions{
+                background: #8B9BFF;
+              }
+              .people_num{
+                background: #499EFF;
+              }
+              .other_bg{
+                background: #FFAA1F;  
+              }
+            }
+            .hot_ingo_synopsis{
+              width: 180px;
+              overflow: hidden;
+              text-overflow:ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+        .isJoined{
+          width: 40px;
+          height: 20px;
+        }
+      }
+      .hotLine_li:last-child{
+        border-bottom: none;
+      }
+    }
+    .none_line{
+      text-align: center;
+      font-size: 16px;
+      color: #ABB1BA;
+      padding: 20px 0;
+    }
+  }
+}

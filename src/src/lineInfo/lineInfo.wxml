@@ -1,0 +1,220 @@
+<view class="map">
+  <block wx:if="{{ groupType === 1 }}">
+    <image src="{{ lineInfo.groupBanner }}"></image>
+  </block>
+  <block wx:else>
+    <map name="line_map"
+    latitude="{{lineInfo.start[1]}}"
+    longitude="{{lineInfo.start[0]}}"
+    markers="{{markers}}"
+    polyline="{{polyline}}">
+  </map>
+  </block>
+</view>
+<view class="line_info">
+  <view class="line_name">{{ lineInfo.groupTitle }}</view>
+  <view class="line_people_num">
+    <view class="group_of_sights">{{ lineInfo.groupTypeTxt || '无' }}</view>
+    <view class="car_bg">车主{{ lineInfo.groupMembers.driversCount || 0 }}人</view>
+    <view class="people_bg">乘客{{ lineInfo.groupMembers.passengersCount || 0 }}人</view>
+    <block wx:if="{{  groupType !== 1 }}">
+      <view class="recommend_price">推荐价{{ lineInfo.advisePrice || 0 }}元</view>
+      <view class="recommend_price">路程{{ lineInfo.distance || 0 }}km</view>
+    </block>
+  </view>
+  <view class="line_introduction">{{ lineInfo.groupNotice }}</view>
+  <button open-type="share" class="share" bindtap="">
+    <image src="../../images/btn_share_red@3x.png"/>
+  </button>
+</view>
+<view class="isJoined">
+  <view class="isJoined_list" bindtap="joined">
+    <block wx:if="{{ lineInfo.isJoined }}">
+      <image src="../../images/icon_check@3x.png"></image>
+      <view>已加入</view>
+    </block>
+    <block wx:if="{{ !lineInfo.isJoined }}">
+      <image src="../../images/btn_join_mini@3x.png"></image>
+      <view>加入此群</view>
+    </block>
+  </view>
+  <view class="isJoined_list" bindtap="gotoIndex">
+    <image src="../../images/btn_star_mini.png"></image>
+    <view>发布行程</view>
+  </view>
+</view>
+<view class="dividing_line"></view>
+<view class="group_members" bindtap="gotoGroupList">
+  <view class="group_members_left">
+    <view>群成员</view>
+    <view>共{{ lineInfo.groupMembers.membersCount }}人</view>
+  </view>
+  <view class="group_members_right">
+    <view class="group_member_img" wx:for-items="{{ lineInfo.groupMembers.members }}" wx:key="{{ index }}">
+      <block wx:if="{{ index === 0 }}">
+        <image src="{{ item.picture }}"></image>
+        <image src="../../images/icon_noone@3x.png"></image>
+      </block>
+      <block wx:if="{{ index === 1 }}">
+        <image src="{{ item.picture }}"></image>
+        <image src="../../images/icon_notwo@3x.png"></image>
+      </block>
+      <block wx:if="{{ index === 2 }}">
+        <image src="{{ item.picture }}"></image>
+        <image src="../../images/icon_nothree@3x.png"></image>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="dividing_line"></view>
+<view class="switch_tab">
+  <view class="switch">
+    <view data-id="0" class="travel {{ code_type == '0' ? 'switch_selected' : '' }}" bindtap="switch_code">车主行程</view>
+    <view data-id="1" class="wallet {{ code_type == '1' ? 'switch_selected' : '' }}" bindtap="switch_code">乘客行程</view>
+  </view>
+  <block wx:if="{{ groupType == 0 }}">
+    <view class="switch_date">
+      <view wx:for-items="{{ switch_date }}" wx:key="{{ index }}" class="date_list {{ date_pattern_type == item.date_pattern ? 'date_bg' : '' }}" data-type="{{ item.date_pattern }}" bindtap="clickDate">{{ item.week_txt }}</view>
+    </view>
+  </block>
+  <block wx:if="{{ groupType != 0 }}">
+    <view class="switch_date">
+      <block wx:if="{{ groupType == 1 }}">
+        <block wx:if="{{ lineInfo.citys.length != 0 }}">
+          <picker bindchange="bindPickerChange" value="{{cityIndex}}" range="{{lineInfo.citys}}">
+            <view class="city">
+              <view>{{ lineInfo.citys[cityIndex] }}出发</view>
+              <image src="../../images/btn_up@3x.png"></image>
+            </view>
+          </picker>
+        </block>
+        <block wx:else>
+          <view class="city">
+              <view>{{ city }}出发</view>
+              <image src="../../images/btn_up@3x.png"></image>
+            </view>
+        </block>
+      </block>
+      <picker mode="date" value="{{date_pattern_type}}" start="{{start_date}}" end="{{end_date}}" bindchange="bindDateChange">
+        <view class="date">
+          <view>{{date_pattern_type}}</view>
+          <image src="../../images/btn_up@3x.png"></image>
+        </view>
+      </picker>
+    </view>
+  </block>
+</view>
+<block wx:if="{{ groupType === 0 }}">
+  <view class="line_code">
+      <view class="line_code_list" wx:for="{{ dateTravel }}" wx:for-item="date" wx:key="{{ index }}">
+        <view class="timeline">{{ date.time }}</view>
+        <scroll-view scroll-x="true" style="white-space: nowrap; display: flex; height: 220px;" >
+            <view class="line_list" wx:for-items="{{ date.time_line }}" wx:key="{{ index }}" data-id="{{ item.travelId }}" bindtap="{{ item.surplusSeats != 0 ? 'gotoTravelInfo' : '' }}">
+              <view class="line_img">
+                <image src="{{ item.picture }}"></image>
+              </view>
+              <view class="line_time">
+                <image src="../../images/icon_time@3x.png"></image>
+                <view>{{ item.startTime }}</view>
+              </view>
+              <view class="line_address">
+                <image src="../../images/icon_start@3x.png"></image>
+                <view class="address">{{ item.startAddress }}</view>
+              </view>
+              <view class="line_address">
+                <image src="../../images/icon_end@3x.png"></image>
+                <view class="address">{{ item.endAddress }}</view>
+              </view>
+              <view class="seat">
+                <block wx:if="{{ code_type == 0 }}">
+                  <block wx:if="{{ item.surplusSeats === 0 }}">
+                    <view class="jianju">已售空</view>
+                  </block>
+                  <block wx:else>
+                    <view>{{item.seats}}座余{{ item.surplusSeats }}</view>
+                    <view class="jianju">每座{{ item.price }}元</view>
+                  </block>
+                </block>
+                <block wx:else>
+                  <block wx:if="{{ item.status == 1 || item.status == 2 }}">
+                    <view class="jianju">被抢单</view>
+                  </block>
+                  <block wx:else>
+                    <view>人数{{item.seats}}</view>
+                    <view class="jianju">车费{{ item.price }}元</view>
+                  </block>
+                </block>
+              </view>
+            </view>
+        </scroll-view>
+      </view>
+      <block wx:if="{{ dateTravel.length == 0 }}">
+        <view class="none_data">暂无行程</view>
+      </block>
+  </view>
+</block>
+<block wx:else>
+  <view class="travel_list" wx:for-items="{{ dateTravel }}" wx:key="{{ index }}">
+    <view class="travel_head">
+      <view class="user_img">
+        <image src="{{ item.ownerPicture }}"></image>
+      </view>
+      <view class="user_info">
+        <view class="user_info_list">
+          <view class="user_name">{{ item.ownerNickName }}</view>
+          <image src="../../images/img_men@3x.png"></image>
+        </view>
+        <view class="user_info_list">
+          <view class="user_car">{{ item.ownerCar != null ? item.ownerCar : '' }}</view>
+          <view class="user_time">{{ item.lastTimeOnlineTxt }}</view>
+        </view>
+      </view>
+    </view>
+    <view class="travel_type">顺路行程</view>
+    <view class="travel_info {{ code_type == 0 ? 'driver_travel_bg' : 'passenger_travel_bg' }}" catchtap="gotoTravelShare" data-id="{{ item.travelVo.travelId }}" data-type="{{ item.travelVo.type }}">
+      <view class="travel_date">
+        <view class="travel_date_left">
+          <view class="{{ code_type == 0 ? 'driver_color' : 'passenger_color' }}">{{ code_type == 0 ? '车主行程' : '乘客行程' }}</view>
+          <view>{{ item.travelVo.startTimeTxt }}</view>
+        </view>
+        <view class="submit_btn {{ code_type == 0 ? 'driver_bg' : 'passenger_bg' }}" catchtap="{{code_type == 0 ? 'submit' : 'grabAsingLe'}}" data-id="{{ item.travelVo.travelId }}">{{ code_type == 0 ? '订座' : '抢单' }}</view>
+      </view>
+      <view class="travel_addr">
+        <image src="../../images/icon_map_star@3x.png"></image>
+        <view class="address">{{ item.travelVo.startAddress }}</view>
+      </view>
+      <view class="travel_addr">
+        <image src="../../images/icon_map_end@3x.png"></image>
+        <view class="address">{{ item.travelVo.endAddress }}</view>
+      </view>
+      <view class="travel_seatsOfprice">
+        <view class="seats">
+          <block wx:if="{{ code_type == 0 }}">
+            <image wx:for="{{ item.travelVo.seat_true }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
+            <image wx:for="{{ item.travelVo.seat_false }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
+          </block>
+          <block wx:else>
+            <view>乘车人数</view>
+            <view>{{ item.travelVo.seats }}</view>
+          </block>
+        </view>
+        <view class="prices">
+          <view>{{ code_type == 0 ? '票价(元)' : '车费(元)' }}</view>
+          <view>{{ item.travelVo.travelPrice }}</view>
+        </view>
+      </view>
+    </view>
+    <view class="travel_foot">
+       <view class="scan_num">{{item.travelVo.pageViews}}人浏览</view>
+       <view class="likeAndShare">
+         <view class="likeAndShare_list" bindtap="{{ item.travelVo.liked ? 'travelUnlike' : 'postLike'}}" data-id="{{ item.travelVo.travelId }}">
+           <image src="../../images/{{ item.travelVo.liked ? 'btn_goodyes_mini@3x' : 'btn_good_mini@3x' }}.png"></image>
+           <view class="number-operating">{{item.travelVo.likesNum}}</view>
+         </view>
+       </view>
+     </view>
+  </view>
+  <block wx:if="{{ dateTravel.length == 0 }}">
+    <view class="none_data">暂无行程</view>
+  </block>
+</block>
