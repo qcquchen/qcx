@@ -17,11 +17,31 @@ Page({
     end_date: moment().add(2, 'years').toDate().pattern('yyyy-MM-dd'),
     img_width: wx.getSystemInfoSync().windowWidth,
     cityIndex: 0,
-    city: ''
+    city: '',
+    isAuthorized: false
   },
   onShow(){
-    const { options } = this.data
-    this.initData(options)
+    // const { options } = this.data
+    // this.initData(options)
+    // util.setEntities({
+    //   key: 'callback',
+    //   value: this.initData
+    // })
+    let self = this
+    app.getWechatInfo().then(() => {
+      wx.showLoading({
+        title: '加载中',
+      })
+      self.initData(null, 'authorized')
+    })
+    // util.isAuthorized().then((res) => {
+    //   if(res == 'authorized'){
+    //   }else{
+    //     self.setData({
+    //       isAuthorized: true
+    //     })
+    //   }
+    // })
   },
   onLoad(option){
     let ops = option.scene ? decodeURIComponent(option.scene).split(',') : option
@@ -33,8 +53,9 @@ Page({
       options: option
     })
   },
-  initData(option){
+  initData(){
     let self = this
+    let option = this.data.options
     const { date_pattern_type, code_type, page } = this.data
     const { token } = app.globalData.entities.loginInfo
     this.switch_date_factory()
@@ -327,7 +348,7 @@ Page({
     const { phone } = app.globalData.entities.loginInfo
     const { code_type } = this.data
     wx.navigateTo({
-      url: `/src/shareTravelDetails/shareTravelDetails?travelId=${id}&travelType=${code_type}&phone=${phone}`
+      url: `/src/travelInfo/travelInfo?travelId=${id}&travelType=${code_type}&phone=${phone}`
     })
   },
   gotoGroupList: function(){
@@ -369,7 +390,7 @@ Page({
     const { currentTarget: { dataset: { id, type } } } = e
     const { phone } = app.globalData.entities.loginInfo
     wx.navigateTo({
-      url: `/src/shareTravelDetails/shareTravelDetails?travelId=${id}&travelType=${type}&phone=${phone}`
+      url: `/src/travelInfo/travelInfo?travelId=${id}&travelType=${type}&phone=${phone}`
     })
   },
   postLike: function(e){
@@ -568,5 +589,10 @@ Page({
         })
       }
     }
+  },
+  _cancelEvent(){
+    this.authorized = this.selectComponent("#authorized");
+    this.authorized.hideDialog()
+    this.initData(null, 'noAuthorized')
   }
 })

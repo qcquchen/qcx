@@ -47,8 +47,10 @@ Page({
 		wx.showLoading({
 		  title: '加载中',
 		})
-		this.shareTravelDetails()
-    	this.getUnpaidOrders()
+		app.getWechatInfo().then(() => {
+			this.shareTravelDetails()
+	    	this.getUnpaidOrders()
+		})
 	},
 	onReady: function (e) {
 		this.mapCtx = wx.createMapContext('map')
@@ -239,8 +241,8 @@ Page({
 				success: function(res) {
 					if (res.confirm) {
 						wx.navigateTo({
-			        url: `/src/login/login`
-			      })
+					        url: `/src/login/login`
+					    })
 					}
 				}
 			})
@@ -279,7 +281,7 @@ Page({
       }
     }
   },
-	grabAsingLe: function(){
+  grabAsingLe: function(){
 	const { userInfo, travel, options } = this.data
 	if(!userInfo.phone){
 		wx.navigateTo({
@@ -357,7 +359,7 @@ Page({
 			}
 		}
 	})
-	},
+  },
   controltap: function(e){
     const { travel } = this.data
     let self = this

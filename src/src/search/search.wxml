@@ -44,7 +44,7 @@
                 <view class="search_ingo_synopsis">{{ item.GroupNotice }}</view>
               </view>
             </view>
-            <image class="{{ !item.inGroup ? 'searchLine_imgTwo' : 'searchLine_imgTwo_type' }}" src="../../images/{{ !item.inGroup ? 'btn_join_mini@3x' : 'btn_followed_nomal@3x'}}.png" catchtap="{{ !item.inGroup ? 'joinGroup' : 'leaveGroup' }}" data-id="{{ item.groupId }}"></image>
+            <image class="{{ !item.inGroup ? 'searchLine_imgTwo' : 'searchLine_imgTwo_type' }}" src="../../images/{{ !item.inGroup ? 'btn_join_mini@3x' : ''}}.png" catchtap="{{ !item.inGroup ? 'joinGroup' : 'leaveGroup' }}" data-id="{{ item.groupId }}"></image>
           </view>
         </view>
         <block wx:if="{{ groupLines.length >= 2 }}">

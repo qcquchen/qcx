@@ -58,3 +58,7 @@
     </block>
   </view>
 </view>
+<block wx:if="{{isAuthorized}}">
+  <authorized id="authorized"
+              bind:cancelEvent="_cancelEvent"></authorized>
+</block>

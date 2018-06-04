@@ -1,0 +1,158 @@
+<map id="map"
+	longitude="{{travelInfo.driverStart[0] || longitude}}"
+ 	latitude="{{travelInfo.driverStart[1] || latitude}}"
+ 	markers="{{markers}}"
+ 	bindtap="codeDown"
+ 	bindmarkertap="markertap"
+	polyline="{{polyline}}"
+ 	show-location
+ 	style="width: {{ window.windowWidth }}px; height: {{ window.windowHeight }}px">
+	<block wx:if="{{ showMask }}">
+		<cover-view class="body">
+			<cover-view class="code_img">
+				<cover-image bindtap="redirection" class="redirection" src="../../images/btn_locate@3x.png"></cover-image>
+			</cover-view>
+			<cover-view class="travel_title" bindtap="{{ code_type == 'down' ? 'codeUp' : 'codeDown' }}">
+				<block wx:if="{{ travelType == '4' }}">
+					<cover-view style="margin-left: 8px;" class="">车主已抢单，去支付吧</cover-view>
+					<cover-view class="label_style">
+						<cover-view bindtap="typeFourPay">支付</cover-view>
+					</cover-view>
+				</block>
+				<block wx:if="{{ travelType == '5' }}">
+					<cover-view style="margin-left: 8px;" class="">您还未完成订座，快去支付吧</cover-view>
+					<cover-view class="label_style" catchtap="gotoWxPay">
+						<cover-view>支付</cover-view>
+					</cover-view>
+				</block>
+				<block wx:if="{{ travelInfo.ordersStatus == '2' }}">
+					<cover-view style="margin-left: 8px;" class="">已支付，{{travelInfo.recommendStartTimeText}}记得准时上车</cover-view>
+					<cover-view class="label_style" catchtap="clickUpCar">
+						<cover-view>上车</cover-view>
+					</cover-view>
+				</block>
+				<block wx:if="{{ travelInfo.ordersStatus == '3' }}">
+					<cover-view style="margin-left: 8px;" class="">行程中，请系好安全带</cover-view>
+					<cover-view class="label_style" catchtap="endOfItinerary">
+						<cover-view>完成</cover-view>
+					</cover-view>
+				</block>
+				<block wx:if="{{ travelInfo.ordersStatus == '4' }}">
+					<cover-view style="margin-left: 8px;" class="">车主发车啦，{{travelInfo.departureTime}}上车哦</cover-view>
+					<cover-view class="label_style" catchtap="clickUpCar">
+						<cover-view>上车</cover-view>
+					</cover-view>
+				</block>
+				<block wx:if="{{ travelInfo.ordersStatus == '8' }}">
+					<cover-view style="margin-left: 8px;" class="">行程已经结束啦</cover-view>
+					<cover-view class="label_style">
+						<cover-view>已完成</cover-view>
+					</cover-view>
+				</block>
+				<block wx:if="{{ code_type == 'up' }}">
+					<cover-view class="prompt-to-open">
+						<cover-image class="open_img" src="../../images/btn_up@3x.png"></cover-image>
+					</cover-view>
+				</block>
+				<block wx:if="{{ code_type == 'down' }}">
+					<cover-view class="prompt-to-open">
+						<cover-image class="open_img" src="../../images/btn_down@4x.png"></cover-image>
+					</cover-view>
+				</block>
+			</cover-view>
+			<cover-view class="border-bottom_style"></cover-view>
+			<cover-view class="owner_info">
+				<cover-view class="owner_info_left">
+					<cover-image class="owner_img" src="{{ travelInfo.picture }}"></cover-image>
+					<cover-view class="owner_information">
+						<cover-view class="owner_name">
+							<cover-view>{{ travelInfo.nickname }}</cover-view>
+							<cover-image class="sex_img" src="../../images/img_men@3x.png"></cover-image>
+						</cover-view>
+						<cover-view class="owner_car">{{travelInfo.carNumber != null ? travelInfo.carNumber : ''}} {{travelInfo.car != null ? travelInfo.car : ''}}</cover-view>
+					</cover-view>
+				</cover-view>
+				<block wx:if="{{ travelInfo.isAttention }}">
+					<cover-image class="isLike" catchtap="removeAttention" src="../../images/btn_followed_mini.png"></cover-image>
+				</block>
+				<block wx:else>
+					<cover-image class="isLike" catchtap="postAttention" src="../../images/btn_follow_mini@3x.png"></cover-image>
+				</block>
+			</cover-view>
+			<cover-view class="border-bottom_style"></cover-view>
+			<block wx:if="{{ code_type == 'up' }}">
+				<cover-view class="line_info">
+					<cover-view class="line_list">
+						<cover-image class="line_icon" src="../../images/icon_time@3x.png"></cover-image>
+						<cover-view class="line_description">{{travelInfo.startTimeText}}</cover-view>
+						<cover-view class="line_description_text upcar_time">上车时间</cover-view>
+					</cover-view>
+					<cover-view class="line_list">
+						<cover-image class="line_icon" src="../../images/icon_start@3x.png"></cover-image>
+						<cover-view class="line_description">{{travelInfo.driverStartAddress}}</cover-view>
+						<cover-view class="line_description_text adress_type">上车</cover-view>
+					</cover-view>
+					<cover-view class="line_list">
+						<cover-image class="line_icon" src="../../images/icon_end@3x.png"></cover-image>
+						<cover-view class="line_description">{{travelInfo.driverEndAddress}}</cover-view>
+						<cover-view class="line_description_text adress_type">下车</cover-view>
+					</cover-view>
+					<cover-view class="line_foot">
+						<cover-view class="line_foot_left">
+							<cover-view>人数</cover-view>
+							<cover-view class="big_size">{{travelInfo.bookSeats}}</cover-view>
+						</cover-view>
+						<cover-view class="line_foot_right">
+							<cover-view class="big_size">{{travelInfo.price}}</cover-view>
+							<cover-view>元</cover-view>
+						</cover-view>
+					</cover-view>
+				</cover-view>
+				<cover-view class="border-bottom_style"></cover-view>
+			</block>
+			<cover-view class="foot_nav">
+				<cover-view class="foot_nav_list" bindtap="callPhone">
+					<cover-image class="foot_nav_icon" src="../../images/btn_menu_phone@3x.png"></cover-image>
+					<cover-view>电话</cover-view>
+				</cover-view>
+				<cover-view class="foot_nav_list" bindtap="showMaskLayer" data-type="nav">
+					<cover-image class="foot_nav_icon" src="../../images/btn_menu_navig@3x.png"></cover-image>
+					<cover-view>导航</cover-view>
+				</cover-view>
+				<cover-view class="foot_nav_list" bindtap="showMaskLayer" data-type="more">
+					<cover-image class="foot_nav_icon" src="../../images/btn_menu_more@3x.png"></cover-image>
+					<cover-view>更多</cover-view>
+				</cover-view>
+			</cover-view>
+		</cover-view>
+	</block>
+	<block wx:if="{{ !showMask }}">
+		<cover-view class="pop-up-ayer" style="width: {{ window.windowWidth }}px; height: {{ window.windowHeight }}px" catchtap="hideMaskLayer">
+			<cover-view class="pop_body">
+				<block wx:if="{{ maskType == 'nav' }}">
+					<cover-view class="pop_list" catchtap="gotoStartAdd">导航至上车点</cover-view>
+					<cover-view class="pop-border-bottom-style"></cover-view>
+					<cover-view class="pop_list" catchtap="gotoEndAdd">导航至下车点</cover-view>
+					<cover-view class="pop-border-bottom-style"></cover-view>
+				</block>
+				<block wx:if="{{ maskType == 'more' }}">
+					<block wx:if="{{ travelInfo.ordersStatus == '3' }}">
+						<cover-view class="pop_list" catchtap="markedLate">车主迟到</cover-view>
+						<cover-view class="pop-border-bottom-style"></cover-view>
+					</block>
+					<cover-view class="pop_list" catchtap="customerService">联系客服</cover-view>
+					<block wx:if="{{ travelInfo.ordersStatus == '2' }}">
+						<cover-view class="pop-border-bottom-style"></cover-view>
+						<cover-view class="pop_list" catchtap="cancelTheTrip">取消行程</cover-view>
+					</block>
+					<block wx:if="{{ travelInfo.ordersStatus == '1' }}">
+						<cover-view class="pop-border-bottom-style"></cover-view>
+						<cover-view class="pop_list" catchtap="closeWxPay">取消行程</cover-view>
+					</block>
+				</block>
+				<cover-view class="pop-border-bottom-style-big"></cover-view>
+				<cover-view class="pop_list" catchtap="hideMaskLayer">关闭</cover-view>
+			</cover-view>
+		</cover-view>
+	</block>
+</map>

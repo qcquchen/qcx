@@ -32,7 +32,7 @@ export const WATER_BILL_TYPE = {
 
 export const TRAVEL_TYPE = {
 	'0': '匹配中',
-	'1': '有订单',
+	'1': '有乘客订座',
 	'2': '已发车',
 	'3': '等待接单',
 	'4': '等待支付',

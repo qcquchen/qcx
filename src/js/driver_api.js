@@ -2,11 +2,16 @@ let extConfig = wx.getExtConfigSync? wx.getExtConfigSync(): {}
 
 const API_ROOT = extConfig.host || `https://t1.driver.quchuxing.com.cn`
 
+// const API_ROOT = extConfig.host || `https://t1.driver.quchuxing.com.cn`
+
 const api = require('./apiUtils')
 
 import { _apiPOST, _apiGET, _apiPUT, _apiDELETE } from './apiUtils'
 
 const REQUEST_TYPE = ['GET','POST','PUT','DELETE']
+
+// 获取小程序码 https://v1.driver.quchuxing.com.cn/travel/getWXCode
+export const getWechatCode = (options) => _apiPOST(`${API_ROOT}/travel/getWXCode`, options)
 
 // 假数据 周边的行程/travel/nearbyPeople
 export const getFakeData = (options) => _apiPOST(`${API_ROOT}/travel/nearbyPeople`, options)
@@ -36,7 +41,7 @@ export const postRecentTrip = (options) => _apiPOST(`${API_ROOT}/travel/latestOn
 export const getSearchAddress = (options) => _apiPOST(`${API_ROOT}/driver/address/searchAddressWeapp`, options)
 
 // 添加公司/家地址
-export const postHomeAndCompanyAddress = (options) => _apiPOST(`${API_ROOT}/driver/address/changeAddressWeapp`, options)
+export const postHomeAndCompanyAddress = (options) => _apiPOST(`${API_ROOT}/driver/address/change`, options)
 
 // 车主发布行程 /travel/createlv2
 export const postCompanyJonrey = (options) => _apiPOST(`${API_ROOT}/travel/createlv3`, options)
@@ -163,3 +168,19 @@ export const crossCityGroupDetail = (options) => _apiPOST(`${API_ROOT}/group/cro
 
 // touristGroupDetail
 export const touristGroupDetail = (options) => _apiPOST(`${API_ROOT}/group/touristGroupDetail`, options)
+
+// /feed/eachFeedTravelDetail
+export const eachFeedTravelDetail = (options) => _apiPOST(`${API_ROOT}/feed/eachFeedTravelDetail`, options)
+
+// loginOut
+
+export const loginOut = (options) => _apiPOST(`${API_ROOT}/loginOut`, options)
+// /travel/matchTravelPassengers
+export const matchTravelPassengers = (options) => _apiPOST(`${API_ROOT}/travel/matchTravelPassengers`, options)
+// /travel/matchTravelDrivers
+export const matchTravelDrivers = (options) => _apiPOST(`${API_ROOT}/travel/matchTravelDrivers`, options)
+
+// /travel/getUnOrderDriverTravelDetail
+export const beforeTravelInfo = (options) => _apiPOST(`${API_ROOT}/travel/getUnOrderDriverTravelDetail`, options)
+
+export const modifyeTravel = (options) => _apiPOST(`${API_ROOT}/travel/updateTravel`, options)

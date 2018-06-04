@@ -18,12 +18,12 @@ Page({
 		let order = order_info ? order_info : options
 		let seat = util.seats(order.bookSeats)
 		seat.map((json, index) => {
-    	if(index == order.bookSeats - 1){
-    		json.type = true
-    	}else{
-    		json.type = false
-    	}
-    })
+	    	if(index == order.bookSeats - 1){
+	    		json.type = true
+	    	}else{
+	    		json.type = false
+	    	}
+	    })
 		this.setData({
 			price: order.price,
 			mine_seat: order.bookSeats,
@@ -32,7 +32,11 @@ Page({
 			people_id: order.passengerTravelId,
 			seat: seat,
 			sharePhone: order.sharePhone,
-			share_type: order.share_type
+			share_type: order.share_type,
+			start: order.start,
+			end: order.end,
+			startAdd: order.startAddress,
+			endAdd: order.endAddress
 		})
 	},
 	selectSeat:function(e){
@@ -61,7 +65,7 @@ Page({
 	    })
 	},
 	submit:function(){
-		const { submit_price, travelId, seat, price, insurance, people_id, sharePhone, share_type } = this.data
+		const { submit_price, travelId, seat, price, insurance, people_id, sharePhone, share_type, start, end, startAdd, endAdd } = this.data
 		let mine_seat = seat.find(json => json.type == true).number
 		const { token, openId } = app.globalData.entities.loginInfo
 		passenger_api.postPay({
@@ -72,7 +76,11 @@ Page({
 				isWX: true,
 				openid: openId,
 				travelId: travelId,
-				sharerPhone: sharePhone
+				sharerPhone: sharePhone,
+				startAddress: startAdd,
+				endAddress: endAdd,
+				start: start,
+				end: end
 			}
 		}).then(json => {
 			let data = json.data
@@ -88,7 +96,9 @@ Page({
 				        url: `/src/login/login`
 				      })
 				    }else{
-						console.log('用户点击确定')
+						wx.switchTab({
+							url: `/src/travelList/travelList`
+						})
 					}
 				  }
 				})
@@ -100,7 +110,7 @@ Page({
 		      value: 180
 		    })
 			wx.redirectTo({
-				url: `/src/submitorder/confirmOrder?price=${price}&sharePhone=${sharePhone}&share_type=${share_type}`
+				url: `/src/submitorder/confirmOrder?price=${price}&sharePhone=${sharePhone}&share_type=${share_type}&pay_type=pay`
 			})
 		})
 	}

@@ -48,19 +48,19 @@ Page({
 	submitDriverLicense: function(){
 		const { one_img } = this.data
 		const { token } = app.globalData.entities.loginInfo
-    wx.uploadFile({
-      url: 'https://v1.driver.quchuxing.com.cn/driver/upload/audit_weapp',
-      filePath: one_img,
-      name: 'driverLicencePictureMain',
+	    wx.uploadFile({
+			url: 'https://v1.driver.quchuxing.com.cn/driver/upload/audit_weapp',
+			filePath: one_img,
+			name: 'driverLicencePictureMain',
 			formData:{
 				'token': token
 			},
-      header: {
-      	'content-type': 'multipart/form-data'
-      },
+			header: {
+				'content-type': 'multipart/form-data'
+			},
 			success(res){
 			}
-    })
+	    })
 	},
 	getDrivingLicense: function () {
 		let self = this
@@ -77,64 +77,89 @@ Page({
 	submitDrivingLicense: function(){
 		const { token } = app.globalData.entities.loginInfo
 		const { two_img } = this.data
-		let self = this
-    wx.uploadFile({
-      url: 'https://v1.driver.quchuxing.com.cn/driver/upload/audit_weapp',
-      filePath: two_img,
-      name: 'drivingLicensePictureMain',
+	    wx.uploadFile({
+			url: 'https://v1.driver.quchuxing.com.cn/driver/upload/audit_weapp',
+			filePath: two_img,
+			name: 'drivingLicensePictureMain',
 			formData:{
 				'token': token
 			},
-      header: {
-      	'content-type': 'multipart/form-data'
-      },
+			header: {
+				'content-type': 'multipart/form-data'
+			},
 			success(res){
 			}
-    })
+	    })
 	},
 	submit: function(){
-		const { car_code, car_model, car_color, car_name } = this.data
-    const { token } = app.globalData.entities.loginInfo
-    if(!car_name){
-        wx.showModal({
-          title: '提示',
-          content: '请输入真实姓名',
-          showCancel: false,
-          success: function(res) {
-            if (res.confirm) {
-              console.log('')
-            }
-          }
-        })
-        return
-    }
-    if(!car_code){
-        wx.showModal({
-          title: '提示',
-          content: '请输入车牌号',
-          showCancel: false,
-          success: function(res) {
-            if (res.confirm) {
-              console.log('')
-            }
-          }
-        })
-        return
-    }
-    if(!car_model || !car_color){
-        wx.showModal({
-          title: '提示',
-          content: '请填写正确的车型和车体颜色',
-          showCancel: false,
-          success: function(res) {
-            if (res.confirm) {
-              console.log('')
-            }
-          }
-        })
-        return
-    }
-    let parmas = Object.assign({}, {token: token}, {carNumber: car_code}, {car: car_model + car_color}, {carMaster: car_name})
+		const { car_code, car_model, car_color, car_name, one_img, two_img } = this.data
+	    const { token } = app.globalData.entities.loginInfo
+	    if(!car_name){
+	        wx.showModal({
+	          title: '提示',
+	          content: '请输入真实姓名',
+	          showCancel: false,
+	          success: function(res) {
+	            if (res.confirm) {
+	              console.log('')
+	            }
+	          }
+	        })
+	        return
+	    }
+	    if(!car_code){
+	        wx.showModal({
+	          title: '提示',
+	          content: '请输入车牌号',
+	          showCancel: false,
+	          success: function(res) {
+	            if (res.confirm) {
+	              console.log('')
+	            }
+	          }
+	        })
+	        return
+	    }
+	    if(!one_img){
+	        wx.showModal({
+	          title: '提示',
+	          content: '请上传驾驶证',
+	          showCancel: false,
+	          success: function(res) {
+	            if (res.confirm) {
+	              console.log('')
+	            }
+	          }
+	        })
+	        return
+	    }
+	    if(!two_img){
+	        wx.showModal({
+	          title: '提示',
+	          content: '请上传行驶证',
+	          showCancel: false,
+	          success: function(res) {
+	            if (res.confirm) {
+	              console.log('')
+	            }
+	          }
+	        })
+	        return
+	    }
+	    if(!car_model || !car_color){
+	        wx.showModal({
+	          title: '提示',
+	          content: '请填写正确的车型和车体颜色',
+	          showCancel: false,
+	          success: function(res) {
+	            if (res.confirm) {
+	              console.log('')
+	            }
+	          }
+	        })
+	        return
+	    }
+    	let parmas = Object.assign({}, {token: token}, {carNumber: car_code}, {car: car_model + car_color}, {carMaster: car_name})
 		driver_api.postCarInfo({
 			data: parmas,
 			header : {

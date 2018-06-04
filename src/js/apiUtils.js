@@ -1,13 +1,9 @@
-import { checkStatus, getCurrentUser, checkSystemUser } from './utils'
+import { checkStatus, checkSystemUser } from './utils'
 import * as constants from './constants'
 const Promise = require('./bluebird')
 
 const requestType = (type, url, options = {}) => {
-  const user = getCurrentUser()
   const app  = getApp()
-
-  let jwt_token    = user.jwt_token
-  let wx_jwt_token = user.wx_jwt_token
 
   options.method                 = type
   options.url                    = url
@@ -18,14 +14,7 @@ const requestType = (type, url, options = {}) => {
   }else{
     options.header['Content-Type'] = 'application/x-www-form-urlencoded;'
   }
-
-  if (wx_jwt_token) {
-    options.header['Wx-Authorization'] = wx_jwt_token
-  }
-  if (jwt_token) {
-    options.header['Authorization'] = 'Bearer ' + jwt_token
-  }
-
+  
   function callAPI (resolve, reject) {
     const params = Object.assign({}, options, {
       success (res) {
@@ -34,11 +23,12 @@ const requestType = (type, url, options = {}) => {
         }
         wx.hideLoading()
         console.log(res, '  params')
-          if(res.data.status == -1){
-            wx.navigateTo({
-              url: `/src/login/login`
-            })
-          }
+        if(res.data.status == -1){
+          wx.navigateTo({
+            url: `/src/login/login`
+          })
+          return
+        }
         checkStatus(Object.assign({}, res, {
           isHideErrorMsg : options.isHideErrorMsg
         })).then(resolve, reject)

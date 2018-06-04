@@ -2,20 +2,75 @@
   "pages": [
     "src/findTravel/findTravel",
     "src/index",
-    "src/ownersSelectLine/ownersSelectLine",
-    "src/ownersCertification/ownersCertification",
-    "src/login/login",
     "src/travelList/travelList",
-    "src/shareTravelDetails/shareTravelDetails",
-    "src/auditTheOwner/auditTheOwner",
-    "src/auditTheOwner/auditInfo",
-    "src/submitorder/submitorder",
-    "src/submitorder/confirmOrder",
-    "src/search/search",
-    "src/lineInfo/lineInfo",
-    "src/lineInfo/linePeopleList",
-    "src/travelInfo/travelInfo",
-    "src/groupList/groupList"
+    "src/travelList/myTravelInfo"
+  ],
+  "subPackages":[
+    {
+        "root": "src/lineInfo",
+        "pages": [
+            "lineInfo",
+            "linePeopleList"
+        ]
+    },{
+        "root": "src/auditTheOwner",
+        "pages": [
+            "auditTheOwner",
+            "auditInfo"
+        ]
+    },{
+        "root": "src/ownersSelectLine",
+        "pages": [
+            "ownersSelectLine"
+        ]
+    },{
+        "root": "src/ownersCertification",
+        "pages": [
+            "ownersCertification"
+        ]
+    },{
+        "root": "src/login",
+        "pages": [
+            "login",
+            "setLocation"
+        ]
+    },{
+        "root": "src/shareTravelDetails",
+        "pages": [
+            "shareTravelDetails"
+        ]
+    },{
+        "root": "src/submitorder",
+        "pages": [
+            "submitorder",
+            "confirmOrder"
+        ]
+    },{
+        "root": "src/search",
+        "pages": [
+            "search"
+        ]
+    },{
+        "root": "src/travelInfo",
+        "pages": [
+            "travelInfo"
+        ]
+    },{
+        "root": "src/groupList",
+        "pages": [
+            "groupList"
+        ]
+    },{
+        "root": "src/matchTravel",
+        "pages": [
+            "matchTravel"
+        ]
+    },{
+        "root": "src/authorized",
+        "pages": [
+            "authorized"
+        ]
+    }
   ],
   "window": {
     "navigationBarTextStyle": "black",

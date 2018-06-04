@@ -33,20 +33,24 @@ Page({
 	inCode:function(e){
 		// if(!(/^\d{6}$/.test(e.detail.value))){
 		// 	this.setData({
-		// 		code_false: true
+		// 		code_false: true,
+		// 		code: null
 		// 	})
-  //       }else{
-        	this.setData({
-				code_false: false,
-				code: e.detail,
-				code_type: 'yes'
-			})
-        // }
+		// 	return
+  //       }
+    	this.setData({
+			code_false: false,
+			code: e.detail,
+			code_type: 'yes'
+		})
 	},
 	getCode:function(){
-		const { phone } = this.data
+		const { phone, disabled } = this.data
 		if(phone != null){
 			this.getSendCaptcha(phone)
+			this.setData({
+				disabled: true
+			})
 		}else{
 			wx.showModal({
 			  title: '提示',
@@ -70,8 +74,7 @@ Page({
 			let time = setInterval(() => {
 				currentTime = moment(currentTime).subtract(1, 'seconds')
 				this.setData({
-					countdown: moment(currentTime).toDate().pattern('ss') + 's',
-					disabled: true
+					countdown: moment(currentTime).toDate().pattern('ss') + 's'
 				})
 				if(moment(currentTime).second() == 0){
 					clearInterval(time)
@@ -91,6 +94,19 @@ Page({
 	},
 	submit_login(){
 		const { phone, code } = this.data
+		if(code == null){
+			wx.showModal({
+			  title: '提示',
+			  content: '输入正确的验证码',
+				showCancel: false,
+			  success: function(res) {
+			    if (res.confirm) {
+			      console.log('确定')
+			    }
+			  }
+			})
+			return
+		}
 		const { openId } = app.globalData.entities.loginInfo
 		let parmas = Object.assign({}, { phone: phone.value }, { captcha: code.value }, { openId: openId })
 		driver_api.postLogin({data: parmas}).then(json => {
@@ -108,7 +124,6 @@ Page({
 				return
 			}
 			json.data.openId = openId
-			json.data.isLogin = false
 			util.setEntities({
 		        key: 'loginInfo',
 		        value: json.data
@@ -122,11 +137,17 @@ Page({
 			    icon: 'success',
 			    duration: 2000
 			})
-			setTimeout(() => {
-				wx.navigateBack({
-					delta: 1
+			if(json.data.isLogin){
+				setTimeout(() => {
+					wx.navigateBack({
+						delta: 1
+					})
+				}, 2000)
+			}else{
+				wx.navigateTo({
+					url: `/src/login/setLocation`
 				})
-			}, 2000)
+			}
 		}, e => {
 			 wx.showToast({
 			  title: '登录失败',

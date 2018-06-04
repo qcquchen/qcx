@@ -11,44 +11,35 @@ Page({
     isRecommend: true,
     hotGroups: [],
     page: 1,
-    loadingTxt: '加载中...'
+    loadingTxt: '加载中...',
+    isAuthorized: false
   },
   onShow(){
-    wx.showLoading({
-      title: '加载中',
-    })
-    const { isLogin, token, phone } = app.globalData.entities.loginInfo
-    if(isLogin){
-      wx.navigateTo({
-        url: `/src/login/login`
+    let self = this
+    const { appLaunch } = app.globalData
+    if(appLaunch){
+      const { token } = app.globalData.entities.loginInfo
+      self.getLocationCity(token, 'authorized')
+    }else{
+      app.getWechatInfo().then(() => {
+        wx.showLoading({
+          title: '加载中',
+        })
+        const { token } = app.globalData.entities.loginInfo
+        self.getLocationCity(token, 'authorized')
       })
-      this.setData({
-        myGroup: [],
-        hotGroups: []
-      })
-      wx.hideLoading()
     }
-    phone ? this.initData(phone,token) : this.setIntervalData(this.initData)
   },
-  setIntervalData: function(callback){
-    let getToken = setInterval(() => {
-      const { token, phone, isLogin } = app.globalData.entities.loginInfo
-      if(phone){
-        callback(phone, token)
-        clearInterval(getToken)
-      }
-    }, 500)
-  },
-  initData(phone,token){
-    this.getLocationCity(token)
-  },
-  getLocationCity: function(token){
+  getLocationCity: function(token, type){
     let page = this.data.page
     util.loactionAddress().then(res => {
-      this.myJoinedGroups(token, res.initial_city)
+      if(type == 'authorized'){
+        this.myJoinedGroups(token, res.initial_city)
+      }
       this.hotGroups(token, res.initial_city, page)
       this.setData({
-        city: res.initial_city
+        city: res.initial_city,
+        isAuthorized: false
       })
     })
   },
@@ -173,5 +164,13 @@ Page({
       hotGroups: [],
       page: 1
     })
+  },
+  _cancelEvent(){
+    this.authorized = this.selectComponent("#authorized");
+    this.authorized.hideDialog()
+    this.getLocationCity(null, 'noAuthorized')
+    // this.setData({
+    //   isAuthorized: false
+    // })
   }
 })

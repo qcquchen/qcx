@@ -2,11 +2,11 @@
 
 <view class="form_login">
 	<view class="section {{ phone_false ? 'border_No' : '' }}">
-	  <input bindinput="inPhone" placeholder="输入手机号" confirm-type="完成" />
+	  <input type="number" bindinput="inPhone" placeholder="输入手机号" confirm-type="完成" />
 	</view>
 	<view class="section verification_code {{ code_false ? 'border_No' : '' }}">
-	  <input bindinput="inCode" placeholder="输入验证码" confirm-type="完成" />
-		<button bindtap="getCode" disabled="{{disabled}}">{{ countdown }}</button>
+		<input type="number" bindinput="inCode" placeholder="输入验证码" confirm-type="完成" />
+		<button class="{{ countdown != '获取验证码' ? 'code_font_color' : '' }}" bindtap="getCode" disabled="{{disabled}}">{{ countdown }}</button>
 	</view>
 </view>
 

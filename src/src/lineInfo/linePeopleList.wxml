@@ -10,7 +10,7 @@
 				<view class="people_num">人数{{ item.groupNum || item.peopleNum }}</view>
 				<block wx:if="{{ item.groupType != 1 }}">
 					<view class="other_bg">路程{{ item.distance }}km</view>
-					<view class="other_bg">推荐价{{ item.groupAdvicePrice }}元</view>
+					<view class="other_bg">推荐价{{ item.groupAdvicePrice || item.advisePrice }}元</view>
 				</block>
 			</view>
 			<view class="group_news">{{ item.groupNotice || item.GroupNotice }}</view>

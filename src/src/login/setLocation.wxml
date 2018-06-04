@@ -1,0 +1,26 @@
+<view class="header">
+	<view>亲爱的</view>
+	<view>设置上下班信息,智能匹配行程</view>
+	<view>出行更方便哦！</view>
+</view>
+<view class="pageImg">
+	<image src="https://v1.driver.quchuxing.com.cn/resources/pictures/1526439749283.png"></image>
+</view>
+<view class="location">
+	<view class="location_list" bindtap="selectAddress" data-id="home">
+		<view>家庭地址</view>
+		<block wx:if="{{ home != '' }}">
+			<view>{{home}}</view>
+		</block>
+	</view>
+	<view class="location_list" bindtap="selectAddress" data-id="company">
+		<view>公司地址</view>
+		<block wx:if="{{ company != '' }}">
+			<view>{{company}}</view>
+		</block>
+	</view>
+</view>
+<view class="submit">
+	<image bindtap="submit_add" src="../../images/btn_blue_confirm@3x.png"></image>
+	<view bindtap="jump_over">跳过</view>
+</view>

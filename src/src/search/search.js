@@ -36,9 +36,6 @@ Page({
     const { currentTarget: { dataset: { id } } } = e
     const { longitude, latitude, start_addr, end_addr, history_L, end_loc, start_loc, page } = this.data
     wx.chooseLocation({
-      latitude: latitude,
-      longitude: longitude,
-      scale: 28,
       success: function(res){
 	      if(id === 'start'){
 	      	self.setData({
@@ -98,6 +95,11 @@ Page({
   	this.searchTravel(history_L[id].start_addr, history_L[id].start_loc, history_L[id].end_addr, history_L[id].end_loc, page)
   },
   searchTravel: function(start_addr, start_loc, end_addr, end_loc, page){
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 2000
+    })
     const { token } = app.globalData.entities.loginInfo
     let parmas = Object.assign({}, {token: token}, {startAddress: start_addr}, {startLocation: start_loc}, {endAddress: end_addr}, {endLocation: end_loc}, {pageNo: page})
     driver_api.searchTravel({
@@ -256,7 +258,7 @@ Page({
     const { currentTarget: { dataset: { id, type } } } = e
     const { phone } = app.globalData.entities.loginInfo
     wx.redirectTo({
-      url: `/src/shareTravelDetails/shareTravelDetails?travelId=${id}&travelType=${type}&phone=${phone}`
+      url: `/src/travelInfo/travelInfo?travelId=${id}&travelType=${type}&phone=${phone}`
     })
   },
   showLoading: function(){

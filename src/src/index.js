@@ -8,13 +8,13 @@ import { SELECT_TIME_DAY, SELECT_TIME_HOUR, SELECT_TIME_MINUTE } from '../js/con
 import * as amapFile from '../js/amap-wx'
 
 var app = getApp()
+var myAmapFun = new amapFile.AMapWX({key:'35d96308ca0be8fd6029bd3585064095'})
 var animation = wx.createAnimation({
   transformOrigin: "50% 50%",
   duration: 900,
   timingFunction: 'ease-out',
   delay: 0
 })
-var myAmapFun = new amapFile.AMapWX({key:'35d96308ca0be8fd6029bd3585064095'})
 var return_controls = Object.assign({}, {
   id: 1,
   iconPath: '../images/btn_map_backtitle@3x.png',
@@ -23,17 +23,6 @@ var return_controls = Object.assign({}, {
     top: 0,
     width: 68,
     height: 36
-  },
-  clickable: true
-})
-var travel_controls = Object.assign({}, {
-  id: 2,
-  iconPath: '../images/icon_home_trip@3x.png',
-  position: {
-    left: 10,
-    top: 0,
-    width: 50,
-    height: 50
   },
   clickable: true
 })
@@ -98,16 +87,17 @@ Page({
   },
   setTimeoutInitData(callback){
     let getToken = setInterval(() => {
-      const { token, openId } = app.globalData.entities.loginInfo
-      if(openId){
-        callback(token)
+      const { appLaunch } = app.globalData
+      if(appLaunch){
+        callback()
         clearInterval(getToken)
       }
     }, 500)
   },
   onShow(){
-    const {loginInfo, location, strategy } = app.globalData.entities
-    if(loginInfo.openId){
+    const { location, strategy } = app.globalData.entities
+    const { appLaunch } = app.globalData
+    if(appLaunch){
       this.initData()
     }else{
       this.setTimeoutInitData(this.initData)
@@ -141,11 +131,10 @@ Page({
     })
   },
   initData(){
-    const { loginInfo, controls } = app.globalData.entities
+    const { loginInfo } = app.globalData.entities
+    const { controls_type } = this.data
     let deviceInfo = wx.getSystemInfoSync()
-    travel_controls.position.top = deviceInfo.windowHeight - (240 + 60)
-    travel_controls.position.left = deviceInfo.windowWidth - 60
-    audit_controls.position.top = deviceInfo.windowHeight - (240 + 120)
+    audit_controls.position.top = deviceInfo.windowHeight - (240 + 60)
     audit_controls.position.left = deviceInfo.windowWidth - 60
     center_controls.position.top = (deviceInfo.windowHeight - 240)/2 - 24
     center_controls.position.left = deviceInfo.windowWidth/2 - 16
@@ -154,7 +143,7 @@ Page({
       this.setData({
         win_width: deviceInfo.windowWidth,
         win_height: deviceInfo.windowHeight,
-        controls: controls ? [return_controls, center_controls] : loginInfo.adminType == 1 ? [travel_controls, center_controls, positioning_controls, audit_controls] : [travel_controls, center_controls, positioning_controls]
+        controls: loginInfo.adminType == 1 ? [controls_type ? return_controls : positioning_controls, audit_controls, center_controls] : [ controls_type ? return_controls : positioning_controls, center_controls]
       })
     })
   },
@@ -241,11 +230,12 @@ Page({
         switch_type: 'index',
         switchCodeAnimationCar: animation.export(),
         switchCodeAnimationPeople: animation.export(),
-        controls: adminType == 1 ? [travel_controls, center_controls, positioning_controls, audit_controls] : [travel_controls, center_controls, positioning_controls],
+        controls: adminType == 1 ? [center_controls, positioning_controls, audit_controls] : [center_controls, positioning_controls],
         markers: [],
         polyline: [],
         priceArray: ['车费(元)'],
-        priceIndex: 0
+        priceIndex: 0,
+        controls_type: false
       })
       break;
     case 2:
@@ -440,9 +430,12 @@ Page({
     const { longitude, latitude, end_latitude, end_longitude } = this.data
     let start = [longitude, latitude]
     let end = [end_longitude, end_latitude]
-    util.setEntities({
-      key: 'controls',
-      value: true
+    // util.setEntities({
+    //   key: 'controls',
+    //   value: true
+    // })
+    this.setData({
+      controls_type: true
     })
     wx.navigateTo({
       url: `/src/ownersSelectLine/ownersSelectLine?end_location=${end}&start_Location=${start}`
@@ -480,7 +473,6 @@ Page({
     }
     this.setData({
       disable: true,
-      selectTime: [],
       timeIndex: [0, moment().hour() + 1]
     })
   },
@@ -510,10 +502,10 @@ Page({
           duration: 2000
         })
         setTimeout(() => {
-          wx.switchTab({
-            url: `/src/travelList/travelList`
-          })
           this.clearType('submitT')
+          wx.navigateTo({
+            url: `/src/matchTravel/matchTravel?travelId=${json.data.passengerTravelIds[0]}&type=0`
+          })
           this.setData({
             disable: false
           })
@@ -551,6 +543,25 @@ Page({
                 url: `/src/ownersCertification/ownersCertification`
               })
               self.clearType()
+            }else{
+              self.setData({
+                disable: false
+              })
+            }
+          }
+        })
+        return
+      }
+      if(json.data.status == -361){
+        wx.showModal({
+          title: '提示',
+          content: '您申请的车主认证在审核中',
+          showCancel: false,
+          success: function(res){
+            if(res.confirm){
+              self.setData({
+                disable: false
+              })
             }
           }
         })
@@ -563,10 +574,10 @@ Page({
           duration: 2000
         })
         setTimeout(() => {
-          wx.switchTab({
-            url: `/src/travelList/travelList`
-          })
           this.clearType('submitT')
+          wx.navigateTo({
+            url: `/src/matchTravel/matchTravel?travelId=${json.data.travelIds[0]}&type=1`
+          })
           this.setData({
             disable: false
           })
@@ -575,7 +586,8 @@ Page({
     })
   },
   clearType: function(type){
-    const { adminType } = app.globalData.entities.loginInfo
+    const { loginInfo } = app.globalData.entities
+    const { controls_type } = this.data
     this.setData({
       switch_type: 'index',
       end_latitude: null,
@@ -583,10 +595,17 @@ Page({
       endAddress: '您要去哪儿',
       markers: [],
       polyline: [],
-      controls: adminType == 1 ? [travel_controls, center_controls, positioning_controls, audit_controls] : [travel_controls, center_controls, positioning_controls]
+      controls: loginInfo.adminType == 1 ? [controls_type ? return_controls : positioning_controls, audit_controls] : [ controls_type ? return_controls : center_controls, positioning_controls],
+      disable: false
     })
     if(type == 'submitT'){
       this.mapCtx.moveToLocation()
+    }
+  },
+  onHide(){
+    const { controls_type } = this.data
+    if(!controls_type){
+      this.clearType()
     }
   }
 })

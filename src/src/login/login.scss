@@ -17,10 +17,13 @@
 			padding: 0;
 			font-size: 14px;
 			background: #ffffff;
-			color: #B9BDC3;
+			color: #4186E7;
 		}
 		>button::after{
 			border: none;
+		}
+		.code_font_color{
+			color: #939499;
 		}
 	}
 	.verification_code{

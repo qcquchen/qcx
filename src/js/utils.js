@@ -1,5 +1,6 @@
 import moment from './moment'
-
+var amapFile = require('./amap-wx')
+var myAmapFun = new amapFile.AMapWX({key:'35d96308ca0be8fd6029bd3585064095'})
 export const parseUrl = (url) => {
   if (!url) {
     return ''
@@ -19,34 +20,82 @@ export const parseUrl = (url) => {
   return params;
 }
 
-export const parseDateTime = (str) => {
-  let temp = str.substring(11, str.length - 9)
-  return temp
+export const wechatLogin = () => {
+  return new Promise((resolve, result) => {
+    wx.login({
+      success (loginres){
+        resolve(loginres)
+      },
+      fail (res){
+        result()
+      }
+    })
+  })
+  // if(wx.onNetworkStatusChange()){
+  //   console.log('true')
+  // }else{
+  //   console.log('false')
+  // }
+  // wx.onNetworkStatusChange(function(res) {
+  //   console.log('222222222')
+  //   console.log(res.isConnected)
+  //   console.log(res.networkType)
+  //   if(res.isConnected){
+
+  //   }else{
+  //     wx.showModal({
+  //       title: '提示',
+  //       content: '无网络连接',
+  //       showCancel: false
+  //     })
+  //   }
+  // })
 }
 
-export const parseDate = (str) => {
-  let temp = str.substring(0, str.length - 9)
-  temp = temp.substring(5, temp.length)
-  return temp
+export const wechatGetUserInfo = () => {
+  return new Promise((resolve, result) => {
+    wx.getUserInfo({
+      withCredentials: true,
+      success (data){
+        console.log('true')
+        resolve(data.userInfo)
+      },
+      fail (res){
+        console.log('false')
+        result()
+      }
+    })
+  })
 }
 
-export const endDate = (str) => {
-  let temp = str.substring(0, str.length - 9)
-  temp = temp.substring(10, temp.length)
-  return temp
-}
+// export const parseDateTime = (str) => {
+//   let temp = str.substring(11, str.length - 9)
+//   return temp
+// }
 
-export const createDate = (str) => {
-  let temp = str.substring(0, str.length - 5)
-  temp = temp.substring(0, temp.length)
-  return temp
-}
+// export const parseDate = (str) => {
+//   let temp = str.substring(0, str.length - 9)
+//   temp = temp.substring(5, temp.length)
+//   return temp
+// }
 
-export const computeTwoDate = (str) => {
-  let temp = str.substring(0, str.length - 3)
-  temp = temp.substring(10, temp.length)
-  return temp
-}
+// export const endDate = (str) => {
+//   let temp = str.substring(0, str.length - 9)
+//   temp = temp.substring(10, temp.length)
+//   return temp
+// }
+
+// export const createDate = (str) => {
+//   let temp = str.substring(0, str.length - 5)
+//   temp = temp.substring(0, temp.length)
+//   return temp
+// }
+
+// export const computeTwoDate = (str) => {
+//   let temp = str.substring(0, str.length - 3)
+//   temp = temp.substring(10, temp.length)
+//   return temp
+// }
 
 // 24小时制  ’上午 08：00‘
 export const startAtText = (str) => {
@@ -108,74 +157,74 @@ export const setEntities = (options = {}) => {
   app.globalData.entities[key] = value
 }
 
-export const getStorageUser = () => {
-  let app = getApp()
-  let user = null
-  try {
-    user = getStorage('current_user')
-  } catch (e) {
-    user = ''
-  }
-  if (user) {
-    app.globalData.userInfo = user
-  }
+// export const getStorageUser = () => {
+//   let app = getApp()
+//   let user = null
+//   try {
+//     user = getStorage('current_user')
+//   } catch (e) {
+//     user = ''
+//   }
+//   if (user) {
+//     app.globalData.userInfo = user
+//   }
 
-  return user
-}
+//   return user
+// }
 
-export const clrearLoginStatus = () => {
-  let app = getApp()
-  removeStorage('current_user')
-  app.globalData.wechatInfo = null
-  app.globalData.userInfo = null
-  return app.getWechatInfo()
-}
+// export const clrearLoginStatus = () => {
+//   let app = getApp()
+//   removeStorage('current_user')
+//   app.globalData.wechatInfo = null
+//   app.globalData.userInfo = null
+//   return app.getWechatInfo()
+// }
 
-export const initData = () => {
-  const api = require('./api')
-  let app = getApp()
-  const user = getStorageUser()
+// export const initData = () => {
+//   const api = require('./api')
+//   let app = getApp()
+//   const user = getStorageUser()
 
-  return new Promise((resolve, reject) => {
-    try {
-      if (user == '') {
-        app.globalData.callback = getUserProfile
-        return
-      }
+//   return new Promise((resolve, reject) => {
+//     try {
+//       if (user == '') {
+//         app.globalData.callback = getUserProfile
+//         return
+//       }
 
-      getUserProfile()
-    } catch (e) {
-      reject()
-      console.log(e)
-    }
+//       getUserProfile()
+//     } catch (e) {
+//       reject()
+//       console.log(e)
+//     }
 
 
-    function getUserProfile () {
-      const user = getStorageUser()
-      return api.getUserProfile().then(res => {
-        const { data, statusCode } = res
+//     function getUserProfile () {
+//       const user = getStorageUser()
+//       return api.getUserProfile().then(res => {
+//         const { data, statusCode } = res
 
-        if (statusCode == 401) {
-          return clrearLoginStatus().then(resolve)
-        }
+//         if (statusCode == 401) {
+//           return clrearLoginStatus().then(resolve)
+//         }
 
-        if (user) {
-          resolve()
-        }
-      }, reject)
-    }
-  })
-}
+//         if (user) {
+//           resolve()
+//         }
+//       }, reject)
+//     }
+//   })
+// }
 
-export const getCurrentUser = () => {
-  let user = null
-  try {
-    user = getStorage('current_user')
-  } catch (e) {
-    user = ''
-  }
-  return user
-}
+// export const getCurrentUser = () => {
+//   let user = null
+//   try {
+//     user = getStorage('current_user')
+//   } catch (e) {
+//     user = ''
+//   }
+//   return user
+// }
 
 export const clearStorage = () => {
   wx.clearStorage()
@@ -342,41 +391,41 @@ export const timesBlock = ((start,end) => {
 
 })(0,24)
 
-export const MEETING_STATUS = {
-   lastTime : 'last-time',
-   reservationTime : 'reservation-time',
-   normalTime : 'normalTime'
-}
+// export const MEETING_STATUS = {
+//    lastTime : 'last-time',
+//    reservationTime : 'reservation-time',
+//    normalTime : 'normalTime'
+// }
 
-export const checkSystemUser = () => {
-  let app = getApp()
-  const user = getStorageUser()
-  return new Promise((resolve, reject) => {
-    if (user.id) {
-      return resolve()
-    }
+// export const checkSystemUser = () => {
+//   let app = getApp()
+//   const user = getStorageUser()
+//   return new Promise((resolve, reject) => {
+//     if (user.id) {
+//       return resolve()
+//     }
 
-    wx.navigateTo({
-      url: '/src/login/login',
-      success () {
-        resolve('toLogin')
-      },
-      fail () {
-        reject()
-      }
-    })
-  })
-}
+//     wx.navigateTo({
+//       url: '/src/login/login',
+//       success () {
+//         resolve('toLogin')
+//       },
+//       fail () {
+//         reject()
+//       }
+//     })
+//   })
+// }
 
 // 确保用户是否登录
-export const appLaunchCheck = (callback) => {
-  const app = getApp()
-  if (app.globalData.appLaunch) {
-    callback()
-    return
-  }
-  app.globalData.callback = callback
-}
+// export const appLaunchCheck = (callback) => {
+//   const app = getApp()
+//   if (app.globalData.appLaunch) {
+//     callback()
+//     return
+//   }
+//   app.globalData.callback = callback
+// }
 
 /**
 * Base64 encode / decode
@@ -521,42 +570,42 @@ export const getCurrentLocation = () => {
   return app.globalData.entities.currentLocation
 }
 
-export const track = (eventName = 'NotName') => {
-  const api = require('./api')
-  const constnats = require('./constants')
-  const user = getStorageUser()
+// export const track = (eventName = 'NotName') => {
+//   const api = require('./api')
+//   const constnats = require('./constants')
+//   const user = getStorageUser()
 
-  try {
-    const space_id = constnats.SPACE_ID
-    const space_msg = 'space_id_' + space_id
-    const user_msg = user.id ? 'user_id_' + user.id : 'null'
-    const wx_user_msg = user.wechat_id ? 'wechat_id_' + user.wechat_id : ''
-    const distinct_id = (user_msg || wx_user_msg) + space_msg
-    const extConfig = wx.getExtConfigSync? wx.getExtConfigSync(): {}
+//   try {
+//     const space_id = constnats.SPACE_ID
+//     const space_msg = 'space_id_' + space_id
+//     const user_msg = user.id ? 'user_id_' + user.id : 'null'
+//     const wx_user_msg = user.wechat_id ? 'wechat_id_' + user.wechat_id : ''
+//     const distinct_id = (user_msg || wx_user_msg) + space_msg
+//     const extConfig = wx.getExtConfigSync? wx.getExtConfigSync(): {}
 
-    const base64 = Base64.encode(JSON.stringify({
-      event : eventName,
-      properties : {
-        distinct_id : distinct_id,
-        user_id : user_msg,
-        wx_id : wx_user_msg,
-        space_id : space_msg,
-        environment : extConfig.host ? 'production' : 'developer',
-        // token : '9c0370c8b02cd3f0b53f9ad98f8f8ebf',
-        token : 'c4e602fbc8f69378d8f96e960523d18d',
-        "Referred By": "wechat"
-      }
-    }))
-    api.apiTrack({
-      data : {
-        data : base64
-      },
-      isHiddenError : true
-    })
-  } catch (e) {
-    console.log(e)
-  }
-}
+//     const base64 = Base64.encode(JSON.stringify({
+//       event : eventName,
+//       properties : {
+//         distinct_id : distinct_id,
+//         user_id : user_msg,
+//         wx_id : wx_user_msg,
+//         space_id : space_msg,
+//         environment : extConfig.host ? 'production' : 'developer',
+//         // token : '9c0370c8b02cd3f0b53f9ad98f8f8ebf',
+//         token : 'c4e602fbc8f69378d8f96e960523d18d',
+//         "Referred By": "wechat"
+//       }
+//     }))
+//     api.apiTrack({
+//       data : {
+//         data : base64
+//       },
+//       isHiddenError : true
+//     })
+//   } catch (e) {
+//     console.log(e)
+//   }
+// }
 
 // 获取当前用户位置
 export const getLocation = () => {
@@ -574,8 +623,6 @@ export const getLocation = () => {
 
 // 高德根据经纬度获取位置信息
 export const getRegeo = (lat, lon) => {
-  const amapFile = require('./amap-wx')
-  let myAmapFun = new amapFile.AMapWX({key:'35d96308ca0be8fd6029bd3585064095'})
   // let location = `${lon},${lat}`
   return new Promise((resolve, reject) => {
     myAmapFun.getRegeo({
@@ -589,35 +636,34 @@ export const getRegeo = (lat, lon) => {
   })
 }
 
-export const saveUserInfo = (res) => {
-  let app = getApp()
-  const data = Object.assign({}, res.data.wechat_user, res.data.user, res.data)
-  const wechatId = data.result.Openid
-  if(app.globalData.wechatInfo){
-    app.globalData.wechatInfo.wechat_id = wechatId
-  }
+// export const saveUserInfo = (res) => {
+//   let app = getApp()
+//   const data = Object.assign({}, res.data.wechat_user, res.data.user, res.data)
+//   const wechatId = data.result.Openid
+//   if(app.globalData.wechatInfo){
+//     app.globalData.wechatInfo.wechat_id = wechatId
+//   }
 
-  if (data) {
-    app.globalData.userInfo = data
-    setStorageSync({
-      key : 'current_user',
-      data
-    })
-  }
-}
+//   if (data) {
+//     app.globalData.userInfo = data
+//     setStorageSync({
+//       key : 'current_user',
+//       data
+//     })
+//   }
+// }
 
 export const toPay = (res) => {
   let app = getApp()
-  const data = res.wxapp
-  app.globalData.wechatPay = data
-
+  // const data = res.wxapp
+  app.globalData.wechatPay = res
   return new Promise((resolve, reject) => {
     wx.requestPayment({
-      timeStamp : data.timeStamp,
-      nonceStr  : data.nonceStr,
-      package   : data.package,
-      signType  : data.signType,
-      paySign   : data.sign,
+      timeStamp : res.timeStamp,
+      nonceStr  : res.nonceStr,
+      package   : res.package,
+      signType  : res.signType,
+      paySign   : res.sign,
       success (res) {
         wx.showToast({
           title: '支付成功！',
@@ -695,13 +741,13 @@ export const WXshare = (callback) => {
     })
 }
 
-export const getSpaceSetting = (callback) => {
-  let app = getApp()
-  const { space } = app.globalData.entities
-  const space_settings = space && space.space_settings || {}
-  const { virtual_currency_name, point_show_rate_setting } = space_settings
-  return Object.assign({},{virtual_currency_name: virtual_currency_name}, { point_show_rate_setting: point_show_rate_setting })
-}
+// export const getSpaceSetting = (callback) => {
+//   let app = getApp()
+//   const { space } = app.globalData.entities
+//   const space_settings = space && space.space_settings || {}
+//   const { virtual_currency_name, point_show_rate_setting } = space_settings
+//   return Object.assign({},{virtual_currency_name: virtual_currency_name}, { point_show_rate_setting: point_show_rate_setting })
+// }
 
 export const isSysTemUser = () => {
   let app = getApp()
@@ -710,29 +756,29 @@ export const isSysTemUser = () => {
   return userInfo.id
 }
 
-export const isMeetingRoom = (area) => {
-  if (area.area_type != 'meeting_room') {
-    return false
-  }
-  return true
-}
+// export const isMeetingRoom = (area) => {
+//   if (area.area_type != 'meeting_room') {
+//     return false
+//   }
+//   return true
+// }
 
-export const getPrintFileName = (name) => {
-  let file_name = name
-  let index = name.lastIndexOf('.')
-  if (index != -1) {
-    return name.substr(0, index)
-  }
+// export const getPrintFileName = (name) => {
+//   let file_name = name
+//   let index = name.lastIndexOf('.')
+//   if (index != -1) {
+//     return name.substr(0, index)
+//   }
 
-  if (name.lastIndexOf('-') == -1) {
-    return name
-  }
+//   if (name.lastIndexOf('-') == -1) {
+//     return name
+//   }
 
-  file_name = name.split('-') && name.split('-')[1]
-  file_name = file_name ? file_name.substr(1, file_name.length) : ''
+//   file_name = name.split('-') && name.split('-')[1]
+//   file_name = file_name ? file_name.substr(1, file_name.length) : ''
 
-  return file_name
-}
+//   return file_name
+// }
 
 export const seats_true = (data) => {
   let seat_imgs = []
@@ -763,8 +809,6 @@ export const prices = (data) => {
 }
 
 export const loactionAddress = (callback) => {
-  const amapFile = require('./amap-wx')
-  let myAmapFun = new amapFile.AMapWX({key:'35d96308ca0be8fd6029bd3585064095'})
   return new Promise((resolve, reject) => {
     myAmapFun.getRegeo({
       success:function(data){
@@ -789,23 +833,32 @@ export const loactionAddress = (callback) => {
           resolve(params)
       },
       fail:function(e){
-        wx.showModal({
-          title: '提示',
-          content: '获取当前位置失败',
-          confirmText: '确定',
-          success(){
-            if (wx.openSetting) {
-              wx.openSetting({
-                success: (res) => {
-                  if (res.authSetting['scope.userLocation']) {
-                    callback()
-                  }
-                }
-              })
-            } else {
+        wx.hideLoading()
+        wx.getSetting({
+          success: function(res){
+            if(res.authSetting['scope.userLocation']){
+              return
+            }else{
               wx.showModal({
                 title: '提示',
-                content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+                content: '获取当前位置失败',
+                confirmText: '确定',
+                success(){
+                  if (wx.openSetting) {
+                    wx.openSetting({
+                      success: (res) => {
+                        if (res.authSetting['scope.userLocation']) {
+                          // callback()
+                        }
+                      }
+                    })
+                  } else {
+                    wx.showModal({
+                      title: '提示',
+                      content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+                    })
+                  }
+                }
               })
             }
           }
@@ -931,10 +984,31 @@ export const switch_date = (data) => {
   return dayArray
 }
 
+export const denyAuthorization = (type) => {
+  return new Promise ((response, result) => {
+    if(type === 'login'){
+      wx.navigateTo({
+        url: `/src/authorized/authorized`
+      })
+    }else{
+      result()
+    }
+  })
+}
+
 export const gotoApp = () => {
   wx.showModal({
     title: '提示',
     content: '小程序暂不支持此功能，请使用趣出行APP',
+    showCancel: false,
+    confirmText: '知道了'
+  })
+}
+
+export const weChatLowVersion = () => {
+  wx.showModal({
+    title: '提示',
+    content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试',
     showCancel: false,
     confirmText: '知道了'
   })
@@ -978,5 +1052,116 @@ export const arrayUnqueInfo = (data) => {
       }
     })
     resolve(data)
+  })
+}
+
+export const getDrivingRoute = (start, end) => {
+  let start_loc = start.join(',')
+  let end_loc = end.join(',')
+  return new Promise((resolve, result) => {
+    myAmapFun.getDrivingRoute({
+      origin: start_loc,
+      destination: end_loc,
+      success: function(res){
+        let time = parseInt(res.paths[0].duration/60) + '分钟'
+        let distance = (Number(res.paths[0].distance)/1000).toFixed(1)
+        let params = Object.assign({}, {duration: time}, {distance: distance})
+        resolve(params)
+      }
+    })
+  })
+}
+
+export const getPlanning = (parmas) => {
+  let start_loc = parmas.start.join(',')
+  let end_loc = parmas.end.join(',')
+  return new Promise((resolve, result) => {
+    myAmapFun.getDrivingRoute({
+      origin: start_loc,
+      destination: end_loc,
+      waypoints: parmas.waypoints,
+      success: function(data){
+        let points = [];
+        if(data.paths && data.paths[0] && data.paths[0].steps){
+          let steps = data.paths[0].steps;
+          for(let i = 0; i < steps.length; i++){
+            let poLen = steps[i].polyline.split(';');
+            for(let j = 0;j < poLen.length; j++){
+              points.push({
+                longitude: parseFloat(poLen[j].split(',')[0]),
+                latitude: parseFloat(poLen[j].split(',')[1])
+              })
+            } 
+          }
+        }
+        let s = data.paths[0].duration, t
+        if(s > -1){
+            let hour = Math.floor(s/3600)
+            let min = Math.floor(s/60) % 60
+            if(hour != 0){
+              hour = hour+'小时'
+            }else{
+              hour = ''
+            }
+
+            if(min != 0){
+              min = min+'分钟'
+            }else{
+              min = ''
+            }
+
+            t = hour + min
+        }
+        let distance = (Number(data.paths[0].distance)/1000).toFixed(1)
+        let parmas = Object.assign({}, {points: points}, {time: t}, {distance: distance})
+        resolve(parmas)
+      }
+    })
+  })
+}
+
+
+export const getWalkingRoute = (start, end) => {
+  let start_loc = start.join(',')
+  let end_loc = end.join(',')
+  return new Promise((resolve, result) => {
+    myAmapFun.getWalkingRoute({
+      origin: start_loc,
+      destination: end_loc,
+      success: function(res){
+        let time = parseInt(res.paths[0].duration/60) + '分钟'
+        let distance = (Number(res.paths[0].distance)/1000).toFixed(1)
+        let params = Object.assign({}, {duration: time}, {distance: distance})
+        resolve(params)
+      }
+    })
+  })
+}
+
+export const getServiceImg = (url) => {
+  return new Promise((resolve, result) => {
+    wx.downloadFile({
+      url: url, 
+      success: function(res) {
+        if (res.statusCode === 200) {
+          resolve(res.tempFilePath)
+        }
+      }
+    })
+  })
+}
+
+export const isAuthorized = () => {
+  var app = getApp()
+  return new Promise((resolve, result) => {
+    wx.getSetting({
+      success: function(res){
+        if(res.authSetting['scope.userInfo']){
+          resolve('authorized')
+        }else{
+          resolve('noAuthorized')
+        }
+      }
+    })
   })
 }

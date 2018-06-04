@@ -13,12 +13,13 @@ Page({
 	},
 	onLoad(option){
 		let pay_datails = wx.getStorageSync('pay_datails')
-		const { price, sharePhone, share_type } = option
+		const { price, sharePhone, share_type, pay_type } = option
 		this.setData({
 			order: pay_datails,
 			price: price,
 			sharePhone: sharePhone,
-			share_type: share_type
+			share_type: share_type,
+			pay_type: pay_type
 		})
 		this.setIntervalTime(true)
 	},
@@ -46,9 +47,10 @@ Page({
 		}
 	},
 	postWxPay(){
-		const { order, sharePhone, share_type } = this.data
+		const { order, sharePhone, share_type, pay_type } = this.data
 		const { token } = app.globalData.entities.loginInfo
-		util.toPay(order).then(res => {
+		let data = pay_type == 'nopay' ? order.nopaySign.wxApp : order.wxapp
+		util.toPay(data).then(res => {
 			wx.showModal({
 			  title: '订座成功',
 			  content: '请使用此手机号登录趣出行APP,完成后续操作',
@@ -61,19 +63,6 @@ Page({
 			    }
 			  }
 			})
-		}, e => {
-			if(sharePhone != ''){
-				passenger_api.closeWxPay({
-					data: {
-						ordersId: order.ordersId,
-						token: token
-					}
-				}).then(json => {
-					if(json.data.status === 200){
-						console.log('取消订单')
-					}
-				})
-			}
 		})
 	},
 	closeWxPay: function(){

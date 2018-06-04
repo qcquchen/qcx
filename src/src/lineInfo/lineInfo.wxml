@@ -218,3 +218,7 @@
     <view class="none_data">暂无行程</view>
   </block>
 </block>
+<block wx:if="{{isAuthorized}}">
+  <authorized id="authorized"
+              bind:cancelEvent="_cancelEvent"></authorized>
+</block>

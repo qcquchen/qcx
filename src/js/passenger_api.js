@@ -2,6 +2,8 @@ let extConfig = wx.getExtConfigSync? wx.getExtConfigSync(): {}
 
 const API_ROOT = extConfig.host || `https://t1.passenger.quchuxing.com.cn`
 
+// const API_ROOT = extConfig.host || `https://t1.passenger.quchuxing.com.cn`
+
 const api = require('./apiUtils')
 
 import { _apiPOST, _apiGET, _apiPUT, _apiDELETE } from './apiUtils'
@@ -60,3 +62,8 @@ export const beforePassengerDelete = (options) => _apiPOST(`${API_ROOT}/travel/c
 
 // 查询未支付订单
 export const getUnpaidOrders = (options) => _apiPOST(`${API_ROOT}/orders/nopaylv1`, options)
+
+export const getOrdersDetails = (options) => _apiPOST(`${API_ROOT}/orders/detailv1`, options)
+
+// /travel/seckillTravelDetail
+export const seckillTravelDetail = (options) => _apiPOST(`${API_ROOT}/travel/seckillTravelDetail`, options)

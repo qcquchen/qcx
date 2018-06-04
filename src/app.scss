@@ -13,6 +13,17 @@ image{
   display: block;
 }
 
+cover-image{
+  width: 20px;
+  height: 20px;
+  display: block;
+  overflow: none;
+}
+
+cover-view{
+	line-height: none;
+}
+
 .show{
     display: block;
 }
