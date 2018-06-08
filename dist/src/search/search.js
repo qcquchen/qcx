@@ -257,8 +257,9 @@ Page({
   gotoTravelShare: function(e){
     const { currentTarget: { dataset: { id, type } } } = e
     const { phone } = app.globalData.entities.loginInfo
+    const { start_loc, end_loc, end_addr, start_addr } = this.data
     wx.redirectTo({
-      url: `/src/travelInfo/travelInfo?travelId=${id}&travelType=${type}&phone=${phone}`
+      url: `/src/travelInfo/travelInfo?travelId=${id}&travelType=${type}&phone=${phone}&start=${start_loc}&end=${end_loc}&end_addr=${end_addr}&start_addr=${start_addr}`
     })
   },
   showLoading: function(){

@@ -2,7 +2,7 @@ let extConfig = wx.getExtConfigSync? wx.getExtConfigSync(): {}
 
 const API_ROOT = extConfig.host || `https://t1.driver.quchuxing.com.cn`
 
-// const API_ROOT = extConfig.host || `https://t1.driver.quchuxing.com.cn`
+// const API_ROOT = extConfig.host || `https://v1.driver.quchuxing.com.cn`
 
 const api = require('./apiUtils')
 
@@ -180,7 +180,7 @@ export const matchTravelPassengers = (options) => _apiPOST(`${API_ROOT}/travel/m
 // /travel/matchTravelDrivers
 export const matchTravelDrivers = (options) => _apiPOST(`${API_ROOT}/travel/matchTravelDrivers`, options)
 
-// /travel/getUnOrderDriverTravelDetail
-export const beforeTravelInfo = (options) => _apiPOST(`${API_ROOT}/travel/getUnOrderDriverTravelDetail`, options)
+// /travel/getTravelDetail
+export const getTravelDetail = (options) => _apiPOST(`${API_ROOT}/travel/getTravelDetail`, options)
 
 export const modifyeTravel = (options) => _apiPOST(`${API_ROOT}/travel/updateTravel`, options)

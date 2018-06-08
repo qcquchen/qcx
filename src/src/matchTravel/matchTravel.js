@@ -574,7 +574,7 @@ Page({
 		          })
 		          setTimeout(() => {
 		          	wx.switchTab({
-					  url: `/src/index`
+					  url: `/src/findTravel/findTravel`
 					})
 		          })
 		        }

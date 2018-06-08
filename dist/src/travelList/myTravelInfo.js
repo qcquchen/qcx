@@ -46,9 +46,9 @@ Page({
 			}
 		}).then(json => {
 			let data = json.data.travel
-			data.startTimeText = moment(data.startTime).toDate().pattern('M月d日HH:ss')
-			data.recommendStartTimeText = moment(data.recommendStartTime).toDate().pattern('M月d日HH:ss')
-			data.departureTime = moment(data.recommendStartTime).toDate().pattern('HH:ss')
+			data.startTimeText = moment(data.startTime).toDate().pattern('M月d日HH:mm')
+			data.recommendStartTimeText = moment(data.recommendStartTime).toDate().pattern('M月d日HH:mm')
+			data.departureTime = moment(data.recommendStartTime).toDate().pattern('HH:mm')
 			this.planningRoutes(data.driverStart, data.driverEnd)
 			this.addMarkes(data)
 			this.setData({
@@ -310,7 +310,7 @@ Page({
 		}).then(json => {
 			wx.setStorageSync('pay_datails', json.data)
 			wx.redirectTo({
-				url: `/src/submitorder/confirmOrder?price=${json.data.price}&pay_type=nopay`
+				url: `/src/submitorder/confirmOrder?pay_type=nopay`
 			})
 		})
 	},

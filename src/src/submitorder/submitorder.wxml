@@ -1,4 +1,4 @@
-<view class="body">
+<!-- <view class="body">
 	<view class="input_list">
 		<view class="title">票价</view>
 		<view class="price_color">{{ price }}元/位</view>
@@ -9,32 +9,72 @@
 			<view wx:for-items="{{ seat }}" wx:key="{{ index }}"  class="{{ item.type ? 'seat_number_active' : ''}}" bindtap="selectSeat"  data-id="{{ index }}">{{ item.number }}</view>
 		</view>
 	</view>
-	<!-- <view class="input_list">
-		<view class="title">优惠券</view>
-		<view class="voucher">
-			<view>无可用</view>
-			<view class="voucher_img">
-				<image src="../../images/icon_return_left@3x.png"></image>
-			</view>
-		</view>
-	</view> -->
-	<!-- <view class="input_list">
-		<view class="title">
-			<view>1万元出行保险</view>
-			<view class="Insurance_rule">确认上车后生效</view>
-		</view>
-		<view class="Insurance_switch">
-			<view class="Insurance_price">
-				<view class="now_price">1元</view>
-				<view class="old_price">10元</view>
-			</view>
-			<view class="switch_btn">
-				<switch color="#4598F7" bindchange="switchChange"/>
-			</view>
-		</view>
-	</view> -->
 </view>
 
 <view class="foot_btn">
 	<button bindtap="submit">合计{{ submit_price }}元 提交订单</button>
+</view> -->
+
+<view class="order">
+	<view class="order_list">
+		<view>票价</view>
+		<view>{{ price }}元/位</view>
+	</view>
+	<view class="order_list">
+		<view>座位数量</view>
+		<view class="seats">
+			<view wx:for-items="{{ seat }}" wx:key="{{ index }}"  class="{{ item.type ? 'seat_number_active' : ''}}" bindtap="selectSeat"  data-id="{{ index }}">{{ item.number }}</view>
+		</view>
+	</view>
+	<block wx:if="{{ isPickUp }}">
+		<view class="order_list">
+			<view>接送费</view>
+			<view>{{ extraMoney }}元</view>
+		</view>
+	</block>
+	<view class="total">
+		<view class="total_list">
+			<view>合计</view>
+			<view>{{ submit_price }}</view>
+			<view>元</view>
+		</view>
+	</view>
+</view>
+<block wx:if="{{ !popUpStatus }}">
+	<view class="popUp" catchtap="cloasePop">
+		<view class="gotoPay">
+			<view class="gotoPay_title">
+				<image catchtap="cloasePop" src="../../images/icon_delete@3x.png"></image>
+				<view>座位已锁定，支付倒计时{{countdown}}s</view>
+			</view>
+			<view class="order_list">
+				<view>票价</view>
+				<view>{{ price }}元/位</view>
+			</view>
+			<view class="order_list">
+				<view>座位数量</view>
+				<view class="seats">{{seat.length}}</view>
+			</view>
+			<block wx:if="{{ isPickUp }}">
+				<view class="order_list">
+					<view>接送费</view>
+					<view>{{ extraMoney }}元</view>
+				</view>
+			</block>
+			<view class="total">
+				<view class="total_list">
+					<view>合计</view>
+					<view>{{ submit_price }}</view>
+					<view>元</view>
+				</view>
+			</view>
+			<view class="wechatPay">
+				<button class="left" catchtap="closeWxPay">取消订单</button>
+				<button class="right" catchtap="postWxPay">确认支付 {{ submit_price }} 元</button>
+			</view>
+		</view>
+	</view>
+</block>
+<view class="submit">
+	<button bindtap="submit">提交订单</button>
 </view>

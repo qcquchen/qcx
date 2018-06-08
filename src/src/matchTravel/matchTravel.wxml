@@ -40,10 +40,10 @@
 				<view class="label_list">
 					<view class="big_font">{{ selfTravel.travelPrice }}</view>
 					<block wx:if="{{ travelType == '0' }}">
-						<view>元/座</view>
+						<view>元</view>
 					</block>
 					<block wx:else>
-						<view>元</view>
+						<view>元/座</view>
 					</block>
 				</view>
 			</view>

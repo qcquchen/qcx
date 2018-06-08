@@ -89,6 +89,12 @@ Page({
 				location_company: company_loc
 			}
 		}).then(json => {
+			if(json.data.status == -1){
+		      wx.navigateTo({
+		        url: `/src/login/login`
+		      })
+		      return
+		    }
 			if(json.data.status == 200){
 				wx.showToast({
 				    title: '设置成功',

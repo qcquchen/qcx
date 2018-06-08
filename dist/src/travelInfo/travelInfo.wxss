@@ -1,235 +1,318 @@
-.map {
-  width: 100%; }
-  .map > map {
-    width: 100%;
-    position: relative; }
-  .map .reduction {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    display: block; }
+.positing {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  bottom: 12px;
+  left: 12px; }
 
-swiper {
-  height: 295px; }
-
-.code .user_info {
-  padding: 12px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  border-bottom: 1px solid #ededf1; }
-  .code .user_info .user_img {
-    width: 50px;
-    height: 50px; }
-    .code .user_info .user_img > image {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%; }
-  .code .user_info .user_text {
-    margin-left: 5px;
-    font-size: 13px; }
-    .code .user_info .user_text .name {
+.details {
+  /*margin-bottom: 50px;*/ }
+  .details .user_info {
+    padding: 12px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    border-bottom: 1px solid #ededf1; }
+    .details .user_info .user_info_left {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-align: center;
-          align-items: center;
-      color: #232426; }
-      .code .user_info .user_text .name > image {
+          align-items: center; }
+      .details .user_info .user_info_left > image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 6px; }
+      .details .user_info .user_info_left .user_content {
+        font-size: 16px;
+        color: #484848; }
+        .details .user_info .user_info_left .user_content .carCode {
+          font-size: 12px;
+          color: #616266; }
+  .details .travel_info {
+    padding: 12px;
+    border-bottom: 1px solid #ededf1; }
+    .details .travel_info .travel_info_list {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .details .travel_info .travel_info_list > image {
         width: 14px;
         height: 14px;
-        margin-left: 5px; }
-    .code .user_info .user_text .car_name {
-      color: #939499;
-      font-size: 12px; }
-
-.code .travel_info {
-  padding: 12px; }
-  .code .travel_info .travel_list {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center; }
-    .code .travel_info .travel_list > view {
-      margin-right: 5px;
-      font-size: 14px;
-      color: #232426; }
-    .code .travel_info .travel_list > image {
-      margin-right: 5px;
-      width: 14px;
-      height: 14px; }
-    .code .travel_info .travel_list > view:last-child {
-      color: #939499;
-      font-size: 12px; }
-    .code .travel_info .travel_list .shun_road {
-      color: #FFAA1F !important; }
-
-.code .travel_numprice {
-  padding: 12px;
-  border-bottom: 1px solid #ededf1;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  -ms-flex-align: center;
-      align-items: center; }
-  .code .travel_numprice .travel_numprice_list {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center; }
-    .code .travel_numprice .travel_numprice_list .text {
-      font-size: 12px;
-      color: #616266; }
-    .code .travel_numprice .travel_numprice_list > image {
-      width: 25px;
-      height: 25px;
-      margin-right: 6px;
-      border-radius: 50%; }
-    .code .travel_numprice .travel_numprice_list .count {
-      font-size: 16px;
-      color: #484848; }
-    .code .travel_numprice .travel_numprice_list > view:last-child {
-      margin-left: 5px; }
-
-.code .phone {
-  border-bottom: 1px solid #ededf1; }
-  .code .phone .phone_btn {
-    background: #ffffff;
+        margin-right: 6px; }
+      .details .travel_info .travel_info_list > view {
+        font-size: 14px;
+        color: #484848; }
+      .details .travel_info .travel_info_list .seats, .details .travel_info .travel_info_list .price {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center; }
+        .details .travel_info .travel_info_list .seats > image, .details .travel_info .travel_info_list .price > image {
+          margin-right: 6px;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%; }
+        .details .travel_info .travel_info_list .seats > view, .details .travel_info .travel_info_list .price > view {
+          font-size: 14px;
+          color: #484848; }
+        .details .travel_info .travel_info_list .seats .font-blod, .details .travel_info .travel_info_list .price .font-blod {
+          font-size: 20px;
+          margin-right: 6px; }
+  .details .callPhone {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
         align-items: center;
     -ms-flex-pack: center;
         justify-content: center;
-    font-size: 14px;
-    color: #616266;
-    border-radius: 0px; }
-    .code .phone .phone_btn > image {
+    padding: 8px 0; }
+    .details .callPhone > image {
       width: 16px;
       height: 16px;
-      margin-right: 5px; }
-  .code .phone .btn_hover {
-    background: #ededf1; }
-  .code .phone > button::after {
-    border: none; }
-
-.code .tipe {
-  text-align: center;
-  font-size: 12px;
-  color: #939499;
-  padding: 12px; }
-
-.code .line_info {
-  font-size: 14px;
-  color: #616266;
-  padding: 8px 12px;
-  border-bottom: 1px solid #ededf1; }
-
-.code .nav_info {
-  padding: 8px 12px;
-  border-bottom: 1px solid #ededf1; }
-  .code .nav_info .switch_loc {
+      margin-right: 6px; }
+    .details .callPhone > view {
+      color: #616266;
+      font-size: 14px; }
+  .details .switch .borderTop {
+    border-top: 4px solid #ededf1; }
+  .details .switch .options {
+    border-bottom: 1px solid #ededf1;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
         align-items: center;
-    padding: 0 12px; }
-    .code .nav_info .switch_loc > view {
-      font-size: 14px;
-      color: #616266;
-      margin-left: 8px; }
-    .code .nav_info .switch_loc > image {
-      width: 14px;
-      height: 14px; }
-    .code .nav_info .switch_loc .switch_type {
-      background: #616266;
-      border-radius: 12px;
-      padding: 0 8px;
-      color: #ffffff; }
-  .code .nav_info .walking_distance {
-    padding: 0 12px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 6px 0; }
+    .details .switch .options .switch_options {
+      font-size: 16px;
+      color: #939499;
+      text-align: center;
+      position: relative; }
+      .details .switch .options .switch_options .subscript {
+        position: absolute;
+        bottom: -6px;
+        left: 17px;
+        width: 30px;
+        height: 3px;
+        border-radius: 3px;
+        background: #4186E7; }
+    .details .switch .options .option_style {
+      color: #484848;
+      /*font-weight: bold;*/ }
+  .details .switch .lineInfo {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
-        align-items: center; }
-    .code .nav_info .walking_distance > view {
-      font-size: 14px;
-      color: #939499;
-      margin-left: 5px; }
-    .code .nav_info .walking_distance > image {
-      width: 3px;
-      height: 20px;
-      margin: 0 6px; }
-  .code .nav_info .address {
-    border: 1px solid #ededf1;
-    margin: 8px 0;
-    border-radius: 8px; }
-    .code .nav_info .address .address_list {
-      padding: 10px 12px;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-      .code .nav_info .address .address_list .address_list_left, .code .nav_info .address .address_list .address_list_right {
+        align-items: center;
+    font-size: 14px;
+    color: #616266;
+    padding: 12px; }
+    .details .switch .lineInfo > view:last-child {
+      color: #C8C9CC;
+      font-size: 12px;
+      margin-left: 6px; }
+  .details .switch .switch_code .switch_code_list {
+    height: 220px; }
+    .details .switch .switch_code .switch_code_list .tipe {
+      font-size: 11px;
+      color: #C8C9CC;
+      text-align: center;
+      margin: 6px 0; }
+    .details .switch .switch_code .switch_code_list .siteRide {
+      background: #ededf1; }
+      .details .switch .switch_code .switch_code_list .siteRide .siteRide_list {
+        padding: 10px;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
-            align-items: center; }
-        .code .nav_info .address .address_list .address_list_left > view, .code .nav_info .address .address_list .address_list_right > view {
-          margin: 0 5px;
-          font-size: 14px; }
-      .code .nav_info .address .address_list .address_list_right {
-        color: #939499; }
-        .code .nav_info .address .address_list .address_list_right > image {
-          width: 14px;
-          height: 14px; }
-    .code .nav_info .address .address_list:first-child {
-      border-bottom: 1px solid #ededf1; }
+            align-items: center;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+        .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          font-size: 14px;
+          color: #232426; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .center-icon {
+            width: 28px !important;
+            height: 15px !important; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .left-icon {
+            width: 14px;
+            height: 14px; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left > view {
+            margin: 0 6px; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .mine_addr_tipe {
+            font-size: 11px;
+            color: #616266; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .mine_addr {
+            position: relative; }
+            .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .mine_addr .tipe-addr-txt {
+              position: absolute;
+              width: 130px;
+              font-size: 11px;
+              color: #939499; }
+        .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_right {
+          position: relative; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_right .center-right-icon {
+            position: absolute;
+            width: 14px;
+            height: 14px; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_right .right-icon {
+            width: 14px;
+            height: 14px; }
 
-.foot_btn {
-  background: #484848;
+.fix_bottom {
+  position: fixed;
+  bottom: 0;
+  background: #ffffff;
+  width: 100%;
+  box-shadow: 0px 0px 6px #C4C7CC; }
+  .fix_bottom .input_btn {
+    padding: 6px 12px; }
+    .fix_bottom .input_btn .button {
+      text-align: center;
+      background: linear-gradient(to right, #50D1FF, #4374FF);
+      padding: 6px 12px;
+      /*margin: 12px;*/
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 14px; }
+  .fix_bottom .submit {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    padding: 6px 12px; }
+    .fix_bottom .submit .submit_left {
+      color: #232426;
+      font-size: 14px; }
+      .fix_bottom .submit .submit_left .detour {
+        font-size: 12px;
+        color: #616266; }
+    .fix_bottom .submit .submit_right {
+      background: linear-gradient(to right, #50D1FF, #4374FF);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 14px;
+      padding: 6px 12px; }
+
+.header {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 12px;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  box-shadow: 0px 4px 12px #C4C7CC; }
+  .header .close {
+    width: 20px;
+    height: 20px;
+    margin-top: -45px;
+    margin-right: 12px; }
+  .header .input {
+    -ms-flex: 9;
+        flex: 9; }
+    .header .input .input_list {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .header .input .input_list > input {
+        padding: 12px 0;
+        margin-left: 6px;
+        width: 100%; }
+    .header .input .input_list:first-child > input {
+      border-bottom: 1px solid #ededf1; }
+  .header .exchange {
+    -ms-flex: 1;
+        flex: 1; }
+    .header .exchange > image {
+      margin: 0 auto; }
+
+.history .history_list {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  border-bottom: 1px solid #ededf1;
+  padding: 12px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .history .history_list .history_icon {
+    margin-right: 6px; }
+
+.address .commonlyUsed {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  border-bottom: 1px solid #ededf1;
+  padding: 0 12px; }
+  .address .commonlyUsed .commonlyUsed_list {
+    -ms-flex: 1;
+        flex: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 12px 0; }
+    .address .commonlyUsed .commonlyUsed_list .commonlyUsed_list_icon {
+      -ms-flex: 1;
+          flex: 1; }
+      .address .commonlyUsed .commonlyUsed_list .commonlyUsed_list_icon > image {
+        width: 14px;
+        height: 14px;
+        margin: 6px; }
+    .address .commonlyUsed .commonlyUsed_list .commonlyUsed_address {
+      -ms-flex: 9;
+          flex: 9;
+      font-size: 16px;
+      color: #484848;
+      margin: 0 6px; }
+      .address .commonlyUsed .commonlyUsed_list .commonlyUsed_address .addressText {
+        font-size: 12px;
+        color: #939499; }
+  .address .commonlyUsed .commonlyUsed_list:first-child {
+    border-right: 1px solid #ededf1; }
+
+.address .address_list {
+  border-bottom: 1px solid #ededf1;
+  padding: 12px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center; }
-  .foot_btn > view {
-    padding: 12px; }
-  .foot_btn .foot_left {
-    -ms-flex: 7;
-        flex: 7;
-    font-size: 14px;
-    color: #C8C9CC;
-    text-align: center; }
-    .foot_btn .foot_left .pick_me_up {
-      background: #ffffff;
-      border-radius: 5px;
-      color: #484848;
-      width: 80px; }
-  .foot_btn .foot_right {
-    -ms-flex: 3;
-        flex: 3;
-    background: #2F3033;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-pack: center;
-        justify-content: center; }
-    .foot_btn .foot_right > image {
-      width: 20px;
-      height: 20px; }
-    .foot_btn .foot_right > view {
-      color: #ffffff;
-      font-size: 14px;
-      margin-left: 5px; }
+  .address .address_list .address_list_icon {
+    -ms-flex: 1;
+        flex: 1; }
+    .address .address_list .address_list_icon > image {
+      width: 14px;
+      height: 14px;
+      margin-right: 6px; }
+  .address .address_list .address_content {
+    -ms-flex: 9;
+        flex: 9;
+    font-size: 16px;
+    color: #484848; }
+    .address .address_list .address_content .travelRoute {
+      font-size: 12px;
+      color: #939499; }
 
-.address_ellipsis {
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
+.dataNone {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  color: #939499; }

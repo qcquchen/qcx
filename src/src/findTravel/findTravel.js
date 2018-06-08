@@ -101,6 +101,13 @@ Page({
     })
   },
   joinGroup: function(e){
+    let userInfo = wx.getStorageSync('first_userInfo')
+    if(!userInfo.phone){
+      wx.navigateTo({
+        url: `/src/login/login`
+      })
+      return
+    }
     const { currentTarget: { dataset: { id } } } = e
     const { token, phone } = app.globalData.entities.loginInfo
     const { city, hotGroups } = this.data

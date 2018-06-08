@@ -31,10 +31,10 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "213",
-					"pathName": "src/shareTravelDetails/shareTravelDetails",
-					"query": ""
+					"id": 0,
+					"name": "21312",
+					"pathName": "src/travelInfo/travelInfo",
+					"query": "travelId=60816462311770&travelType=0&phone=15910729133&start=116.3111,40.03709&end=116.28706,40.1046&end_addr=史各庄&start_addr=中关村创业大厦"
 				}
 			]
 		}

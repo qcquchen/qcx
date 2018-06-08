@@ -84,13 +84,17 @@
   position: absolute;
   bottom: 0; }
   .foot_btn > button {
-    background: #484848;
+    background: linear-gradient(to right, #50D1FF, #4374FF);
     margin: 15px;
     color: #ffffff;
     border-radius: 10px;
     font-size: 16px; }
   .foot_btn > button:active {
-    background: #1b1b1b; }
+    background: #ffffff;
+    color: #484848; }
+  .foot_btn > button:last-child {
+    border: 1px solid #ededf1;
+    color: #484848; }
 
 button::after {
   border: none; }

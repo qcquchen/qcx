@@ -450,6 +450,14 @@ Page({
     let end = [end_longitude, end_latitude]
     let price = switch_type == 'people' ? Number(priceArray[priceIndex].replace('元','')) : Number(priceArray[priceIndex].replace('元/座',''))
     let seat = seatArray[seatIndex]
+    if(timeIndex[0] == 0 && timeIndex[1] < (moment().hour() + 1)){
+      wx.showModal({
+        title: '提示',
+        content: '选择时间应大于当前时间',
+        showCancel: false
+      })
+      return
+    }
     if(switch_type == 'people'){
       seat = Number(seat.replace('人乘车',''))
     }else{

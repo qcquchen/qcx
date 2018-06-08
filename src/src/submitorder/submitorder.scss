@@ -1,94 +1,118 @@
-.body{
-	padding: 15px;
-	.input_list{
+.order_list{
+	border-bottom: 1px solid #ededf1;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 14px;
+	color: #484848;
+	.seats{
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		border-bottom: 1px solid #EDEDF0;
-		padding: 10px 0px;
-		.title{
-			font-size: 17px;
-			color: #484848;
-			.Insurance_rule{
-				font-size: 13px;
-				color: #737373;
-			}
+		>view{
+			border-radius: 50%;
+			border: 1px solid #ededf1;
+			width: 30px;
+			height: 30px;
+			margin: 0 6px;
+			text-align: center;
+			line-height: 30px;
 		}
-		.price_color{
-			font-size: 17px;
-			color: #4598F7;
+		.seat_number_active{
+			background: #4186E7;
+			color: #ffffff;
 		}
-		.seat_number{
-			display: flex;
-			align-items: center;
-			>view{
-				width: 30px;
-				height: 30px;
-				border-radius: 100%;
-				background: #cccccc;
-				text-align: center;
-				line-height: 30px;
-				color: #ffffff;
-				font-size: 16px;
-				margin-right: 10px;
-			}
-			.seat_number_active{
-				background: #73C2FF;
-			}
-		}
-
-		.voucher{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			>view:first-child{
-				font-size: 17px;
-				color: #B9BDC3;
-			}
-			.voucher_img{
-				width: 18px;
-				height: 18px;
-				>image{
-					display: block;
-					width: 100%;
-					height: 100%;
-				}
-			}
-		}
-		.Insurance_switch{
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			.Insurance_price{
-				text-align: center;
-				margin-right: 5px;
-				.old_price{
-					font-size: 13px;
-					color: #737373;
-					text-decoration:line-through;
-				}
-			}
+	}
+}
+.total{
+	overflow: hidden;
+	padding: 12px;
+	.total_list{
+		float: right;
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+		color: #484848; 
+		>view:nth-of-type(2){
+			font-size: 20px;
 		}
 	}
 }
 
-.foot_btn{
-	width: 100%;
-	position: absolute;
+.submit{
+	position: fixed;
 	bottom: 0;
-	>button{
-		background: #484848;
-		margin: 15px;
-		color: #ffffff;
-		border-radius: 10px;
-		font-size: 16px;
+	width: 100%;
+	>button::after{
+		border: none;
 	}
-
-	>button:active{
-		background: #1b1b1b;
+	>button{
+		background: linear-gradient(to right, #50D1FF, #4374FF);
+		margin: 6px 12px;
+		color: #ffffff;
+		font-size: 14px;
 	}
 }
 
-button::after{
-	border: none;
+.popUp{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	position: fixed;
+	top: 0;
+	z-index: 99999;
+	.gotoPay{
+		background: #ffffff;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		height: 60%;
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+		.gotoPay_title{
+			padding: 6px 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 14px;
+			color: #484848;
+			border-bottom: 1px solid #ededf1;
+			>image{
+				width: 16px;
+				height: 16px;
+				border-radius: 50%;
+				position: absolute;
+				top: 4px;
+				left: 10px;
+				padding: 6px;
+			}
+		}
+		.wechatPay{
+			display: flex;
+			align-items: center;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			>button::after{
+				border: none;
+			}
+			>button{
+				border-radius: 10px;
+				font-size: 14px;
+				color: #484848;
+			}
+			.left{
+				flex: 3;
+				background: #ffffff;
+				border: 1px solid #ededf1;
+				margin: 6px;
+			}
+			.right{
+				flex: 7;
+				background: linear-gradient(to right, #50D1FF, #4374FF);
+				margin: 6px;
+				color: #ffffff;
+			}
+		}
+	}
 }

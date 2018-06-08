@@ -1056,8 +1056,8 @@ export const arrayUnqueInfo = (data) => {
 }
 
 export const getDrivingRoute = (start, end) => {
-  let start_loc = start.join(',')
-  let end_loc = end.join(',')
+  let start_loc = typeof(start) == 'string' ? start : start.join(',')
+  let end_loc = typeof(end) == 'string' ? end : end.join(',')
   return new Promise((resolve, result) => {
     myAmapFun.getDrivingRoute({
       origin: start_loc,
@@ -1073,8 +1073,8 @@ export const getDrivingRoute = (start, end) => {
 }
 
 export const getPlanning = (parmas) => {
-  let start_loc = parmas.start.join(',')
-  let end_loc = parmas.end.join(',')
+  let start_loc = typeof(parmas.start) == 'string' ? parmas.start : parmas.start.join(',')
+  let end_loc = typeof(parmas.end) == 'string' ? parmas.end : parmas.end.join(',')
   return new Promise((resolve, result) => {
     myAmapFun.getDrivingRoute({
       origin: start_loc,
@@ -1122,8 +1122,8 @@ export const getPlanning = (parmas) => {
 
 
 export const getWalkingRoute = (start, end) => {
-  let start_loc = start.join(',')
-  let end_loc = end.join(',')
+  let start_loc = typeof(start) == 'string' ? start : start.join(',')
+  let end_loc = typeof(end) == 'string' ? end : end.join(',')
   return new Promise((resolve, result) => {
     myAmapFun.getWalkingRoute({
       origin: start_loc,

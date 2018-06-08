@@ -23,12 +23,12 @@ const requestType = (type, url, options = {}) => {
         }
         wx.hideLoading()
         console.log(res, '  params')
-        if(res.data.status == -1){
-          wx.navigateTo({
-            url: `/src/login/login`
-          })
-          return
-        }
+        // if(res.data.status == -1){
+        //   wx.navigateTo({
+        //     url: `/src/login/login`
+        //   })
+        //   return
+        // }
         checkStatus(Object.assign({}, res, {
           isHideErrorMsg : options.isHideErrorMsg
         })).then(resolve, reject)

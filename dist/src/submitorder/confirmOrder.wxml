@@ -6,12 +6,18 @@
 <view class="body">
 	<view class="input_list">
 		<view class="title">票价</view>
-		<view class="price_color">{{ price }}元/位</view>
+		<view class="price_color">{{ order.ticketPrice }}元/位</view>
 	</view>
 	<view class="input_list">
 		<view class="title">座位数量</view>
 		<view class="price_color">{{ order.bookSeats }}</view>
 	</view>
+	<block wx:if="{{ order.isPickUp }}">
+		<view class="input_list">
+			<view class="title">接送费</view>
+			<view class="price_color">{{ order.extraMoney }}元</view>
+		</view>
+	</block>
 	<!-- <view class="input_list">
 		<view class="title">优惠券</view>
 		<view class="voucher">
@@ -38,6 +44,6 @@
 </view>
 
 <view class="foot_btn">
-	<button bindtap="postWxPay">合计{{ order.ticketPrice }}元 支付</button>
-	<button bindtap="closeWxPay" style="background: #888888;">取消支付</button>
+	<button bindtap="postWxPay">合计{{ order.price }}元 支付</button>
+	<button bindtap="closeWxPay" style="background: #ffffff;">取消订单</button>
 </view>

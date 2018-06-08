@@ -1,5 +1,8 @@
 let extConfig = wx.getExtConfigSync? wx.getExtConfigSync(): {}
 
+var amapFile = require('./amap-wx.js')
+
+export const GAODESDK = new amapFile.AMapWX({key: '35d96308ca0be8fd6029bd3585064095'})
 
 export const SELECT_TIME_DAY = [1,2,3,4,5,6,7]
 

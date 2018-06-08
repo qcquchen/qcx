@@ -8,15 +8,13 @@ var app = getApp()
 Page({
 	data:{
 		countdown: app.globalData.entities.setTimeNumber || 180,
-		order: {},
-		price: 0
+		order: {}
 	},
 	onLoad(option){
 		let pay_datails = wx.getStorageSync('pay_datails')
 		const { price, sharePhone, share_type, pay_type } = option
 		this.setData({
 			order: pay_datails,
-			price: price,
 			sharePhone: sharePhone,
 			share_type: share_type,
 			pay_type: pay_type

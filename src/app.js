@@ -83,7 +83,7 @@ var appConfig = {
             isLogin: false
           }
           this.globalData.appLaunch = true
-          sult()
+          solve()
         }
       })
     }

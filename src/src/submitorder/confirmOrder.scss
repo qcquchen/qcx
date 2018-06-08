@@ -87,7 +87,7 @@
 	position: absolute;
 	bottom: 0;
 	>button{
-		background: #484848;
+		background: linear-gradient(to right, #50D1FF, #4374FF);
 		margin: 15px;
 		color: #ffffff;
 		border-radius: 10px;
@@ -95,7 +95,12 @@
 	}
 
 	>button:active{
-		background: #1b1b1b;
+		background: #ffffff;
+		color: #484848;
+	}
+	>button:last-child{
+		border: 1px solid #ededf1;
+		color: #484848;
 	}
 }
 
