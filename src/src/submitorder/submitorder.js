@@ -13,7 +13,8 @@ Page({
 		submit_price: 0,
 		insurance: false,
 		popUpStatus: true,
-		countdown: app.globalData.entities.setTimeNumber || 180,
+		setTimeType: true,
+		countdown: 180,
 	},
 	onLoad(options){
 		const {order_info} = app.globalData.entities
@@ -145,26 +146,28 @@ Page({
 		})
 	},
 	setIntervalTime:function(type){
-		let second = app.globalData.entities.setTimeNumber || 180
 		let time = setInterval(() => {
-			second = second - 1
+			let number = this.data.countdown <　0 ? 180 : this.data.countdown
+			let second = number - 1
 			this.setData({
 				countdown: second
 			})
-			util.setEntities({
-				key: 'setTimeNumber',
-				value: second
-			})
-			if(second <= 0 || !type){
+			if(second <= 0){
 				clearInterval(time)
-				wx.switchTab({
-					url: `/src/index`
-				})
+				if(this.data.setTimeType){
+					wx.switchTab({
+						url: `/src/index`
+					})
+				}
 			}
 		}, 1000)
 	},
 	cloasePop: function(){
 		const { popUpStatus } = this.data
+		util.setEntities({
+			key: 'setTimeNumber',
+			value: this.data.countdown
+		})
 		this.setData({
 			popUpStatus: !popUpStatus
 		})
@@ -210,15 +213,30 @@ Page({
 						  duration: 2000
 						})
 						self.setData({
-							popUpStatus: true
+							popUpStatus: true,
+							setTimeType: false,
+							countdown: 0
 						})
-						self.setIntervalTime(false)
 					}
 				})
 		    } else if (res.cancel) {
 		      console.log('用户点击取消')
 		    }
 		  }
+		})
+	},
+	onHide(){
+		
+	},
+	onUnload(){
+		util.setEntities({
+			key: 'setTimeNumber',
+			value: this.data.countdown
+		})
+		this.setData({
+			popUpStatus: true,
+			setTimeType: false,
+			countdown: 0
 		})
 	}
 })

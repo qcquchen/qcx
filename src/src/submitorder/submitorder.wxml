@@ -45,7 +45,7 @@
 		<view class="gotoPay">
 			<view class="gotoPay_title">
 				<image catchtap="cloasePop" src="../../images/icon_delete@3x.png"></image>
-				<view>座位已锁定，支付倒计时{{countdown}}s</view>
+				<view>座位已锁定，支付倒计时{{countdown < 0 ? 180 : countdown}}s</view>
 			</view>
 			<view class="order_list">
 				<view>票价</view>

@@ -1,6 +1,6 @@
 <view class="header">
 	<view>座位已锁定</view>
-	<view>{{ countdown }}s</view>
+	<view>{{countdown < 0 ? 180 : countdown}}s</view>
 </view>
 
 <view class="body">

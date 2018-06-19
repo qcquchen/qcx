@@ -8,7 +8,8 @@ var app = getApp()
 Page({
 	data:{
 		countdown: app.globalData.entities.setTimeNumber || 180,
-		order: {}
+		order: {},
+		setTimeType: true
 	},
 	onLoad(option){
 		let pay_datails = wx.getStorageSync('pay_datails')
@@ -22,27 +23,21 @@ Page({
 		this.setIntervalTime(true)
 	},
 	setIntervalTime:function(type){
-		const { sharePhone } = this.data
-		let second = app.globalData.entities.setTimeNumber || 180
 		let time = setInterval(() => {
-			second = second - 1
+			let number = this.data.countdown <　0 ? 180 : this.data.countdown
+			let second = number - 1
 			this.setData({
 				countdown: second
 			})
-			util.setEntities({
-				key: 'setTimeNumber',
-				value: second
-			})
 			if(second <= 0){
 				clearInterval(time)
-				wx.switchTab({
-					url: `/src/index`
-				})
+				if(this.data.setTimeType){
+					wx.switchTab({
+						url: `/src/index`
+					})
+				}
 			}
 		}, 1000)
-		if(!type){
-			clearInterval(time)
-		}
 	},
 	postWxPay(){
 		const { order, sharePhone, share_type, pay_type } = this.data
@@ -77,11 +72,30 @@ Page({
 			  icon: 'success',
 			  duration: 2000
 			})
+			this.setData({
+				popUpStatus: true,
+				setTimeType: false,
+				countdown: 1
+			})
 			setTimeout(() => {
 				wx.reLaunch({
 					url: `/src/index`
 				})
 			}, 2000)
+		})
+	},
+	onHide(){
+		
+	},
+	onUnload(){
+		util.setEntities({
+			key: 'setTimeNumber',
+			value: this.data.countdown
+		})
+		this.setData({
+			popUpStatus: true,
+			setTimeType: false,
+			countdown: 0
 		})
 	}
 })
