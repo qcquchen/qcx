@@ -11,8 +11,7 @@ Page({
     isRecommend: true,
     hotGroups: [],
     page: 1,
-    loadingTxt: '加载中...',
-    isAuthorized: false
+    loadingTxt: '加载中...'
   },
   onShow(){
     let self = this

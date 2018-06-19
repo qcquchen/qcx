@@ -28,13 +28,15 @@
         margin-right: 6px; }
       .details .user_info .user_info_left .user_content {
         font-size: 16px;
-        color: #484848; }
+        color: #232426; }
         .details .user_info .user_info_left .user_content .carCode {
           font-size: 12px;
           color: #616266; }
   .details .travel_info {
     padding: 12px;
     border-bottom: 1px solid #ededf1; }
+    .details .travel_info > view {
+      padding-top: 9px; }
     .details .travel_info .travel_info_list {
       display: -ms-flexbox;
       display: flex;
@@ -46,7 +48,7 @@
         margin-right: 6px; }
       .details .travel_info .travel_info_list > view {
         font-size: 14px;
-        color: #484848; }
+        color: #232426; }
       .details .travel_info .travel_info_list .seats, .details .travel_info .travel_info_list .price {
         display: -ms-flexbox;
         display: flex;
@@ -59,7 +61,7 @@
           border-radius: 50%; }
         .details .travel_info .travel_info_list .seats > view, .details .travel_info .travel_info_list .price > view {
           font-size: 14px;
-          color: #484848; }
+          color: #232426; }
         .details .travel_info .travel_info_list .seats .font-blod, .details .travel_info .travel_info_list .price .font-blod {
           font-size: 20px;
           margin-right: 6px; }
@@ -78,96 +80,157 @@
     .details .callPhone > view {
       color: #616266;
       font-size: 14px; }
-  .details .switch .borderTop {
-    border-top: 4px solid #ededf1; }
-  .details .switch .options {
-    border-bottom: 1px solid #ededf1;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    padding: 6px 0; }
-    .details .switch .options .switch_options {
-      font-size: 16px;
-      color: #939499;
-      text-align: center;
-      position: relative; }
-      .details .switch .options .switch_options .subscript {
-        position: absolute;
-        bottom: -6px;
-        left: 17px;
-        width: 30px;
-        height: 3px;
-        border-radius: 3px;
-        background: #4186E7; }
-    .details .switch .options .option_style {
-      color: #484848;
-      /*font-weight: bold;*/ }
-  .details .switch .lineInfo {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    font-size: 14px;
-    color: #616266;
-    padding: 12px; }
-    .details .switch .lineInfo > view:last-child {
-      color: #C8C9CC;
-      font-size: 12px;
-      margin-left: 6px; }
-  .details .switch .switch_code .switch_code_list {
-    height: 220px; }
-    .details .switch .switch_code .switch_code_list .tipe {
-      font-size: 11px;
-      color: #C8C9CC;
-      text-align: center;
-      margin: 6px 0; }
-    .details .switch .switch_code .switch_code_list .siteRide {
-      background: #ededf1; }
-      .details .switch .switch_code .switch_code_list .siteRide .siteRide_list {
-        padding: 10px;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
-        .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left {
+  .details .borderTop {
+    border-top: 8px solid #ededf1 !important; }
+  .details .switch {
+    position: relative; }
+    .details .switch .options {
+      border-bottom: 1px solid #ededf1;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+      padding: 6px 0; }
+      .details .switch .options .switch_options {
+        font-size: 16px;
+        color: #939499;
+        text-align: center;
+        font-weight: bold;
+        position: relative; }
+        .details .switch .options .switch_options .subscript {
+          position: absolute;
+          bottom: -6px;
+          left: 17px;
+          width: 30px;
+          height: 3px;
+          border-radius: 3px;
+          background: #4186E7; }
+      .details .switch .options .option_style {
+        color: #232426;
+        /*font-weight: bold;*/ }
+    .details .switch .lineInfo {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      font-size: 14px;
+      color: #616266;
+      padding: 12px; }
+      .details .switch .lineInfo > view:last-child {
+        color: #C8C9CC;
+        font-size: 12px;
+        margin-left: 6px; }
+    .details .switch .switch_code {
+      background: #FAFAFC; }
+      .details .switch .switch_code .switch_code_list {
+        /*height: 220px;*/ }
+        .details .switch .switch_code .switch_code_list .tipe {
+          font-size: 11px;
+          color: #C8C9CC;
+          background: #ffffff;
+          text-align: center;
+          margin: 6px 0; }
+        .details .switch .switch_code .switch_code_list .siteRide .siteRide_list {
           display: -ms-flexbox;
           display: flex;
           -ms-flex-align: center;
               align-items: center;
+          padding: 12px; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .left-icon {
+            -ms-flex: 1;
+                flex: 1; }
+            .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .left-icon > image {
+              width: 14px;
+              height: 14px; }
+            .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .left-icon .recommendIcon {
+              width: 25px;
+              height: 15px; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .mine_addr_tipe {
+            -ms-flex: 2;
+                flex: 2;
+            margin: 0 6px;
+            text-align: center;
+            color: #616266;
+            font-size: 11px; }
+          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .mine_addr {
+            -ms-flex: 7;
+                flex: 7; }
+            .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .mine_addr .address_style {
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-align: center;
+                  align-items: center;
+              -ms-flex-pack: justify;
+                  justify-content: space-between; }
+              .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .mine_addr .address_style .recommendTxt {
+                font-size: 11px;
+                color: #939499; }
+              .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .mine_addr .address_style > view {
+                font-size: 14px;
+                color: #232426; }
+              .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .mine_addr .address_style > image {
+                width: 14px;
+                height: 14px; }
+    .details .switch .creatAdress {
+      width: 100%;
+      position: absolute;
+      top: -30px;
+      padding-bottom: 50px; }
+      .details .switch .creatAdress .creatAdress_code {
+        width: 90%;
+        background: #ffffff;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px #C4C7CC; }
+        .details .switch .creatAdress .creatAdress_code .creatAdress_header {
           font-size: 14px;
-          color: #232426; }
-          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .center-icon {
-            width: 28px !important;
-            height: 15px !important; }
-          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .left-icon {
-            width: 14px;
-            height: 14px; }
-          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left > view {
-            margin: 0 6px; }
-          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .mine_addr_tipe {
-            font-size: 11px;
-            color: #616266; }
-          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .mine_addr {
-            position: relative; }
-            .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_left .mine_addr .tipe-addr-txt {
-              position: absolute;
-              width: 130px;
-              font-size: 11px;
-              color: #939499; }
-        .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_right {
-          position: relative; }
-          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_right .center-right-icon {
+          color: #232426;
+          position: relative;
+          padding: 12px;
+          border-bottom: 1px solid #F2F2F5; }
+          .details .switch .creatAdress .creatAdress_code .creatAdress_header > view:first-child {
+            font-weight: bold;
+            text-align: center; }
+          .details .switch .creatAdress .creatAdress_code .creatAdress_header > view:last-child {
+            color: #939499;
             position: absolute;
-            width: 14px;
-            height: 14px; }
-          .details .switch .switch_code .switch_code_list .siteRide .siteRide_list .siteRide_list_right .right-icon {
-            width: 14px;
-            height: 14px; }
+            right: 12px;
+            top: 12px; }
+        .details .switch .creatAdress .creatAdress_code .creatAdress_body {
+          margin: 0 12px; }
+          .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list {
+            padding: 12px 0;
+            border-bottom: 1px solid #F2F2F5;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+                align-items: center;
+            -ms-flex-pack: justify;
+                justify-content: space-between; }
+            .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list .body_list_left {
+              display: -ms-flexbox;
+              display: flex;
+              font-size: 11px; }
+              .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list .body_list_left > view {
+                margin-left: 6px; }
+              .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list .body_list_left .creat_icon {
+                width: 7px;
+                height: 12px; }
+              .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list .body_list_left .creat_time {
+                color: #939499; }
+              .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list .body_list_left .creat_addr {
+                /*  >view:last-child{
+                  font-size: 9px;
+                  color: #C8C9CC;
+                }*/ }
+                .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list .body_list_left .creat_addr > view:first-child {
+                  font-size: 13px;
+                  color: #616266; }
+            .details .switch .creatAdress .creatAdress_code .creatAdress_body .creatAdress_body_list .body_list_right > image {
+              width: 25px;
+              height: 16px; }
 
 .fix_bottom {
   position: fixed;
@@ -180,6 +243,7 @@
     .fix_bottom .input_btn .button {
       text-align: center;
       background: linear-gradient(to right, #50D1FF, #4374FF);
+      font-weight: bold;
       padding: 6px 12px;
       /*margin: 12px;*/
       border-radius: 8px;
@@ -201,6 +265,7 @@
         color: #616266; }
     .fix_bottom .submit .submit_right {
       background: linear-gradient(to right, #50D1FF, #4374FF);
+      font-weight: bold;
       border-radius: 8px;
       color: #ffffff;
       font-size: 14px;
@@ -280,7 +345,7 @@
       -ms-flex: 9;
           flex: 9;
       font-size: 16px;
-      color: #484848;
+      color: #232426;
       margin: 0 6px; }
       .address .commonlyUsed .commonlyUsed_list .commonlyUsed_address .addressText {
         font-size: 12px;
@@ -306,7 +371,7 @@
     -ms-flex: 9;
         flex: 9;
     font-size: 16px;
-    color: #484848; }
+    color: #232426; }
     .address .address_list .address_content .travelRoute {
       font-size: 12px;
       color: #939499; }

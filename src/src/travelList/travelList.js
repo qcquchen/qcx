@@ -472,12 +472,13 @@ Page({
     let that = this
     const { currentTarget: { dataset: { id, type } } } = e
     switch(Number(type)){
-      case 2: 
+      case 2:
+      case 4:
       case 5: 
       case 6: 
       case 7: 
       case 8: 
-      case 11: 
+      case 11:
       case 12:
         wx.showModal({
             title: '提示',

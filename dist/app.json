@@ -87,18 +87,18 @@
     "borderStyle" : "white",
     "list" : [{
         "pagePath" : "src/findTravel/findTravel",
-        "iconPath" : "images/btn_find@3x.png",
-        "selectedIconPath" : "images/btn_find_on@3x.png",
+        "iconPath" : "images/btn_home.png",
+        "selectedIconPath" : "images/btn_home_on.png",
         "text" : "发现"
     }, {
         "pagePath" : "src/index",
-        "iconPath" : "images/btn_star_mini_off@3x.png",
-        "selectedIconPath" : "images/btn_star_mini.png",
+        "iconPath" : "images/btn_tab_start.png",
+        "selectedIconPath" : "images/btn_tab_start_on.png",
         "text" : "发布"
     }, {
         "pagePath" : "src/travelList/travelList",
-        "iconPath" : "images/btn_me@3x.png",
-        "selectedIconPath" : "images/btn_me_on@3x.png",
+        "iconPath" : "images/btn_me.png",
+        "selectedIconPath" : "images/btn_me_on.png",
         "text" : "我"
     }]
   },

@@ -134,7 +134,7 @@
 </view>
 <block wx:if="{{ share_code }}">
 	<view class="share_pop" catchtap="{{ draw_type ? 'hideShareCode' : '' }}" catchtouchmove="true">
-		<canvas class="body_canvas" style="width:{{windowWidth}}px" canvas-id="shareFriends"></canvas>
+		<canvas class="body_canvas" style="width:{{windowWidth}}px; background: #ffffff;" canvas-id="shareFriends"></canvas>
 		<view class="shareBtn">
 			<view class="shareBtn_list">
 				<button class="share_img" catchtap="{{ draw_type ? 'creatShareImg' : '' }}">
@@ -151,7 +151,7 @@
 	</view>
 </block>
 <block wx:if="{{ showOperating }}">
-	<view class="operatingMask" catchtap="clickShowOperating">
+	<view class="operatingMask" catchtap="">
 		<block wx:if="{{ !updateShow }}">
 			<view class="operatingArea">
 				<view catchtap="clickUpdate" data-id="time">修改时间</view>

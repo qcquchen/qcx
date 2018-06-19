@@ -14,31 +14,33 @@ Page({
     travelInfo: {},
     polyline: [],
     markers: [],
+    lineAll: [],
     history: true,
     updateType: true,
     myAddress: '正在获取当前位置',
     history_L: [],
     inputLineType: true,
-    myEndAddress: ''
+    myEndAddress: '',
+    creatType: false
   },
   onLoad(options){
     wx.showLoading({
       title: '加载中',
     })
     let ops = options.scene ? decodeURIComponent(options.scene).split(',') : options
+    if(options.scene){
+        options.travelId = ops[0]
+        options.phone = ops[1]
+        options.travelType = ops[2]
+    }
     this.setData({
-      options: ops,
+      options: options,
       window: wx.getSystemInfoSync()
     })
   },
   onShow(){
     const { options, updateType } = this.data
     const { appLaunch } = app.globalData
-    if(options.scene){
-        ops.travelId = ops[0]
-        ops.phone = ops[1]
-        ops.travelType = ops[2]
-    }
     if(appLaunch){
       if(updateType){
         this.initData(null, 'authorized')
@@ -93,6 +95,9 @@ Page({
       data.startTime = moment(data.recommendStartTime).toDate().pattern('HH:mm')
       data.recommendStartTimeText = moment(data.recommendStartTime).toDate().pattern('yyyy-MM-dd HH:mm:ss')
       data.pickUpStartTimeText = moment(data.pickUpStartTime).toDate().pattern('yyyy-MM-dd HH:mm:ss')
+      data.travelList && data.travelList.map(json => {
+        json.beginTime = moment(json.beginTime).toDate().pattern('HH:mm')
+      })
       if(type == 0){
         if(data.surplusSeats != 0){
             let seat_true = util.seats_true(data.seats - data.surplusSeats)
@@ -120,7 +125,8 @@ Page({
       }
       this.setData({
         travelInfo: data,
-        attention: data.attention
+        attention: data.attention,
+        creatListIndex: data.startIndex
       })
       this.planningRoutes()
       this.addMarkes(data, type)
@@ -141,60 +147,53 @@ Page({
     let end = typeof(data.end) == 'string' ? data.end.split(',') : data.end
     let matchStart = typeof(data.recommendStartLocation) == 'string' ? data.recommendStartLocation.split(',') : data.recommendStartLocation
     let matchEnd = typeof(data.recommendEndLocation) == 'string' ? data.recommendEndLocation.split(',') : data.recommendEndLocation
-    // if(data.recommendStatus){
-    //   start = typeof(data.start) == 'string' ? data.start.split(',') : data.start
-    //   end = typeof(data.end) == 'string' ? data.end.split(',') : data.end
-    // }else{
-    //   start = typeof(data.mineStart) == 'string' ? data.mineStart.split(',') : data.mineStart
-    //   end = typeof(data.mineEnd) == 'string' ? data.mineEnd.split(',') : data.mineEnd
-    // }
     let markers = []
     if(type == 1){
       markers = [{
-        iconPath: '../../images/icon_map_star@3x_two.png',
+        iconPath: '../../images/icon_map_star@3x.png',
         id: 0,
         latitude: start[1],
         longitude: start[0],
-        width: 32,
-        height: 47
+        width: 25,
+        height: 25
       },{
-        iconPath: '../../images/icon_map_end@3x_two.png',
+        iconPath: '../../images/icon_map_end@3x.png',
         id: 1,
         latitude: end[1],
         longitude: end[0],
-        width: 32,
-        height: 47
+        width: 25,
+        height: 25
       }]
     }else if(type == 0){
       if(switch_type == 'siteRide'){
         markers = [{
-          iconPath: '../../images/icon_map_star@3x_two.png',
+          iconPath: '../../images/icon_map_star@3x.png',
           id: 0,
           latitude: start[1],
           longitude: start[0],
-          width: 32,
-          height: 47
+          width: 25,
+          height: 25
         },{
-          iconPath: '../../images/icon_map_end@3x_two.png',
+          iconPath: '../../images/icon_map_end@3x.png',
           id: 1,
           latitude: end[1],
           longitude: end[0],
-          width: 32,
-          height: 47
+          width: 25,
+          height: 25
         },{
-          iconPath: '../../images/icon_map_scd@3x.png',
+          iconPath: '../../images/icon_map_up@3x.png',
           id: 2,
           latitude: data.recommendStatus ? matchStart[1] : 0,
           longitude: data.recommendStatus ? matchStart[0] : 0,
-          width: 20,
-          height: 20
+          width: 40,
+          height: 47
         },{
-          iconPath: '../../images/icon_map_xcd@3x.png',
+          iconPath: '../../images/icon_map_down@3x.png',
           id: 3,
           latitude: data.recommendStatus ? matchEnd[1] : 0,
           longitude: data.recommendStatus ? matchEnd[0] : 0,
-          width: 20,
-          height: 20
+          width: 40,
+          height: 47
         }]
       }else{
         start = typeof(data.mineStart) == 'string' ? data.mineStart.split(',') : data.mineStart
@@ -204,14 +203,14 @@ Page({
           id: 0,
           latitude: start[1],
           longitude: start[0],
-          width: 32,
+          width: 38,
           height: 47
         },{
           iconPath: '../../images/icon_map_end@3x_two.png',
           id: 1,
           latitude: end[1],
           longitude: end[0],
-          width: 32,
+          width: 38,
           height: 47
         }]
       }
@@ -225,9 +224,9 @@ Page({
     const { travelInfo, switch_type } = this.data
     let parmas = {}
     if(switch_type == 'siteRide'){
-      parmas = Object.assign({}, {start: travelInfo.start}, {end: travelInfo.end}, {waypoints: travelInfo.waypoints})
+      parmas = Object.assign({}, {start: travelInfo.start}, {end: travelInfo.end})
     }else{
-      parmas = Object.assign({}, {start: travelInfo.mineStart}, {end: travelInfo.mineEnd})
+      parmas = Object.assign({}, {start: travelInfo.mineStart}, {end: travelInfo.mineEnd}, {waypoints: travelInfo.waypoints})
     }
     let start = ''
     if(travelInfo.recommendStatus){
@@ -236,6 +235,7 @@ Page({
       start = typeof(travelInfo.start) == 'string' ? travelInfo.start.split(',') : travelInfo.start
     }
     util.getPlanning(parmas).then(res => {
+      let centerCoordinate = (res.points.length/2).toFixed()
       this.setData({
         polyline: [{
           points: res.points,
@@ -246,8 +246,9 @@ Page({
           borderColor: '#458A53',
           borderWidth: 1
         }],
-        longitude: start[0],
-        latitude: start[1]
+        longitude: centerCoordinate.longitude,
+        latitude: centerCoordinate.latitude,
+        lineAll: res.points
       })
     })
   },
@@ -293,9 +294,44 @@ Page({
       })
     }
   },
+  updateRecommend: function(e){
+    const { creatType, travelInfo } = this.data
+    const { currentTarget: { dataset: { id } } } = e
+    this.setData({
+      creatType: !creatType,
+      creatTypeIcon: id
+    })
+  },
+  selectRecommed: function(e){
+    const { currentTarget: { dataset: { id } } } = e
+    const { creatTypeIcon, travelInfo, creatType, options } = this.data
+    if(creatTypeIcon === 'resStart'){
+      travelInfo.recommendStartAddress = travelInfo.travelList[id].address
+      travelInfo.recommendStartLocation = travelInfo.travelList[id].location
+      travelInfo.startTime = travelInfo.travelList[id].beginTime
+      this.setData({
+        travelInfo: travelInfo,
+        creatType: !creatType,
+        creatListIndex: id
+      })
+      this.walk_startDis(travelInfo.mineStart, travelInfo.travelList[id].location)
+      this.addMarkes(travelInfo, options.travelType)
+    }else if(creatTypeIcon === 'resEnd'){
+      travelInfo.recommendEndAddress = travelInfo.travelList[id].address
+      travelInfo.recommendEndLocation = travelInfo.travelList[id].location
+      travelInfo.endTime = travelInfo.travelList[id].beginTime
+      this.setData({
+        travelInfo: travelInfo,
+        creatType: !creatType,
+        creatListIndex: id
+      })
+      this.walk_endDis(travelInfo.travelList[id].location)
+      this.addMarkes(travelInfo, options.travelType)
+    }
+  },
   updateAddress: function(e){
     const { currentTarget: { dataset: { id } } } = e
-    const { options, travelInfo, myLocation, myAddress } = this.data
+    const { options, travelInfo, myLocation, myAddress, creatType } = this.data
     let loc = []
     let self = this
     wx.getSetting({
@@ -309,14 +345,6 @@ Page({
                 self.getTravelDetail(options.travelId, options.travelType, loc, travelInfo.mineEnd, res.name, travelInfo.mineEndAddress)
               }else if(id === 'end'){
                 self.getTravelDetail(options.travelId, options.travelType, travelInfo.mineStart, loc, travelInfo.mineStartAddress, res.name)
-              }else if(id === 'resStart'){
-                travelInfo.recommendStartAddress = res.name
-                self.setData({travelInfo: travelInfo})
-                self.walk_startDis(travelInfo.mineStart, loc)
-              }else if(id === 'resEnd'){
-                travelInfo.recommendEndAddress = res.name
-                self.setData({travelInfo: travelInfo})
-                self.walk_endDis(loc)
               }else if(id === 'carStart'){
                 travelInfo.mineStart = loc
                 travelInfo.mineStartAddress = res.name
@@ -652,6 +680,9 @@ Page({
           })
         }
       }
+    })
+    this.setData({
+      updateType: false
     })
   }
 })

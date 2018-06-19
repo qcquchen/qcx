@@ -198,7 +198,7 @@ Page({
 		let time_icon = "../../images/icon_time@3x.png"
 		let start_icon = "../../images/icon_map_star@3x.png"
 		let end_icon = "../../images/icon_map_end@3x.png"
-		let submit_bg = "../../images/btn_dingzuo@2x.png"
+		let submit_bg = data.travelVo.type == 0 ? "../../images/btn_dingzuo@2x.png" : "../../images/btn_qiandan@2x.png"
 		this.getWechatCode(data.travelVo.travelId, data.travelVo.type).then((res) => {
 			util.getServiceImg(avatar).then(avatar_res => {
 				let size = that.setCanvasSize()
@@ -419,7 +419,7 @@ Page({
 		}
 	},
 	clickShowOperating: function(){
-		const { showOperating, travelType, selfTravel } = this.data
+		const { showOperating, travelType, selfTravel, updateShow } = this.data
 		let type = travelType == '0' ? 'people' : 'owner'
 		let seatsArray = util.seatsNumber(type)
 		this.setData({
@@ -450,13 +450,23 @@ Page({
 	},
 	confirmTheChange: function(){
 		const { bindTimeVal, pickerType, bindPeopleVal, selfTravel } = this.data
-		let changeTime = null
+		let changeTime = moment().toDate().pattern('yyyy-MM-dd HH:00:ss')
 		let changeSeats = null
 		if(pickerType == 'time'){
-			let changeDay = day.dayArray[bindTimeVal[0]]
-			let changeHour = hour.hourArray[bindTimeVal[1]]
-			let changeMinute = minute.minuteArray[bindTimeVal[2]]
-			changeTime = `${changeDay} ${changeHour}:${changeMinute}:00`
+			if(bindTimeVal){
+				let changeDay = day.dayArray[bindTimeVal[0]]
+				let changeHour = hour.hourArray[bindTimeVal[1]]
+				let changeMinute = minute.minuteArray[bindTimeVal[2]]
+				changeTime = `${changeDay} ${changeHour}:${changeMinute}:00`
+			}
+			if(!moment(changeTime).isAfter(moment().toDate().pattern('yyyy-MM-dd HH:mm:ss'))){
+		      wx.showModal({
+		        title: '提示',
+		        content: '选择时间应大于当前时间',
+		        showCancel: false
+		      })
+		      return
+		    }
 		}else{
 			if(changeSeats == 0){
 				wx.showModal({

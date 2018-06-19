@@ -25,7 +25,7 @@
       }
       .user_content{
         font-size: 16px;
-        color: #484848;
+        color: #232426;
         .carCode{
           font-size: 12px;
           color: #616266;
@@ -36,6 +36,9 @@
   .travel_info{
     padding: 12px;
     border-bottom: 1px solid #ededf1;
+    >view{
+      padding-top: 9px;
+    }
     .travel_info_list{
       display: flex;
       align-items: center;
@@ -46,7 +49,7 @@
       }
       >view{
         font-size: 14px;
-        color: #484848;
+        color: #232426;
       }
       .seats, .price{
         display: flex;
@@ -59,7 +62,7 @@
         }
         >view{
           font-size: 14px;
-          color: #484848;
+          color: #232426;
         }
         .font-blod{
           font-size: 20px;
@@ -83,10 +86,11 @@
       font-size: 14px;
     }
   }
+  .borderTop{
+     border-top: 8px solid #ededf1 !important;
+  }
   .switch{
-    .borderTop{
-       border-top: 4px solid #ededf1;
-    }
+    position: relative;
     .options{
       border-bottom: 1px solid #ededf1;
       display: flex;
@@ -97,6 +101,7 @@
         font-size: 16px;
         color: #939499;
         text-align: center;
+        font-weight: bold;
         position: relative;
         .subscript{
           position: absolute;
@@ -109,7 +114,7 @@
         }
       }
       .option_style{
-        color: #484848;
+        color: #232426;
         /*font-weight: bold;*/
       }
     }
@@ -126,61 +131,127 @@
       }
     }
     .switch_code{
+      background: #FAFAFC;
       .switch_code_list{
-        height: 220px;
+        /*height: 220px;*/
         .tipe{
           font-size: 11px;
           color: #C8C9CC;
+          background: #ffffff;
           text-align: center;
           margin: 6px 0;
         }
         .siteRide{
-          background: #ededf1;
           .siteRide_list{
-            padding: 10px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            .siteRide_list_left{
-              display: flex;
-              align-items: center;
-              font-size: 14px;
-              color: #232426;
-              .center-icon{
-                width: 28px !important;
-                height: 15px !important;
-              }
-              .left-icon{
+            padding: 12px;
+            .left-icon{
+              flex: 1;
+              >image{
                 width: 14px;
                 height: 14px;
               }
-              >view{
-                margin: 0 6px;
+              .recommendIcon{
+                width: 25px;
+                height: 15px;
               }
-              .mine_addr_tipe{
-                font-size: 11px;
-                color: #616266;
-              }
-              .mine_addr{
-                position: relative;
-                .tipe-addr-txt{
-                  position: absolute;
-                  width: 130px;
+            }
+            .mine_addr_tipe{
+              flex: 2;
+              margin: 0 6px;
+              text-align: center;
+              color: #616266;
+              font-size: 11px;
+            }
+            .mine_addr{
+              flex: 7;
+              .address_style{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .recommendTxt{
                   font-size: 11px;
                   color: #939499;
                 }
+                >view{
+                  font-size: 14px;
+                  color: #232426;
+                }
+                >image{
+                  width: 14px;
+                  height: 14px;
+                }
               }
             }
-            .siteRide_list_right{
-              position: relative;
-              .center-right-icon{
-                position: absolute;
-                width: 14px;
-                height: 14px;
+          }
+        }
+      }
+    }
+    .creatAdress{
+      width: 100%;
+      position: absolute;
+      top: -30px;
+      padding-bottom: 50px;
+      .creatAdress_code{
+        width: 90%;
+        background: #ffffff;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px #C4C7CC;
+        .creatAdress_header{
+          font-size: 14px;
+          color: #232426;
+          position: relative;
+          padding: 12px;
+          border-bottom: 1px solid #F2F2F5;
+          >view:first-child{
+            font-weight: bold;
+            text-align: center;
+          }
+          >view:last-child{
+            color: #939499;
+            position: absolute;
+            right: 12px;
+            top: 12px;
+          }
+        }
+        .creatAdress_body{
+          margin: 0 12px;
+          .creatAdress_body_list{
+            padding: 12px 0;
+            border-bottom: 1px solid #F2F2F5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .body_list_left{
+              display: flex;
+              font-size: 11px;
+              >view{
+                margin-left: 6px;
               }
-              .right-icon{
-                width: 14px;
-                height: 14px;
+              .creat_icon{
+                width: 7px;
+                height: 12px;
+              }
+              .creat_time{
+                color: #939499;
+              }
+              .creat_addr{
+                >view:first-child{
+                  font-size: 13px;
+                  color: #616266;
+                }
+              /*  >view:last-child{
+                  font-size: 9px;
+                  color: #C8C9CC;
+                }*/
+              }
+            }
+            .body_list_right{
+              >image{
+                width: 25px;
+                height: 16px;
               }
             }
           }
@@ -201,6 +272,7 @@
     .button{
       text-align: center;
       background: linear-gradient(to right, #50D1FF, #4374FF);
+      font-weight: bold;
       padding: 6px 12px;
       /*margin: 12px;*/
       border-radius: 8px;
@@ -223,6 +295,7 @@
     }
     .submit_right{
       background: linear-gradient(to right, #50D1FF, #4374FF);
+      font-weight: bold;
       border-radius: 8px;
       color: #ffffff;
       font-size: 14px;
@@ -305,7 +378,7 @@
       .commonlyUsed_address{
         flex: 9;
         font-size: 16px;
-        color: #484848;
+        color: #232426;
         margin: 0 6px;
         .addressText{
           font-size: 12px;
@@ -333,7 +406,7 @@
     .address_content{
       flex: 9;
       font-size: 16px;
-      color: #484848;
+      color: #232426;
       .travelRoute{
         font-size: 12px;
         color: #939499;

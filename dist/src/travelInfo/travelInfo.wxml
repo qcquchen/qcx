@@ -4,6 +4,7 @@
       longitude="{{longitude}}"
       latitude="{{latitude}}"
       markers="{{markers}}"
+      include-points="{{lineAll}}"
       show-location
       style="width: 100%; height: {{ window.windowWidth }}px;">
     <cover-image bindtap="redirection" class="positing" src="../../images/btn_locate@3x.png"></cover-image>       
@@ -43,11 +44,11 @@
       </view>
       <view class="travel_info_list" style="justify-content: space-between;">
         <view class="seats">
-          <block wx:if="{{ options.travelType == 1 }}">
+          <block wx:if="{{ options.travelType == '1' }}">
             <view>人数</view>
             <view>{{ travelInfo.seats }}</view>
           </block>
-          <block wx:if="{{ options.travelType == 0 }}">
+          <block wx:else>
             <image wx:for="{{ travelInfo.seat_true }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
             <image wx:for="{{ travelInfo.seat_false }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
           </block>
@@ -62,7 +63,7 @@
       <image src="../../images/btn_menu_phone@3x.png"></image>
       <view>电话</view>
     </view>
-    <view class="switch" style="{{ travelInfo.recommendStatus ? 'borderTop' : '' }}">
+    <view class="switch {{ travelInfo.recommendStatus ? 'borderTop' : '' }}">
       <block wx:if="{{ options.travelType == 0 }}">
         <block wx:if="{{ travelInfo.recommendStatus }}">
           <view class="options">
@@ -89,105 +90,67 @@
       </block>
       <view class="switch_code">
         <block wx:if="{{ switch_type == 'siteRide' }}">
-          <block wx:if="{{ travelInfo.recommendStatus }}">
-            <view class="switch_code_list" style="height:{{ options.travelType == 0 ? 220 : 200 }}px">
-              <block wx:if="{{ options.travelType == '0' }}">
-                  <view class="tipe">车主不接送,你需自行前往上车点乘车</view>
-                  <view class="siteRide">
-                    <!-- 开始 -->
-                    <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1;">
-                      <view class="siteRide_list_left" bindtap="updateAddress" data-id="start">
-                        <image class="left-icon" src="../../images/icon_start@3x.png"></image>
-                        <view class="mine_addr_tipe">你的起点</view>
-                        <view class="mine_addr">{{ travelInfo.mineStartAddress }}</view>
-                      </view>
-                      <view class="siteRide_list_right">
-                        <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
-                      </view>
+          <block wx:if="{{ options.travelType == '0' }}">
+            <view class="switch_code_list">
+              <block wx:if="{{ travelInfo.recommendStatus }}">
+                <view class="tipe">车主不接送,你需自行前往上车点乘车</view>
+                <view class="siteRide">
+                  <!-- 开始 -->
+                  <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1;">
+                    <view class="left-icon">
+                      <image src="../../images/icon_start@3x.png"></image>
                     </view>
-                    <!-- 中间 -->
-                    <view class="siteRide_list" style="padding-top: 25px" catchtap="updateAddress" data-id="resStart">
-                      <view class="siteRide_list_left">
-                        <image class="left-icon center-icon" src="../../images/icon_sc@3x.png"></image>
-                        <view class="mine_addr_tipe">{{ travelInfo.startTime }}</view>
-                        <view class="mine_addr">
-                          <view class="tipe-addr-txt" style="top: -20px;">步行{{ gotoStart.distance }}公里({{ gotoStart.duration }})</view>
-                          <view class="">{{ travelInfo.recommendStartAddress }}</view>
-                        </view>
-                      </view>
-                      <view class="siteRide_list_right">
-                        <image class="center-right-icon" catchtap="navAddress" data-id="walkUp" src="../../images/btn_buxing_navig@3x.png" style="top: -28px; padding: 6px; right: -6px;"></image>
-                        <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
-                      </view>
-                    </view>
-                    <!-- 中间 -->
-                    <view class="siteRide_list" style="padding-bottom: 25px" catchtap="updateAddress" data-id="resEnd">
-                      <view class="siteRide_list_left">
-                        <image class="left-icon center-icon" src="../../images/icon_xc@3x.png"></image>
-                        <view class="mine_addr_tipe">{{ travelInfo.endTime }}</view>
-                        <view class="mine_addr">
-                          <view class="">{{ travelInfo.recommendEndAddress }}</view>
-                          <view class="tipe-addr-txt" style="top: 27px;">步行{{ gotoEnd.distance }}公里({{ gotoEnd.duration }})</view>
-                        </view>
-                      </view>
-                      <view class="siteRide_list_right">
-                        <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
-                        <image class="center-right-icon" catchtap="navAddress" data-id="walkDown" src="../../images/btn_buxing_navig@3x.png" style="top: 22px; padding: 6px; right: -6px;"></image>
-                      </view>
-                    </view>
-                    <!-- 结束 -->
-                    <view class="siteRide_list" style="border-top: 1px solid #e1e1e1;" bindtap="updateAddress" data-id="end">
-                      <view class="siteRide_list_left">
-                        <image class="left-icon" src="../../images/icon_end@3x.png"></image>
-                        <view class="mine_addr_tipe">你的终点</view>
-                        <view class="mine_addr">{{ travelInfo.mineEndAddress }}</view>
-                      </view>
-                      <view class="siteRide_list_right">
+                    <view class="mine_addr_tipe">你的起点</view>
+                    <view class="mine_addr">
+                      <view class="address_style" bindtap="updateAddress" data-id="start">
+                        <view>{{ travelInfo.mineStartAddress }}</view>
                         <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
                       </view>
                     </view>
                   </view>
-              </block>
-              <block wx:if="{{ options.travelType == '1' }}">
-                <view class="switch_code_list" style="height:{{ options.travelType == 0 ? 220 : 200 }}px">
-                  <view class="siteRide">
-                    <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1;">
-                      <view class="siteRide_list_left" bindtap="updateAddress" data-id="carStart">
-                        <image class="left-icon" src="../../images/icon_start@3x.png"></image>
-                        <view class="mine_addr">{{ travelInfo.recommendStatus ? travelInfo.mineStartAddress : myLoc.startAddress }}</view>
+                  <!-- 中间 -->
+                  <view class="siteRide_list" style="padding-bottom: 0px;">
+                    <view class="left-icon">
+                      <image class="recommendIcon" src="../../images/icon_sc@3x.png"></image>
+                    </view>
+                    <view class="mine_addr_tipe">{{ travelInfo.startTime }}</view>
+                    <view class="mine_addr">
+                      <view class="address_style" catchtap="navAddress" data-id="walkUp">
+                        <view class="recommendTxt">步行{{ gotoStart.distance }}公里({{ gotoStart.duration }})</view>
+                        <image class="right-icon" src="../../images/btn_buxing_navig@3x.png"></image>
                       </view>
-                      <view class="siteRide_list_right">
+                      <view class="address_style" bindtap="updateRecommend" data-id="resStart" style="padding: 8px 0">
+                        <view>{{ travelInfo.recommendStartAddress }}</view>
                         <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
                       </view>
                     </view>
-                    <view class="siteRide_list" style="padding-top: 25px">
-                      <view class="siteRide_list_left">
-                        <image class="left-icon center-icon" src="../../images/icon_sc@3x.png"></image>
-                        <view class="mine_addr">
-                          <block wx:if="{{ travelInfo.recommendStatus }}">
-                            <view class="tipe-addr-txt" style="top: -20px;">驾驶{{ gotoStart.distance }}公里({{ gotoStart.duration }})</view>
-                          </block>
-                          <view class="">{{ travelInfo.startAddress }}</view>
-                        </view>
+                  </view>
+                  <!-- 中间 -->
+                  <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1; padding-top: 0px;">
+                    <view class="left-icon">
+                      <image class="recommendIcon" src="../../images/icon_xc@3x.png"></image>
+                    </view>
+                    <view class="mine_addr_tipe">{{ travelInfo.endTime }}</view>
+                    <view class="mine_addr">
+                      <view class="address_style" bindtap="updateRecommend" data-id="resEnd" style="padding: 8px 0">
+                        <view>{{ travelInfo.recommendEndAddress }}</view>
+                        <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
+                      </view>
+                      <view class="address_style" catchtap="navAddress" data-id="walkDown">
+                        <view class="recommendTxt">步行{{ gotoEnd.distance }}公里({{ gotoEnd.duration }})</view>
+                        <image class="right-icon" src="../../images/btn_buxing_navig@3x.png"></image>
                       </view>
                     </view>
-                    <view class="siteRide_list" style="padding-bottom: 25px">
-                      <view class="siteRide_list_left">
-                        <image class="left-icon center-icon" src="../../images/icon_xc@3x.png"></image>
-                        <view class="mine_addr">
-                          <view class="">{{ travelInfo.endAddress }}</view>
-                          <block wx:if="{{ travelInfo.recommendStatus }}">
-                            <view class="tipe-addr-txt" style="top: 27px;">驾驶{{ gotoEnd.distance }}公里({{ gotoEnd.duration }})</view>
-                          </block>
-                        </view>
-                      </view>
+                  </view>
+                  <!-- 结束 -->
+                  <view class="siteRide_list">
+                    <view class="left-icon">
+                      <image src="../../images/icon_end@3x.png"></image>
                     </view>
-                    <view class="siteRide_list" style="border-top: 1px solid #e1e1e1;" bindtap="updateAddress" data-id="carEnd">
-                      <view class="siteRide_list_left">
-                        <image class="left-icon" src="../../images/icon_end@3x.png"></image>
-                        <view class="mine_addr">{{ travelInfo.recommendStatus ? travelInfo.mineEndAddress : '你要去哪儿?' }}</view>
-                      </view>
-                      <view class="siteRide_list_right">
+                    <view class="mine_addr_tipe">你的终点</view>
+                    <view class="mine_addr">
+                      <view class="address_style" bindtap="updateAddress" data-id="end">
+                        <view>{{ travelInfo.mineEndAddress }}</view>
                         <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
                       </view>
                     </view>
@@ -197,77 +160,119 @@
             </view>
           </block>
           <block wx:else>
-            <block wx:if="{{ options.travelType == '1' }}">
-              <view class="switch_code_list" style="height:{{ options.travelType == 0 ? 220 : 200 }}px">
-                <view class="siteRide">
-                  <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1;">
-                    <view class="siteRide_list_left" bindtap="updateAddress" data-id="carStart">
-                      <image class="left-icon" src="../../images/icon_start@3x.png"></image>
-                      <view class="mine_addr">{{ travelInfo.recommendStatus ? travelInfo.mineStartAddress : myLoc.startAddress }}</view>
-                    </view>
-                    <view class="siteRide_list_right">
+            <view class="switch_code_list" >
+              <view class="siteRide">
+                <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1;">
+                  <view class="left-icon">
+                    <image src="../../images/icon_start@3x.png"></image>
+                  </view>
+                  <view class="mine_addr">
+                    <view class="address_style" bindtap="updateAddress" data-id="carStart">
+                      <view>{{ travelInfo.mineStartAddress != null ? travelInfo.mineStartAddress : myLoc.startAddress }}</view>
                       <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
                     </view>
                   </view>
-                  <view class="siteRide_list" style="padding-top: 25px">
-                    <view class="siteRide_list_left">
-                      <image class="left-icon center-icon" src="../../images/icon_sc@3x.png"></image>
-                      <view class="mine_addr">
-                        <block wx:if="{{ travelInfo.recommendStatus }}">
-                          <view class="tipe-addr-txt" style="top: -20px;">驾驶{{ gotoStart.distance }}公里({{ gotoStart.duration }})</view>
-                        </block>
-                        <view class="">{{ travelInfo.startAddress }}</view>
+                </view>
+                <view class="siteRide_list" style="padding-bottom: 0px;">
+                  <view class="left-icon">
+                    <image class="recommendIcon" src="../../images/icon_sc@3x.png"></image>
+                  </view>
+                  <view class="mine_addr">
+                    <block wx:if="{{ travelInfo.recommendStatus }}">
+                      <view class="address_style">
+                        <view class="recommendTxt">驾驶{{ gotoStart.distance }}公里({{ gotoStart.duration }})</view>
                       </view>
+                    </block>
+                    <view class="address_style" style="padding: 8px 0">
+                      <view>{{ travelInfo.startAddress }}</view>
                     </view>
                   </view>
-                  <view class="siteRide_list" style="padding-bottom: 25px">
-                    <view class="siteRide_list_left">
-                      <image class="left-icon center-icon" src="../../images/icon_xc@3x.png"></image>
-                      <view class="mine_addr">
-                        <view class="">{{ travelInfo.endAddress }}</view>
-                        <block wx:if="{{ travelInfo.recommendStatus }}">
-                          <view class="tipe-addr-txt" style="top: 27px;">驾驶{{ gotoEnd.distance }}公里({{ gotoEnd.duration }})</view>
-                        </block>
-                      </view>
-                    </view>
+                </view>
+                <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1; padding-top: 0px;">
+                  <view class="left-icon">
+                    <image class="recommendIcon" src="../../images/icon_xc@3x.png"></image>
                   </view>
-                  <view class="siteRide_list" style="border-top: 1px solid #e1e1e1;" bindtap="updateAddress" data-id="carEnd">
-                    <view class="siteRide_list_left">
-                      <image class="left-icon" src="../../images/icon_end@3x.png"></image>
-                      <view class="mine_addr">{{ travelInfo.recommendStatus ? travelInfo.mineEndAddress : '你要去哪儿?' }}</view>
+                  <view class="mine_addr">
+                    <view class="address_style" style="padding: 8px 0">
+                      <view>{{ travelInfo.endAddress }}</view>
                     </view>
-                    <view class="siteRide_list_right">
+                    <block wx:if="{{ travelInfo.recommendStatus }}">
+                      <view class="address_style">
+                        <view class="recommendTxt">驾驶{{ gotoEnd.distance }}公里({{ gotoEnd.duration }})</view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+                <view class="siteRide_list">
+                  <view class="left-icon">
+                    <image src="../../images/icon_end@3x.png"></image>
+                  </view>
+                  <view class="mine_addr">
+                    <view class="address_style" bindtap="updateAddress" data-id="carEnd">
+                      <view>{{ travelInfo.recommendStatus ? travelInfo.mineEndAddress : '你要去哪儿?' }}</view>
                       <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
                     </view>
                   </view>
                 </view>
               </view>
-            </block>
+            </view>
           </block>
         </block>
         <block wx:if="{{ switch_type == 'carPickUp' }}">
           <view class="switch_code_list">
             <view class="siteRide">
-              <view class="siteRide_list">
-                <view class="siteRide_list_left" bindtap="updateAddress" data-id="start">
-                  <image class="left-icon" src="../../images/icon_start@3x.png"></image>
-                  <view class="mine_addr_tipe">你的起点</view>
-                  <view class="mine_addr">{{ travelInfo.mineStartAddress }}</view>
-                  <image class="left-icon center-icon" src="../../images/icon_sc@3x.png"></image>
+              <view class="siteRide_list" style="border-bottom: 1px solid #e1e1e1;">
+                <view class="left-icon">
+                  <image src="../../images/icon_start@3x.png"></image>
                 </view>
-                <view class="siteRide_list_right">
-                  <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
+                <view class="mine_addr_tipe">你的起点</view>
+                <view class="mine_addr">
+                  <view class="address_style" bindtap="updateAddress" data-id="start">
+                    <view>{{ travelInfo.mineStartAddress }}</view>
+                    <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
+                  </view>
                 </view>
               </view>
-              <view class="siteRide_list" style="border-top: 1px solid #e1e1e1;" bindtap="updateAddress" data-id="end">
-                <view class="siteRide_list_left">
-                  <image class="left-icon" src="../../images/icon_end@3x.png"></image>
-                  <view class="mine_addr_tipe">你的终点</view>
-                  <view class="mine_addr">{{ travelInfo.mineEndAddress }}</view>
-                  <image class="left-icon center-icon" src="../../images/icon_xc@3x.png"></image>
+              <view class="siteRide_list">
+                <view class="left-icon">
+                  <image src="../../images/icon_end@3x.png"></image>
                 </view>
-                <view class="siteRide_list_right">
-                  <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
+                <view class="mine_addr_tipe">你的终点</view>
+                <view class="mine_addr">
+                  <view class="address_style" bindtap="updateAddress" data-id="end">
+                    <view>{{ travelInfo.mineEndAddress }}</view>
+                    <image class="right-icon" src="../../images/icon_return_left@3x.png"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:if="{{ creatType }}">
+          <view class="creatAdress">
+            <view class="creatAdress_code">
+              <view class="creatAdress_header">
+                <view>修改{{ creatTypeIcon == 'resStart' ? '上车' : '下车' }}点</view>
+                <view bindtap="updateRecommend">关闭</view>
+              </view>
+              <view class="creatAdress_body">
+                <view class="creatAdress_body_list" bindtap="selectRecommed" data-id="{{ index }}" wx:for-items="{{ travelInfo.travelList }}" wx:key="{{ index }}">
+                  <view class="body_list_left">
+                    <image class="creat_icon" src="../../images/icon_sxcxd@1.5x.png"></image>
+                    <view class="creat_time">{{ item.beginTime }}</view>
+                    <view class="creat_addr">
+                      <view>{{ item.address }}</view>
+                      <!-- <view>距起点{{ item.distance }}km,步行{{ item.duration }}</view> -->
+                    </view>
+                  </view>
+                  <view class="body_list_right">
+                    <block wx:if="{{ creatListIndex == index }}">
+                      <image src="../../images/{{ creatTypeIcon == 'resStart' ? 'icon_sc@3x' : 'icon_xc@3x' }}.png"></image>
+                    </block>
+                    <block wx:else>
+                      <image src="../../images/{{ creatTypeIcon == 'resStart' ? 'icon_scd_gray@3x' : 'icon_xcd_gray@3x' }}.png"></image>
+                    </block>
+                  </view>
                 </view>
               </view>
             </view>
@@ -308,7 +313,7 @@
               </block>
             </view>
             <view class="submit_right">
-              <view>做他的车</view>
+              <view>坐他的车</view>
             </view>
           </view>
         </block>

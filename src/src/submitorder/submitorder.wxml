@@ -53,7 +53,7 @@
 			</view>
 			<view class="order_list">
 				<view>座位数量</view>
-				<view class="seats">{{seat.length}}</view>
+				<view class="seats">{{order.bookSeats}}</view>
 			</view>
 			<block wx:if="{{ isPickUp }}">
 				<view class="order_list">

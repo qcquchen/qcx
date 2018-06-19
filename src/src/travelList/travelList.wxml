@@ -125,7 +125,7 @@
 
 <block wx:if="{{ share_code }}">
   <view class="share_pop" catchtap="{{ draw_type ? 'hideShareCode' : '' }}" catchtouchmove="true">
-    <canvas class="body_canvas" style="width:{{windowWidth}}px" canvas-id="shareFriends"></canvas>
+    <canvas class="body_canvas" style="width:{{windowWidth}}px; background: #ffffff;" canvas-id="shareFriends"></canvas>
     <view class="shareBtn">
       <view class="shareBtn_list">
         <button class="share_img" catchtap="{{ draw_type ? 'creatShareImg' : '' }}">
