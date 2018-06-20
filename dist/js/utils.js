@@ -27,29 +27,10 @@ export const wechatLogin = () => {
         resolve(loginres)
       },
       fail (res){
-        result()
+        result('errorLogin')
       }
     })
   })
-  // if(wx.onNetworkStatusChange()){
-  //   console.log('true')
-  // }else{
-  //   console.log('false')
-  // }
-  // wx.onNetworkStatusChange(function(res) {
-  //   console.log('222222222')
-  //   console.log(res.isConnected)
-  //   console.log(res.networkType)
-  //   if(res.isConnected){
-
-  //   }else{
-  //     wx.showModal({
-  //       title: '提示',
-  //       content: '无网络连接',
-  //       showCancel: false
-  //     })
-  //   }
-  // })
 }
 
 export const wechatGetUserInfo = () => {
