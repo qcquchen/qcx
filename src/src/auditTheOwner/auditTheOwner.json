@@ -1,4 +1,5 @@
 {
     "navigationBarTitleText": "审核车主",
-    "onReachBottomDistance": 30
+    "onReachBottomDistance": 30,
+    "enablePullDownRefresh": true
 }

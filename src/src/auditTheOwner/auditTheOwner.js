@@ -14,7 +14,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    this.auditOwnerList(1)
+    this.auditOwnerList(this.data.pageNo)
   },
   auditOwnerList(page){
     const { driverList } = this.data
@@ -28,24 +28,37 @@ Page({
       })
       this.setData({
         driverList: driverList,
+        bottom_line: driverList.length != 0 ? true : false,
         pageNo: page
       })
-    }).then(() => {
-      // wx.hideLoading()
+      wx.stopPullDownRefresh()
     })
   },
+ //  onReachBottom: function(){
+ //    const { pageNo } = this.data
+	// 	let page = pageNo + 1
+ //    this.auditOwnerList(page)
+	// },
   onReachBottom: function(){
-    const { pageNo } = this.data
-		let page = pageNo + 1
-    this.auditOwnerList(page)
-	},
+    const { page, bottom_line } = this.data
+    if(bottom_line){
+      let new_page = page + 1
+      this.setData({
+        page: new_page
+      })
+      this.auditOwnerList(new_page)
+    }
+  },
+  onPullDownRefresh: function(){
+    this.setData({
+      driverList: []
+    })
+    this.auditOwnerList(1)
+  },
   gotoInfo: function(e){
     const { currentTarget: { dataset: { id } } } = e
     wx.navigateTo({
       url: `/src/auditTheOwner/auditInfo?id=${id}`
     })
-    // this.setData({
-    //   driverList: []
-    // })
   }
 })
