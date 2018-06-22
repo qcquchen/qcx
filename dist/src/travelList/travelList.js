@@ -226,7 +226,7 @@ Page({
             }
           }).then(json => {
             if(json.data.status == 110){
-              let index = travelVoList.findIndex(json => json.travelId == id)
+              let index = travelVoList.findIndex(json => json.ordersTravelId == id)
               travelVoList.splice(index, 1)
               self.setData({
                 travelVoList: travelVoList

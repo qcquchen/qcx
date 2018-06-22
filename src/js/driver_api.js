@@ -1,8 +1,8 @@
 let extConfig = wx.getExtConfigSync? wx.getExtConfigSync(): {}
 
-// const API_ROOT = extConfig.host || `https://t1.driver.quchuxing.com.cn`
+const API_ROOT = extConfig.host || `https://t1.driver.quchuxing.com.cn`
 
-const API_ROOT = extConfig.host || `https://v1.driver.quchuxing.com.cn`
+// const API_ROOT = extConfig.host || `https://v1.driver.quchuxing.com.cn`
 
 const api = require('./apiUtils')
 
@@ -173,7 +173,6 @@ export const touristGroupDetail = (options) => _apiPOST(`${API_ROOT}/group/touri
 export const eachFeedTravelDetail = (options) => _apiPOST(`${API_ROOT}/feed/eachFeedTravelDetail`, options)
 
 // loginOut
-
 export const loginOut = (options) => _apiPOST(`${API_ROOT}/loginOut`, options)
 // /travel/matchTravelPassengers
 export const matchTravelPassengers = (options) => _apiPOST(`${API_ROOT}/travel/matchTravelPassengers`, options)
@@ -184,3 +183,8 @@ export const matchTravelDrivers = (options) => _apiPOST(`${API_ROOT}/travel/matc
 export const getTravelDetail = (options) => _apiPOST(`${API_ROOT}/travel/getTravelDetail`, options)
 
 export const modifyeTravel = (options) => _apiPOST(`${API_ROOT}/travel/updateTravel`, options)
+
+// /driver/update/location
+export const uploadLocation = (options) => _apiPOST(`${API_ROOT}/driver/update/location`, options)
+
+export const obtainLocation = (options) => _apiPOST(`${API_ROOT}/driver/get/locations`, options)

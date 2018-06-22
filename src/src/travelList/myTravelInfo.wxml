@@ -2,6 +2,7 @@
 	longitude="{{travelInfo.driverStart[0] || longitude}}"
  	latitude="{{travelInfo.driverStart[1] || latitude}}"
  	markers="{{markers}}"
+ 	include-points="{{lineLocs}}"
  	bindtap="codeDown"
  	bindmarkertap="markertap"
 	polyline="{{polyline}}"

@@ -21,14 +21,7 @@ const requestType = (type, url, options = {}) => {
         if (options.isHiddenError) {
           resolve(res)
         }
-        wx.hideLoading()
-        console.log(res, '  params')
-        // if(res.data.status == -1){
-        //   wx.navigateTo({
-        //     url: `/src/login/login`
-        //   })
-        //   return
-        // }
+        console.log(res, 'data')
         checkStatus(Object.assign({}, res, {
           isHideErrorMsg : options.isHideErrorMsg
         })).then(resolve, reject)
@@ -42,21 +35,21 @@ const requestType = (type, url, options = {}) => {
   }
 
 
-  if (options.login) {
-    return new Promise((resolve, reject) => {
-      if (options.unLoadLoginCallBack) {
-        app.globalData.unloadCallback = options.unLoadLoginCallBack
-      }
-      checkSystemUser().then(res => {
-        if (res == 'toLogin') {
-          resolve('toLogin')
-          return
-        }
+  // if (options.login) {
+  //   return new Promise((resolve, reject) => {
+  //     if (options.unLoadLoginCallBack) {
+  //       app.globalData.unloadCallback = options.unLoadLoginCallBack
+  //     }
+  //     checkSystemUser().then(res => {
+  //       if (res == 'toLogin') {
+  //         resolve('toLogin')
+  //         return
+  //       }
 
-        callAPI(resolve, reject)
-      }, err => reject(err))
-    })
-  }
+  //       callAPI(resolve, reject)
+  //     }, err => reject(err))
+  //   })
+  // }
 
   return new Promise(callAPI)
 }

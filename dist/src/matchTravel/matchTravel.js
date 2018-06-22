@@ -85,8 +85,9 @@ Page({
 	gotoTravelInfo: function(e){
 		const { currentTarget: { dataset: {id, type} } } = e
     	const { phone } = app.globalData.entities.loginInfo
+    	let data = this.data.selfTravel
 		wx.navigateTo({
-	      url: `/src/travelInfo/travelInfo?travelId=${id}&travelType=${type}&phone=${phone}`
+	      url: `/src/travelInfo/travelInfo?travelId=${id}&travelType=${type}&phone=${phone}&start=${data.start}&end=${data.end}&end_addr=${data.endAddress}&start_addr=${data.startAddress}`
 	    })
 	},
 	postAttention: function(e){

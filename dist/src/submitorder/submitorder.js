@@ -177,17 +177,8 @@ Page({
 		const { token } = app.globalData.entities.loginInfo
 		let data = pay_type == 'nopay' ? order.nopaySign.wxApp : order.wxapp
 		util.toPay(data).then(res => {
-			wx.showModal({
-			  title: '订座成功',
-			  content: '请使用此手机号登录趣出行APP,完成后续操作',
-			  showCancel: false,
-			  success: function(res) {
-			    if (res.confirm) {
-					wx.switchTab({
-						url: `/src/travelList/travelList`
-					})
-			    }
-			  }
+			wx.switchTab({
+				url: `/src/travelList/travelList`
 			})
 		})
 	},

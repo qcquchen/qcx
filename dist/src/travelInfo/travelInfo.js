@@ -42,8 +42,10 @@ Page({
     const { options, updateType } = this.data
     const { appLaunch } = app.globalData
     if(appLaunch){
+      const { token } = app.globalData.entities.loginInfo
       if(updateType){
         this.initData(null, 'authorized')
+        app.getLocation(token)
       }
     }else{
       app.getWechatInfo().then(() => {

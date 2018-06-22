@@ -13,7 +13,8 @@ Page({
 		latitude: 23.099994,
     	longitude: 113.324520,
     	polyline: [],
-    	code_type: 'down'
+    	code_type: 'down',
+    	setInterType: false
 	},
 	onLoad(options){
 		const { travelId, travelType } = options
@@ -51,6 +52,7 @@ Page({
 			data.departureTime = moment(data.recommendStartTime).toDate().pattern('HH:mm')
 			this.planningRoutes(data.driverStart, data.driverEnd)
 			this.addMarkes(data)
+			this.obtainLocation(data, token)
 			this.setData({
 				travelInfo: data,
 				api_type: 'get_order'
@@ -88,7 +90,8 @@ Page({
 				borderWidth: 1
 			}]
 			this.setData({
-				polyline: polyline
+				polyline: polyline,
+				lineLocs: json.points
 			})
 		})
 	},
@@ -314,7 +317,28 @@ Page({
 			})
 		})
 	},
-	addMarkes: function(data, type){
+	obtainLocation: function(data, token){
+		let time = setInterval(() => {
+				driver_api.obtainLocation({
+					data: {
+						token: token,
+						phones: [data.driverPhone]
+					}
+				}).then(json => {
+					let loc = json.data.locations
+					this.addMarkes(data, loc)
+					if(this.data.setInterType){
+						clearInterval(time)
+					}
+				})
+		}, 2000)
+	},
+	onUnload(){
+		this.setData({
+			setInterType: true
+		})
+	},
+	addMarkes: function(data, ownerLoc){
 	    let markers = [{
 	      iconPath: '../../images/icon_map_star@3x_two.png',
 	      id: 0,
@@ -339,6 +363,13 @@ Page({
 	      	color: '#484848',
 	      	fontSize: 14
 	      }
+	    },{
+	      iconPath: '../../images/icon_map_car@3x.png',
+	      id: 2,
+	      latitude: ownerLoc ? ownerLoc[0].location[1] : 0,
+	      longitude: ownerLoc ? ownerLoc[0].location[0] : 0,
+	      width: 28,
+	      height: 50
 	    }]
 		this.setData({
 			markers: markers

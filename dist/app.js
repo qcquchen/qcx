@@ -12,17 +12,15 @@ var appConfig = {
           wx.getSetting({
             success: function(res){
               if(res.authSetting['scope.userInfo']){
-                wx.getUserInfo({
-                  success: function(user) {
-                    user.userInfo.code = login.code
-                    util.setStorage({
-                      key : 'wechatInfo',
-                      data : user.userInfo
-                    })
-                    that.weChatSignin(user.userInfo, resolve, result)
-                  }
+                util.wechatGetUserInfo().then((wehat) => {
+                  wehat.code = login.code
+                  util.setStorage({
+                    key : 'wechatInfo',
+                    data : wehat
+                  })
+                  that.weChatSignin(wehat, resolve, result)
                 })
-                app.globalData.isAuthorized = false
+                // app.globalData.isAuthorized = false
               }else{
                 util.denyAuthorization('login')
                 // app.globalData.isAuthorized = true
@@ -76,6 +74,7 @@ var appConfig = {
             data : json.data
           })
           this.globalData.appLaunch = true
+          this.getLocation(this.globalData.entities.loginInfo.token)
           solve()
         }else{
           this.globalData.entities.loginInfo = {
@@ -85,6 +84,19 @@ var appConfig = {
           this.globalData.appLaunch = true
           solve()
         }
+
+      })
+    },
+    getLocation: function(token){
+      util.getLocation().then(json => {
+        setInterval(() => {
+          driver_api.uploadLocation({
+            data: {
+              token: token,
+              location: [json.longitude, json.latitude]
+            }
+          })
+        }, 10000)
       })
     }
 }

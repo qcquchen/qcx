@@ -18,6 +18,7 @@ Page({
     const { appLaunch } = app.globalData
     if(appLaunch){
       const { token } = app.globalData.entities.loginInfo
+      app.getLocation(token)
       self.getLocationCity(token, 'authorized')
     }else{
       app.getWechatInfo().then(() => {

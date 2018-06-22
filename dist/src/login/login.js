@@ -31,13 +31,13 @@ Page({
     	}
 	},
 	inCode:function(e){
-		// if(!(/^\d{6}$/.test(e.detail.value))){
-		// 	this.setData({
-		// 		code_false: true,
-		// 		code: null
-		// 	})
-		// 	return
-  //       }
+		if(!(/^\d{6}$/.test(e.detail.value))){
+			this.setData({
+				code_false: true,
+				code: null
+			})
+			return
+        }
     	this.setData({
 			code_false: false,
 			code: e.detail,

@@ -38,11 +38,9 @@ export const wechatGetUserInfo = () => {
     wx.getUserInfo({
       withCredentials: true,
       success (data){
-        console.log('true')
         resolve(data.userInfo)
       },
       fail (res){
-        console.log('false')
         result()
       }
     })
@@ -153,14 +151,6 @@ export const setEntities = (options = {}) => {
 //   return user
 // }
 
-// export const clrearLoginStatus = () => {
-//   let app = getApp()
-//   removeStorage('current_user')
-//   app.globalData.wechatInfo = null
-//   app.globalData.userInfo = null
-//   return app.getWechatInfo()
-// }
-
 // export const initData = () => {
 //   const api = require('./api')
 //   let app = getApp()
@@ -249,6 +239,14 @@ export const checkErrorMsg = (data, statusCode, isHideErrorMsg) => {
   }
 
   handleError(data, statusCode)
+}
+
+export const clrearLoginStatus = () => {
+  let app = getApp()
+  removeStorage('current_user')
+  app.globalData.wechatInfo = null
+  app.globalData.userInfo = null
+  return app.getWechatInfo()
 }
 
 export const checkStatus = (res) => {
@@ -592,6 +590,7 @@ export const getCurrentLocation = () => {
 export const getLocation = () => {
   return new Promise((resolve, reject) => {
     wx.getLocation({
+      type: 'gcj02',
       success (res) {
         resolve(res)
       },
