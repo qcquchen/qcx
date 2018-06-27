@@ -16,8 +16,8 @@
 			<cover-view class="travel_title" bindtap="{{ code_type == 'down' ? 'codeUp' : 'codeDown' }}">
 				<block wx:if="{{ travelType == '4' }}">
 					<cover-view style="margin-left: 8px;" class="">车主已抢单，去支付吧</cover-view>
-					<cover-view class="label_style">
-						<cover-view bindtap="typeFourPay">支付</cover-view>
+					<cover-view class="label_style" bindtap="typeFourPay">
+						<cover-view>支付</cover-view>
 					</cover-view>
 				</block>
 				<block wx:if="{{ travelType == '5' }}">

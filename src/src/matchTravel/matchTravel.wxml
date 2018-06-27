@@ -151,7 +151,7 @@
 	</view>
 </block>
 <block wx:if="{{ showOperating }}">
-	<view class="operatingMask" catchtap="">
+	<view class="operatingMask" catchtap="{{!updateShow ? 'clickShowOperating' : ''}}">
 		<block wx:if="{{ !updateShow }}">
 			<view class="operatingArea">
 				<view catchtap="clickUpdate" data-id="time">修改时间</view>

@@ -98,12 +98,7 @@ Page({
 	        wx.showModal({
 	          title: '提示',
 	          content: '请输入真实姓名',
-	          showCancel: false,
-	          success: function(res) {
-	            if (res.confirm) {
-	              console.log('')
-	            }
-	          }
+	          showCancel: false
 	        })
 	        return
 	    }
@@ -111,25 +106,24 @@ Page({
 	        wx.showModal({
 	          title: '提示',
 	          content: '请输入车牌号',
-	          showCancel: false,
-	          success: function(res) {
-	            if (res.confirm) {
-	              console.log('')
-	            }
-	          }
+	          showCancel: false
 	        })
 	        return
 	    }
+	    if(!(/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4,5}[A-Z0-9挂学警港澳]{1}$/.test(car_code))){
+	    	 wx.showModal({
+	          title: '提示',
+	          content: '请输入正确的车牌号',
+	          showCancel: false
+	        })
+	    	return
+	    }
+
 	    if(!one_img){
 	        wx.showModal({
 	          title: '提示',
 	          content: '请上传驾驶证',
-	          showCancel: false,
-	          success: function(res) {
-	            if (res.confirm) {
-	              console.log('')
-	            }
-	          }
+	          showCancel: false
 	        })
 	        return
 	    }
@@ -137,12 +131,7 @@ Page({
 	        wx.showModal({
 	          title: '提示',
 	          content: '请上传行驶证',
-	          showCancel: false,
-	          success: function(res) {
-	            if (res.confirm) {
-	              console.log('')
-	            }
-	          }
+	          showCancel: false
 	        })
 	        return
 	    }
@@ -150,12 +139,7 @@ Page({
 	        wx.showModal({
 	          title: '提示',
 	          content: '请填写正确的车型和车体颜色',
-	          showCancel: false,
-	          success: function(res) {
-	            if (res.confirm) {
-	              console.log('')
-	            }
-	          }
+	          showCancel: false
 	        })
 	        return
 	    }

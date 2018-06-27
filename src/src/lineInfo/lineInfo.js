@@ -259,19 +259,19 @@ Page({
       }
       this.setData({
         markers: [{
-          iconPath: '../../images/icon_map_line@3x.png',
+          iconPath: '../../images/icon_map_star@3x_two.png',
           id: 0,
           longitude: start[0],
           latitude: start[1],
           width: 32,
-          height: 35
+          height: 40
         },{
-          iconPath: '../../images/icon_map_line@3x.png',
+          iconPath: '../../images/icon_map_end@3x_two.png',
           id: 1,
           longitude: end[0],
           latitude: end[1],
           width: 32,
-          height: 35
+          height: 40
         }],
         polyline: [{
           points: route,
@@ -281,7 +281,8 @@ Page({
           arrowLine: true,
           borderColor: '#4494F0',
           borderWidth: 1
-        }]
+        }],
+        route: route
       })
     })
   },

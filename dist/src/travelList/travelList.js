@@ -31,9 +31,6 @@ Page({
       self.initData()
     }else{
       app.getWechatInfo().then(() => {
-        wx.showLoading({
-          title: '加载中',
-        })
         self.initData()
       })
     }
@@ -83,6 +80,9 @@ Page({
     })
   },
   getMineAllTravel(page){
+    wx.showLoading({
+      title: '加载中',
+    })
     const { token } = app.globalData.entities.loginInfo
     driver_api.getMineAllTravel({
       data: {
@@ -116,8 +116,8 @@ Page({
   },
   cancelTravel:function(e){
     const { travelVoList } = this.data
-    const { currentTarget: { dataset: { id } } } = e
-    let data = travelVoList.find(json => json.travelId == id)
+    const { currentTarget: { dataset: { index } } } = e
+    let data = travelVoList.find((json, index_D) => index_D  == index)
     if(data.type == 1){
       if(data.status == 3){
         this.beforePassengerDelete(data.travelId, data.type)
@@ -133,7 +133,7 @@ Page({
       if(data.status == 6){
         this.cancelTheTrip(data.ordersTravelId)
       }
-      if(data.status == 8){
+      if(data.status == 8 || data.status == 7){
         wx.showModal({
           title: '提示',
           content: '车主已发车, 不能取消行程',
@@ -393,10 +393,10 @@ Page({
     }
   },
   gotoTravelInfo: function(e){
-    const { currentTarget: { dataset: { id, type } } } = e
+    const { currentTarget: { dataset: { id } } } = e
     const { travelVoList } = this.data
-    let data = travelVoList.find(json => json.travelId == id)
-    switch (type){
+    let data = travelVoList.find((json, index) => index == id)
+    switch (data.status){
       case 1:
       case 2:
         wx.showModal({
@@ -419,13 +419,13 @@ Page({
         break;
       case 4:
         wx.navigateTo({
-          url: `/src/travelList/myTravelInfo?travelType=${type}&&travelId=${data.travelId}`
+          url: `/src/travelList/myTravelInfo?travelType=${data.status}&&travelId=${data.travelId}`
         })
         this.clearData()
         break;
       case 5:
         wx.navigateTo({
-          url: `/src/travelList/myTravelInfo?travelType=${type}&&travelId=${data.ordersTravelId}`
+          url: `/src/travelList/myTravelInfo?travelType=${data.status}&&travelId=${data.ordersTravelId}`
         })
         this.clearData()
         break;
@@ -433,7 +433,7 @@ Page({
       case 7:
       case 8:
         wx.navigateTo({
-          url: `/src/travelList/myTravelInfo?travelType=${type}&&travelId=${data.ordersTravelId}`
+          url: `/src/travelList/myTravelInfo?travelType=${data.status}&&travelId=${data.ordersTravelId}`
         })
         this.clearData()
         break;

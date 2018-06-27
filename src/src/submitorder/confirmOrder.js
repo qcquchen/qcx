@@ -7,7 +7,7 @@ var app = getApp()
 
 Page({
 	data:{
-		countdown: app.globalData.entities.setTimeNumber || 180,
+		countdown: '',
 		order: {},
 		setTimeType: true
 	},
@@ -18,16 +18,22 @@ Page({
 			order: pay_datails,
 			sharePhone: sharePhone,
 			share_type: share_type,
-			pay_type: pay_type
+			pay_type: pay_type,
+			countdown: app.globalData.entities.setTimeNumber
 		})
 		this.setIntervalTime(true)
 	},
 	setIntervalTime:function(type){
+		console.log('this.data.countdown', this.data.countdown)
 		let time = setInterval(() => {
 			let number = this.data.countdown <　0 ? 180 : this.data.countdown
 			let second = number - 1
 			this.setData({
 				countdown: second
+			})
+			util.setEntities({
+				key: 'setTimeNumber',
+				value: second
 			})
 			if(second <= 0){
 				clearInterval(time)
@@ -44,17 +50,8 @@ Page({
 		const { token } = app.globalData.entities.loginInfo
 		let data = pay_type == 'nopay' ? order.nopaySign.wxApp : order.wxapp
 		util.toPay(data).then(res => {
-			wx.showModal({
-			  title: '订座成功',
-			  content: '请使用此手机号登录趣出行APP,完成后续操作',
-			  showCancel: false,
-			  success: function(res) {
-			    if (res.confirm) {
-					wx.switchTab({
-						url: `/src/travelList/travelList`
-					})
-			    }
-			  }
+			wx.switchTab({
+				url: `/src/travelList/travelList`
 			})
 		})
 	},
@@ -74,7 +71,6 @@ Page({
 			})
 			this.setData({
 				popUpStatus: true,
-				setTimeType: false,
 				countdown: 1
 			})
 			setTimeout(() => {
@@ -88,14 +84,9 @@ Page({
 		
 	},
 	onUnload(){
-		util.setEntities({
-			key: 'setTimeNumber',
-			value: this.data.countdown
-		})
 		this.setData({
 			popUpStatus: true,
-			setTimeType: false,
-			countdown: 0
+			setTimeType: false
 		})
 	}
 })

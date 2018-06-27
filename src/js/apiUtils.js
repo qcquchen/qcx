@@ -21,6 +21,7 @@ const requestType = (type, url, options = {}) => {
         if (options.isHiddenError) {
           resolve(res)
         }
+        wx.hideLoading()
         console.log(res, 'data')
         checkStatus(Object.assign({}, res, {
           isHideErrorMsg : options.isHideErrorMsg

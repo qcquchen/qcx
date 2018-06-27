@@ -151,21 +151,53 @@ Page({
     let matchEnd = typeof(data.recommendEndLocation) == 'string' ? data.recommendEndLocation.split(',') : data.recommendEndLocation
     let markers = []
     if(type == 1){
-      markers = [{
-        iconPath: '../../images/icon_map_star@3x.png',
-        id: 0,
-        latitude: start[1],
-        longitude: start[0],
-        width: 25,
-        height: 25
-      },{
-        iconPath: '../../images/icon_map_end@3x.png',
-        id: 1,
-        latitude: end[1],
-        longitude: end[0],
-        width: 25,
-        height: 25
-      }]
+      if(data.mineStart == null){
+        markers = [{
+          iconPath: '../../images/icon_map_star@3x.png',
+          id: 0,
+          latitude: start[1],
+          longitude: start[0],
+          width: 25,
+          height: 25
+        },{
+          iconPath: '../../images/icon_map_end@3x.png',
+          id: 1,
+          latitude: end[1],
+          longitude: end[0],
+          width: 25,
+          height: 25
+        }]
+      }else{
+        markers = [{
+          iconPath: '../../images/icon_map_star@3x.png',
+          id: 0,
+          latitude: data.mineStart[1],
+          longitude: data.mineStart[0],
+          width: 25,
+          height: 25
+        },{
+          iconPath: '../../images/icon_map_end@3x.png',
+          id: 1,
+          latitude: data.mineEnd[1],
+          longitude: data.mineEnd[0],
+          width: 25,
+          height: 25
+        },{
+          iconPath: '../../images/icon_map_up@3x.png',
+          id: 2,
+          latitude: start[1],
+          longitude: start[0],
+          width: 40,
+          height: 47
+        },{
+          iconPath: '../../images/icon_map_down@3x.png',
+          id: 3,
+          latitude: end[1],
+          longitude: end[0],
+          width: 40,
+          height: 47
+        }]
+      }
     }else if(type == 0){
       if(switch_type == 'siteRide'){
         markers = [{
@@ -223,12 +255,12 @@ Page({
     })
   },
   planningRoutes: function(){
-    const { travelInfo, switch_type } = this.data
+    const { travelInfo, switch_type, options } = this.data
     let parmas = {}
-    if(switch_type == 'siteRide'){
-      parmas = Object.assign({}, {start: travelInfo.start}, {end: travelInfo.end})
+    if(options == 0){
+      parmas = Object.assign({}, {start: travelInfo.start}, {end: travelInfo.end}, {waypoints: travelInfo.waypoints})
     }else{
-      parmas = Object.assign({}, {start: travelInfo.mineStart}, {end: travelInfo.mineEnd}, {waypoints: travelInfo.waypoints})
+      parmas = Object.assign({}, {start: travelInfo.mineStart != null ? travelInfo.mineStart : travelInfo.start}, {end: travelInfo.mineEnd != null ? travelInfo.mineEnd : travelInfo.end}, {waypoints: [travelInfo.start,travelInfo.end]})
     }
     let start = ''
     if(travelInfo.recommendStatus){
@@ -248,9 +280,11 @@ Page({
           borderColor: '#458A53',
           borderWidth: 1
         }],
-        longitude: centerCoordinate.longitude,
-        latitude: centerCoordinate.latitude,
-        lineAll: res.points
+        longitude: res.points[centerCoordinate].longitude,
+        latitude: res.points[centerCoordinate].latitude,
+        lineAll: res.points,
+        distance: res.distance,
+        allTime: res.time
       })
     })
   },
@@ -350,6 +384,9 @@ Page({
               }else if(id === 'carStart'){
                 travelInfo.mineStart = loc
                 travelInfo.mineStartAddress = res.name
+                if(travelInfo.mineEnd != null){
+                  self.getTravelDetail(options.travelId, options.travelType, loc, travelInfo.mineEnd, res.name, travelInfo.mineEndAddress)
+                }
                 self.setData({travelInfo: travelInfo})
               }else if(id === 'carEnd'){
                 let start = travelInfo.mineStart == null ? myLocation : travelInfo.mineStart
@@ -374,12 +411,20 @@ Page({
       })
       return
     }
+    if(travelInfo.currentUserTravel){
+      wx.showModal({
+        title: '提示',
+        content: '不能预订自己的行程',
+        showCancel: false
+      })
+      return
+    }
     if(travelInfo.surplusSeats == 0){
       wx.showModal({
-      title: '提示',
-      content: '暂无余座',
-      showCancel: false
-    })
+        title: '提示',
+        content: '暂无余座',
+        showCancel: false
+      })
       return
     }
     let createTime = switch_type == 'siteRide' ? travelInfo.recommendStartTime : travelInfo.pickUpStartTime
@@ -567,7 +612,8 @@ Page({
   bindfocus: function(e){
     const { currentTarget: { dataset: { type } } } = e
     this.setData({
-      inputStatus: type
+      inputStatus: type,
+      history: false
     })
   },
   enterAddr: function(e){
@@ -578,8 +624,7 @@ Page({
       success: function(res){
         if(res && res.tips){
           self.setData({
-            tips: res.tips,
-            history: false
+            tips: res.tips
           })
         }
       }

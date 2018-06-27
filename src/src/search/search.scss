@@ -1,5 +1,5 @@
 .header{
-  padding: 0 12px;
+  padding: 0 15px;
 }
 .history_icon, .loc_icon{
   width: 18px;
@@ -14,13 +14,13 @@
     width: 25px;
     height: 25px;
     display: block;
-    margin: 0 auto;
+    margin-left: 15px;
   }
   .header_left, .header_right{
     .location{
       display: flex;
       align-items: center;
-      padding: 10px 0;
+      padding: 15px 0;
       >input{
         margin-left: 6px;
         width: 100%；

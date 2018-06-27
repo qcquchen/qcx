@@ -1,142 +1,143 @@
-.body {
-  padding: 0 15px; }
-  .body .search {
-    padding: 8px;
-    background: #F2F2F5;
-    border-radius: 8px;
+.search {
+  padding: 8px;
+  background: #F2F2F5;
+  border-radius: 8px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  margin: 0 15px; }
+  .search > image {
+    width: 20px;
+    height: 20px;
+    display: block; }
+  .search > input {
+    margin-left: 5px;
+    width: 100%; }
+
+.line {
+  padding: 12px 0; }
+  .line .line_title {
+    font-size: 17px;
+    color: #484848;
+    font-weight: bold;
+    padding: 0 15px; }
+  .line .line_title_type {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center; }
+    .line .line_title_type .lookAll {
+      font-size: 12px;
+      font-weight: normal;
+      color: #cccccc; }
+  .line .myLine {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
-        align-items: center; }
-    .body .search > image {
+        align-items: center;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    /*justify-content: space-between;*/ }
+    .line .myLine .myLine_li {
+      width: 33%;
+      text-align: center; }
+      .line .myLine .myLine_li .myLine_li_info {
+        padding: 8px 0; }
+        .line .myLine .myLine_li .myLine_li_info .my_attractions {
+          background: #8B9BFF;
+          font-size: 10px;
+          color: #ffffff;
+          padding: 0 3px;
+          border-radius: 4px;
+          width: 30px;
+          margin: 5px auto;
+          white-space: nowrap; }
+        .line .myLine .myLine_li .myLine_li_info > image {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          display: block;
+          margin: 0 auto; }
+        .line .myLine .myLine_li .myLine_li_info .line_name {
+          margin-top: 8px;
+          font-size: 11px;
+          color: #484848;
+          width: 60px;
+          height: 30px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          text-align: center;
+          overflow: hidden;
+          margin: 0 auto; }
+  .line .hotLine .hotLine_li {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ededf1; }
+    .line .hotLine .hotLine_li .hotLine_imgTwo > image {
       width: 20px;
       height: 20px;
       display: block; }
-    .body .search > input {
-      margin-left: 5px;
-      width: 100%; }
-  .body .line {
-    padding: 12px 0; }
-    .body .line .line_title {
-      font-size: 17px;
-      color: #484848;
-      font-weight: bold; }
-    .body .line .line_title_type {
+    .line .hotLine .hotLine_li .hotLine_li_left {
       display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-      -ms-flex-align: center;
-          align-items: center; }
-      .body .line .line_title_type .lookAll {
-        font-size: 12px;
-        font-weight: normal;
-        color: #cccccc; }
-    .body .line .myLine {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-      /*justify-content: space-between;*/ }
-      .body .line .myLine .myLine_li {
-        width: 33%;
-        text-align: center; }
-        .body .line .myLine .myLine_li .myLine_li_info {
-          padding: 8px 0; }
-          .body .line .myLine .myLine_li .myLine_li_info .my_attractions {
-            background: #8B9BFF;
+      display: flex; }
+      .line .hotLine .hotLine_li .hotLine_li_left .hotLine_imgOne > image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%; }
+      .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail {
+        color: #484848;
+        font-size: 13px;
+        margin: 0 12px; }
+        .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_tit {
+          font-size: 14px;
+          width: 180px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-weight: bold; }
+        .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          padding: 4px 0;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
+          .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum > view {
             font-size: 10px;
             color: #ffffff;
-            padding: 0 3px;
+            padding: 2px 6px;
+            margin-right: 5px;
             border-radius: 4px;
-            width: 30px;
-            margin: 5px auto;
-            white-space: nowrap; }
-          .body .line .myLine .myLine_li .myLine_li_info > image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto; }
-          .body .line .myLine .myLine_li .myLine_li_info .line_name {
-            margin-top: 8px;
-            font-size: 11px;
-            color: #484848;
-            width: 60px;
-            height: 30px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            text-align: center;
-            overflow: hidden;
-            margin: 0 auto; }
-    .body .line .hotLine .hotLine_li {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-      padding: 8px 0 12px 0;
-      border-bottom: 1px solid #ededf1; }
-      .body .line .hotLine .hotLine_li .hotLine_imgTwo > image {
-        width: 30px;
-        height: 30px;
-        display: block; }
-      .body .line .hotLine .hotLine_li .hotLine_li_left {
-        display: -ms-flexbox;
-        display: flex; }
-        .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_imgOne > image {
-          width: 60px;
-          height: 60px;
-          border-radius: 50%; }
-        .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail {
-          color: #484848;
-          font-size: 13px;
-          margin: 0 12px; }
-          .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_tit {
-            font-size: 14px;
-            width: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            font-weight: bold; }
-          .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-align: center;
-                align-items: center;
-            padding: 4px 0;
-            -ms-flex-wrap: wrap;
-                flex-wrap: wrap; }
-            .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum > view {
-              font-size: 10px;
-              color: #ffffff;
-              padding: 2px 6px;
-              margin-right: 5px;
-              border-radius: 4px;
-              margin-bottom: 3px; }
-            .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum .attractions {
-              background: #8B9BFF; }
-            .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum .people_num {
-              background: #499EFF; }
-            .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum .other_bg {
-              background: #FFAA1F; }
-          .body .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_ingo_synopsis {
-            width: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap; }
-      .body .line .hotLine .hotLine_li .isJoined {
-        width: 40px;
-        height: 20px; }
-    .body .line .hotLine .hotLine_li:last-child {
-      border-bottom: none; }
-    .body .line .none_line {
-      text-align: center;
-      font-size: 16px;
-      color: #ABB1BA;
-      padding: 20px 0; }
+            margin-bottom: 3px; }
+          .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum .attractions {
+            background: #8B9BFF; }
+          .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum .people_num {
+            background: #73ADFF; }
+          .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_info_peopleNum .other_bg {
+            background: #73ADFF; }
+        .line .hotLine .hotLine_li .hotLine_li_left .hotLine_detail .hot_ingo_synopsis {
+          width: 180px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+    .line .hotLine .hotLine_li .isJoined {
+      width: 40px;
+      height: 20px; }
+  .line .hotLine .hotLine_li:last-child {
+    border-bottom: none; }
+  .line .none_line {
+    text-align: center;
+    font-size: 16px;
+    color: #ABB1BA;
+    padding: 20px 0; }

@@ -1055,11 +1055,14 @@ export const getDrivingRoute = (start, end) => {
 export const getPlanning = (parmas) => {
   let start_loc = typeof(parmas.start) == 'string' ? parmas.start : parmas.start.join(',')
   let end_loc = typeof(parmas.end) == 'string' ? parmas.end : parmas.end.join(',')
+  let waypoints = typeof(parmas.waypoints) == 'object' ? parmas.waypoints.map(json =>　{
+    return json.join(',')
+  }).join(';') : parmas.waypoints
   return new Promise((resolve, result) => {
     myAmapFun.getDrivingRoute({
       origin: start_loc,
       destination: end_loc,
-      waypoints: parmas.waypoints,
+      waypoints: waypoints,
       success: function(data){
         let points = [];
         if(data.paths && data.paths[0] && data.paths[0].steps){

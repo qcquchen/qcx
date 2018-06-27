@@ -20,9 +20,29 @@
 			"current": -1,
 			"list": []
 		},
-		"miniprogram": {
+		"plugin": {
 			"current": -1,
 			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "210",
+					"pathName": "src/travelInfo/travelInfo",
+					"query": "travelId=62717142170665&travelType=0&phone=15130096570"
+				},
+				{
+					"id": -1,
+					"name": "210",
+					"pathName": "src/ownersCertification/ownersCertification",
+					"query": ""
+				}
+			]
 		}
 	}
 }

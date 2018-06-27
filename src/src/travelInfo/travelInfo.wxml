@@ -328,7 +328,7 @@
       </block>
       <block wx:else>
         <view class="submit" bindtap="grabAsingLe">
-            <view class="submit_left">绕行{{travelInfo.extraDistance}}公里,多花费{{travelInfo.extraDuration}}分钟</view>
+            <view class="submit_left">全程{{distance}}公里, 需要花费{{allTime}}</view>
             <view class="submit_right">
               <view>抢单</view>
             </view>

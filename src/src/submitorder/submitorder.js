@@ -64,6 +64,9 @@ Page({
         })
 	},
 	submit:function(){
+		wx.showLoading({
+          title: '提交中',
+        })
 		const { submit_price, travelId, seat, price, insurance, people_id, sharePhone, share_type, start, end, startAdd, endAdd, startTime, isPickUp, extraDistance } = this.data
 		let mine_seat = seat.find(json => json.type == true).number
 		const { token, openId } = app.globalData.entities.loginInfo
@@ -115,6 +118,7 @@ Page({
 		      key: 'setTimeNumber',
 		      value: 180
 		    })
+		    wx.hideLoading()
 			this.setData({
 				popUpStatus: false,
 				order: data,
@@ -152,6 +156,10 @@ Page({
 			this.setData({
 				countdown: second
 			})
+			util.setEntities({
+				key: 'setTimeNumber',
+				value: second
+			})
 			if(second <= 0){
 				clearInterval(time)
 				if(this.data.setTimeType){
@@ -164,10 +172,6 @@ Page({
 	},
 	cloasePop: function(){
 		const { popUpStatus } = this.data
-		util.setEntities({
-			key: 'setTimeNumber',
-			value: this.data.countdown
-		})
 		this.setData({
 			popUpStatus: !popUpStatus
 		})
@@ -220,14 +224,9 @@ Page({
 		
 	},
 	onUnload(){
-		util.setEntities({
-			key: 'setTimeNumber',
-			value: this.data.countdown
-		})
 		this.setData({
 			popUpStatus: true,
-			setTimeType: false,
-			countdown: 0
+			setTimeType: false
 		})
 	}
 })

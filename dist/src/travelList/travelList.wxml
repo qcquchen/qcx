@@ -17,7 +17,7 @@
   <view class="details">
     <view wx:for-items="{{ travelVoList }}" wx:key="{{index}}">
       <view class="travel_code">
-        <view class="travel_list {{ item.type == 1 || item.type == 2 ? 'people-bgcolor' : 'car-bgcolor' }}" bindtap="gotoTravelInfo" data-type="{{ item.status }}" data-id="{{ item.travelId }}">
+        <view class="travel_list {{ item.type == 1 || item.type == 2 ? 'people-bgcolor' : 'car-bgcolor' }}" bindtap="gotoTravelInfo" data-id="{{ index }}">
           <view class="list_title">
             <view class="list_title_left">
               <block wx:if="{{ item.type == 1 || item.type == 2 }}">
@@ -67,7 +67,7 @@
             <button class="code_foot_text">分享行程</button>
           </view>
           <block wx:if="{{ item.type == 1 || item.type == 2 }}">
-            <view class="code_foot_list" bindtap="cancelTravel" data-id="{{ item.travelId }}" data-type="{{ item.status }}" data-pid="{{item.passengerTravelId}}">
+            <view class="code_foot_list" bindtap="cancelTravel" data-index="{{index}}" data-type="{{ item.status }}" data-pid="{{item.passengerTravelId}}">
               <view class="code_foot_icon">
                 <image src="../../images/btn_cancel_mini@3x.png"></image>
               </view>

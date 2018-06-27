@@ -451,7 +451,7 @@ Page({
 	},
 	confirmTheChange: function(){
 		const { bindTimeVal, pickerType, bindPeopleVal, selfTravel } = this.data
-		let changeTime = moment().toDate().pattern('yyyy-MM-dd HH:00:ss')
+		let changeTime = null
 		let changeSeats = null
 		if(pickerType == 'time'){
 			if(bindTimeVal){
@@ -459,6 +459,8 @@ Page({
 				let changeHour = hour.hourArray[bindTimeVal[1]]
 				let changeMinute = minute.minuteArray[bindTimeVal[2]]
 				changeTime = `${changeDay} ${changeHour}:${changeMinute}:00`
+			}else{
+				changeTime = moment(selfTravel.startTime).toDate().pattern('yyyy-MM-dd HH:mm:ss')
 			}
 			if(!moment(changeTime).isAfter(moment().toDate().pattern('yyyy-MM-dd HH:mm:ss'))){
 		      wx.showModal({
