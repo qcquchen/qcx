@@ -68,19 +68,19 @@ Page({
 			}
 			this.setData({
 				markers: [{
-	              iconPath: '../../images/icon_map_star@3x.png',
+	              iconPath: '../../images/icon_map_star@3x_two.png',
 	              id: 0,
 	              longitude: startLocation[0],
 	              latitude: startLocation[1],
 	              width: 32,
-	              height: 50
+	              height: 47
 	            },{
-	              iconPath: '../../images/icon_map_end@3x.png',
+	              iconPath: '../../images/icon_map_end@3x_two.png',
 	              id: 1,
 	              longitude: endLocation[0],
 	              latitude: endLocation[1],
 	              width: 32,
-	              height: 50
+	              height: 47
 	            }],
 	            polyline: [{
 		          points: data.route,
@@ -90,7 +90,8 @@ Page({
 		          arrowLine: true,
 		          borderColor: '#458A53',
 		          borderWidth: 1
-		        }]
+		        }],
+		        lineAll: data.route
 			})
 		})
 	},

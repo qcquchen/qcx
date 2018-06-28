@@ -257,10 +257,10 @@ Page({
   planningRoutes: function(){
     const { travelInfo, switch_type, options } = this.data
     let parmas = {}
-    if(options == 0){
-      parmas = Object.assign({}, {start: travelInfo.start}, {end: travelInfo.end}, {waypoints: travelInfo.waypoints})
+    if(options.travelType == 0){
+      parmas = Object.assign({}, {start: travelInfo.start}, {end: travelInfo.end}, {waypoints: travelInfo.waypoints}, {strategy: travelInfo.strategy})
     }else{
-      parmas = Object.assign({}, {start: travelInfo.mineStart != null ? travelInfo.mineStart : travelInfo.start}, {end: travelInfo.mineEnd != null ? travelInfo.mineEnd : travelInfo.end}, {waypoints: [travelInfo.start,travelInfo.end]})
+      parmas = Object.assign({}, {start: travelInfo.mineStart != null ? travelInfo.mineStart : travelInfo.start}, {end: travelInfo.mineEnd != null ? travelInfo.mineEnd : travelInfo.end}, {waypoints: [travelInfo.start,travelInfo.end]}, {strategy: travelInfo.strategy})
     }
     let start = ''
     if(travelInfo.recommendStatus){

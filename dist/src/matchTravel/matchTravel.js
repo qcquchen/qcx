@@ -6,7 +6,6 @@ var app = getApp()
 var day = util.selectDay()
 var hour = util.selectHour()
 var minute = util.selectMinute()
-
 Page({
 	data: {
 		page: 1,
@@ -23,11 +22,7 @@ Page({
 	},
 	onReady(){
 		this.shareCode = this.selectComponent("#shareCode")
-		let dayIndex = day.dayArray.findIndex((res) => res == moment().toDate().pattern('yyyy-MM-dd'))
-		let hourIndex = hour.hourArray.findIndex((res) => res == moment().toDate().pattern('HH'))
-		this.setData({
-			timeValue: [dayIndex, hourIndex, 0]
-		})
+		
 	},
 	onLoad(options){
 		const { travelId, type } = options
@@ -170,9 +165,13 @@ Page({
 		selfTravel.seat_true && selfTravel.seat_true.map((json_img, index_one) => {
 			json_img.img = selfTravel.headPictures[index_one]
 		})
+		let dayIndex = day.dayArray.findIndex((res) => res == moment(selfTravel.startTime).toDate().pattern('yyyy-MM-dd'))
+		let hourIndex = hour.hourArray.findIndex((res) => res == moment(selfTravel.startTime).toDate().pattern('HH'))
+		let minuteIndex = minute.minuteArray.findIndex((res) => res == moment(selfTravel.startTime).toDate().pattern('mm'))
 		this.setData({
 			selfTravel: selfTravel,
-			travelResults: travelResults
+			travelResults: travelResults,
+			timeValue: [dayIndex, hourIndex, minuteIndex]
 		})
 	},
 	expandCollapse: function(){

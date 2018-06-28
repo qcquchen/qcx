@@ -5,6 +5,7 @@
  bindcontroltap="controltap"
  markers="{{markers}}"
  bindmarkertap="markertap"
+ include-points="{{lineAll}}"
  polyline="{{polyline}}"
  show-location
  style="width: 100%; height: {{ win_height - 240 }}px;"></map>

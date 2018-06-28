@@ -120,6 +120,7 @@ Page({
         })
         break;
     }
+    console.log(this.data.timeIndex,'---------------??????????')
     util.loactionAddress(this.initData).then(res => {
       this.setData({
         latitude: location ? location.latitude : res.latitude,
@@ -128,6 +129,9 @@ Page({
         strategy: strategy ? strategy : 0,
         start_city: location ? this.data.start_city : res.initial_city
       })
+      if(strategy){
+        this.getLine()
+      }
     })
   },
   initData(){
@@ -284,12 +288,12 @@ Page({
       timeArray: timeArray
     })
   },
-  getLine:function(type){
+  getLine:function(){
     const { token } = app.globalData.entities.loginInfo
     const { longitude, latitude, end_latitude, end_longitude } = this.data
     let start = [longitude, latitude]
     let end = [end_longitude, end_latitude]
-    let parmas = Object.assign({}, {token: token}, {start: start}, {end: end}, {strategy: 0})
+    let parmas = Object.assign({}, {token: token}, {start: start}, {end: end}, {strategy: this.data.strategy})
     driver_api.getLine({
       data: parmas
     }).then(json => {
@@ -321,7 +325,8 @@ Page({
           arrowLine: true,
           borderColor: '#458A53',
           borderWidth: 1
-        }]
+        }],
+        lineAll: route
       })
     })
   },

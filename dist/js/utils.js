@@ -1063,6 +1063,7 @@ export const getPlanning = (parmas) => {
       origin: start_loc,
       destination: end_loc,
       waypoints: waypoints,
+      strategy: parmas.strategy,
       success: function(data){
         let points = [];
         if(data.paths && data.paths[0] && data.paths[0].steps){
