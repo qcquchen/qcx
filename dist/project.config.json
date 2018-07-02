@@ -20,23 +20,9 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "210",
-					"pathName": "src/travelInfo/travelInfo",
-					"query": "scene=62810594316681,15910729133,0"
-				}
-			]
+			"list": []
 		}
 	}
 }
