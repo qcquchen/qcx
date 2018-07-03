@@ -1,7 +1,7 @@
 {
   "pages": [
-    "src/findTravel/findTravel",
     "src/index",
+    "src/findTravel/findTravel",
     "src/travelList/travelList",
     "src/travelList/myTravelInfo"
   ],
@@ -86,16 +86,16 @@
     "backgroundColor" : "#FFF",
     "borderStyle" : "white",
     "list" : [{
-        "pagePath" : "src/findTravel/findTravel",
-        "iconPath" : "images/btn_home.png",
-        "selectedIconPath" : "images/btn_home_on.png",
-        "text" : "发现"
-    }, {
         "pagePath" : "src/index",
         "iconPath" : "images/btn_tab_start.png",
         "selectedIconPath" : "images/btn_tab_start_on.png",
+        "text" : "首页"
+    },{
+        "pagePath" : "src/findTravel/findTravel",
+        "iconPath" : "images/btn_home.png",
+        "selectedIconPath" : "images/btn_home_on.png",
         "text" : "发布"
-    }, {
+    },  {
         "pagePath" : "src/travelList/travelList",
         "iconPath" : "images/btn_me.png",
         "selectedIconPath" : "images/btn_me_on.png",
