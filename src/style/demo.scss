@@ -1,0 +1,122 @@
+.tem-travelcode{
+	border-radius: 12px;
+	background: #ffffff;
+	.tem-code_tipe{
+		padding: 12px;
+		font-size: 16px;
+		color: #232426;
+		border-bottom: 1px solid #F2F2F5;
+	}
+	.tem-code_user{
+		padding: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.tem-user_left{
+			display: flex;
+			align-items: center;
+			>image{
+				width: 34px;
+				height: 34px;
+			}
+			.tem-user_mini{
+				margin-left: 6px;
+				font-size: 14px;
+				color: #616266;
+			}
+		}
+		.tem-user_right{
+			>image{
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+	.tem-code_address{
+		padding: 12px;
+		padding-top: 0px;
+		border-bottom: 1px solid #F2F2F5;
+		.tem-code_address_list{
+			display: flex;
+			align-items: center;
+			padding: 6px 0;
+			>view{
+				margin-left: 6px;
+			}
+			>image{
+				width: 14px;
+				height: 14px;
+			}
+			.tem-code_center{
+				color: #232426;
+				font-size: 14px;
+			}
+			.tem-code_status{
+				color: #939499;
+				font-size: 12px;
+			}
+			.tem-code_status_color{
+				color: #F2A93B;
+			}
+		}
+		.tem-code_priceOrSeats{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.tem-code_priceOrSeats_list{
+				display: flex;
+				align-items: center;
+				font-size: 14px;
+				color: #232426;
+				>view:last-child{
+					margin-left: 6px;
+				}
+				>image{
+					width: 25px;
+					height: 25px;
+					margin-left: 6px;
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+	.tem-code_bottom{
+		padding: 12px;
+		font-size: 12px;
+		color: #C8C9CC;
+		display: flex;
+		align-items: center;
+		/*justify-content: space-around;*/
+		.tem-code_bottom_laft{
+			flex: 7;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			.tem-code_bottom_list{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				>image{
+					width: 20px;
+					height: 20px;
+					margin-right: 6px;
+				}
+				.tem-code_bottom_share{
+					color: #FFAA1F;
+				}
+			}
+		}
+		.tem-code_btn{
+			flex: 3;
+			>view{
+				background: #F0F0F2;
+				color: #4186E7;
+				font-size: 14px;
+				text-align: center;
+				padding: 3px 6px;
+				border-radius: 8px;
+				font-weight: bold;
+			}
+		}
+	}
+}

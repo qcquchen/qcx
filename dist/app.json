@@ -3,7 +3,8 @@
     "src/findTravel/findTravel",
     "src/index",
     "src/travelList/travelList",
-    "src/travelList/myTravelInfo"
+    "src/travelList/myTravelInfo",
+    "src/demo/demo"
   ],
   "subPackages":[
     {

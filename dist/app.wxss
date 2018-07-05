@@ -992,6 +992,124 @@ icon {
   color: #09BB07;
   white-space: nowrap; }
 
+.tem-travelcode {
+  border-radius: 12px;
+  background: #ffffff; }
+  .tem-travelcode .tem-code_tipe {
+    padding: 12px;
+    font-size: 16px;
+    color: #232426;
+    border-bottom: 1px solid #F2F2F5; }
+  .tem-travelcode .tem-code_user {
+    padding: 12px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .tem-travelcode .tem-code_user .tem-user_left {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .tem-travelcode .tem-code_user .tem-user_left > image {
+        width: 34px;
+        height: 34px; }
+      .tem-travelcode .tem-code_user .tem-user_left .tem-user_mini {
+        margin-left: 6px;
+        font-size: 14px;
+        color: #616266; }
+    .tem-travelcode .tem-code_user .tem-user_right > image {
+      width: 16px;
+      height: 16px; }
+  .tem-travelcode .tem-code_address {
+    padding: 12px;
+    padding-top: 0px;
+    border-bottom: 1px solid #F2F2F5; }
+    .tem-travelcode .tem-code_address .tem-code_address_list {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      padding: 6px 0; }
+      .tem-travelcode .tem-code_address .tem-code_address_list > view {
+        margin-left: 6px; }
+      .tem-travelcode .tem-code_address .tem-code_address_list > image {
+        width: 14px;
+        height: 14px; }
+      .tem-travelcode .tem-code_address .tem-code_address_list .tem-code_center {
+        color: #232426;
+        font-size: 14px; }
+      .tem-travelcode .tem-code_address .tem-code_address_list .tem-code_status {
+        color: #939499;
+        font-size: 12px; }
+      .tem-travelcode .tem-code_address .tem-code_address_list .tem-code_status_color {
+        color: #F2A93B; }
+    .tem-travelcode .tem-code_address .tem-code_priceOrSeats {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+      .tem-travelcode .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        font-size: 14px;
+        color: #232426; }
+        .tem-travelcode .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > view:last-child {
+          margin-left: 6px; }
+        .tem-travelcode .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > image {
+          width: 25px;
+          height: 25px;
+          margin-left: 6px;
+          border-radius: 50%; }
+  .tem-travelcode .tem-code_bottom {
+    padding: 12px;
+    font-size: 12px;
+    color: #C8C9CC;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    /*justify-content: space-around;*/ }
+    .tem-travelcode .tem-code_bottom .tem-code_bottom_laft {
+      -ms-flex: 7;
+          flex: 7;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+      .tem-travelcode .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+        .tem-travelcode .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list > image {
+          width: 20px;
+          height: 20px;
+          margin-right: 6px; }
+        .tem-travelcode .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list .tem-code_bottom_share {
+          color: #FFAA1F; }
+    .tem-travelcode .tem-code_bottom .tem-code_btn {
+      -ms-flex: 3;
+          flex: 3; }
+      .tem-travelcode .tem-code_bottom .tem-code_btn > view {
+        background: #F0F0F2;
+        color: #4186E7;
+        font-size: 14px;
+        text-align: center;
+        padding: 3px 6px;
+        border-radius: 8px;
+        font-weight: bold; }
+
 page {
   background-color: #FFFFFF;
   font-size: 16px;

@@ -120,7 +120,6 @@ Page({
         })
         break;
     }
-    console.log(this.data.timeIndex,'---------------??????????')
     util.loactionAddress(this.initData).then(res => {
       this.setData({
         latitude: location ? location.latitude : res.latitude,
