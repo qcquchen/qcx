@@ -78,7 +78,7 @@
   .search_list:last-child{
     border-bottom: none;
   }
-
+/*车主行程*/
   .search_list{
     padding: 0 12px;
     border-bottom: 5px solid #ededf1;
@@ -345,3 +345,43 @@
     margin-left: 3px;
   }*/
 }
+
+
+
+
+/*家*/
+.home{
+  margin-top: 10px;
+  width:100%;
+  height: 60px;
+  /*background: cyan;*/
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  .home_one{
+    width: 160px;
+    height: 60px;
+    /*background: pink;*/
+    display: flex;
+    align-items: center;
+    justify-content:row-reverse;
+    .img{
+      margin: 0 15px;
+    }
+    .home_two{
+      width: 112px;
+      height: 60px;
+      padding-top: 15px;
+      .home_two_top{
+        width: 100%;
+        line-height: 20px;
+        font-size: 16px;
+        color:#232426;
+        font-family: 'PingFangSC-Regular';
+      }
+    }
+  }
+}
+
+
+

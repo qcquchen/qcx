@@ -1,0 +1,21 @@
+<!-- <view class="section">
+  <input bindinput="bindInput" placeholder="搜索" focus="true" />
+</view>
+<view bindtouchstart="bindSearch" data-keywords="{{i.name}}" class="text_box" wx:for="{{tips}}" wx:for-item="i" wx:key = "{{index}}">
+  {{i.name}}
+</view> -->
+
+
+
+<!-- 顺路车主行程-->
+<view class="windmill">
+	<view class="windmill_one">
+		<view class="windmill_one_heatder">
+			<image class="loc_icon_img" src="../../images/img_haveseat@3x.png"></image>
+			<view class="windmill_one_heatderText">
+				<view>姚梅梅·女·银色大众</view>
+				<image class="loc_icon_img" src="../../images/img_haveseat@3x.png" style="width: 16px;height: 16px;float: right;"></image>
+			</view>
+		</view>
+	</view>
+</view>

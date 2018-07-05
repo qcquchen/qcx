@@ -84,7 +84,6 @@ var appConfig = {
           this.globalData.appLaunch = true
           solve()
         }
-
       })
     },
     getLocation: function(token){

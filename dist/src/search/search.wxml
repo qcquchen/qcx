@@ -13,6 +13,37 @@
     <image bindtap="convertLoc" class="exchange" src="../../images/btn_exchange@3x.png"></image>
   </view>
 </view>
+
+<!-- 家公司 -->
+<view  class="home">
+  <view  class="home_one">
+    <view class="img">
+      <image class="loc_icon_img" src="../../images/icon_homemini@2x.png"  style="width: 12px;height: 12px"></image>
+    </view>
+    <view class="home_two">
+      <view class="home_two_top">
+       家
+      </view>
+      <view class="home_two_top">
+        <input style="width: 100%;color:939499;font-size: 12px;" value="{{ end_addr }}" type="text" placeholder="中关村创业大厦" disabled="true" bindtap="getLocation" data-id="end"/>
+      </view>
+    </view>
+  </view>
+  <view  class="home_one">
+    <view class="img">
+      <image class="loc_icon_img" src="../../images/icon_companymini@2x.png" style="width: 12px;height: 12px"></image>
+    </view>
+    <view  class="home_two"> 
+      <view class="home_two_top">
+       公司
+      </view>
+      <view class="home_two_top">
+        <input style="width: 100%;color:939499;font-size: 12px;" value="{{ end_addr }}" type="text" placeholder="中关村创业大厦" disabled="true" bindtap="getLocation" data-id="end"/>
+      </view>
+    </view>
+  </view>
+</view>
+
 <scroll-view class="scroll_hostory" scroll-y="true" style="height:{{ video_height.windowHeight - 99 }}px; margin-top: 5px;">
   <block wx:if="{{ history_type }}">
     <view class="search_history" wx:for-items="{{ history_L }}" wx:key="{{ index }}" bindtap="clickHistory" data-id="{{ index }}">
@@ -55,6 +86,8 @@
         </block>
       </view>
     </block>
+
+    <!-- 顺路车主行程 -->
     <view class="search_list" wx:for-items="{{ searchTravels }}" wx:key="{{ index }}">
       <view class="sea_list_tit">顺路行程</view>
       <view class="search_travel">
@@ -118,6 +151,8 @@
          </view>
       </view>
     </view>
+
+
     <block wx:if="{{ searchTravels.length == 0 && groupLines.length != 0 }}">
       <view class="none_data">没有匹配到行程</view>
     </block>

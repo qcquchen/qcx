@@ -1,5 +1,5 @@
 {
-  "usingComponents": {
-    "shareCode": "/component/shareCode/shareCode"
-  }
+	"usingComponents": {
+	"shareCode": "/component/shareCode/shareCode"
+	}
 }

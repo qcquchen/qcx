@@ -1,112 +1,59 @@
+@charset "UTF-8";
 .body {
-  background: #ffffff; }
-  .body .code_one {
-    font-family: 'PingFangSC-Semibold';
-    /*width: 100%;*/
-    /*position: fixed;*/
-    /*bottom: 12px;*/ }
-    .body .code_one .one_address {
-      font-size: 13px;
-      color: #484848;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      padding: 15px;
-      border-bottom: 1px solid #EDEDF0; }
-      .body .code_one .one_address .addr_icon {
-        width: 18px;
-        height: 18px; }
-        .body .code_one .one_address .addr_icon > image {
-          width: 100%;
-          height: 100%;
-          display: block; }
-      .body .code_one .one_address .addr_text {
-        margin-left: 8px; }
-    .body .code_one .one_button {
-      display: -ms-flexbox;
-      display: flex;
-      padding: 15px;
-      -ms-flex-align: center;
-          align-items: center;
-      margin-top: 10px;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
-      .body .code_one .one_button > button {
-        margin: 0;
-        padding: 0;
-        line-height: 0; }
-      .body .code_one .one_button > button::after {
-        border: none; }
-      .body .code_one .one_button .peopleofcar, .body .code_one .one_button .carofpeople {
-        font-size: 16px;
-        color: #ffffff;
-        padding: 25px 40px;
-        border-radius: 12px; }
-      .body .code_one .one_button .peopleofcar {
-        background: linear-gradient(to right, #F4A556, #EC7474); }
-      .body .code_one .one_button .carofpeople {
-        background: linear-gradient(to left, #62BFF0, #707BF4); }
-  .body .code_two {
-    font-family: 'PingFangSC-Semibold';
-    /*    position: fixed;
-    bottom: -214px;
-    height: 214px;
-    width: 100%;*/
-    background: #ffffff;
-    opacity: 0; }
-    .body .code_two .two_title {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-      font-size: 10px;
-      color: #737373;
-      padding: 5px 0;
-      border-bottom: 1px solid #EDEDF0; }
-      .body .code_two .two_title .two_addr_icon {
-        width: 14px;
-        height: 20px; }
-        .body .code_two .two_title .two_addr_icon > image {
-          width: 100%;
-          height: 100%;
-          display: block; }
-    .body .code_two .select_list {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-      -ms-flex-align: center;
-          align-items: center;
-      border-bottom: 1px solid #EDEDF0; }
-      .body .code_two .select_list .select {
-        padding: 12px;
-        font-size: 13px;
-        color: #484848; }
-        .body .code_two .select_list .select .select_icon {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-align: center;
-              align-items: center;
-          -ms-flex-pack: center;
-              justify-content: center; }
-          .body .code_two .select_list .select .select_icon > image {
-            width: 20px;
-            height: 20px;
-            display: block; }
-          .body .code_two .select_list .select .select_icon > view {
-            width: 70px;
-            text-align: center;
-            white-space: nowrap; }
-    .body .code_two .select_button {
-      margin: 20px 40px; }
-      .body .code_two .select_button > button {
-        border: none;
-        border-radius: 12px;
-        color: #ffffff; }
-      .body .code_two .select_button .car_select_btn {
-        background: linear-gradient(to left, #62BFF0, #707BF4); }
-      .body .code_two .select_button .people_select_btn {
-        background: linear-gradient(to right, #F4A556, #EC7474); }
+  background: #F5F5F7;
+  /*选项卡*/
+  /*红点*/
+  /*蓝点*/ }
+  .body .index_one {
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(to right, #F4A556, #093B93); }
+  .body .swiper-tab {
+    width: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    background-color: white; }
+  .body .swiper-tab-list {
+    font-size: 30rpx;
+    display: inline-block;
+    width: 50%;
+    color: #777;
+    border-bottom: 0rpx; }
+  .body .weui-cells__title_one {
+    width: 100%;
+    height: 40px;
+    /*background:red;*/
+    border-radius: 5px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: row-reverse;
+        justify-content: row-reverse; }
+  .body .weui-cells__title_blue {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: red;
+    margin: 10px; }
+  .body .weui-cells__title_text {
+    color: black;
+    font-size: 12px;
+    line-height: 50px;
+    overflow: hidden; }
+  .body .weui-cells__title_red {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: blue;
+    margin: 10px; }
+  .body .on {
+    color: #4186E7;
+    border-bottom: 2rpx solid #4186E7; }
+  .body .swiper-box {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; }
+  .body .swiper-box view {
+    text-align: center; }

@@ -3,7 +3,8 @@
     "src/index",
     "src/findTravel/findTravel",
     "src/travelList/travelList",
-    "src/travelList/myTravelInfo"
+    "src/travelList/myTravelInfo",
+    "src/demo/demo"
   ],
   "subPackages":[
     {
@@ -78,7 +79,7 @@
     "request": 30000,
     "connectSocket": 30000,
     "uploadFile": 30000,
-    "downloadFile": 30000
+    "downloadFile": 30000 
   },
   "tabBar" : {
     "color" : "#cccccc",
@@ -88,13 +89,13 @@
     "list" : [{
         "pagePath" : "src/index",
         "iconPath" : "images/btn_tab_start.png",
-        "selectedIconPath" : "images/btn_tab_start_on.png",
-        "text" : "首页"
+        "selectedIconPath" : "images/btn_home_on.png",
+        "text" : "主页"
     },{
         "pagePath" : "src/findTravel/findTravel",
-        "iconPath" : "images/btn_home.png",
+        "iconPath" : "images/btn_follow@2x.png",
         "selectedIconPath" : "images/btn_home_on.png",
-        "text" : "发布"
+        "text" : "关注"
     },  {
         "pagePath" : "src/travelList/travelList",
         "iconPath" : "images/btn_me.png",

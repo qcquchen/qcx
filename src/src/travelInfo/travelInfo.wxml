@@ -337,6 +337,9 @@
     </view>
   </block>
 </block>
+
+
+<!-- 你要去哪 -->
 <block wx:else>
   <view class="header">
     <image class="close" src="../../images/btn_close_mini.png" bindtap="gotoInputLine"></image>
@@ -364,6 +367,8 @@
       </block>
     </view>
   </block>
+
+  <!-- 公司地址 -->
   <block wx:else>
     <view class="address">
       <view class="commonlyUsed">
