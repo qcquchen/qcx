@@ -1,0 +1,67 @@
+.body{
+	background: #F5F5F7;
+	.index_one{
+	    width: 100%;
+	    height: 130px;
+	    background: linear-gradient(to right, #F4A556, #093B93);
+	}
+	/*选项卡*/
+	.swiper-tab {
+	  width: 100%;
+	  text-align: center;
+	  line-height: 80rpx;
+	  background-color:white;
+	}
+	.swiper-tab-list {
+	  font-size: 30rpx;
+	  display: inline-block;
+	  width: 50%;
+	  color: #777;
+	  border-bottom: 0rpx;
+	}
+
+	/*红点*/
+	.weui-cells__title_one{
+		width: 100%;
+		height:40px;
+		/*background:red;*/
+		border-radius: 5px;
+		display: flex;
+        align-items: center;
+        justify-content:row-reverse; 
+	}
+	.weui-cells__title_blue{
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: red;
+		margin:10px;
+	}
+	.weui-cells__title_text{
+		color: black;
+		font-size: 12px;
+		line-height: 50px;
+		overflow: hidden;
+	}
+	/*蓝点*/
+	.weui-cells__title_red{
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: blue;
+		margin:10px;
+	}
+	.on {
+	  color: #4186E7;
+	  border-bottom: 2rpx solid #4186E7;
+	}
+	.swiper-box {
+	  display: block;
+	  height: 100%;
+	  width: 100%;
+	  overflow: hidden;
+	}
+	.swiper-box view {
+	  text-align: center;
+	}
+}

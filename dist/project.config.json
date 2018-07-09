@@ -20,23 +20,9 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
+		"miniprogram": {
 			"current": -1,
 			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "demo",
-					"pathName": "src/demo/demo",
-					"query": ""
-				}
-			]
 		}
 	}
 }
