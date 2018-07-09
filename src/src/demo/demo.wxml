@@ -56,5 +56,5 @@
   </picker-view>
 </view> -->
 
-<import src="../../template/travelCode/travelCode.wxml" />
+<import src="../template/travelCode/travelCode.wxml" />
 <template is="travelcode" data="{{...demoItem}}"/> 
