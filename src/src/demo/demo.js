@@ -1,37 +1,38 @@
-// import * as amapFile from '../../js/amap-wx'
+// Page({})
 
-// Page({
-//   data: {
-//     tips: {}
-//   },
-//   onLoad: function(){
+const date = new Date()
+const years = []
+const months = []
+const days = []
 
-//   },
-//   bindInput: function(e){
-//     var that = this;
-//     var keywords = e.detail.value; 
-//     var key = config.Config.key;
-//     var myAmapFun = new amapFile.AMapWX({key: '高德Key'});
-//     myAmapFun.getInputtips({
-//       keywords: keywords,
-//       location: '',
-//       success: function(data){
-//         if(data && data.tips){
-//           that.setData({
-//             tips: data.tips
-//           });
-//         }
+for (let i = 1990; i <= date.getFullYear(); i++) {
+  years.push(i)
+}
 
-//       }
-//     })
-//   },
-//   bindSearch: function(e){
-//     var keywords = e.target.dataset.keywords;
-//     var url = '../poi/poi?keywords=' + keywords;
-//     console.log(url)
-//     wx.redirectTo({
-//       url: url
-//     })
-//   }
-// })
-Page({})
+for (let i = 1 ; i <= 12; i++) {
+  months.push(i)
+}
+
+for (let i = 1 ; i <= 31; i++) {
+  days.push(i)
+}
+
+Page({
+  data: {
+    years: years,
+    year: date.getFullYear(),
+    months: months,
+    month: 2,
+    days: days,
+    day: 2,
+    value: [9999, 1, 1],
+  },
+  bindChange: function(e) {
+    const val = e.detail.value
+    this.setData({
+      year: this.data.years[val[0]],
+      month: this.data.months[val[1]],
+      day: this.data.days[val[2]]
+    })
+  }
+})

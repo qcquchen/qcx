@@ -190,8 +190,8 @@
 			</view>
 		</block>
 	</view>
-</block>
- -->
+</block> -->
+
 
 <!--发布乘客行程-->
 <view class="header">
@@ -205,9 +205,9 @@
       <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="请输入目的地" disabled="true" bindtap="getLocation" data-id="end"/>
     </view>
     <view class="bottom">
-  		<view class="bottom_click" bindtap="clickShowOperating">
+  		<view class="bottom_click pickerType" >
   			<image class="loc_icon" src="../../images/assets/icon_time@3x.png"></image>
-  			<view class="bottom_text"  catchtap="clickUpdate" data-id="time">乘车时间</view>
+  			<view class="bottom_text">乘车时间</view>
   		</view>
   		<view class="bottom_click">
   			<image class="loc_icon" src="../../images/btn_me.png"></image>
@@ -221,32 +221,27 @@
 </view>
 
 
-
-<block wx:if="{{ showOperating }}">
-	<view class="operatingMask" catchtap="{{!updateShow ? 'clickShowOperating' : ''}}">
-		<block wx:else>
-			<view class="picker">
-				<view class="picker_bth">
-					<view class="picker_bth_list" catchtap="clickUpdate">取消</view>
-					<view class="picker_bth_list" catchtap="confirmTheChange">确定</view>
-				</view>
-				<block wx:if="{{ pickerType == 'time' }}">
-					<picker-view indicator-style="height: 30px;" style="width: 100%; height: 210px; background: #ffffff;" value="{{timeValue}}" bindchange="bindTimeChange">
-						<picker-view-column>
-							<view wx:for="{{days}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-						</picker-view-column>
-						<picker-view-column>
-							<view wx:for="{{hours}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-						</picker-view-column>
-						<picker-view-column>
-							<view wx:for="{{minutes}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-						</picker-view-column>
-					</picker-view>
-				</block>
-			</view>
-		</block>
+<!-- 发布乘车时间 -->
+<view class="picker">
+	<view class="picker_bth">
+		<view class="picker_bth_list" catchtap="clickUpdate">取消</view>
+		<view class="picker_bth_list" catchtap="confirmTheChange">确定</view>
 	</view>
-</block>
+	<block wx:if="{{ pickerType == 'time' }}">
+		<picker-view indicator-style="height: 30px;" style="width: 100%; height: 210px; background: #ffffff;" value="{{timeValue}}" bindchange="bindTimeChange">
+			<picker-view-column>
+				<view wx:for="{{days}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{hours}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{minutes}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
+			</picker-view-column>
+		</picker-view>
+	</block>
+</view>
+
 
 
 

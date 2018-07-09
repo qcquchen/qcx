@@ -106,6 +106,8 @@
              <button data-id="{{ item.ownerPhone }}" bindtap="{{ !item.attentioned ? 'likeHe' : 'pullAttention' }}">{{ !item.attentioned ? '关注' : '已关注' }}</button>
            </view>
          </view>
+
+         <!-- 乘客行程 -->
          <view class="travel_body">
             <view class="travel_code {{ item.travelVo.type == 1 ? 'passenger_travel_bg' : 'driver_travel_bg' }}" catchtap="gotoTravelShare" data-id="{{ item.travelVo.travelId }}" data-type="{{ item.travelVo.type }}">
               <view class="travel_code-one">

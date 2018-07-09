@@ -4,6 +4,7 @@ import * as util from '../../js/utils'
 import moment from '../../js/moment'
 var app = getApp()
 
+// 页面基础配置
 Page({
   data: {
     video_height: 0,
@@ -283,3 +284,8 @@ Page({
     })
   }
 })
+
+
+
+
+
