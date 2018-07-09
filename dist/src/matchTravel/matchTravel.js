@@ -418,12 +418,24 @@ Page({
 			imageUrl: share_img
 		}
 	},
+	// 乘车时间
 	clickShowOperating: function(){
 		const { showOperating, travelType, selfTravel, updateShow } = this.data
 		let type = travelType == '0' ? 'people' : 'owner'
 		let seatsArray = util.seatsNumber(type)
 		this.setData({
 			showOperating: !showOperating,
+			seatsArray: seatsArray,
+			seatsVal: selfTravel.seats
+		})
+	},
+	// 乘车人数
+	clickShowOperating1: function(){
+		const { showOperating1, travelType, selfTravel, updateShow } = this.data
+		let type = travelType == '0' ? 'people' : 'owner'
+		let seatsArray = util.seatsNumber(type)
+		this.setData({
+			showOperating1: !showOperating1,
 			seatsArray: seatsArray,
 			seatsVal: selfTravel.seats
 		})

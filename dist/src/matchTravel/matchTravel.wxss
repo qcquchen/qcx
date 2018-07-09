@@ -230,47 +230,7 @@
 			color: #484848;
 		}
 	}
-}
-*/
-.operatingMask {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  background: rgba(0, 0, 0, 0.5); }
-  .operatingMask .operatingArea {
-    background: #ffffff;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: #484848; }
-    .operatingMask .operatingArea > view {
-      padding: 5px 0;
-      border-bottom: 1px solid #ededf1; }
-    .operatingMask .operatingArea > view:last-child {
-      border-top: 3px solid #ededf1; }
-    .operatingMask .operatingArea .cancel {
-      color: #FF6669; }
-  .operatingMask .picker {
-    position: absolute;
-    bottom: 0;
-    width: 100%; }
-    .operatingMask .picker .picker_bth {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-      font-size: 14px;
-      background: #ffffff;
-      border-bottom: 1px solid #ededf1; }
-      .operatingMask .picker .picker_bth .picker_bth_list {
-        padding: 6px 12px; }
-      .operatingMask .picker .picker_bth .picker_bth_list:last-child {
-        color: #2EBFFF; }
-
+}*/
 /*发布乘客行程*/
 .header {
   padding: 0 15px; }
@@ -334,3 +294,42 @@
           align-items: center; }
       .header .bottom .bottom_click .bottom_text {
         margin-left: 14px; }
+
+.operatingMask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5); }
+  .operatingMask .operatingArea {
+    background: #ffffff;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #484848; }
+    .operatingMask .operatingArea > view {
+      padding: 5px 0;
+      border-bottom: 1px solid #ededf1; }
+    .operatingMask .operatingArea > view:last-child {
+      border-top: 3px solid #ededf1; }
+    .operatingMask .operatingArea .cancel {
+      color: #FF6669; }
+  .operatingMask .picker {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+    .operatingMask .picker .picker_bth {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      font-size: 14px;
+      background: #ffffff;
+      border-bottom: 1px solid #ededf1; }
+      .operatingMask .picker .picker_bth .picker_bth_list {
+        padding: 6px 12px; }
+      .operatingMask .picker .picker_bth .picker_bth_list:last-child {
+        color: #2EBFFF; }

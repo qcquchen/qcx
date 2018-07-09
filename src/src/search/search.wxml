@@ -14,7 +14,7 @@
   </view>
 </view>
 
-<!-- 家公司 -->
+<!-- 家,公司 -->
 <view  class="home">
   <view  class="home_one">
     <view class="img">
@@ -43,6 +43,88 @@
     </view>
   </view>
 </view>
+
+
+<!-- 组件车主信息 -->
+<view class="tem-travelcode">
+  <block wx:if="{{ aaa === 'aaa' ? false : true }}">
+    <view class="tem-code_tipe" bindtap="click">顺路车主行程</view>
+    <view class="tem-code_user">
+      <view class="tem-user_left">
+        <image src="../../images/btn_join_mini@3x.png"></image>
+        <view class="tem-user_mini">韩梅梅·女·银色奥迪</view>
+      </view>
+      <view class="tem-user_right">
+        <image src="../../images/btn_followed_mini.png"></image>
+      </view>
+    </view>
+  </block>
+  <view class="tem-code">
+    <view class="tem-code_address">
+      <view class="tem-code_address_list">
+        <image src="../../images/icon_time@3x.png"></image>
+        <view class="tem-code_center">{{ aaa }}</view>
+        <view class="tem-code_status tem-code_status_color">80%顺路</view>
+      </view>
+      <view class="tem-code_address_list">
+        <image src="../../images/icon_start@3x.png"></image>
+        <view class="tem-code_center">九龙山(地铁站)</view>
+        <view class="tem-code_status">八里庄街道</view>
+      </view>
+      <view class="tem-code_address_list">
+        <image src="../../images/icon_end@3x.png"></image>
+        <view class="tem-code_center">中关村创业大厦</view>
+        <view class="tem-code_status">上地三街</view>
+      </view>
+      <view class="tem-code_priceOrSeats">
+        <view class="tem-code_priceOrSeats_list">
+          <!-- <view class="tem-priceOrSeats_list_info">人数</view>
+          <view class="tem-priceOrSeats_list_info">2</view> -->
+          <image src="../../images/img_haveseat@3x.png"></image>
+          <image src="../../images/img_haveseat@3x.png"></image>
+          <image src="../../images/img_haveseat@3x.png"></image>
+          <image src="../../images/img_haveseat@3x.png"></image>
+        </view>
+        <view class="tem-code_priceOrSeats_list">
+        <!--  <view class="tem-priceOrSeats_list_info" style="font-size: 26px;">16.0</view>
+          <view class="tem-priceOrSeats_list_info">元</view> -->
+          <view class="tem-priceOrSeats_list_info" style="font-size: 26px;">16.0</view>
+          <view class="tem-priceOrSeats_list_info">元/座</view>
+        </view>
+      </view>
+    </view>
+    <view class="tem-code_bottom">
+      <view class="tem-code_bottom_laft">
+        <view class="tem-code_bottom_list">
+          <image src="../../images/btn_goodyes.png"></image>
+          <view>点赞</view>
+        </view>
+        <view class="tem-code_bottom_list">
+          <image src="../../images/btn_share.png"></image>
+          <view class="tem-code_bottom_share">赚12.0元</view>
+        </view>
+      </view>
+      <view class="tem-code_btn">
+        <view>坐他的车</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 组件车主信息完毕 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <scroll-view class="scroll_hostory" scroll-y="true" style="height:{{ video_height.windowHeight - 99 }}px; margin-top: 5px;">
   <block wx:if="{{ history_type }}">

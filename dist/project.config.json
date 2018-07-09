@@ -28,12 +28,24 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "demo",
 					"pathName": "src/demo/demo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "src/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "matchTravel",
+					"pathName": "src/matchTravel/matchTravel",
 					"query": ""
 				}
 			]

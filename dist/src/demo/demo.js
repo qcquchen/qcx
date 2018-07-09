@@ -44,7 +44,7 @@ import moment from '../../js/moment'
 Page({
   data: {
     demoItem: {
-      aaa: 'aaa',
+      aaa: '上帝三街',
       bbb: 'bbb',
       ccc: 'ccc'
     },

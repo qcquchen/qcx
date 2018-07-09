@@ -20,14 +20,14 @@ Page( {
             })
         }
     },
-    // gotoSearch: function (e) {
-    //     wx.navigateTo({
-    //     url: `/src/search/search`
-    //   })
-    // },
-    login:function (e){
+    gotoSearch: function (e) {
         wx.navigateTo({
-        url: `/src/login/login`
-        })
-    }
+        url: `/src/search/search`
+      })
+    },
+    // login:function (e){
+    //     wx.navigateTo({
+    //     url: `/src/login/login`
+    //     })
+    // }
 })
