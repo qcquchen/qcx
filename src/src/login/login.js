@@ -98,7 +98,7 @@ Page({
 			wx.showModal({
 			  title: '提示',
 			  content: '输入正确的验证码',
-				showCancel: false,
+			  showCancel: false,
 			  success: function(res) {
 			    if (res.confirm) {
 			      console.log('确定')
@@ -157,3 +157,6 @@ Page({
 		})
 	}
 })
+
+
+

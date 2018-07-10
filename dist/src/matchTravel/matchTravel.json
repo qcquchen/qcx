@@ -1,4 +1,5 @@
-{
+{	
+	"navigationBarTitleText": "发布乘客行程",
 	"usingComponents": {
 	"shareCode": "/component/shareCode/shareCode"
 	}

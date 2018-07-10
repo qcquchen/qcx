@@ -1,8 +1,8 @@
-/*Page{
+Page{
 	background: #F5F5F7;
-}*/
+}
 
-/*.header{
+.header{
 	box-shadow: 0px 3px 12px #cccccc;
 	background: #ffffff;
 	position: fixed;
@@ -230,11 +230,56 @@
 			color: #484848;
 		}
 	}
-}*/
+}
+
+.operatingMask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	background: rgba(0,0,0,.5);
+	.operatingArea{
+		background: #ffffff;
+		text-align: center;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		color: #484848;
+		>view{
+			padding: 5px 0;
+			border-bottom: 1px solid #ededf1;
+		}
+		>view:last-child{
+			border-top: 3px solid #ededf1;
+		}
+		.cancel{
+			color: #FF6669;
+		}
+	}
+	.picker{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		.picker_bth{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 14px;
+			background: #ffffff;
+			border-bottom: 1px solid #ededf1; 
+			.picker_bth_list{
+				padding: 6px 12px;
+			}
+			.picker_bth_list:last-child{
+				color: #2EBFFF;
+			}
+		}
+	}
+}
 
 
 /*发布乘客行程*/
-.header{
+/*.header{
   padding: 0 15px;
 }
 .history_icon, .loc_icon{
@@ -257,6 +302,7 @@
     height: 25px;
     display: block;
     margin-left: 15px;
+    margin-top: -34px;
   }
   .header_left, .header_right{
     .location{
@@ -341,3 +387,4 @@
 		}
 	}
 }
+*/

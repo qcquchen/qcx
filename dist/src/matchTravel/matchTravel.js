@@ -34,7 +34,7 @@ Page({
 			this.matchTravelPassengers(travelId, page)
 		}
 		wx.setNavigationBarTitle({
-	      title: type == '0' ? '等待车主接单' : '等待乘客订座'
+	      title: type == '0' ? '等待车主接单' : '发布乘客行程'
 	    })
 		this.setData({
 			travelType: type,
