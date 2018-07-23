@@ -1,4 +1,4 @@
-<view class="header">
+<!-- <view class="header">
 	<block wx:if="{{ travel_type }}">
 		<view class="small_code" bindtap="expandCollapse">
 			<view>{{ selfTravel.startTimeTxt }}</view>
@@ -191,10 +191,10 @@
 		</block>
 	</view>
 </block>
-
+ -->
 
 <!--发布乘客行程-->
-<!-- <view class="header">
+<view class="header">
   <view class="header_left">
     <view class="location">
       <image class="loc_icon" src="../../images/icon_map_star@3x.png"></image>
@@ -218,9 +218,9 @@
   <view class="header_right">
     <image bindtap="convertLoc" class="exchange" src="../../images/btn_exchange@3x.png"></image>
   </view>
-</view> -->
+</view>
 <!-- 发布乘车时间 -->
-<!-- <block wx:if="{{ showOperating }}">
+<block wx:if="{{ showOperating }}">
 	<view class="operatingMask" catchtap="{{!updateShow ? 'clickShowOperating' : ''}}">
 		<view class="picker">
 			<view class="picker_bth">
@@ -241,9 +241,9 @@
 			</picker-view>
 		</view>
 	</view>
-</block> -->
+</block>
 <!-- 乘车人数 -->
-<!-- <block wx:if="{{ showOperating1 }}">
+<block wx:if="{{ showOperating1 }}">
 	<view class="operatingMask" catchtap="{{!updateShow ? 'clickShowOperating1' : ''}}">
 		<view class="picker">
 			<view class="picker_bth">
@@ -260,4 +260,11 @@
 			</view>
 		</view>
 	</view>
-</block> -->
+</block>
+<!-- 暂无匹配行程的提示 -->
+<view class="filler" style="height: {{ travel_type ? 60 : 175 }}px"></view>
+<!-- 提交按钮 -->
+<view class="submit">
+	<view class="submit_number">15.0元</view>
+	<button bindtap="submit_one">提交订单</button>
+</view>

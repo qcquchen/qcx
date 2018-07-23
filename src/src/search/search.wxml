@@ -10,7 +10,7 @@
     </view>
   </view>
   <view class="header_right">
-    <image bindtap="convertLoc" class="exchange" src="../../images/btn_exchange@3x.png"></image>
+    <image bindtap="convexrtLoc" class="exchange" src="../../images/btn_exchange@3x.png"></image>
   </view>
 </view>
 
@@ -45,87 +45,7 @@
 </view>
 
 
-<!-- 组件车主信息 -->
-<view class="tem-travelcode">
-  <block wx:if="{{ aaa === 'aaa' ? false : true }}">
-    <view class="tem-code_tipe" bindtap="click">顺路车主行程</view>
-    <view class="tem-code_user">
-      <view class="tem-user_left">
-        <image src="../../images/btn_join_mini@3x.png"></image>
-        <view class="tem-user_mini">韩梅梅·女·银色奥迪</view>
-      </view>
-      <view class="tem-user_right">
-        <image src="../../images/btn_followed_mini.png"></image>
-      </view>
-    </view>
-  </block>
-  <view class="tem-code">
-    <view class="tem-code_address">
-      <view class="tem-code_address_list">
-        <image src="../../images/icon_time@3x.png"></image>
-        <view class="tem-code_center">{{ aaa }}</view>
-        <view class="tem-code_status tem-code_status_color">80%顺路</view>
-      </view>
-      <view class="tem-code_address_list">
-        <image src="../../images/icon_start@3x.png"></image>
-        <view class="tem-code_center">九龙山(地铁站)</view>
-        <view class="tem-code_status">八里庄街道</view>
-      </view>
-      <view class="tem-code_address_list">
-        <image src="../../images/icon_end@3x.png"></image>
-        <view class="tem-code_center">中关村创业大厦</view>
-        <view class="tem-code_status">上地三街</view>
-      </view>
-      <view class="tem-code_priceOrSeats">
-        <view class="tem-code_priceOrSeats_list">
-          <!-- <view class="tem-priceOrSeats_list_info">人数</view>
-          <view class="tem-priceOrSeats_list_info">2</view> -->
-          <image src="../../images/img_haveseat@3x.png"></image>
-          <image src="../../images/img_haveseat@3x.png"></image>
-          <image src="../../images/img_haveseat@3x.png"></image>
-          <image src="../../images/img_haveseat@3x.png"></image>
-        </view>
-        <view class="tem-code_priceOrSeats_list">
-        <!--  <view class="tem-priceOrSeats_list_info" style="font-size: 26px;">16.0</view>
-          <view class="tem-priceOrSeats_list_info">元</view> -->
-          <view class="tem-priceOrSeats_list_info" style="font-size: 26px;">16.0</view>
-          <view class="tem-priceOrSeats_list_info">元/座</view>
-        </view>
-      </view>
-    </view>
-    <view class="tem-code_bottom">
-      <view class="tem-code_bottom_laft">
-        <view class="tem-code_bottom_list">
-          <image src="../../images/btn_goodyes.png"></image>
-          <view>点赞</view>
-        </view>
-        <view class="tem-code_bottom_list">
-          <image src="../../images/btn_share.png"></image>
-          <view class="tem-code_bottom_share">赚12.0元</view>
-        </view>
-      </view>
-      <view class="tem-code_btn">
-        <view>坐他的车</view>
-      </view>
-    </view>
-  </view>
-</view>
-<!-- 组件车主信息完毕 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- 搜索历史 -->
 <scroll-view class="scroll_hostory" scroll-y="true" style="height:{{ video_height.windowHeight - 99 }}px; margin-top: 5px;">
   <block wx:if="{{ history_type }}">
     <view class="search_history" wx:for-items="{{ history_L }}" wx:key="{{ index }}" bindtap="clickHistory" data-id="{{ index }}">
@@ -236,9 +156,13 @@
       </view>
     </view>
 
-
+    <!-- 行程线路未发布提示框 -->
     <block wx:if="{{ searchTravels.length == 0 && groupLines.length != 0 }}">
-      <view class="none_data">没有匹配到行程</view>
+      <view class="none_dataOne">
+        <view class="none_dataTop">暂无匹配行程</view>
+        <view class="none_dataTop">去发布自己的行程吧</view>
+        <button bindtap="">发布行程得原力</button>
+      </view>
     </block>
     <block wx:if="{{ searchTravels.length != 0 && groupLines.length == 0 }}">
       <view class="none_data">没有匹配到线路</view>
@@ -248,3 +172,21 @@
     </block>
   </block>
 </scroll-view>
+
+<!-- 顺风车主信息 -->
+<import src="../template/travelCode/travelCode.wxml" />
+<template is="travelcode" data="{{...demoItem}}"/> 
+
+<!-- 底部提示原力框 -->
+<view class="submit">
+  <view class="submit_number">
+    <view class="submit_Text">
+      顺路行程不合适
+    </view>
+    <view class="submit_Text">
+      去发布行程等车主抢单吧
+    </view>
+  </view>
+  <button bindtap="submit">发布行程得原力</button>
+</view>
+

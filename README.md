@@ -1,5 +1,9 @@
 # wechat-quchuxing
 趣出行小程序
+# https://github.com/qcquchen/qcx.git
+# 执行命令
+# npm i 
+# npm i gulp -g
 
 # 编译文件 cmd 项目根目录下 执行 编译：gulp build； 检查：gulp dev；
 
@@ -14,7 +18,10 @@
 #  app.json 项目配置文件
 #  app.scss 公共样式文件
 # 	src 
-# 	 |
+# 	 |                  WaitCarowner  乘客等待车主接单
+					    CarOwnerReleased  车主发布---->设置行驶线路页面
+
+
 # 	 auditTheOwner ---> auditTheOwner 车主审核列表
 # 	 |                       |
 # 	 |                  auditInfo  审核车主详情页

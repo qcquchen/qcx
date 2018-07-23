@@ -1,18 +1,26 @@
+/*顺风车车主信息*/
+@import "../demo/demo.scss";
+
+page{
+  background: #ededf1;
+}
+/*搜索导航*/
 .header{
   padding: 0 15px;
+  background: #fff;
 }
 .history_icon, .loc_icon{
   width: 18px;
-  height: 18px;
+  height: 15px;
   display: block;
 }
 .header{
   display: flex;
   align-items: center;
-  box-shadow: 0px 3px 5px #cccccc;
+  box-shadow: 0px 3px 3px #cccccc;
   .exchange{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     display: block;
     margin-left: 15px;
   }
@@ -38,6 +46,7 @@
   }
 }
 
+/*搜索历史*/
 .scroll_hostory{
   .search_history{
     display: flex;
@@ -78,7 +87,6 @@
   .search_list:last-child{
     border-bottom: none;
   }
-/*车主行程*/
   .search_list{
     padding: 0 12px;
     border-bottom: 5px solid #ededf1;
@@ -326,14 +334,39 @@
     }
   }
 }
-
 .none_data{
   text-align: center;
   font-size: 16px;
   color: #ABB1BA;
   padding: 20px 0;
 }
-
+.none_dataOne{
+  width: 155px;
+  height: 120px;
+  margin:0 auto;
+  position: relative;
+  top:150px;
+  .none_dataTop{
+    width: 100%;
+    height: 25px;
+    color: #ABB1BA;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+  }
+  >button::after{
+    border: none;
+  }
+  >button{
+    width: 148px;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 20px;
+    background: linear-gradient(to right, #50D1FF, #4374FF);
+  }
+}
 .lookAll{
   display: flex;
   align-items: center;
@@ -341,24 +374,20 @@
   font-size: 16px;
   padding: 12px 0;
   color: #ABB1BA;
-/*   >image{
-    margin-left: 3px;
-  }*/
 }
-
-
-
+/*搜索历史*/
 
 /*家*/
 .home{
-  margin-top: 10px;
+  margin-top: 5px;
   width:100%;
   height: 60px;
-  /*background: cyan;*/
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content:center;
-  display: none;
+  /*display: none;*/
+  border-bottom: 1px solid #ededf1;
   .home_one{
     width: 160px;
     height: 60px;
@@ -382,134 +411,48 @@
       }
     }
   }
+ .home_one:last-child{
+     border-left:1px solid #ededf1; 
+  }
 }
 
-/*车主详情*/
-.tem-travelcode{
-  /*border-radius: 12px;*/
+
+/*提交按钮*/
+.submit{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 65px;
   background: #fff;
-  .tem-code_tipe{
-    padding: 12px;
-    font-size: 16px;
-    color: #232426;
-    border-bottom: 1px solid #F2F2F5;
+  display: flex;
+  align-items: center;
+  justify-content:row-reverse;
+  >button::after{
+    border: none;
   }
-  .tem-code_user{
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .tem-user_left{
-      display: flex;
-      align-items: center;
-      >image{
-        width: 34px;
-        height: 34px;
-      }
-      .tem-user_mini{
-        margin-left: 6px;
-        font-size: 14px;
-        color: #616266;
-      }
-    }
-    .tem-user_right{
-      >image{
-        width: 16px;
-        height: 16px;
-      }
-    }
+  >button{
+    width: 130px;
+    height: 44px;
+    line-height: 44px;
+    color: #ffffff;
+    font-size: 14px;
+    margin-right: 10px;
+    background: linear-gradient(to right, #50D1FF, #4374FF);
   }
-  .tem-code{
-    border-radius: 12px;
-    /*background: #ccc;*/
-    .tem-code_address{
-      padding: 12px;
-      padding-top: 0px;
-      border-bottom: 1px solid #F2F2F5;
-      .tem-code_address_list{
-        display: flex;
-        align-items: center;
-        padding: 6px 0;
-        >view{
-          margin-left: 6px;
-        }
-        >image{
-          width: 14px;
-          height: 14px;
-        }
-        .tem-code_center{
-          color: #232426;
-          font-size: 14px;
-        }
-        .tem-code_status{
-          color: #939499;
-          font-size: 12px;
-        }
-        .tem-code_status_color{
-          color: #F2A93B;
-        }
-      }
-      .tem-code_priceOrSeats{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .tem-code_priceOrSeats_list{
-          display: flex;
-          align-items: center;
-          font-size: 14px;
-          color: #232426;
-          >view:last-child{
-            margin-left: 6px;
-          }
-          >image{
-            width: 25px;
-            height: 25px;
-            margin-left: 6px;
-            border-radius: 50%;
-          }
-        }
-      }
-    }
-    .tem-code_bottom{
-      padding: 12px;
+  .submit_number{
+    width:140px;
+    height: 40px;
+    text-align: center;
+    .submit_Text{
       font-size: 12px;
-      color: #C8C9CC;
-      display: flex;
-      align-items: center;
-      /*justify-content: space-around;*/
-      .tem-code_bottom_laft{
-        flex: 7;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        .tem-code_bottom_list{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          >image{
-            width: 20px;
-            height: 20px;
-            margin-right: 6px;
-          }
-          .tem-code_bottom_share{
-            color: #FFAA1F;
-          }
-        }
-      }
-      .tem-code_btn{
-        flex: 3;
-        >view{
-          background: #F0F0F2;
-          color: #4186E7;
-          font-size: 14px;
-          text-align: center;
-          padding: 3px 6px;
-          border-radius: 8px;
-          font-weight: bold;
-        }
-      }
+      line-height: 14px;
+      text-align: left;
+      color:#616266;
+      margin-left: 5px;
+    }
+    .submit_Text:first-child{
+      margin: 5px 0 5px 5px;
     }
   }
 }
-
 

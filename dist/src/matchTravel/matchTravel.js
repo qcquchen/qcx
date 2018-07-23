@@ -611,5 +611,10 @@ Page({
 		wx.makePhoneCall({
 		  phoneNumber: '89940360'
 		})
-	}
+	},
+	submit_one: function (e) {
+      wx.navigateTo({
+      url: `/src/WaitCarowner/WaitCarowner`
+    })
+  }
 })

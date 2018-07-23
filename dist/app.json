@@ -4,7 +4,9 @@
     "src/findTravel/findTravel",
     "src/travelList/travelList",
     "src/travelList/myTravelInfo",
-    "src/demo/demo"
+    "src/demo/demo",
+    "src/WaitCarowner/WaitCarowner",
+    "src/CarOwnerReleased/CarOwnerReleased"
   ],
   "subPackages":[
     {
@@ -72,7 +74,7 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "趣出行",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "backgroundColor": "#FFFFFF",
+    "backgroundColor": "#eeeeee",
     "enablePullDownRefresh" : false
   },
   "networkTimeout": {
@@ -88,15 +90,20 @@
     "borderStyle" : "white",
     "list" : [{
         "pagePath" : "src/index",
-        "iconPath" : "images/btn_tab_start.png",
+        "iconPath" : "images/btn_home.png",
         "selectedIconPath" : "images/btn_home_on.png",
         "text" : "主页"
+    },{
+        "pagePath" : "src/findTravel/findTravel",
+        "iconPath" : "images/btn_find@2x.png",
+        "selectedIconPath" : "images/btn_home_on.png",
+        "text" : "发现"
     },{
         "pagePath" : "src/findTravel/findTravel",
         "iconPath" : "images/btn_follow@2x.png",
         "selectedIconPath" : "images/btn_home_on.png",
         "text" : "关注"
-    },  {
+    },{
         "pagePath" : "src/travelList/travelList",
         "iconPath" : "images/btn_me.png",
         "selectedIconPath" : "images/btn_me_on.png",

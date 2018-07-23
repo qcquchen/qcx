@@ -14,7 +14,12 @@ Page({
     history_type: true,
     page: 1,
     groupLines: [],
-	  searchTravels: []
+	  searchTravels: [],
+     demoItem: {
+      aaa: '上帝三街',
+      bbb: 'bbb',
+      ccc: 'ccc'
+    }
   },
   onLoad(){
     let self = this
@@ -281,6 +286,11 @@ Page({
     const { start_addr, end_addr, start_loc, end_loc, page } = this.data
     wx.navigateTo({
       url: `/src/lineInfo/linePeopleList?start=${start_loc}&end=${end_loc}&start_addr=${start_addr}&end_addr=${end_addr}&type=search`
+    })
+  },
+  submit: function (e) {
+      wx.navigateTo({
+      url: `/src/matchTravel/matchTravel`
     })
   }
 })

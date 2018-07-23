@@ -1,0 +1,346 @@
+@charset "UTF-8";
+/*顺风车车主信息*/
+.tem-code_tipe {
+  height: 40px;
+  line-height: 40px;
+  background: #ededf1;
+  width: 360px;
+  padding-left: 5px;
+  font-size: 14px;
+  padding-top: 5px; }
+
+.tem-travelcode {
+  border-radius: 8px;
+  background: #fff; }
+  .tem-travelcode .tem-code_tipe {
+    padding: 12px;
+    font-size: 14px;
+    color: #232426;
+    border-bottom: 1px solid #F2F2F5; }
+  .tem-travelcode .tem-code_user {
+    padding: 12px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .tem-travelcode .tem-code_user .tem-user_left {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .tem-travelcode .tem-code_user .tem-user_left > image {
+        width: 34px;
+        height: 34px; }
+      .tem-travelcode .tem-code_user .tem-user_left .tem-user_mini {
+        margin-left: 6px;
+        font-size: 14px;
+        color: #616266; }
+    .tem-travelcode .tem-code_user .tem-user_right > image {
+      width: 16px;
+      height: 16px; }
+  .tem-travelcode .tem-code {
+    border-radius: 12px; }
+    .tem-travelcode .tem-code .tem-code_address {
+      padding: 12px;
+      padding-top: 0px;
+      border-bottom: 1px solid #F2F2F5; }
+      .tem-travelcode .tem-code .tem-code_address .tem-code_address_list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        padding: 6px 0; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list > view {
+          margin-left: 6px; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list > image {
+          width: 14px;
+          height: 14px; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_center {
+          color: #232426;
+          font-size: 14px; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_status {
+          color: #939499;
+          font-size: 12px; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_status_color {
+          color: #F2A93B; }
+      .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          font-size: 14px;
+          color: #232426; }
+          .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > view:last-child {
+            margin-left: 6px; }
+          .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > image {
+            width: 25px;
+            height: 25px;
+            margin-left: 6px;
+            border-radius: 50%; }
+    .tem-travelcode .tem-code .tem-code_bottom {
+      padding: 12px;
+      font-size: 12px;
+      color: #C8C9CC;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft {
+        -ms-flex: 7;
+            flex: 7;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+        .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+          .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list > image {
+            width: 20px;
+            height: 28px;
+            margin-right: 6px; }
+          .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list .tem-code_bottom_share {
+            color: #FFAA1F; }
+      .tem-travelcode .tem-code .tem-code_bottom .tem-code_btn {
+        -ms-flex: 3;
+            flex: 3; }
+        .tem-travelcode .tem-code .tem-code_bottom .tem-code_btn > view {
+          background: #F0F0F2;
+          color: #4186E7;
+          font-size: 14px;
+          text-align: center;
+          padding: 3px 6px;
+          border-radius: 8px;
+          font-weight: bold; }
+
+/*发布行程得原力*/
+/*.none_data{
+  width: 155px;
+  height: 120px;
+  margin:0 auto;
+  position: relative;
+  top:150px;
+  .none_dataTop{
+    width: 100%;
+    height: 25px;
+    color: #ABB1BA;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+  }
+  >button::after{
+    border: none;
+  }
+  >button{
+    width: 148px;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 20px;
+    background: linear-gradient(to right, #50D1FF, #4374FF);
+  }
+}
+*/
+Page {
+  background: #F5F5F7; }
+
+/*头部线路*/
+.header_one {
+  width: 100%;
+  height: 30px;
+  background: white;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .header_one .header_tow {
+    width: 40%;
+    height: 100%;
+    /*background: cyan;*/
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    line-height: 30px; }
+
+/*常用路线-更多操作*/
+.travel_foot_nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #ededf1;
+  background: #fff; }
+  .travel_foot_nav .operating_list {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
+    .travel_foot_nav .operating_list > image {
+      width: 16px;
+      height: 16px;
+      margin-right: 6px; }
+    .travel_foot_nav .operating_list > view {
+      font-size: 14px;
+      color: #484848; }
+
+.match_list {
+  padding: 12px; }
+  .match_list .noData {
+    padding: 24px;
+    font-size: 16px;
+    color: #cccccc;
+    text-align: center; }
+
+.operatingMask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; }
+  .operatingMask .operatingArea {
+    background: #ffffff;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #484848; }
+    .operatingMask .operatingArea > view {
+      padding: 5px 0;
+      border-bottom: 1px solid #ededf1; }
+    .operatingMask .operatingArea > view:last-child {
+      border-top: 3px solid #ededf1; }
+    .operatingMask .operatingArea .cancel {
+      color: #FF6669; }
+  .operatingMask .picker {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+    .operatingMask .picker .picker_bth {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      font-size: 14px;
+      background: #ffffff;
+      border-bottom: 1px solid #ededf1; }
+      .operatingMask .picker .picker_bth .picker_bth_list {
+        padding: 6px 12px; }
+      .operatingMask .picker .picker_bth .picker_bth_list:last-child {
+        color: #2EBFFF; }
+
+/*发布乘客行程*/
+.operatingMask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5); }
+  .operatingMask .operatingArea {
+    background: #ffffff;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #484848; }
+    .operatingMask .operatingArea > view {
+      padding: 5px 0;
+      border-bottom: 1px solid #ededf1; }
+    .operatingMask .operatingArea > view:last-child {
+      border-top: 3px solid #ededf1; }
+    .operatingMask .operatingArea .cancel {
+      color: #FF6669; }
+  .operatingMask .picker {
+    position: absolute;
+    bottom: 0;
+    width: 100%; }
+    .operatingMask .picker .picker_bth {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      font-size: 14px;
+      background: #ffffff;
+      border-bottom: 1px solid #ededf1; }
+      .operatingMask .picker .picker_bth .picker_bth_list {
+        padding: 6px 12px; }
+      .operatingMask .picker .picker_bth .picker_bth_list:last-child {
+        color: #2EBFFF; }
+
+/*提交按钮*/
+.submit {
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  .submit > button::after {
+    border: none; }
+  .submit > button {
+    background: linear-gradient(to right, #50D1FF, #4374FF);
+    margin: 6px 12px;
+    color: #ffffff;
+    font-size: 14px; }
+  .submit .submit_number {
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 700;
+    margin: 0 auto; }
+
+/*分享行程*/
+.ShareIt {
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border-radius: 12px;
+  margin-top: 10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .ShareIt .ShareIt_In {
+    width: 65%;
+    color: #F5A623;
+    font-size: 12px; }
+  .ShareIt > button::after {
+    border: none; }
+  .ShareIt > button {
+    background: #F0F0F2;
+    margin: 6px 12px;
+    color: #4186E7;
+    font-size: 14px;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'PingFangSC'; }

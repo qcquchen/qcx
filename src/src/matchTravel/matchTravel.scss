@@ -1,4 +1,4 @@
-Page{
+/*Page{
 	background: #F5F5F7;
 }
 
@@ -276,10 +276,13 @@ Page{
 		}
 	}
 }
+*/
+
+
 
 
 /*发布乘客行程*/
-/*.header{
+.header{
   padding: 0 15px;
 }
 .history_icon, .loc_icon{
@@ -387,4 +390,26 @@ Page{
 		}
 	}
 }
-*/
+/*提交按钮*/
+.submit{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  >button::after{
+    border: none;
+  }
+  >button{
+    background: linear-gradient(to right, #50D1FF, #4374FF);
+    margin: 6px 12px;
+    color: #ffffff;
+    font-size: 14px;
+  }
+  .submit_number{
+  	width: 100px;
+  	height: 40px;
+  	text-align: center;
+  	line-height: 40px;
+  	font-weight: 700;
+  	margin:0 auto;
+  }
+}

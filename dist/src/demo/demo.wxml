@@ -1,60 +1,13 @@
-<!-- <view class="section">
-  <input bindinput="bindInput" placeholder="搜索" focus="true" />
-</view>
-<view bindtouchstart="bindSearch" data-keywords="{{i.name}}" class="text_box" wx:for="{{tips}}" wx:for-item="i" wx:key = "{{index}}">
-  {{i.name}}
-</view> -->
 
+<!-- <import src="../template/travelCode/travelCode.wxml" />
+<template is="travelcode" data="{{...demoItem}}"/>  -->
 
-
-<!-- 顺路车主行程-->
-<!-- <view class="windmill">
-	<view class="windmill_one">
-		<view class="windmill_one_heatder">
-			<image class="loc_icon_img" src="../../images/img_haveseat@3x.png"></image>
-			<view class="windmill_one_heatderText">
-				<view>姚梅梅·女·银色大众</view>
-				<image class="loc_icon_img" src="../../images/img_haveseat@3x.png" style="width: 16px;height: 16px;float: right;"></image>
-			</view>
-		</view>
-	</view>
-</view> -->
-
-
-
-<!-- <view class="map-inputtips-input">
-  <input bindinput="bindInput" placeholder="搜索" focus="true" />
-</view>
-<view class="map-search-list {{isShow ? '' : 'map-hide'}}">
-  <view bindtouchstart="bindSearch" wx:key="searchId" data-keywords="{{item.name}}" data-location="{{item.location}}" class="map-box" wx:for="{{tips}}">
-    {{item.name}}
-  </view>
-</view>
-<view class="map_container">
-  <map class="map" latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}'></map>
+<!-- 
+<view class="none_data">
+  <view class="none_dataTop">暂无匹配行程</view>
+  <view class="none_dataTop">去发布自己的行程吧</view>
+  <button bindtap="">发布行程得原力</button>
 </view>
  -->
 
 
-
-
-
-
-<!-- 时间选择组件练习 -->
-<!-- <view>
-  <view>{{year}}年{{month}}月{{day}}日</view>
-  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
-    <picker-view-column>
-      <view wx:for="{{years}}" wx:key="{{ index }}" style="line-height: 50px">{{item}}年</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view wx:for="{{months}}" wx:key="{{ index }}" style="line-height: 50px">{{item}}月</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view wx:for="{{days}}" wx:key="{{ index }}" style="line-height: 50px">{{item}}日</view>
-    </picker-view-column>
-  </picker-view>
-</view> -->
-
-<import src="../template/travelCode/travelCode.wxml" />
-<template is="travelcode" data="{{...demoItem}}"/> 

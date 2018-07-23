@@ -28,18 +28,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
-					"name": "login",
-					"pathName": "src/login/login",
+					"name": "CarOwnerReleased",
+					"pathName": "src/CarOwnerReleased/CarOwnerReleased",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "matchTravel",
-					"pathName": "src/matchTravel/matchTravel"
+					"name": "search",
+					"pathName": "src/search/search",
+					"query": ""
 				}
 			]
 		}
