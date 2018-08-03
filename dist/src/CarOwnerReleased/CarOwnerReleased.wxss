@@ -1,11 +1,144 @@
 @charset "UTF-8";
-page {
+Page {
   background: #ededf1; }
+
+/*顺风车车主信息*/
+.tem-code_tipe {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  padding-left: 10rpx;
+  font-size: 28rpx;
+  padding-top: 10rpx; }
+
+.tem-travelcode {
+  border-radius: 16rpx;
+  background: #fff;
+  width: 96%;
+  margin: 0 auto; }
+  .tem-travelcode .tem-code_tipe {
+    padding: 24rpx;
+    font-size: 28rpx;
+    color: #232426;
+    border-bottom: 2rpx solid #F2F2F5; }
+  .tem-travelcode .tem-code_user {
+    padding: 24rpx;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .tem-travelcode .tem-code_user .tem-user_left {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .tem-travelcode .tem-code_user .tem-user_left > image {
+        width: 68rpx;
+        height: 68rpx; }
+      .tem-travelcode .tem-code_user .tem-user_left .tem-user_mini {
+        margin-left: 12rpx;
+        font-size: 28rpx;
+        color: #616266; }
+    .tem-travelcode .tem-code_user .tem-user_right > image {
+      width: 32rpx;
+      height: 32rpx; }
+  .tem-travelcode .tem-code {
+    border-radius: 24rpx; }
+    .tem-travelcode .tem-code .tem-code_address {
+      padding: 24rpx;
+      padding-top: 0rpx;
+      border-bottom: 2rpx solid #F2F2F5; }
+      .tem-travelcode .tem-code .tem-code_address .tem-code_address_list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        padding: 12rpx 0; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list > view {
+          margin-left: 12rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list > image {
+          width: 28rpx;
+          height: 28rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_center {
+          color: #232426;
+          font-size: 28rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_status {
+          color: #939499;
+          font-size: 24rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_status_color {
+          color: #F2A93B; }
+      .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          font-size: 28rpx;
+          color: #232426; }
+          .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > view:last-child {
+            margin-left: 12rpx; }
+          .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > image {
+            width: 50rpx;
+            height: 50rpx;
+            margin-left: 12rpx;
+            border-radius: 50%; }
+    .tem-travelcode .tem-code .tem-code_bottom {
+      padding: 24rpx;
+      font-size: 24rpx;
+      color: #C8C9CC;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft {
+        -ms-flex: 7;
+            flex: 7;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+        .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+          .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list > image {
+            width: 40rpx;
+            height: 56rpx;
+            margin-right: 12rpx; }
+          .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list .tem-code_bottom_share {
+            color: #FFAA1F; }
+      .tem-travelcode .tem-code .tem-code_bottom .tem-code_btn {
+        -ms-flex: 3;
+            flex: 3; }
+        .tem-travelcode .tem-code .tem-code_bottom .tem-code_btn > view {
+          background: #F0F0F2;
+          color: #4186E7;
+          text-align: center;
+          padding: 6rpx 12rpx;
+          border-radius: 16rpx;
+          font-weight: bold; }
+
+page {
+  background: #ededf1;
+  /*height: 400rpx;*/ }
 
 /*搜索导航*/
 .header {
   width: 100%;
-  line-height: 100px;
+  line-height: 200rpx;
   background: #fff;
   display: -ms-flexbox;
   display: flex;
@@ -21,23 +154,38 @@ page {
       display: flex;
       -ms-flex-align: center;
           align-items: center;
-      padding: 15px 0; }
+      padding: 20rpx 0; }
       .header .header_left .location > input {
-        width: 100%；; }
+        width: 100%; }
       .header .header_left .location .loc_icon {
-        margin-right: 15px;
-        margin-left: -35px; }
+        margin-right: 30rpx;
+        margin-left: -70rpx; }
     .header .header_left .location:nth-child(1) {
-      border-bottom: 1px solid #ededf1; }
-    .header .header_left .location:nth-child(2) {
-      padding: 5px 0;
-      border-bottom: 1px solid #ededf1; }
-    .header .header_left .location:nth-child(3) {
-      padding: 5px 0;
-      border-bottom: 1px solid #ededf1; }
-    .header .header_left .location:nth-child(4) {
-      padding: 5px 0;
-      border-bottom: 1px solid #ededf1; }
+      border-bottom: 1rpx solid #ededf1; }
+    .header .header_left .locationCenter {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      padding: 10rpx 0; }
+      .header .header_left .locationCenter > input {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+      .header .header_left .locationCenter .loc_icon {
+        margin-right: 30rpx;
+        margin-left: -70rpx; }
+    .header .header_left .location_Next .location:nth-child(1) {
+      padding: 10rpx 0;
+      border-bottom: 2rpx solid #ededf1;
+      /*border-top: 1rpx solid #ededf1;*/ }
+    .header .header_left .location_Next .location:nth-child(2) {
+      padding: 10rpx 0;
+      border-bottom: 1rpx solid #ededf1; }
+    .header .header_left .location_Next .location:nth-child(3) {
+      padding: 10rpx 0;
+      border-bottom: 2rpx solid #ededf1; }
   .header .header_right {
     width: 25%;
     height: 100%;
@@ -46,27 +194,27 @@ page {
     -ms-flex-align: center;
         align-items: center; }
     .header .header_right .exchange {
-      width: 20px;
-      height: 20px;
+      width: 40rpx;
+      height: 40rpx;
       display: block;
-      margin-left: 15px; }
+      margin-left: 30rpx; }
 
 /*家*/
 .home {
-  margin-top: 5px;
+  margin-top: 10rpx;
   width: 100%;
-  height: 60px;
+  height: 120rpx;
   background: #fff;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  border-bottom: 1px solid #ededf1; }
+  -ms-flex-pack: row-reverse;
+      justify-content: row-reverse;
+  border-bottom: 2rpx solid #ededf1; }
   .home .home_one {
-    width: 160px;
-    height: 60px;
+    width: 50%;
+    height: 120rpx;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -74,316 +222,20 @@ page {
     -ms-flex-pack: row-reverse;
         justify-content: row-reverse; }
     .home .home_one .img {
-      margin: 0 15px; }
+      margin: 30rpx 40rpx 30rpx 50rpx; }
     .home .home_one .home_two {
-      width: 112px;
-      height: 60px;
-      padding-top: 15px; }
+      width: 224rpx;
+      height: 120rpx;
+      padding-top: 30rpx; }
       .home .home_one .home_two .home_two_top {
         width: 100%;
-        line-height: 20px;
-        font-size: 16px;
+        line-height: 40rpx;
+        font-size: 32rpx;
         color: #232426;
         font-family: 'PingFangSC-Regular'; }
+        .home .home_one .home_two .home_two_top > input {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
   .home .home_one:last-child {
-    border-left: 1px solid #ededf1; }
-
-/*搜索历史*/
-.scroll_hostory .search_history {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  border-bottom: 1px solid #ededf1;
-  margin: 0 12px; }
-  .scroll_hostory .search_history .history_direction_icon {
-    width: 25px;
-    height: 18px;
-    margin: 0 6px;
-    margin-top: 3px; }
-  .scroll_hostory .search_history .history_li {
-    margin-left: 6px;
-    overflow: hidden;
-    padding: 10px 0; }
-    .scroll_hostory .search_history .history_li > view, .scroll_hostory .search_history .history_li image {
-      float: left; }
-    .scroll_hostory .search_history .history_li > view {
-      width: 115px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis; }
-
-.scroll_hostory .clearHistory {
-  text-align: center;
-  font-size: 14px;
-  color: #ABB1BA;
-  padding: 12px 0; }
-
-.scroll_hostory .search_history:last-child {
-  border-bottom: none; }
-
-.scroll_hostory .search_list:last-child {
-  border-bottom: none; }
-
-.scroll_hostory .search_list {
-  padding: 0 12px;
-  border-bottom: 5px solid #ededf1; }
-  .scroll_hostory .search_list .sea_list_tit {
-    font-size: 13px;
-    color: #484848;
-    padding-top: 12px; }
-  .scroll_hostory .search_list .search_line {
-    padding: 8px 0 12px 0;
-    border-bottom: 1px solid #ededf1; }
-    .scroll_hostory .search_list .search_line .search_line_list {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-      .scroll_hostory .search_list .search_line .search_line_list .search_line_left {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center; }
-        .scroll_hostory .search_list .search_line .search_line_list .search_line_left .searchLine_imgOne {
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          display: block; }
-        .scroll_hostory .search_list .search_line .search_line_list .search_line_left .searchLine_detail {
-          color: #484848;
-          font-size: 13px;
-          margin: 0 8px; }
-          .scroll_hostory .search_list .search_line .search_line_list .search_line_left .searchLine_detail .search_info_tit {
-            font-size: 17px;
-            font-weight: bold; }
-          .scroll_hostory .search_list .search_line .search_line_list .search_line_left .searchLine_detail .search_info_peopleNum {
-            font-size: 11px;
-            color: #ffffff;
-            padding: 0 5px;
-            border-radius: 8px;
-            background: #499EFF;
-            display: inline-block; }
-          .scroll_hostory .search_list .search_line .search_line_list .search_line_left .searchLine_detail .search_ingo_synopsis {
-            width: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap; }
-      .scroll_hostory .search_list .search_line .search_line_list .searchLine_imgTwo {
-        width: 30px;
-        height: 30px;
-        display: block; }
-      .scroll_hostory .search_list .search_line .search_line_list .searchLine_imgTwo_type {
-        width: 40px;
-        height: 22px; }
-  .scroll_hostory .search_list .search_line:last-child {
-    border-bottom: none; }
-  .scroll_hostory .search_list .search_travel .travel_head {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-pack: justify;
-        justify-content: space-between;
-    padding: 10px 0; }
-    .scroll_hostory .search_list .search_travel .travel_head .travel_head_left {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center; }
-      .scroll_hostory .search_list .search_travel .travel_head .travel_head_left > image {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%; }
-      .scroll_hostory .search_list .search_travel .travel_head .travel_head_left .travel_people_info {
-        margin-left: 10px; }
-        .scroll_hostory .search_list .search_travel .travel_head .travel_head_left .travel_people_info .tra_peo_name {
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-align: center;
-              align-items: center;
-          font-size: 17px;
-          font-weight: bold; }
-          .scroll_hostory .search_list .search_travel .travel_head .travel_head_left .travel_people_info .tra_peo_name > image {
-            width: 14px;
-            height: 14px; }
-        .scroll_hostory .search_list .search_travel .travel_head .travel_head_left .travel_people_info .travel_people_code {
-          font-size: 11px;
-          color: #ABB1BA; }
-    .scroll_hostory .search_list .search_travel .travel_head .travel_head_right > button {
-      padding: 4px 10px;
-      margin: 0;
-      border: 1px solid #484848;
-      border-radius: 8px;
-      line-height: 12px;
-      font-size: 12px; }
-  .scroll_hostory .search_list .search_travel .travel_body .passenger_travel_bg {
-    background: linear-gradient(to right, #EC7474, #F4A556); }
-  .scroll_hostory .search_list .search_travel .travel_body .driver_travel_bg {
-    background: linear-gradient(to right, #62BFF0, #707BF4); }
-  .scroll_hostory .search_list .search_travel .travel_body .travel_code {
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 16px;
-    margin: 10px 0; }
-    .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-      padding: 12px; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .travel_code-one_left {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center; }
-        .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .travel_code-one_left .travel_tit {
-          padding: 2px 6px;
-          border-radius: 12px;
-          background: #ffffff;
-          font-size: 10px; }
-        .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .travel_code-one_left .travel_date {
-          margin-left: 5px; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .travel_btn {
-        padding: 2px 15px;
-        border-radius: 8px;
-        font-size: 13px;
-        opacity: .8; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .passenger_color {
-        color: #EC7474; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .driver_color {
-        color: #707BF4; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .passenger_bg {
-        background: #ED8935; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-one .driver_bg {
-        background: #3C95D4; }
-    .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-two {
-      overflow: hidden;
-      padding: 0 12px; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-two > view, .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-two image {
-        float: left; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-two > view {
-        width: 120px;
-        overflow: hidden;
-        text-overflow: ellipsis; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-two > image {
-        margin: 0 5px;
-        margin-top: 2px; }
-    .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-      -ms-flex-align: center;
-          align-items: center;
-      padding: 10px 12px; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .seat_num, .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .travel_price {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center; }
-        .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .seat_num > text:first-child, .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .travel_price > text:first-child {
-          font-size: 11px; }
-        .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .seat_num > text:last-child, .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .travel_price > text:last-child {
-          font-size: 17px;
-          margin-left: 3px; }
-      .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .driver_seat {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center; }
-        .scroll_hostory .search_list .search_travel .travel_body .travel_code .travel_code-three .driver_seat > image {
-          width: 28px;
-          height: 28px; }
-  .scroll_hostory .search_list .search_travel .travel_foot {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-pack: justify;
-        justify-content: space-between; }
-    .scroll_hostory .search_list .search_travel .travel_foot .scan_num {
-      font-size: 11px;
-      color: #ABB1BA; }
-    .scroll_hostory .search_list .search_travel .travel_foot .likeAndShare {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
-      .scroll_hostory .search_list .search_travel .travel_foot .likeAndShare .likeAndShare_list {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center;
-        font-size: 11px;
-        color: #484848;
-        position: relative; }
-        .scroll_hostory .search_list .search_travel .travel_foot .likeAndShare .likeAndShare_list > image {
-          margin-right: 4px;
-          width: 24px;
-          height: 31px; }
-        .scroll_hostory .search_list .search_travel .travel_foot .likeAndShare .likeAndShare_list .share_tip {
-          width: 40px;
-          height: 20px;
-          position: absolute;
-          color: #ffffff;
-          top: 25px;
-          left: -10px; }
-          .scroll_hostory .search_list .search_travel .travel_foot .likeAndShare .likeAndShare_list .share_tip > image {
-            width: 100%;
-            height: 100%; }
-          .scroll_hostory .search_list .search_travel .travel_foot .likeAndShare .likeAndShare_list .share_tip > view {
-            position: absolute;
-            top: 4px;
-            left: 2px; }
-      .scroll_hostory .search_list .search_travel .travel_foot .likeAndShare .likeAndShare_list:last-child {
-        margin-left: 8px; }
-
-.none_data {
-  text-align: center;
-  font-size: 16px;
-  color: #ABB1BA;
-  padding: 20px 0; }
-
-.none_dataOne {
-  width: 155px;
-  height: 120px;
-  margin: 0 auto;
-  position: relative;
-  top: 150px; }
-  .none_dataOne .none_dataTop {
-    width: 100%;
-    height: 25px;
-    color: #ABB1BA;
-    font-size: 16px;
-    line-height: 25px;
-    text-align: center; }
-  .none_dataOne > button::after {
-    border: none; }
-  .none_dataOne > button {
-    width: 148px;
-    height: 50px;
-    line-height: 50px;
-    color: #ffffff;
-    font-size: 16px;
-    margin-top: 20px;
-    background: linear-gradient(to right, #50D1FF, #4374FF); }
-
-.lookAll {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  font-size: 16px;
-  padding: 12px 0;
-  color: #ABB1BA; }
-
-/*搜索历史*/
+    border-left: 2rpx solid #ededf1; }

@@ -28,18 +28,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
-					"name": "CarOwnerReleased",
-					"pathName": "src/CarOwnerReleased/CarOwnerReleased",
+					"name": "乘客搜索页面",
+					"pathName": "src/search/search",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "search",
-					"pathName": "src/search/search",
+					"name": "乘客发布匹配页面",
+					"pathName": "src/matchTravel/matchTravel",
 					"query": ""
 				}
 			]

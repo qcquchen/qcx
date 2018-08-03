@@ -1,0 +1,65 @@
+<!-- 起始点的搜索 -->
+<view class="header">
+  <wiew class="header_left">
+    <view class="location">
+      <image class="loc_icon" src="/images/icon_map_star@3x.png"></image>
+      <input style="width: 100%" value="" type="text" placeholder="我的位置" disabled="true" bindtap="" data-id=""/>
+    </view>
+    <view class="location">
+      <image class="loc_icon" src="/images/icon_map_end@3x.png"></image>
+      <input style="width: 100%" value="" type="text" placeholder="沙河地铁站" disabled="true" bindtap="" data-id=""/>
+    </view>
+  </wiew>
+  <wiew class="header_right" bindtap="">
+    <image bindtap="" class="exchange" src="/images/assets/btn_exchange@3x.png"></image>
+  </wiew>
+</view>
+<view class="locationBottom">
+	<view class="bottom_click" bindtap="">
+		<image class="loc_icon" src="/images/assets/icon_time@3x.png"></image>
+		<view class="bottom_text">出发时间</view>
+	</view>
+	<view class="bottom_click" bindtap="">
+		<image class="loc_icon" src="/images/assets/btn_card_seat@3x.png"></image>
+		<view class="bottom_text">座位数量</view>
+	</view>
+</view>
+<!-- 常用线路取名 -->
+<view class="locationBottomOne">
+  <image class="loc_icon" src="/images/assets/hdpi/icon_time@3x.png"></image>
+  <input value="" type="text" placeholder="给自己的线路取个名字；例如：上班，非必填！" disabled="true" bindtap="" data-id=""/>
+</view>  
+<!-- 自动发布 -->
+<view class="Automatic">
+  <view class="AutomaticLeft">
+    <view class="AutomaticLeftHeader">
+      自动发布
+      <view class="Htext">开启或双倍原力</view>
+    </view>
+    <view class="AutomaticLeftBottom">
+      设置行程时间，开启自动发布，行程发布匹配更高效
+    </view>
+  </view>
+  <view class="AutomaticRight">
+    <switch checked color="#499EFF" bindchange="switch1Change"/>
+  </view>
+</view>
+<!-- 发布按钮 -->
+<view class="submit">
+  <view class="submit_Text" bindtap="">
+    <view class="submit_number"><text>00.0</text>元/座</view>
+    <image class="loc_icon" src="/images/assets/btn_up@3x.png"></image>
+  </view>
+  <!-- BulletBox -->
+  <button bindtap="showDialogBtn">确认添加</button>
+</view>
+<!-- 添加成功提示窗 -->
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-dialogCenter">
+    <view class="modal-title">路线添加成功</view>
+      <view class="modal-footer">
+        <image src="/images/assets/icon_yuanli@3x.png"></image>
+     </view>
+     <view class="btn-confirm">原力+50</view>
+  </view>
+</view>

@@ -927,6 +927,18 @@ export const seatsNumber = (type) => {
   return array
 }
 
+export const seatsNumberTwo = (type) => {
+  let array = []
+  for (let i = 5; i <= 30; i++){
+    if(i === 0){
+      array.push(type == 'people' ? '乘车人数' : '票价')
+    }else{
+      array.push(type == 'people' ? i + '人乘车' : i + '元/位')
+    }
+  }
+  return array
+}
+
 export const seats = (data) => {
   let array = []
   for(let i = 0; i < data; i++){

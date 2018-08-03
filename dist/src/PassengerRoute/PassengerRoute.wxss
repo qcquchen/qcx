@@ -1,0 +1,231 @@
+@charset "UTF-8";
+page {
+  background: #ededf1; }
+
+.header {
+  width: 96%;
+  line-height: 200rpx;
+  background: #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  margin: 20rpx auto 0;
+  border-top-left-radius: 16rpx;
+  border-top-right-radius: 16rpx; }
+  .header .header_left {
+    width: 70%;
+    height: 100%; }
+    .header .header_left .location {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      padding: 20rpx 0; }
+      .header .header_left .location > input {
+        width: 100%; }
+      .header .header_left .location .loc_icon {
+        margin-right: 30rpx;
+        margin-left: -70rpx; }
+    .header .header_left .location:nth-child(1) {
+      border-bottom: 2rpx solid #ededf1; }
+  .header .header_right {
+    width: 15%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    position: relative; }
+    .header .header_right .exchange {
+      width: 40rpx;
+      height: 40rpx;
+      display: block;
+      margin-left: 30rpx; }
+
+.locationBottom {
+  width: 96%;
+  height: 92rpx;
+  background: #fff;
+  margin: 0 auto;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: row-reverse;
+      justify-content: row-reverse;
+  border-top: 2rpx solid #ededf1; }
+  .locationBottom .bottom_click {
+    width: 50%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: row-reverse;
+        justify-content: row-reverse; }
+    .locationBottom .bottom_click .loc_icon {
+      margin: 0 38rpx; }
+    .locationBottom .bottom_click .bottom_text {
+      margin-left: -6rpx;
+      color: #939499; }
+
+/*自动发布*/
+.Automatic {
+  width: 96%;
+  height: 150rpx;
+  background: #fff;
+  margin: 20rpx auto 0;
+  border-radius: 16rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .Automatic .AutomaticLeft {
+    width: 72%;
+    height: 75%; }
+    .Automatic .AutomaticLeft .AutomaticLeftHeader {
+      height: 70%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .Automatic .AutomaticLeft .AutomaticLeftHeader .Htext {
+        color: #fff;
+        width: 180rpx;
+        height: 32rpx;
+        border-radius: 10rpx;
+        background: #F5A623;
+        font-size: 22rpx;
+        text-align: center;
+        line-height: 32rpx;
+        margin-left: 10rpx; }
+    .Automatic .AutomaticLeft .AutomaticLeftBottom {
+      color: #939499;
+      font-size: 22rpx;
+      height: 30%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+  .Automatic .AutomaticRight {
+    width: 20%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: end;
+        justify-content: flex-end; }
+
+.locationBottomOne {
+  width: 96%;
+  height: 92rpx;
+  background: #fff;
+  margin: 0 auto;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  border-top: 2rpx solid #ededf1;
+  border-bottom-right-radius: 16rpx;
+  border-bottom-left-radius: 16rpx; }
+  .locationBottomOne > input {
+    width: 80%;
+    margin-left: 42rpx; }
+  .locationBottomOne .loc_icon {
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 46rpx; }
+
+/*提交按钮*/
+.submit {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  .submit > button::after {
+    border: none; }
+  .submit > button {
+    font-size: 32rpx;
+    margin: 12rpx 24rpx;
+    color: #ffffff;
+    border-radius: 30rpx;
+    background: linear-gradient(to right, #50D1FF, #4374FF); }
+  .submit .submit_Text {
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 10rpx;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center; }
+    .submit .submit_Text .submit_number {
+      height: 80rpx;
+      font-size: 28rpx;
+      line-height: 80rpx; }
+      .submit .submit_Text .submit_number > text {
+        font-size: 40rpx;
+        font-weight: 700; }
+      .submit .submit_Text .submit_number .loc_icon {
+        width: 28rpx;
+        height: 28rpx; }
+
+/*swtich整体大小及背景色*/
+.wx-switch-input {
+  width: 72rpx !important;
+  height: 44rpx !important; }
+
+/*白色样式（false的样式）*/
+.wx-switch-input::before {
+  width: 72rpx !important;
+  height: 44rpx !important; }
+
+/*绿色样式（true的样式）*/
+.wx-switch-input::after {
+  width: 40rpx !important;
+  height: 40rpx !important; }
+
+/*添加成功原力值弹窗*/
+.modal-dialog {
+  width: 300rpx;
+  height: 300rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 35%;
+  left: 30%;
+  z-index: 9999;
+  background: #000000;
+  opacity: .6;
+  border-radius: 36rpx; }
+
+.modal-dialogCenter {
+  width: 100%;
+  height: 240rpx;
+  margin: 30rpx auto; }
+
+.modal-title {
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center; }
+
+.modal-footer {
+  height: 84rpx;
+  width: 84rpx;
+  padding: 24rpx 0;
+  margin: 0 auto; }
+  .modal-footer > image {
+    width: 100%;
+    height: 100%;
+    display: block; }
+
+.btn-confirm {
+  width: 100%;
+  color: #FFAA1F;
+  font-size: 32rpx;
+  text-align: center; }

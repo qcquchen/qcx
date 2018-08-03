@@ -1,232 +1,70 @@
-<!-- <view class="header">
-	<block wx:if="{{ travel_type }}">
-		<view class="small_code" bindtap="expandCollapse">
-			<view>{{ selfTravel.startTimeTxt }}</view>
-			<view style="margin: 0 3px;">·</view>
-			<view>{{ selfTravel.seats }}{{ travelType == '0' ? '人' : '座' }}</view>
-			<view style="margin: 0 3px;">·</view>
-			<view>{{ selfTravel.travelPrice }}{{ travelType == '0' ? '元' : '元/座' }}</view>
-			<image src="../../images/btn_up@3x.png"></image>
-		</view>
-	</block>
-	<block wx:else>
-		<view class="travel_code" bindtap="expandCollapse">
-			<view class="code_list">
-				<image src="../../images/icon_time@3x.png"></image>
-				<view class="center_text">{{ selfTravel.startTimeTxt }}</view>
-				<view class="right_text"></view>
-			</view>
-			<view class="code_list">
-				<image src="../../images/icon_start@3x.png"></image>
-				<view class="center_text">{{ selfTravel.startAddress }}</view>
-				<view class="right_text"></view>
-			</view>
-			<view class="code_list">
-				<image src="../../images/icon_end@3x.png"></image>
-				<view class="center_text">{{ selfTravel.endAddress }}</view>
-				<view class="right_text"></view>
-			</view>
-			<view class="travelLabel">
-				<view class="label_list">
-					<block wx:if="{{ travelType == '0' }}">
-						<view>人数</view>
-						<view>{{selfTravel.seats - selfTravel.surplusSeats}}</view>
-					</block>
-					<block wx:else>
-						<image wx:for="{{ selfTravel.seat_true }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
-	          			<image wx:for="{{ selfTravel.seat_false }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
-					</block>
-				</view>
-				<view class="label_list">
-					<view class="big_font">{{ selfTravel.travelPrice }}</view>
-					<block wx:if="{{ travelType == '0' }}">
-						<view>元</view>
-					</block>
-					<block wx:else>
-						<view>元/座</view>
-					</block>
-				</view>
-			</view>
-			<image src="../../images/btn_down@4x.png"></image>
-		</view>
-	</block>
-	<view class="travel_foot_nav">
-		<view class="operating_list" bindtap="canvasShare" data-type="mine" data-id="{{ selfTravel.travelVo.travelId }}">
-			<image style="width: 17px; height: 20px;" src="../../images/sea_share_mini@3x.png"></image>
-			<view style="color: #F5A623;">分享行程</view>
-		</view>
-		<view class="operating_list" bindtap="clickShowOperating">
-			<image src="../../images/btn_menu_more@3x.png"></image>
-			<view>更多操作</view>
-		</view>
-	</view>
-</view>
-<view class="filler" style="height: {{ travel_type ? 60 : 175 }}px"></view>
-<view class="match_list">
-	<view class="match_title">{{ travelType == '0' ? '顺路车主行程' : '顺路乘客行程' }}</view>
-	<block wx:for-items="{{ travelResults }}" wx:key="{{ index }}">
-		<view class="match_travel_code">
-			<view class="match_user_info">
-				<view class="match_user_left">
-					<image src="{{ item.ownerPicture }}"></image>
-					<view class="user_name">{{ item.ownerNickName }}·{{ item.sexTxt }}·{{ item.ownerCar != null ? item.ownerCar : '无' }}</view>
-				</view>
-				<view class="isAttention">
-					<block wx:if="{{ item.attentioned }}">
-						<image bindtap="removeAttention" data-phone="{{ item.ownerPhone }}" src="../../images/btn_followed_mini.png"></image>
-					</block>
-					<block wx:else>
-						<image bindtap="postAttention" data-phone="{{ item.ownerPhone }}" src="../../images/btn_follow_mini@3x.png"></image>
-					</block>
-				</view>
-			</view>
-			<view class="travel_code" bindtap="gotoTravelInfo" data-id="{{ item.travelVo.travelId }}" data-type="{{ item.travelVo.type }}">
-				<view class="code_list">
-					<image src="../../images/icon_time@3x.png"></image>
-					<view class="center_text">{{ item.travelVo.startTimeTxt }}</view>
-					<view class="right_text"></view>
-				</view>
-				<view class="code_list">
-					<image src="../../images/icon_start@3x.png"></image>
-					<view class="center_text">{{ item.travelVo.startAddress }}</view>
-					<view class="right_text"></view>
-				</view>
-				<view class="code_list">
-					<image src="../../images/icon_end@3x.png"></image>
-					<view class="center_text">{{ item.travelVo.endAddress }}</view>
-					<view class="right_text"></view>
-				</view>
-				<view class="travelLabel">
-					<view class="label_list">
-						<block wx:if="{{ travelType != '0' }}">
-							<view>人数</view>
-							<view>{{item.travelVo.seats - item.travelVo.surplusSeats}}</view>
-						</block>
-						<block wx:else>
-							<image wx:for="{{ item.travelVo.seat_true }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
-	              			<image wx:for="{{ item.travelVo.seat_false }}" wx:for-item="seat_img" wx:key="{{ index }}" src="{{ seat_img.img }}"></image>
-						</block>
-					</view>
-					<view class="label_list">
-						<view class="big_font">{{ item.travelVo.travelPrice }}</view>
-						<view>元</view>
-					</view>
-				</view>
-			</view>
-			<view class="match_travel_foot">
-				<view class="match_list_foot_left">
-					<view class="match_foot_left_list">
-						<image src="../../images/btn_goodyes.png"></image>
-						<view>2</view>
-					</view>
-					<view class="match_foot_left_list" bindtap="canvasShare" data-type="other" data-id="{{ item.travelVo.travelId }}">
-						<image src="../../images/btn_share.png"></image>
-						<view class="share_color">赚{{ item.travelVo.redPacketPrice }}元</view>
-					</view>
-				</view>
-				<view class="submit_travel" bindtap="gotoTravelInfo" data-id="{{ item.travelVo.travelId }}" data-type="{{ item.travelVo.type }}">{{ travelType == '0' ? '订座' : '抢单' }}</view>
-			</view>
-		</view>
-	</block>
-	<block wx:if="{{ travelResults.length == 0 }}">
-		<view class="noData">暂无匹配的行程</view>
-	</block>
-</view>
-<block wx:if="{{ share_code }}">
-	<view class="share_pop" catchtap="{{ draw_type ? 'hideShareCode' : '' }}" catchtouchmove="true">
-		<canvas class="body_canvas" style="width:{{windowWidth}}px; background: #ffffff;" canvas-id="shareFriends"></canvas>
-		<view class="shareBtn">
-			<view class="shareBtn_list">
-				<button class="share_img" catchtap="{{ draw_type ? 'creatShareImg' : '' }}">
-					<image src="../../images/save.png"></image>
-					<view>生成分享海报</view>
-				</button>
-				<button open-type="{{ draw_type ? 'share' : '' }}" class="share_weChat">
-					<image style="width: 25px;" src="../../images/wechat.png"></image>
-					<view>分享给好友</view>
-				</button>
-			</view>
-			<view class="closeShare" catchtap="hideShareCode">关闭</view>
-		</view>
-	</view>
-</block>
-<block wx:if="{{ showOperating }}">
-	<view class="operatingMask" catchtap="{{!updateShow ? 'clickShowOperating' : ''}}">
-		<block wx:if="{{ !updateShow }}">
-			<view class="operatingArea">
-				<view catchtap="clickUpdate" data-id="time">修改时间</view>
-				<view catchtap="clickUpdate" data-id="people">修改{{ selfTravel.type == '0' ? '座位数' : '乘车人数' }}</view>
-				<view class="cancel" catchtap="cancelTravel">取消行程</view>
-				<view catchtap="callService">客服</view>
-				<view catchtap="clickShowOperating">关闭</view>
-			</view>
-		</block>
-		<block wx:else>
-			<view class="picker">
-				<view class="picker_bth">
-					<view class="picker_bth_list" catchtap="clickUpdate">取消</view>
-					<view class="picker_bth_list" catchtap="confirmTheChange">确定</view>
-				</view>
-				<block wx:if="{{ pickerType == 'time' }}">
-					<picker-view indicator-style="height: 30px;" style="width: 100%; height: 210px; background: #ffffff;" value="{{timeValue}}" bindchange="bindTimeChange">
-						<picker-view-column>
-							<view wx:for="{{days}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-						</picker-view-column>
-						<picker-view-column>
-							<view wx:for="{{hours}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-						</picker-view-column>
-						<picker-view-column>
-							<view wx:for="{{minutes}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-						</picker-view-column>
-					</picker-view>
-				</block>
-				<block wx:else>
-					<picker-view indicator-style="height: 30px;" style="width: 100%; height: 210px; background: #ffffff;" value="{{seatsVal}}" bindchange="bindPeopleChange">
-						<picker-view-column>
-						  <view wx:for="{{seatsArray}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-						</picker-view-column>
-					</picker-view>
-				</block>
-			</view>
-		</block>
-	</view>
-</block>
- -->
 
 <!--发布乘客行程-->
 <view class="header">
   <view class="header_left">
     <view class="location">
-      <image class="loc_icon" src="../../images/icon_map_star@3x.png"></image>
-      <input style="width: 100%" value="{{ start_addr }}" type="text" placeholder="我的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+      <image class="loc_icon" src="/images/icon_map_star@3x.png"></image>
+      <view class="locationInp">
+        <input style="width: 100%" value="{{ start_addr }}" type="text" placeholder="我的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+      </view>
     </view>
     <view class="location">
-      <image class="loc_icon" src="../../images/icon_map_end@3x.png"></image>
-      <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="请输入目的地" disabled="true" bindtap="getLocation" data-id="end"/>
+      <image class="loc_icon" src="/images/icon_map_end@3x.png"></image>
+      <view class="locationInp locationInpTop">
+        <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="请输入目的地" disabled="true" bindtap="getLocation" data-id="end"/>
+      </view>
     </view>
-    <view class="bottom">
-  		<view class="bottom_click" bindtap="clickShowOperating">
-  			<image class="loc_icon" src="../../images/assets/icon_time@3x.png"></image>
-  			<view class="bottom_text">乘车时间</view>
-  		</view>
-  		<view class="bottom_click" bindtap="clickShowOperating1">
-  			<image class="loc_icon" src="../../images/btn_me.png"></image>
-  			<view class="bottom_text">乘车人数</view>
-  		</view>
-  	</view>
   </view>
   <view class="header_right">
-    <image bindtap="convertLoc" class="exchange" src="../../images/btn_exchange@3x.png"></image>
+    <image bindtap="convertLoc" class="exchange" src="/images/btn_exchange@3x.png"></image>
   </view>
 </view>
-<!-- 发布乘车时间 -->
+<!-- 乘车时间 乘车人数 -->
+<view class="bottom">
+	<view class="bottom_click" bindtap="clickShowOperating">
+		<image class="loc_icon" src="/images/assets/icon_time@3x.png"></image>
+		<view class="bottom_text">乘车时间</view>
+	</view>
+	<view class="bottom_click" bindtap="">
+		<image class="loc_icon" src="/images/assets/hdpi/btn_card_seat@3x.png"></image>
+		<view class="bottom_text">乘车人数</view>
+	</view>
+</view>
+<!-- 提交按钮 -->
+<view class="submit">
+	<view class="submit_number">15.0元/座</view>
+	<button bindtap="showDialogBtn">确认发布</button>
+</view>
+<!-- 发布成功提示窗 -->
+<view class="modal-dialog" wx:if="{{showModal}}">
+	<view class="modal-dialogCenter">
+		<view class="modal-title">发布成功</view>
+	    <view class="modal-footer">
+	    	<image src="/images/assets/icon_yuanli@3x.png"></image>
+	   </view>
+	   <view class="btn-confirm">原力+50</view>
+	</view>
+</view>
+
+
+
+<!-- 
+    时间  人数二次元模块
+ -->
+<!-- 乘车时间 -->
 <block wx:if="{{ showOperating }}">
-	<view class="operatingMask" catchtap="{{!updateShow ? 'clickShowOperating' : ''}}">
+	<view class="operatingMask">
 		<view class="picker">
+			<view class="pickerText">
+		        <view class="pickerTextWben">
+		          发布6小时内行程得20原力，六小时后行程得双倍，每日限两次奖励
+		        </view>
+		        <image class="loc_icon" src="../../images/bangzhu.png"></image>
+		      </view>
 			<view class="picker_bth">
-				<view class="picker_bth_list" catchtap="clickUpdate">取消</view>
+				<view class="picker_bth_list" catchtap="clickShowOperating">取消</view>
 				<view class="picker_bth_list">出发时间</view>
-				<view class="picker_bth_list" catchtap="confirmTheChange">确定</view>
+				<view class="picker_bth_list" catchtap="">确定</view>
 			</view>
 			<picker-view indicator-style="height: 30px;" style="width: 100%; height: 210px; background: #ffffff;" value="{{timeValue}}" bindchange="bindTimeChange">
 				<picker-view-column>
@@ -242,29 +80,3 @@
 		</view>
 	</view>
 </block>
-<!-- 乘车人数 -->
-<block wx:if="{{ showOperating1 }}">
-	<view class="operatingMask" catchtap="{{!updateShow ? 'clickShowOperating1' : ''}}">
-		<view class="picker">
-			<view class="picker_bth">
-				<view class="picker_bth_list" catchtap="clickUpdate">取消</view>
-				<view class="picker_bth_list">乘车人数</view>
-				<view class="picker_bth_list" catchtap="confirmTheChange">确定</view>
-			</view>
-			<view>
-				<picker-view indicator-style="height: 30px;" style="width: 100%; height: 210px; background: #ffffff;" value="{{seatsVal}}" bindchange="bindPeopleChange">
-					<picker-view-column>
-					  <view wx:for="{{seatsArray}}" wx:key="{{index}}" style="line-height: 30px; text-align: center;">{{item}}</view>
-					</picker-view-column>
-				</picker-view>
-			</view>
-		</view>
-	</view>
-</block>
-<!-- 暂无匹配行程的提示 -->
-<view class="filler" style="height: {{ travel_type ? 60 : 175 }}px"></view>
-<!-- 提交按钮 -->
-<view class="submit">
-	<view class="submit_number">15.0元</view>
-	<button bindtap="submit_one">提交订单</button>
-</view>

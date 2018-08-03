@@ -1,0 +1,131 @@
+@import "../demo/demo.scss";
+page{
+  background: #ededf1;
+}
+/*搜索导航*/
+.header{
+  width: 100%;
+  line-height: 200rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+    .header_left{
+      width: 60%;
+      height: 100%;
+      .location{
+        display: flex;
+        align-items: center;
+        padding: 20rpx 0;
+        >input{
+            width: 100%;
+        }
+        .loc_icon{
+          margin-right:30rpx; 
+          margin-left: -70rpx;
+        }
+      }
+      .locationCenter{
+        display: flex;
+        align-items: center;
+        padding: 10rpx 0;
+        >input{
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .loc_icon{
+          margin-right:30rpx; 
+          margin-left: -70rpx;
+        }
+      }
+      .location_Next{
+        .location:nth-child(1){
+          padding: 10rpx 0;
+          border-bottom: 2rpx solid #ededf1;
+          border-top: 2rpx solid #ededf1;
+        }
+        .location:nth-child(2){
+          padding: 10rpx 0;
+          border-bottom: 2rpx solid #ededf1;
+        }
+        .location:nth-child(3){
+          padding: 10rpx 0;
+          border-bottom: 2rpx solid #ededf1;
+
+        }
+      }
+    }
+    .header_right{
+      width: 25%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .exchange{
+        width: 40rpx;
+        height: 40rpx;
+        display: block;
+        margin-left: 30rpx;
+      }
+    }
+}
+/*CarOwnerReleasedFooter*/
+.footer {
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  .footerHeader{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    border-bottom: 2rpx solid #F2F2F5;
+    .footerHeaderText{
+      width: 33%;
+      height: 188rpx;
+      text-align: center;
+      .footerHeaderText1:nth-child(1) {
+        color: #4186E7;
+        font-size: 26rpx;
+        margin-top: 30rpx; 
+      }
+      .footerHeaderText1:nth-child(2) {
+        color: #4186E7;
+        font-size: 28rpx;
+        font-weight: 700;
+      }
+      .footerHeaderText1:nth-child(3) {
+        color: #4186E7;
+        font-size: 26rpx; 
+      }
+    }
+   .footerHeaderText:nth-child(2) {
+      border-left: 2rpx solid #F2F2F5;
+      border-right: 2rpx solid #F2F2F5; 
+    }
+  }
+  .footerBottom {
+    height: 148rpx;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center; 
+    >button::after {
+      border: none; 
+    }
+    >button {
+      width: 690rpx;
+      height: 100rpx;
+      margin: 12rpx 24rpx;
+      color: #ffffff;
+      font-size: 32rpx;
+      line-height: 100rpx;
+      background: linear-gradient(to right, #50D1FF, #4374FF);
+    }
+  }
+}
+

@@ -15,26 +15,26 @@ Page({
       	polyline: [],
       	new_strategy: []
 	},
-	onLoad(option){
-		let self = this
-        const { end_location, start_Location } = option
-        wx.getSystemInfo({
-          success: function(res) {
-            self.setData({
-              video_height: res.windowHeight - 182,
-            })
-          }
-        })
-        let start = start_Location.split(',').map(json => Number(json))
-        let end = end_location.split(',').map(json => Number(json))
-        self.setData({
-          startLocation: start,
-          latitude: start[1],
-          longitude: start[0],
-          endLocation: end
-        })
-        self.getLine()
-	},
+	// onLoad(option){
+	// 	let self = this
+ //        const { end_location, start_Location } = option
+ //        wx.getSystemInfo({
+ //          success: function(res) {
+ //            self.setData({
+ //              video_height: res.windowHeight - 182,
+ //            })
+ //          }
+ //        })
+ //        let start = start_Location.split(',').map(json => Number(json))
+ //        let end = end_location.split(',').map(json => Number(json))
+ //        self.setData({
+ //          startLocation: start,
+ //          latitude: start[1],
+ //          longitude: start[0],
+ //          endLocation: end
+ //        })
+ //        self.getLine()
+	// },
 	selectLine:function(e){
 		const { currentTarget: { dataset: { id } } } = e
 		this.setData({

@@ -1,12 +1,12 @@
-@import "../demo/demo.scss";
+@import "../template/travelCode/travelCode.scss";
+
 Page{
   background: #F5F5F7;
 }
-
 /*头部线路*/
 .header_one{
   width: 100%;
-  height: 30px;
+  height: 60rpx;
   background: white;
   display: flex;
   align-items: center;
@@ -14,13 +14,12 @@ Page{
   .header_tow{
     width: 40%;
     height: 100%;
-    /*background: cyan;*/
-    font-size: 12px;
+    font-size: 24rpx;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: center;
-    line-height: 30px;
+    line-height: 60rpx;
   }
 }
 /*常用路线-更多操作*/
@@ -28,122 +27,24 @@ Page{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 8px 0;
-  border-top:1px solid #ededf1;
+  padding: 16rpx 0;
+  border-top:2rpx solid #ededf1;
   background: #fff;
   .operating_list{
     display: flex;
     align-items: center;
     >image{
-      width: 16px;
-      height: 16px;
-      margin-right: 6px;
+      width: 32rpx;
+      height: 32rpx;
+      margin-right: 12rpx;
     }
     >view{
-      font-size: 14px;
+      font-size: 28rpx;
       color: #484848;
     }
   }
 }
-.match_list{
-  padding: 12px;
-  .noData{
-    padding: 24px;
-    font-size: 16px;
-    color: #cccccc;
-    text-align: center;
-  }
-}
-.operatingMask{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 999;
-  .operatingArea{
-    background: #ffffff;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: #484848;
-    >view{
-      padding: 5px 0;
-      border-bottom: 1px solid #ededf1;
-    }
-    >view:last-child{
-      border-top: 3px solid #ededf1;
-    }
-    .cancel{
-      color: #FF6669;
-    }
-  }
-  .picker{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    .picker_bth{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 14px;
-      background: #ffffff;
-      border-bottom: 1px solid #ededf1; 
-      .picker_bth_list{
-        padding: 6px 12px;
-      }
-      .picker_bth_list:last-child{
-        color: #2EBFFF;
-      }
-    }
-  }
-}
-/*发布乘客行程*/
-.operatingMask{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  background: rgba(0,0,0,.5);
-  .operatingArea{
-    background: #ffffff;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: #484848;
-    >view{
-      padding: 5px 0;
-      border-bottom: 1px solid #ededf1;
-    }
-    >view:last-child{
-      border-top: 3px solid #ededf1;
-    }
-    .cancel{
-      color: #FF6669;
-    }
-  }
-  .picker{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    .picker_bth{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 14px;
-      background: #ffffff;
-      border-bottom: 1px solid #ededf1; 
-      .picker_bth_list{
-        padding: 6px 12px;
-      }
-      .picker_bth_list:last-child{
-        color: #2EBFFF;
-      }
-    }
-  }
-}
+
 /*提交按钮*/
 .submit{
   position: fixed;
@@ -154,47 +55,117 @@ Page{
   }
   >button{
     background: linear-gradient(to right, #50D1FF, #4374FF);
-    margin: 6px 12px;
+    margin: 12rpx 24rpx;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 28rpx;
   }
   .submit_number{
-    width: 100px;
-    height: 40px;
+    width: 200rpx;
+    height: 80rpx;
     text-align: center;
-    line-height: 40px;
+    line-height: 80rpx;
     font-weight: 700;
     margin:0 auto;
   }
 }
 /*分享行程*/
 .ShareIt{
-  width: 100%;
-  height: 50px;
+  width: 720rpx;
+  height: 100rpx;
   background: #fff;
-  border-radius: 12px; 
-  margin-top: 10px;
+  border-radius: 24rpx; 
+  margin: 20rpx auto 0rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   .ShareIt_In{
     width:65%;
     color:#F5A623;
-    font-size: 12px;
+    font-size: 24rpx;
   }
   >button::after{
     border: none;
   }
   >button{
     background: #F0F0F2;
-    margin: 6px 12px;
+    margin: 12rpx 24rpx;
     color: #4186E7;
-    font-size: 14px;
-    width:80px;
-    height: 30px;
-    line-height: 30px;
+    font-size: 28rpx;
+    width:160rpx;
+    height: 60rpx;
+    line-height: 60rpx;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 28rpx;
     font-family: 'PingFangSC';
   }
+}
+/*存为常用线路页面弹窗*/
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 540rpx;
+  height: 330rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 35%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+.modal-title {
+  padding-top: 40rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+.modal-title_two{
+  padding-top: 12rpx;
+  font-size: 26rpx;
+  color: #030303;
+  text-align: center;
+}
+.modal-input {
+  margin:20rpx 0;
+}
+.input {
+  width: 474rpx;
+  height: 50rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+  background: #fff;
+  margin:0 auto;
+  border:2rpx solid #dedede;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 2rpx solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+  color: #007AFF;
+}
+.btn-cancel {
+  width: 50%;
+  text-align: center;
+  border-right: 2rpx solid #dedede;
+}
+.btn-confirm {
+  width: 50%;
+  text-align: center;
 }

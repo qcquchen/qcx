@@ -1,0 +1,46 @@
+
+<!-- 头部线路 -->
+<view class="header_one">
+	<view class="header_tow">金台西路地铁站</view>
+	<view class="header_image">
+		<image src="../../images/assets/icon_arrow_black@3x.png"></image>
+	</view>
+	<view class="header_tow">上帝三街中关村创业大厦：1809号</view>
+</view>
+
+<!-- 常用路线-更多操作 -->
+<view class="travel_foot_nav">
+	<view class="operating_list" bindtap="showDialogBtn" data-type="" data-id="">
+		<image style="width: 17px; height: 20px;" src="../../images/sea_share_mini@3x.png"></image>
+		<view>存为常用路线</view>
+	</view>
+	<view class="operating_list" bindtap="">
+		<image src="../../images/btn_menu_more@3x.png"></image>
+		<view>更多操作</view>
+	</view>
+</view>
+
+<!-- 分享行程 -->
+<view class="ShareIt">
+	<view class="ShareIt_In">分享行程得原力，寻找更多同行人</view>
+	<button class="ShareIt_btn">分享</button>
+</view>
+
+<!-- 车主信息卡片 -->
+<import src="../template/BypassPassenger/BypassPassenger.wxml" />
+<template is="BypassPassenger" data="{{...demoItem}}"/>
+
+
+<!--存为常用路线弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">存为常用路线</view>
+    <view class="modal-title_two">给你的线路取个名字</view>
+	<view class="modal-input">
+      <input placeholder-class="input-holder" type="text" maxlength="10" bindinput="inputChange" class="input" placeholder="例如：上班。非必填"></input>
+    </view>
+    <view class="modal-footer">
+	    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+	    <view class="btn-confirm" bindtap="gotoPassengerRoute" data-status="confirm">确定</view>
+	</view>
+</view>

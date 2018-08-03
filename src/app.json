@@ -6,7 +6,17 @@
     "src/travelList/myTravelInfo",
     "src/demo/demo",
     "src/WaitCarowner/WaitCarowner",
-    "src/CarOwnerReleased/CarOwnerReleased"
+    "src/WaitCarowner/WaitingPassengers",
+    "src/CarOwnerReleased/CarOwnerReleased",
+    "src/DrivingRoute/DrivingrRoute",
+    "src/CarOwner/CarOwner",
+    "src/login/login",
+    "src/login/setLocation",
+    "src/CarOwner/CommonCarOwners",
+    "src/ownersSelectLine/ownersSelectLine",
+    "src/MyusualRoute/MyusualRoute",
+    "src/PassengerRoute/PassengerRoute",
+    "src/PassengerRoute/PassengertTerminal"
   ],
   "subPackages":[
     {
@@ -22,20 +32,9 @@
             "auditInfo"
         ]
     },{
-        "root": "src/ownersSelectLine",
-        "pages": [
-            "ownersSelectLine"
-        ]
-    },{
         "root": "src/ownersCertification",
         "pages": [
             "ownersCertification"
-        ]
-    },{
-        "root": "src/login",
-        "pages": [
-            "login",
-            "setLocation"
         ]
     },{
         "root": "src/submitorder",
@@ -90,23 +89,23 @@
     "borderStyle" : "white",
     "list" : [{
         "pagePath" : "src/index",
-        "iconPath" : "images/btn_home.png",
-        "selectedIconPath" : "images/btn_home_on.png",
+        "iconPath" : "images/zhuye/btn_home@3x.png",
+        "selectedIconPath" : "images/zhuye/btn_home_on@3x.png",
         "text" : "主页"
     },{
         "pagePath" : "src/findTravel/findTravel",
-        "iconPath" : "images/btn_find@2x.png",
-        "selectedIconPath" : "images/btn_home_on.png",
+        "iconPath" : "images/zhuye/btn_find_copy@3x.png",
+        "selectedIconPath" : "images/zhuye/btn_find_on_copy@3x.png",
         "text" : "发现"
     },{
         "pagePath" : "src/findTravel/findTravel",
-        "iconPath" : "images/btn_follow@2x.png",
-        "selectedIconPath" : "images/btn_home_on.png",
+        "iconPath" : "images/zhuye/btn_follow@3x.png",
+        "selectedIconPath" : "images/zhuye/btn_follow_on copy@3x.png",
         "text" : "关注"
     },{
         "pagePath" : "src/travelList/travelList",
-        "iconPath" : "images/btn_me.png",
-        "selectedIconPath" : "images/btn_me_on.png",
+        "iconPath" : "images/zhuye/btn_me@3x.png",
+        "selectedIconPath" : "images/zhuye/btn_me_on@3x.png",
         "text" : "我"
     }]
   },

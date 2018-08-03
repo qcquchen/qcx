@@ -5,6 +5,10 @@ Page {
 swiper {
   height: 100%; }
 
+image {
+  width: 100%;
+  height: 100%; }
+
 .body {
   /*选项卡*/ }
   .body .index_conter {
@@ -15,16 +19,18 @@ swiper {
       height: 100%; }
   .body .beijing {
     background-color: #F5F5F7;
-    border-radius: 12px;
-    height: 1000px;
-    margin-top: -10px;
+    border-radius: 24rpx;
+    height: 2000rpx;
+    margin-top: -20rpx;
     overflow: hidden;
-    /*待完成行程*/ }
+    /*发布*/
+    /*待完成行程*/
+    /*常用线路样式*/ }
     .body .beijing .swiper-tab {
       width: 100%;
       text-align: center;
       line-height: 80rpx;
-      margin-top: 5px;
+      margin-top: 10rpx;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-align: center;
@@ -33,155 +39,291 @@ swiper {
           justify-content: space-around; }
       .body .beijing .swiper-tab .swiper-tab-item {
         display: inline-block;
-        width: 38px;
+        width: 76rpx;
         color: #939499;
-        font-size: 14px; }
+        font-size: 28rpx; }
       .body .beijing .swiper-tab .active {
         color: #232426;
-        font-size: 16px;
+        font-size: 32rpx;
         font-weight: bold;
-        border-bottom: 3px solid #435BFF; }
+        border-bottom: 6rpx solid #435BFF; }
     .body .beijing .history_icon, .body .beijing .loc_icon {
-      width: 18px;
-      height: 15px;
+      width: 36rpx;
+      height: 30rpx;
       display: block; }
     .body .beijing .header {
-      background: white;
-      border-radius: 8px;
-      margin-top: 15px; }
-      .body .beijing .header .pad {
-        padding: 15px 0; }
-      .body .beijing .header .location {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center; }
-        .body .beijing .header .location .location_input > input {
-          width: 100%；; }
-        .body .beijing .header .location .location_input > view {
-          width: 150px;
-          color: #FF9800; }
-        .body .beijing .header .location .loc_icon {
-          margin: 0 15px; }
-      .body .beijing .header .location_one {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center;
-        border-top: 1px solid #E8E8EB; }
-        .body .beijing .header .location_one .location_input > input {
-          width: 100%；; }
-        .body .beijing .header .location_one .location_input > view {
-          width: 175px;
-          color: #FF9800; }
-        .body .beijing .header .location_one > button::after {
-          border: none; }
-        .body .beijing .header .location_one > button {
-          width: 74px;
-          height: 16px;
-          text-align: center;
-          line-height: 16px;
-          font-size: 12px;
-          color: #fff;
-          background: #FF9800; }
-    .body .beijing .one {
-      width: 100%;
-      height: 192px;
+      width: 96%;
+      height: 200rpx;
       background: #fff;
-      border-radius: 12px;
-      margin-top: 10px;
-      /*background: #ccc;*/ }
+      border-radius: 16rpx;
+      margin: 30rpx auto 0;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+      .body .beijing .header .location {
+        width: 85%;
+        height: 100%; }
+        .body .beijing .header .location .locationTop {
+          height: 100rpx;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: start;
+              justify-content: flex-start; }
+          .body .beijing .header .location .locationTop .loc_icon {
+            margin: 0 40rpx 0 -70rpx; }
+          .body .beijing .header .location .locationTop > button::after {
+            border: none; }
+          .body .beijing .header .location .locationTop > button {
+            width: 144rpx;
+            height: 32rpx;
+            text-align: center;
+            line-height: 32rpx;
+            font-size: 22rpx;
+            color: #fff;
+            border-radius: 16rpx;
+            background: #FF9800; }
+          .body .beijing .header .location .locationTop > input {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; }
+        .body .beijing .header .location .locationTop:last-child {
+          border-top: 2rpx solid #E8E8EB; }
+    .body .beijing .one {
+      width: 96%;
+      height: 384rpx;
+      background: #fff;
+      border-radius: 24rpx;
+      margin: 20rpx auto 0; }
       .body .beijing .one .one_header_0 {
         width: 100%;
-        height: 44px;
+        height: 88rpx;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
             align-items: center;
         -ms-flex-pack: justify;
             justify-content: space-between;
-        border-bottom: 1px solid #E8E8EB; }
+        border-bottom: 2rpx solid #E8E8EB; }
         .body .beijing .one .one_header_0 .one_header_0left {
-          margin: 0 10px; }
+          margin: 0 30rpx; }
+        .body .beijing .one .one_header_0 .one_headerLleft {
+          margin: 0 30rpx;
+          color: #939499;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
         .body .beijing .one .one_header_0 .one_header_0left_text {
           font-size: 12px; }
       .body .beijing .one .one_header {
         width: 100%;
-        height: 74px;
+        height: 146rpx;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: center;
             align-items: center;
-        -ms-flex-pack: start;
-            justify-content: flex-start; }
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
         .body .beijing .one .one_header .one_header_top {
-          width: 10%;
-          height: 74px;
+          width: 15.3%;
+          height: 100%;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+          .body .beijing .one .one_header .one_header_top > view {
+            width: 48rpx;
+            height: 48rpx;
+            margin: 0 auto; }
+        .body .beijing .one .one_header .one_header_center {
+          width: 84.7%;
+          height: 100%;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+          border-bottom: 1rpx solid #E8E8EB; }
+          .body .beijing .one .one_header .one_header_center .centerLeft {
+            width: 440rpx;
+            height: 100%; }
+            .body .beijing .one .one_header .one_header_center .centerLeft .centerLeftTop {
+              width: 100%;
+              height: 50%;
+              line-height: 100rpx; }
+            .body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom {
+              width: 100%;
+              /*height: 50%;*/
+              display: -ms-flexbox;
+              display: flex;
+              -ms-flex-align: center;
+                  align-items: center;
+              -ms-flex-pack: justify;
+                  justify-content: space-between; }
+              .body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom .centerLeftBottomQ {
+                width: 200rpx;
+                height: 48rpx; }
+                .body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom .centerLeftBottomQ > input {
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis; }
+              .body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom .centerLeftBottomW {
+                width: 40rpx;
+                height: 40rpx; }
+          .body .beijing .one .one_header .one_header_center .centerRight {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+                align-items: center;
+            color: #939499;
+            margin-right: 30rpx; }
+        .body .beijing .one .one_header .one_header_centerNo {
+          border-bottom: 0rpx solid #E8E8EB; }
+    .body .beijing .Line {
+      width: 96%;
+      height: 384rpx;
+      background: #fff;
+      border-radius: 24rpx;
+      margin: 20rpx auto 0; }
+      .body .beijing .Line .LineHeader {
+        width: 100%;
+        height: 88rpx;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+        border-bottom: 2rpx solid #E8E8EB; }
+        .body .beijing .Line .LineHeader .LineHeaderText {
+          margin: 0 30rpx;
+          color: #616266;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+        .body .beijing .Line .LineHeader .LineHeaderTextRight {
+          margin: 0 30rpx;
+          font-size: 12px;
+          color: #939499;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      .body .beijing .Line .GotoWork {
+        width: 96%;
+        height: 296rpx;
+        margin-left: 4%; }
+        .body .beijing .Line .GotoWork .GotoWorkTop {
+          height: 144rpx;
+          width: 100%;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+          border-bottom: 2rpx solid #E8E8EB; }
+          .body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textTop {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+                align-items: center;
+            -ms-flex-pack: start;
+                justify-content: flex-start; }
+            .body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textTop > view {
+              width: 70rpx;
+              height: 28rpx;
+              background: #6C7180;
+              color: #fff;
+              font-size: 20rpx;
+              line-height: 32rpx;
+              text-align: center;
+              border-radius: 6rpx;
+              margin-right: 16rpx; }
+          .body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textBottom {
+            display: -ms-flexbox;
+            display: flex;
+            margin-top: 10rpx;
+            -ms-flex-align: center;
+                align-items: center;
+            -ms-flex-pack: start;
+                justify-content: flex-start; }
+            .body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textBottom .textBottom_Left {
+              width: 200rpx;
+              height: 40rpx;
+              font-size: 28rpx;
+              overflow: hidden;
+              color: #616266;
+              white-space: nowrap;
+              text-overflow: ellipsis; }
+          .body .beijing .Line .GotoWork .GotoWorkTop .loc_icon {
+            margin-right: 32rpx; }
+        .body .beijing .Line .GotoWork .GotoWorkTopNo {
+          border-bottom: 0rpx solid #E8E8EB; }
+      .body .beijing .Line .LineCenter {
+        width: 100%; }
+        .body .beijing .Line .LineCenter .LineCenter_top {
+          width: 100%;
+          height: 70rpx;
+          margin-top: 70rpx;
+          font-size: 16px;
+          color: #616266;
           display: -ms-flexbox;
           display: flex;
           -ms-flex-align: center;
               align-items: center;
           -ms-flex-pack: center;
               justify-content: center; }
-        .body .beijing .one .one_header .one_header_bottom {
-          height: 74px;
-          width: 95%;
+          .body .beijing .Line .LineCenter .LineCenter_top .loc_icon {
+            width: 48rpx;
+            height: 48rpx;
+            margin-right: 16rpx; }
+        .body .beijing .Line .LineCenter .LineCenter_Bottom {
+          width: 100%;
+          height: 60rpx;
+          margin-top: 20rpx;
           display: -ms-flexbox;
           display: flex;
           -ms-flex-align: center;
               align-items: center;
-          -ms-flex-pack: distribute;
-              justify-content: space-around;
-          border-bottom: 1px solid #E8E8EB; }
-          .body .beijing .one .one_header .one_header_bottom .one_header_bottom1 {
-            width: 75%;
-            height: 100%; }
-            .body .beijing .one .one_header .one_header_bottom .one_header_bottom1 .textTop {
-              font-weight: bold;
-              margin-top: 12px; }
-            .body .beijing .one .one_header .one_header_bottom .one_header_bottom1 .textTop_img {
-              display: -ms-flexbox;
-              display: flex;
-              -ms-flex-align: center;
-                  align-items: center;
-              -ms-flex-pack: start;
-                  justify-content: flex-start; }
-              .body .beijing .one .one_header .one_header_bottom .one_header_bottom1 .textTop_img > view {
-                width: 35px;
-                height: 14px;
-                background: #6C7180;
-                color: #fff;
-                font-size: 12px;
-                line-height: 16px;
-                text-align: center;
-                border-radius: 3px;
-                margin-right: 8px; }
-            .body .beijing .one .one_header .one_header_bottom .one_header_bottom1 .textBottom {
-              display: -ms-flexbox;
-              display: flex;
-              margin-top: 5px;
-              -ms-flex-align: center;
-                  align-items: center;
-              -ms-flex-pack: start;
-                  justify-content: flex-start; }
-              .body .beijing .one .one_header .one_header_bottom .one_header_bottom1 .textBottom .textBottom_Left {
-                width: 100px;
-                height: 20px;
-                font-size: 12px;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis; }
-          .body .beijing .one .one_header .one_header_bottom .one_header_bottom12 {
-            margin-left: -18px; }
-          .body .beijing .one .one_header .one_header_bottom .one_header_bottom2 {
-            text-align: center;
-            font-size: 12px; }
-        .body .beijing .one .one_header .bottom_bod {
-          border: 0px solid #fff; }
-      .body .beijing .one .one_header_right {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-            align-items: center;
-        -ms-flex-pack: end;
-            justify-content: flex-end; }
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+          .body .beijing .Line .LineCenter .LineCenter_Bottom .tianjia {
+            width: 240rpx;
+            height: 56rpx; }
+            .body .beijing .Line .LineCenter .LineCenter_Bottom .tianjia > button {
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              line-height: 56rpx;
+              background: #FFFFFF;
+              border: 2rpx solid #C8C9CC;
+              border-radius: 16rpx; }
+          .body .beijing .Line .LineCenter .LineCenter_Bottom .yuanli {
+            width: 144rpx;
+            height: 32rpx;
+            margin: 0 30rpx 0 70rpx; }
+            .body .beijing .Line .LineCenter .LineCenter_Bottom .yuanli > button {
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              line-height: 32rpx;
+              font-size: 22rpx;
+              color: #fff;
+              border-radius: 16rpx;
+              background: #FF9800; }

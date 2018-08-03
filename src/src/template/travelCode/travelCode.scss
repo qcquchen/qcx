@@ -1,24 +1,28 @@
+Page{
+  background: #ededf1;
+}
 /*顺风车车主信息*/
 .tem-code_tipe{
-  height: 40px;
-  line-height: 40px;
-  background: #ededf1;
-  width: 360px;
-  padding-left: 5px;
-  font-size: 14px;
-  padding-top: 5px;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  padding-left: 10rpx;
+  font-size: 28rpx;
+  padding-top: 10rpx;
 }
 .tem-travelcode{
-  border-radius: 8px;
+  border-radius: 16rpx;
   background: #fff;
+  width: 96%;
+  margin: 0 auto;
   .tem-code_tipe{
-    padding: 12px;
-    font-size: 14px;
+    padding: 24rpx;
+    font-size: 28rpx;
     color: #232426;
-    border-bottom: 1px solid #F2F2F5;
+    border-bottom: 2rpx solid #F2F2F5;
   }
   .tem-code_user{
-    padding: 12px;
+    padding: 24rpx;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,46 +30,46 @@
       display: flex;
       align-items: center;
       >image{
-        width: 34px;
-        height: 34px;
+        width: 68rpx;
+        height: 68rpx;
       }
       .tem-user_mini{
-        margin-left: 6px;
-        font-size: 14px;
+        margin-left: 12rpx;
+        font-size: 28rpx;
         color: #616266;
       }
     }
     .tem-user_right{
       >image{
-        width: 16px;
-        height: 16px;
+        width: 32rpx;
+        height: 32rpx;
       }
     }
   }
   .tem-code{
-    border-radius: 12px;
+    border-radius: 24rpx;
     .tem-code_address{
-      padding: 12px;
-      padding-top: 0px;
-      border-bottom: 1px solid #F2F2F5;
+      padding: 24rpx;
+      padding-top: 0rpx;
+      border-bottom: 2rpx solid #F2F2F5;
       .tem-code_address_list{
         display: flex;
         align-items: center;
-        padding: 6px 0;
+        padding: 12rpx 0;
         >view{
-          margin-left: 6px;
+          margin-left: 12rpx;
         }
         >image{
-          width: 14px;
-          height: 14px;
+          width: 28rpx;
+          height: 28rpx;
         }
         .tem-code_center{
           color: #232426;
-          font-size: 14px;
+          font-size: 28rpx;
         }
         .tem-code_status{
           color: #939499;
-          font-size: 12px;
+          font-size: 24rpx;
         }
         .tem-code_status_color{
           color: #F2A93B;
@@ -78,23 +82,23 @@
         .tem-code_priceOrSeats_list{
           display: flex;
           align-items: center;
-          font-size: 14px;
+          font-size: 28rpx;
           color: #232426;
           >view:last-child{
-            margin-left: 6px;
+            margin-left: 12rpx;
           }
           >image{
-            width: 25px;
-            height: 25px;
-            margin-left: 6px;
+            width: 50rpx;
+            height: 50rpx;
+            margin-left: 12rpx;
             border-radius: 50%;
           }
         }
       }
     }
     .tem-code_bottom{
-      padding: 12px;
-      font-size: 12px;
+      padding: 24rpx;
+      font-size: 24rpx;
       color: #C8C9CC;
       display: flex;
       align-items: center;
@@ -108,9 +112,9 @@
           align-items: center;
           justify-content: center;
           >image{
-            width: 20px;
-            height: 28px;
-            margin-right: 6px;
+            width: 40rpx;
+            height: 56rpx;
+            margin-right: 12rpx;
           }
           .tem-code_bottom_share{
             color: #FFAA1F;
@@ -122,10 +126,9 @@
         >view{
           background: #F0F0F2;
           color: #4186E7;
-          font-size: 14px;
           text-align: center;
-          padding: 3px 6px;
-          border-radius: 8px;
+          padding: 6rpx 12rpx;
+          border-radius: 16rpx;
           font-weight: bold;
         }
       }

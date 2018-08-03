@@ -1,0 +1,238 @@
+
+Page{
+  height: 100%;
+}
+swiper{
+  height: 100%;
+}
+image{
+  width:100%;
+  height: 100%;
+}
+/*选项卡*/
+.beijing{
+  background-color:#F5F5F7;
+  height: 1500rpx;
+  overflow: hidden;
+ 
+} 
+.swiper-tab{
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content:space-around; 
+  border-top: 2rpx solid #F2F2F5; 
+}
+.swiper-tab-item{
+  display: inline-block;
+  /*width: 140rpx;*/
+  color:#939499;
+  font-size: 28rpx;
+}
+.active{
+  color:#232426;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-bottom: 6rpx solid #435BFF;
+}
+.history_icon, .loc_icon{
+  width: 36rpx;
+  height: 30rpx;
+  display: block;
+}
+/*车主*/
+.CarOwner{
+  width: 720rpx;
+  height: 406rpx;
+  margin: 20rpx auto 0;
+  border-radius: 24rpx;
+  background: #FFF;
+}
+.CarOwnerTop{
+  width: 100%;
+  height: 90rpx;
+  border-bottom: 2rpx solid #F2F2F5;
+}
+.CarOwnerTop_one{
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  >view{
+    height: 100%;
+  }
+}
+.CarOwnerTop_one_Left{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+}
+.Top_one_LeftText{
+  min-width: 72rpx;
+  height: 34rpx;
+  background: #6C7180;
+  border-radius: 6rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+}
+.LeftText{
+  margin-left: 20rpx; 
+  color: #484848;
+  font-size: 24rpx;
+  height: 34rpx;
+}
+.CarOwnerTop_one_right{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+}
+.icon_img{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+}
+.CarOwnerCenter{
+  width: 100%;
+  height: 170rpx;
+  border-bottom: 2rpx solid #F2F2F5;
+}
+.CarOwnerCenter_one{
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin:0 auto;
+}
+.CarOwnerCenter_one_Left{
+  width: 80%;
+  margin-top: 15rpx;
+}
+.AutomaticRight{
+  margin-top: 28rpx;
+}
+.one_LeftTop{
+  width: 100%;
+  height: 65rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  >input{
+    margin-left: 20rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 4rpx;
+  }
+}
+.icon_imgOne{
+  width: 24rpx;
+  height: 50rpx;
+}
+.one_LeftCenter{
+  color: #C8C9CC;
+  font-size: 22rpx;
+}
+/*swtich整体大小及背景色*/
+.wx-switch-input{
+    width: 72rpx !important;
+    height: 44rpx !important;
+}
+/*白色样式（false的样式）*/
+.wx-switch-input::before{
+    width: 72rpx !important;
+    height: 44rpx !important;
+}
+/*绿色样式（true的样式）*/
+.wx-switch-input::after{
+    width: 40rpx !important;
+    height: 40rpx !important;
+}
+/*底部添加栏*/
+.AddTo{
+    width: 100%;
+    height: 140rpx;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >button::after{
+    border: none;
+    }
+    >button{
+      width: 690rpx;
+      height: 100rpx;
+      line-height: 100rpx;
+      color: #ffffff;
+      font-size: 32rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, #50D1FF, #4374FF);
+      border-radius: 30rpx;
+      .icon_img{
+        width: 32rpx;
+        height: 32rpx;
+        display: block;
+        margin-right: 6rpx;
+      }
+  }
+}
+/*存为常用线路页面弹窗*/
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 540rpx;
+  height: 208rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 45%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+.modal-title {
+  padding: 32rpx 0 28rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 90rpx;
+  border-top: 2rpx solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+  color: #007AFF;
+}
+.btn-cancel {
+  width: 50%;
+  text-align: center;
+  border-right: 2rpx solid #dedede;
+}
+.btn-confirm {
+  width: 50%;
+  color: #D0021B;
+  text-align: center;
+}

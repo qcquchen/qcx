@@ -1,0 +1,303 @@
+@charset "UTF-8";
+Page {
+  background: #ededf1; }
+
+/*顺风车车主信息*/
+.tem-code_tipe {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  padding-left: 10rpx;
+  font-size: 28rpx;
+  padding-top: 10rpx; }
+
+.tem-travelcode {
+  border-radius: 16rpx;
+  background: #fff;
+  width: 96%;
+  margin: 0 auto; }
+  .tem-travelcode .tem-code_tipe {
+    padding: 24rpx;
+    font-size: 28rpx;
+    color: #232426;
+    border-bottom: 2rpx solid #F2F2F5; }
+  .tem-travelcode .tem-code_user {
+    padding: 24rpx;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .tem-travelcode .tem-code_user .tem-user_left {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .tem-travelcode .tem-code_user .tem-user_left > image {
+        width: 68rpx;
+        height: 68rpx; }
+      .tem-travelcode .tem-code_user .tem-user_left .tem-user_mini {
+        margin-left: 12rpx;
+        font-size: 28rpx;
+        color: #616266; }
+    .tem-travelcode .tem-code_user .tem-user_right > image {
+      width: 32rpx;
+      height: 32rpx; }
+  .tem-travelcode .tem-code {
+    border-radius: 24rpx; }
+    .tem-travelcode .tem-code .tem-code_address {
+      padding: 24rpx;
+      padding-top: 0rpx;
+      border-bottom: 2rpx solid #F2F2F5; }
+      .tem-travelcode .tem-code .tem-code_address .tem-code_address_list {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        padding: 12rpx 0; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list > view {
+          margin-left: 12rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list > image {
+          width: 28rpx;
+          height: 28rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_center {
+          color: #232426;
+          font-size: 28rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_status {
+          color: #939499;
+          font-size: 24rpx; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_address_list .tem-code_status_color {
+          color: #F2A93B; }
+      .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+        .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          font-size: 28rpx;
+          color: #232426; }
+          .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > view:last-child {
+            margin-left: 12rpx; }
+          .tem-travelcode .tem-code .tem-code_address .tem-code_priceOrSeats .tem-code_priceOrSeats_list > image {
+            width: 50rpx;
+            height: 50rpx;
+            margin-left: 12rpx;
+            border-radius: 50%; }
+    .tem-travelcode .tem-code .tem-code_bottom {
+      padding: 24rpx;
+      font-size: 24rpx;
+      color: #C8C9CC;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft {
+        -ms-flex: 7;
+            flex: 7;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+        .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+              align-items: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+          .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list > image {
+            width: 40rpx;
+            height: 56rpx;
+            margin-right: 12rpx; }
+          .tem-travelcode .tem-code .tem-code_bottom .tem-code_bottom_laft .tem-code_bottom_list .tem-code_bottom_share {
+            color: #FFAA1F; }
+      .tem-travelcode .tem-code .tem-code_bottom .tem-code_btn {
+        -ms-flex: 2;
+            flex: 2; }
+        .tem-travelcode .tem-code .tem-code_bottom .tem-code_btn > view {
+          background: #F0F0F2;
+          color: #4186E7;
+          text-align: center;
+          padding: 6rpx 12rpx;
+          border-radius: 16rpx;
+          font-weight: bold; }
+
+Page {
+  background: #F5F5F7; }
+
+/*头部线路*/
+.header_one {
+  width: 100%;
+  height: 60rpx;
+  background: white;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .header_one .header_tow {
+    width: 40%;
+    height: 100%;
+    font-size: 24rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    line-height: 60rpx; }
+
+/*常用路线-更多操作*/
+.travel_foot_nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 16rpx 0;
+  border-top: 2rpx solid #ededf1;
+  background: #fff; }
+  .travel_foot_nav .operating_list {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
+    .travel_foot_nav .operating_list > image {
+      width: 32rpx;
+      height: 32rpx;
+      margin-right: 12rpx; }
+    .travel_foot_nav .operating_list > view {
+      font-size: 28rpx;
+      color: #484848; }
+
+/*提交按钮*/
+.submit {
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  .submit > button::after {
+    border: none; }
+  .submit > button {
+    background: linear-gradient(to right, #50D1FF, #4374FF);
+    margin: 12rpx 24rpx;
+    color: #ffffff;
+    font-size: 28rpx; }
+  .submit .submit_number {
+    width: 200rpx;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    font-weight: 700;
+    margin: 0 auto; }
+
+/*分享行程*/
+.ShareIt {
+  width: 720rpx;
+  height: 100rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  margin: 20rpx auto 0rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .ShareIt .ShareIt_In {
+    width: 65%;
+    color: #F5A623;
+    font-size: 24rpx; }
+  .ShareIt > button::after {
+    border: none; }
+  .ShareIt > button {
+    background: #F0F0F2;
+    margin: 12rpx 24rpx;
+    color: #4186E7;
+    font-size: 28rpx;
+    width: 160rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-weight: bold;
+    font-size: 28rpx;
+    font-family: 'PingFangSC'; }
+
+/*存为常用线路页面弹窗*/
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff; }
+
+.modal-dialog {
+  width: 540rpx;
+  height: 330rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 35%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx; }
+
+.modal-title {
+  padding-top: 40rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center; }
+
+.modal-title_two {
+  padding-top: 12rpx;
+  font-size: 26rpx;
+  color: #030303;
+  text-align: center; }
+
+.modal-input {
+  margin: 20rpx 0; }
+
+.input {
+  width: 474rpx;
+  height: 50rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+  background: #fff;
+  margin: 0 auto;
+  border: 2rpx solid #dedede; }
+
+.modal-footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  height: 86rpx;
+  border-top: 2rpx solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+  color: #007AFF; }
+
+.btn-cancel {
+  width: 50%;
+  text-align: center;
+  border-right: 2rpx solid #dedede; }
+
+.btn-confirm {
+  width: 50%;
+  text-align: center; }

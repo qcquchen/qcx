@@ -1,17 +1,21 @@
 @charset "UTF-8";
+Page {
+  background: #ededf1; }
+
 /*顺风车车主信息*/
 .tem-code_tipe {
   height: 40px;
   line-height: 40px;
-  background: #ededf1;
-  width: 360px;
+  width: 100%;
   padding-left: 5px;
   font-size: 14px;
   padding-top: 5px; }
 
 .tem-travelcode {
   border-radius: 8px;
-  background: #fff; }
+  background: #fff;
+  width: 360px;
+  margin: 0 auto; }
   .tem-travelcode .tem-code_tipe {
     padding: 12px;
     font-size: 14px;

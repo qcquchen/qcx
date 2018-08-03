@@ -1,0 +1,65 @@
+<!-- 途经设置及地点 -->
+<view class="header">
+  <wiew class="header_left">
+    <view class="location">
+      <image class="loc_icon" src="../../images/icon_map_star@3x.png"></image>
+      <input style="width: 100%" value="{{ start_addr }}" type="text" placeholder="我的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+    </view>
+    <!-- 线路途经地点 -->
+    <!-- <view class="location_Next" hidden="{{hiddenName}}">
+      <view class="location">
+        <image class="loc_icon" src="../../images/assets/icon_delete@3x.png"></image>
+        <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="请输入途经点1" bindtap="" data-id="end"/>
+      </view>
+      <view class="location">
+        <image class="loc_icon" src="../../images/assets/icon_delete@3x.png"></image>
+        <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="请输入途经点2" bindtap="" data-id="end"/>
+      </view> 
+       <view class="location">
+        <image class="loc_icon" src="../../images/assets/icon_delete@3x.png"></image>
+        <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="请输入途经点3" bindtap="" data-id="end"/>
+      </view>
+    </view> -->
+    <!-- 途经地点3个 -->
+    <view class="locationCenter">
+        <image class="loc_icon" src="../../images/icon_place@3x.png"></image>
+        <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="经3地：西二旗、朱辛庄、生命科学园" bindtap="" data-id="end"/>
+    </view>
+    <view class="location">
+      <image class="loc_icon" src="../../images/icon_map_end@3x.png"></image>
+      <input style="width: 100%" value="{{ end_addr }}" type="text" placeholder="沙河地铁站" disabled="true" bindtap="getLocation" data-id="end"/>
+    </view>  
+  </wiew>
+  <wiew class="header_right">
+     <image bindtap='clickMe' class="exchange" src="../../images/assets/btn_add@3x.png"></image>
+      <image bindtap="convexrtLoc" class="exchange" src="../../images/assets/btn_exchange@3x.png"></image>
+  </wiew>
+</view>
+ <!-- CarOwnerReleasedFooter -->
+<view class="footer">
+ <view class="footerHeader">
+   <view class="footerHeaderText">
+     <view class="footerHeaderText1">时间最短</view>
+     <view class="footerHeaderText1">12分钟</view>
+     <view class="footerHeaderText1">3公里</view>
+   </view>
+   <view class="footerHeaderText">
+     <view class="footerHeaderText1">时间最短</view>
+     <view class="footerHeaderText1">12分钟</view>
+     <view class="footerHeaderText1">3公里</view>
+   </view>
+   <view class="footerHeaderText">
+     <view class="footerHeaderText1">时间最短</view>
+     <view class="footerHeaderText1">12分钟</view>
+     <view class="footerHeaderText1">3公里</view>
+   </view>
+ </view>
+ <view class="footerBottom">
+   <button bindtap='Jump'>确认</button>
+ </view>
+</view>
+
+
+
+
+

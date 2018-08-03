@@ -18,9 +18,12 @@
 #  app.json 项目配置文件
 #  app.scss 公共样式文件
 # 	src 
-# 	 |                  WaitCarowner  乘客等待车主接单
-					    CarOwnerReleased  车主发布---->设置行驶线路页面
-
+# 	 |                  WaitCarowner---------》乘客等待车主接单
+					    CarOwnerReleased  车主发布
+					    DrivingRoute-----》车主途经点的发布
+					    CarOwners-----》CarOwners----》发布车主行程
+					                          |
+                                       CommonCarOwners----》设置车主常用线路
 
 # 	 auditTheOwner ---> auditTheOwner 车主审核列表
 # 	 |                       |
@@ -43,7 +46,7 @@
 #    |
 #    ownersCertification   ------> 车主认证
 #    | 
-#    ownerSelectLine   ------> 选择路线
+#    ownersSelectLine   ------> 选择路线
 #    |
 #    search      -----> search 搜索行程/路线
 #    |
@@ -67,3 +70,12 @@
 #  constants.js 全局状态文件
 #  utils.js 全局封装包
 #  amap-wx.js 高德SDK
+
+
+
+服务器地址
+private static final String URL_DRIVER_TEST = "http://47.92.84.65:20002";
+private static final String URL_CLIENT_TEST = "http://47.92.84.65:20001";
+线下
+private static final String URL_DRIVER_ONLINE = "https://v1.driver.quchuxing.com.cn";
+private static final String URL_CLIENT_ONLINE = "https://v1.passenger.quchuxing.com.cn";

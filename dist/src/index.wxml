@@ -13,99 +13,253 @@
       <swiper-item>
         <!-- 获取当前位置 -->
         <view class="header" bindtap="gotoSearch">
-          <view class="location pad">
-            <image class="loc_icon" src="../../images/assets/icon_start@2x.png"></image>
-            <view class="location_input">
-               <input style="width: 100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
-            </view>
-          </view>
           <view class="location">
-             <image class="loc_icon" src="../../images/assets/icon_end@2x.png"></image>
-             <view class="location_one pad">
-                <view class="location_input">
-                  <view value="{{ end_addr }}" type="text" disabled="true" bindtap="getLocation" data-id="end">您要去哪？</view>
-                </view>
-              <button >+50原力</button> 
+            <view class="locationTop">
+              <image class="loc_icon" src="../../images/assets/icon_start@3x.png"></image>
+              <input style="width:70%" value="" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="" data-id=""/>
+            </view>
+            <view class="locationTop">
+              <image class="loc_icon" src="../../images/assets/icon_end@3x.png"></image>
+              <input style="width:70%" value="" type="text" placeholder="你要去哪儿" placeholder-style="color:#FF9800;" disabled="true" bindtap="" data-id=""/>
+              <button>+50原力</button>
             </view>
           </view>
         </view>
         <!-- 待完成行程 -->
         <view class="one">
           <view class="one_header_0">
-            <view class="one_header_0left">{{ strokeText }}</view>
-            <view class="one_header_0left one_header_0left_text">{{ strokeText1 }}</view>
+            <view class="one_header_0left">待完成行程</view>
+            <view class="one_headerLleft one_header_0left_text">全部
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+            </view>
           </view>
           <view class="one_header">
             <view class="one_header_top">
-              <image src='../../images/btn_me.png'></image>
+              <view><image src='../../images/btn_me.png'></image></view>
             </view>
-            <view class="one_header_bottom">
-              <view class="one_header_bottom1">
-                <view class="textTop">{{ textTop }}</view>
-                <view class="textBottom">
-                <view class="textBottom_Left">{{ textBottom }}</view>
-                  <view class="textBottom_center"><image src='../../images/icon_arrow_black@3x.png'></image></view>
-                  <view class="textBottom_Left">{{ textBottom }}</view>
+            <view class="one_header_center">
+              <view class="centerLeft">
+                <view class="centerLeftTop">{{ textTop }}</view>
+                <view class="centerLeftBottom">
+                  <view class="centerLeftBottomQ">
+                    <input style="width:100%" value="" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="" data-id=""/>
+                  </view>
+                  <view class="centerLeftBottomW"><image src='../../images/assets/icon_arrow_black@3x.png'></image></view>
+                  <view class="centerLeftBottomQ">
+                    <input style="width:100%" value="" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="" data-id=""/>
+                  </view>
                 </view>
               </view>
-              <view class="one_header_bottom2">{{ strokeText3 }}</view>
+              <view class="centerRight">
+                待上车
+                <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+              </view>
             </view>
           </view>
           <!-- 待支付模块 -->
           <view class="one_header">
             <view class="one_header_top">
-              <image src='../../images/btn_me.png'></image>
+              <view><image src='../../images/btn_me.png'></image></view>
             </view>
-            <view class="one_header_bottom bottom_bod">
-              <view class="one_header_bottom1">
-                <view class="textTop">{{ textTop }}</view>
-                <view class="textBottom">
-                  <view class="textBottom_Left">{{ textBottom }}</view>
-                  <view class="textBottom_center"><image src='../../images/icon_arrow_black@3x.png'></image></view>
-                  <view class="textBottom_Left">{{ textBottom }}</view>
+            <view class="one_header_center one_header_centerNo">
+              <view class="centerLeft">
+                <view class="centerLeftTop">{{ textTop }}</view>
+                <view class="centerLeftBottom">
+                  <view class="centerLeftBottomQ">
+                    <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+                  </view>
+                  <view class="centerLeftBottomW"><image src='../../images/assets/icon_arrow_black@3x.png'></image></view>
+                  <view class="centerLeftBottomQ">
+                     <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+                  </view>
                 </view>
               </view>
-              <view class="one_header_bottom2">{{ strokeText2 }}</view>
+              <view class="centerRight">
+                待支付
+                <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+       <!-- 添加常用线路 -->
+        <view class="Line">
+          <view class="LineHeader">
+            <view class="LineHeaderText">常用线路</view>
+            <view class="LineHeaderTextRight">管理<image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image></view>
+          </view>
+          <view class="LineCenter">
+            <view class="LineCenter_top">
+              <image class="loc_icon" src="../../images/zhuye/s.png"></image>
+              <text class="LineCenter_topText">添加常用路线可以快速匹配和发布行程</text>
+            </view>
+            <view class="LineCenter_Bottom">
+              <view class="tianjia">
+                <button bindtap="gotoPassengerRoute">添加</button>
+              </view>
+              <view class="yuanli">
+                <button>+50原力</button>
+              </view>
+             
             </view>
           </view>
         </view>
         <!-- 常用线路 -->
-        <view class="one">
-          <view class="one_header_0">
-            <view class="one_header_0left">常用线路</view>
-            <view class="one_header_0left one_header_0left_text">管理></view>
+        <!-- <view class="Line">
+          <view class="LineHeader">
+            <view class="LineHeaderText">常用线路</view>
+            <view class="LineHeaderTextRight" bindtap="gotoPassengerRoute">管理<image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image></view>
           </view>
-          <view class="one_header one_header_right">
-            <view class="one_header_bottom">
-              <view class="one_header_bottom1 one_header_bottom12">
-                <view class="textTop textTop_img"><view>上班</view>09:35</view>
+          <view class="GotoWork">
+            <view class="GotoWorkTop">
+              <view class="GotoWorkTop_one">
+                <view class="textTop"><view>上班</view>09:35</view>
                 <view class="textBottom">
                   <view class="textBottom_Left">上地十四街海淀创业园</view>
                   <view class="textBottom_center"><image src='../../images/icon_arrow_black@3x.png'></image></view>
                   <view class="textBottom_Left">生命科学园地铁站昌平区</view>
                 </view>
               </view>
-              <view class="one_header_bottom2">></view>
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
             </view>
-          </view>
-          <!-- 下班 -->
-          <view class="one_header one_header_right">
-            <view class="one_header_bottom bottom_bod">
-              <view class="one_header_bottom1 one_header_bottom12">
-                <view class="textTop textTop_img"><view>下班</view>09:35</view>
+            <view class="GotoWorkTop GotoWorkTopNo">
+              <view class="GotoWorkTop_one">
+                <view class="textTop"><view>上班</view>09:35</view>
                 <view class="textBottom">
                   <view class="textBottom_Left">上地十四街海淀创业园</view>
                   <view class="textBottom_center"><image src='../../images/icon_arrow_black@3x.png'></image></view>
                   <view class="textBottom_Left">生命科学园地铁站昌平区</view>
                 </view>
               </view>
-              <view class="one_header_bottom2">></view>
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
             </view>
-          </view> 
-        </view>
+          </view>
+        </view> -->
       </swiper-item>
       <!-- 车主页 -->
-      <swiper-item><view></view></swiper-item>
+      <swiper-item>
+        <!-- 获取当前位置 -->
+        <view class="header" bindtap="gotoCarOwnerReleased">
+          <view class="location">
+            <view class="locationTop">
+              <image class="loc_icon" src="../../images/assets/icon_start@3x.png"></image>
+              <input style="width:70%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+            </view>
+            <view class="locationTop">
+              <image class="loc_icon" src="../../images/assets/icon_end@3x.png"></image>
+              <input style="width:70%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+              <button>+50原力</button>
+            </view>
+          </view>
+        </view>
+        <!-- 待完成行程 -->
+        <view class="one">
+          <view class="one_header_0">
+            <view class="one_header_0left">待完成行程</view>
+            <view class="one_headerLleft one_header_0left_text">全部
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+            </view>
+          </view>
+        <view class="one_header">
+          <view class="one_header_top">
+            <view><image src='../../images/btn_me.png'></image></view>
+          </view>
+          <view class="one_header_center">
+            <view class="centerLeft">
+              <view class="centerLeftTop">{{ textTop }}</view>
+              <view class="centerLeftBottom">
+                <view class="centerLeftBottomQ">
+                  <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+                </view>
+                <view class="centerLeftBottomW"><image src='../../images/assets/icon_arrow_black@3x.png'></image></view>
+                <view class="centerLeftBottomQ">
+                   <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+                </view>
+              </view>
+            </view>
+            <view class="centerRight">
+              待上车
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+            </view>
+          </view>
+        </view>
+          <!-- 待支付模块 -->
+        <view class="one_header">
+          <view class="one_header_top">
+            <view><image src='../../images/btn_me.png'></image></view>
+          </view>
+          <view class="one_header_center one_header_centerNo">
+            <view class="centerLeft">
+              <view class="centerLeftTop">{{ textTop }}</view>
+              <view class="centerLeftBottom">
+                <view class="centerLeftBottomQ">
+                  <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+                </view>
+                <view class="centerLeftBottomW"><image src='../../images/assets/icon_arrow_black@3x.png'></image></view>
+                <view class="centerLeftBottomQ">
+                   <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start"/>
+                </view>
+              </view>
+            </view>
+            <view class="centerRight">
+              待支付
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+        <!-- 添加常用线路 -->
+        <view class="Line">
+          <view class="LineHeader">
+            <view class="LineHeaderText">常用线路</view>
+            <view class="LineHeaderTextRight" bindtap="gotoPassengerRoute">管理<image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image></view>
+          </view>
+          <view class="LineCenter">
+            <view class="LineCenter_top">
+              <image class="loc_icon" src="../../images/zhuye/s.png"></image>
+              <text class="LineCenter_topText">添加常用路线可以快速匹配和发布行程</text>
+            </view>
+            <view class="LineCenter_Bottom">
+              <view class="tianjia">
+                <button bindtap="gotoPassengerRoute">添加</button>
+              </view>
+              <view class="yuanli">
+                <button>+50原力</button>
+              </view> 
+            </view>
+          </view>
+        </view>
+        <!-- 常用路线添加后 -->
+        <!-- <view class="Line">
+          <view class="LineHeader">
+            <view class="LineHeaderText">常用线路</view>
+            <view class="LineHeaderTextRight" bindtap="gotoCommonCarOwners">管理<image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image></view>
+          </view>
+          <view class="GotoWork">
+            <view class="GotoWorkTop">
+              <view class="GotoWorkTop_one">
+                <view class="textTop"><view>上班</view>09:35</view>
+                <view class="textBottom">
+                  <view class="textBottom_Left">上地十四街海淀创业园</view>
+                  <view class="textBottom_center"><image src='../../images/icon_arrow_black@3x.png'></image></view>
+                  <view class="textBottom_Left">生命科学园地铁站昌平区</view>
+                </view>
+              </view>
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+            </view>
+            <view class="GotoWorkTop GotoWorkTopNo">
+              <view class="GotoWorkTop_one">
+                <view class="textTop"><view>上班</view>09:35</view>
+                <view class="textBottom">
+                  <view class="textBottom_Left">上地十四街海淀创业园</view>
+                  <view class="textBottom_center"><image src='../../images/icon_arrow_black@3x.png'></image></view>
+                  <view class="textBottom_Left">生命科学园地铁站昌平区</view>
+                </view>
+              </view>
+              <image class="loc_icon" src="../../images/assets/icon_return_left_mini@3x.png"></image>
+            </view>
+          </view>
+        </view> -->
+      </swiper-item>
       <!-- 原力页 -->
       <swiper-item><view>第三屏</view></swiper-item>
     </swiper>

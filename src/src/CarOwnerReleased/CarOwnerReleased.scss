@@ -1,11 +1,12 @@
-
+@import "../template/travelCode/travelCode.scss";
 page{
   background: #ededf1;
+  /*height: 400rpx;*/
 }
 /*搜索导航*/
 .header{
 	width: 100%;
-	line-height: 100px;
+	line-height: 200rpx;
 	background: #fff;
 	display: flex;
   	align-items: center;
@@ -16,29 +17,48 @@ page{
   		.location{
 		    display: flex;
 		    align-items: center;
-		    padding: 15px 0;
+		    padding: 20rpx 0;
 		    >input{
-		        width: 100%；
+		        width: 100%;
 		    }
 		    .loc_icon{
-		    	margin-right:15px; 
-		    	margin-left: -35px;
+		    	margin-right:30rpx; 
+		    	margin-left: -70rpx;
 		    }
 	    }
 	    .location:nth-child(1){
-	      	border-bottom: 1px solid #ededf1;
+	      	border-bottom: 1rpx solid #ededf1;
 	    }
-	    .location:nth-child(2){
-			padding: 5px 0;
-	      	border-bottom: 1px solid #ededf1;
-	    }
-	    .location:nth-child(3){
-	    	padding: 5px 0;
-	      	border-bottom: 1px solid #ededf1;
-	    }
-	    .location:nth-child(4){
-	    	padding: 5px 0;
-	      	border-bottom: 1px solid #ededf1;
+      .locationCenter{
+        display: flex;
+        align-items: center;
+        padding: 10rpx 0;
+        >input{
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .loc_icon{
+          margin-right:30rpx; 
+          margin-left: -70rpx;
+        }
+      }
+	    .location_Next{
+	    	.location:nth-child(1){
+				  padding: 10rpx 0;
+          border-bottom: 2rpx solid #ededf1;
+		      /*border-top: 1rpx solid #ededf1;*/
+		    }
+		    .location:nth-child(2){
+				  padding: 10rpx 0;
+		      border-bottom: 1rpx solid #ededf1;
+		    }
+		    .location:nth-child(3){
+		    	padding: 10rpx 0;
+		      border-bottom: 2rpx solid #ededf1;
+
+		    }
 	    }
   	}
   	.header_right{
@@ -47,377 +67,52 @@ page{
   		display: flex;
   		align-items: center;
   		.exchange{
-		    width: 20px;
-		    height: 20px;
+		    width: 40rpx;
+		    height: 40rpx;
 		    display: block;
-		    margin-left: 15px;
+		    margin-left: 30rpx;
 		}
   	}
 }
 /*家*/
 .home{
-  margin-top: 5px;
+  margin-top: 10rpx;
   width:100%;
-  height: 60px;
+  height: 120rpx;
   background: #fff;
   display: flex;
   align-items: center;
-  justify-content:center;
-  border-bottom: 1px solid #ededf1;
+  justify-content:row-reverse;
+  border-bottom: 2rpx solid #ededf1;
   .home_one{
-    width: 160px;
-    height: 60px;
+    width: 50%;
+    height: 120rpx;
     display: flex;
     align-items: center;
     justify-content:row-reverse;
     .img{
-      margin: 0 15px;
+      margin:30rpx 40rpx 30rpx 50rpx;
     }
     .home_two{
-      width: 112px;
-      height: 60px;
-      padding-top: 15px;
+      width: 224rpx;
+      height: 120rpx;
+      padding-top: 30rpx;
       .home_two_top{
         width: 100%;
-        line-height: 20px;
-        font-size: 16px;
+        line-height: 40rpx;
+        font-size: 32rpx;
         color:#232426;
         font-family: 'PingFangSC-Regular';
+        >input{
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
       }
     }
   }
  .home_one:last-child{
-     border-left:1px solid #ededf1; 
+     border-left:2rpx solid #ededf1; 
   }
 }
-/*搜索历史*/
-.scroll_hostory{
-  .search_history{
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ededf1;
-    margin: 0 12px;
-    .history_direction_icon{
-      width: 25px;
-      height: 18px;
-      margin: 0 6px;
-      margin-top: 3px;
-    }
-    .history_li{
-      margin-left: 6px;
-      overflow: hidden;
-      padding: 10px 0;
-      >view, image{
-        float: left;
-      }
-      >view{
-        width: 115px;
-        overflow: hidden;
-        white-space:nowrap;
-        text-overflow:ellipsis;
-      }
-    }
-  }
-  .clearHistory{
-    text-align: center;
-    font-size: 14px;
-    color: #ABB1BA;
-    padding: 12px 0;
-  }
-  .search_history:last-child{
-    border-bottom: none;
-  }
-
-  .search_list:last-child{
-    border-bottom: none;
-  }
-  .search_list{
-    padding: 0 12px;
-    border-bottom: 5px solid #ededf1;
-    .sea_list_tit{
-      font-size: 13px;
-      color: #484848;
-      padding-top: 12px;
-    }
-    .search_line{
-      padding: 8px 0 12px 0;
-      border-bottom: 1px solid #ededf1;
-      .search_line_list{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .search_line_left{
-          display: flex;
-          align-items: center;
-          .searchLine_imgOne{
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: block;
-          }
-          .searchLine_detail{
-            color: #484848;
-            font-size: 13px;
-            margin: 0 8px;
-            .search_info_tit{
-              font-size: 17px;
-              font-weight: bold;
-            }
-            .search_info_peopleNum{
-              font-size: 11px;
-              color: #ffffff;
-              padding: 0 5px;
-              border-radius: 8px;
-              background: #499EFF;
-              display: inline-block;
-            }
-            .search_ingo_synopsis{
-              width: 180px;
-              overflow: hidden;
-              text-overflow:ellipsis;
-              white-space: nowrap;
-            }
-          }
-        }
-        .searchLine_imgTwo{
-          width: 30px;
-          height: 30px;
-          display: block;
-        }
-        .searchLine_imgTwo_type{
-          width: 40px;
-          height: 22px;
-        }
-      }
-    }
-    .search_line:last-child{
-      border-bottom: none;
-    }
-
-    .search_travel{
-      .travel_head{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 0;
-        .travel_head_left{
-          display: flex;
-          align-items: center;
-          >image{
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-          }
-          .travel_people_info{
-            margin-left: 10px;
-            .tra_peo_name{
-              display: flex;
-              align-items: center;
-              font-size: 17px;
-              font-weight: bold;
-              >image{
-                width: 14px;
-                height: 14px;
-              }
-            }
-            .travel_people_code{
-              font-size: 11px;
-              color: #ABB1BA;
-            }
-          }
-        }
-        .travel_head_right{
-          >button{
-            padding: 4px 10px;
-            margin: 0;
-            border: 1px solid #484848;
-            border-radius: 8px;
-            line-height: 12px;
-            font-size: 12px;
-          }
-        }
-      }
-      .travel_body{
-        .passenger_travel_bg{
-          background: linear-gradient(to right, #EC7474, #F4A556);
-        }
-        .driver_travel_bg{
-          background: linear-gradient(to right, #62BFF0, #707BF4);
-        }
-        .travel_code{
-          border-radius: 8px;
-          color: #ffffff;
-          font-size: 16px;
-          margin: 10px 0;
-          .travel_code-one{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px;
-            .travel_code-one_left{
-                display: flex;
-                align-items: center;
-                .travel_tit{
-                  padding: 2px 6px;
-                  border-radius: 12px;
-                  background: #ffffff;
-                  font-size: 10px;
-                }
-                .travel_date{
-                  margin-left: 5px;
-                }
-            }
-            .travel_btn{
-              padding: 2px 15px;
-              border-radius: 8px;
-              font-size: 13px;
-              opacity: .8;
-            }
-            .passenger_color{
-              color: #EC7474;
-            }
-            .driver_color{
-              color: #707BF4;
-            }
-            .passenger_bg{
-              background: #ED8935;
-            }
-            .driver_bg{
-              background: #3C95D4;
-            }
-          }
-          .travel_code-two{
-            overflow: hidden;
-            padding: 0 12px;
-            >view, image{
-              float: left;
-            }
-            >view{
-              width: 120px;
-              overflow: hidden;
-              text-overflow:ellipsis;
-            }
-            >image{
-              margin: 0 5px;
-              margin-top: 2px;
-            }
-          }
-          .travel_code-three{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 12px;
-            .seat_num, .travel_price{
-              display: flex;
-              align-items: center;
-              >text:first-child{
-                font-size: 11px;
-              }
-              >text:last-child{
-                font-size: 17px;
-                margin-left: 3px;
-              }
-            }
-            .driver_seat{
-              display: flex;
-              align-items: center;
-              >image{
-                width: 28px; 
-                height: 28px;
-              }
-            }
-          }
-        }
-      }
-      .travel_foot{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .scan_num{
-          font-size: 11px;
-          color: #ABB1BA;
-        }
-        .likeAndShare{
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          .likeAndShare_list{
-            display: flex;
-            align-items: center;
-            font-size: 11px;
-             color: #484848;
-             position: relative;
-            >image{
-              margin-right: 4px;
-              width: 24px;
-              height: 31px;
-            }
-            .share_tip{
-              width: 40px;
-              height: 20px;
-              position: absolute;
-              color: #ffffff;
-              top: 25px;
-              left: -10px;
-              >image{
-                width: 100%;
-                height: 100%;
-              }
-              >view{
-                position: absolute;
-                top: 4px;
-                left: 2px;
-              }
-            }
-          }
-          .likeAndShare_list:last-child{
-            margin-left: 8px;
-          }
-        }
-      }
-    }
-  }
-}
-.none_data{
-  text-align: center;
-  font-size: 16px;
-  color: #ABB1BA;
-  padding: 20px 0;
-}
-.none_dataOne{
-  width: 155px;
-  height: 120px;
-  margin:0 auto;
-  position: relative;
-  top:150px;
-  .none_dataTop{
-    width: 100%;
-    height: 25px;
-    color: #ABB1BA;
-    font-size: 16px;
-    line-height: 25px;
-    text-align: center;
-  }
-  >button::after{
-    border: none;
-  }
-  >button{
-    width: 148px;
-    height: 50px;
-    line-height: 50px;
-    color: #ffffff;
-    font-size: 16px;
-    margin-top: 20px;
-    background: linear-gradient(to right, #50D1FF, #4374FF);
-  }
-}
-.lookAll{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  padding: 12px 0;
-  color: #ABB1BA;
-}
-/*搜索历史*/
 
