@@ -1,2 +1,0 @@
-<canvas style="width:{{ windowWidth }}px; height:300px;background: #ffffff;" canvas-id="{{ canvasId }}">
-</canvas>

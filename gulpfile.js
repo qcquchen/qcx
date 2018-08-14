@@ -1,21 +1,17 @@
 var gulp         = require('gulp')
 var uglify       = require('gulp-uglify')
 var clean        = require('gulp-clean')
-var concat       = require('gulp-concat')
-var minifyCss    = require('gulp-clean-css')
-var htmlmin      = require('gulp-htmlmin')
 var notify       = require('gulp-notify')
 var autoprefixer = require('gulp-autoprefixer')
 var gulpSequence = require('gulp-sequence')
-var imagemin     = require('gulp-imagemin')
-var pngquant     = require('imagemin-pngquant')
 var sass         = require('gulp-sass')
-var ejs          = require('gulp-ejs')
-var connect      = require('gulp-connect')
 var plumber      = require('gulp-plumber')
 var minimist     = require('minimist')
+var babel        = require('gulp-babel')
 var rename = require("gulp-rename");
 var changed = require('gulp-changed');
+var stripDebug = require('gulp-strip-debug')
+var removeLogs = require('gulp-removelogs')
 
 var knownOptions = {
   string  : 'env',
@@ -23,18 +19,39 @@ var knownOptions = {
 };
 var options = minimist(process.argv.slice(2), knownOptions);
 
-
 const BASE   = 'src'
 const PRO_BASE = 'dist'
 const DEV_BASE = 'build'
 const BUILD_BASE = options.env == 'development' ? DEV_BASE : PRO_BASE
+// console.log('编译命令: gulp build, 开发编译命令: gulp dev')
 
-gulp.task('default', function() {
-  console.log('编译命令: gulp build, 开发编译命令: gulp dev')
+// gulp.task('default', function() {
+//   return gulp.src([`${BASE}/**`, `!${BASE}/**/**.js`])
+//           .pipe(babel({
+//             presets: ['es2015']
+//           }))
+//           .pipe(stripDebug())
+//           .pipe(uglify({ mangle: false }))
+//           .pipe(removeLogs())
+//           .pipe(gulp.dest(`${PRO_BASE}`))
+// })
+
+gulp.task('compileJs', function(){
+  return gulp.src([`${BASE}/**.js`, `${BASE}/**/**.js`, `!${BASE}/js/bluebird.js`, `!${BASE}/js/weapp.qrcode.esm.js`])
+          // .pipe(babel())
+          // .pipe(uglify())
+          .pipe(gulp.dest(`${PRO_BASE}`))
+})
+
+gulp.task('removeLog', function(){
+  return gulp.src([`${BASE}/**.js`, `${BASE}/**/**.js`])
+          .pipe(stripDebug())
+          .pipe(removeLogs())
+          .pipe(gulp.dest(`${PRO_BASE}`))
 })
 
 gulp.task('build', function () {
-  gulpSequence('clean', ['copy', 'scss'], function () {
+  gulpSequence('clean', ['compileJs', 'copy', 'scss'], function () {
     console.log('编译完成')
   })
 })
@@ -72,3 +89,5 @@ gulp.task('scss', function () {
   }))
   .pipe(gulp.dest(`${PRO_BASE}`))
 })
+
+gulp.task('clearlog', ['removeLog'])

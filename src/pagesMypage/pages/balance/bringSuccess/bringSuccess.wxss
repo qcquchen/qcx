@@ -1,0 +1,34 @@
+/* pages/mypage/balance/bringSuccess/bringSuccess.wxss */
+.sm-suc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sm-img {
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 40rpx;
+}
+
+.sm-txt {
+  font-size: 22rpx;
+  color: #bbbbbf;
+  margin-top: 20rpx;
+}
+/* 按钮 */
+.addCard-btn{
+  width: 90%;
+  margin: 60rpx auto;
+  border-radius: 24rpx;
+  overflow: hidden;
+  border: 1rpx solid #DADDE3;
+}
+.btn-btn{
+  background: #00BAFF;
+   color: white;
+}
+.btn-btn:after{
+  border: none;
+}

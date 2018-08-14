@@ -1,0 +1,13 @@
+<!--pages/mypage/balance/bringSuccess/bringSuccess.wxml-->
+<view class='sm-suc'>
+  <view class='sm-img'>
+    <image src='/images/mypage/icon_pop_confirm copy@2x.png'></image>
+  </view>
+  <view class='sm-txt'>
+   提现金额预计1-3个工作日到账
+  </view>
+</view>
+<!-- 按钮 -->
+<view class='addCard-btn' catchtap='jumpBalance'>
+  <button class='btn-btn'>返回</button>
+</view>

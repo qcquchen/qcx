@@ -1,0 +1,87 @@
+<!-- 顶部背景 -->
+<view class='top-img'>
+  <image src='/images/mypage/bg.png'></image>
+  <view class='box-top' catchtap='{{name?"":"jumpLogin"}}'>
+    <view class='box-header'>
+    <open-data type="userAvatarUrl" wx:if="{{status}}"></open-data>
+    <image src='/images/mypage/@3x0logo.png' wx:else></image>
+    </view>
+    <view class='header-rg'>
+      <view class='rg-txt1'>{{name?name:'请登录/注册'}}</view>
+      <view class='rg-txt2' hidden='{{name}}'>登录赚原力，领QC，可提现</view>
+    </view>
+  </view>
+</view>
+<!-- 内容区 -->
+<view class='box-conter'>
+  <!-- 内容顶部区 -->
+  <view class='conter-nav'>
+    <view class='nav-bk' catchtap='jumpJourney'>
+      <text class='nav-txt'>0</text>
+      <text>行程</text>
+    </view>
+    <view class='nav-bk' catchtap='jumpBalance'>
+      <text class='nav-txt'>0.00</text>
+      <text>余额</text>
+    </view>
+    <view class='nav-bk' catchtap='jumpMyqc'>
+      <text class='nav-txt'>0.00</text>
+      <text>趣钻</text>
+    </view>
+  </view>
+  <view class='xian'></view>
+  <!-- 内容认证区 -->
+  <view class='conter-aut'>认证</view>
+  <view class='aut-box' catchtap='jumpCarowner'>
+    <view class='aut-left'>
+      <image src='../../images/mypage/home_icon_sign_shezhu@3x.png'></image>
+    </view>
+    <view class='aut-right'>
+      <view class='aut-right-left'>
+        <view class='aut-txt1'>
+          <text>车主认证</text>
+          <!-- <text class='aut-txt1-j'>+100原力</text> -->
+          <text class='aut-txt1-j-ok'>已认证</text>          
+        </view>
+        <view class='aut-txt'>认证成为车主,开启顺风出现</view>
+      </view>
+      <view class='aut-right-right'>
+        <image src='../../images/mypage/icon_return_left@3x.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='aut-box' catchtap='jumpRealaut'>
+    <view class='aut-left'>
+      <image src='../../images/mypage/home_icon_sign_shezhu1.png'></image>
+    </view>
+    <view class='aut-right'>
+      <view class='aut-right-left'>
+        <view class='aut-txt1'>
+          <text>实名认证</text>
+          <text class='aut-txt1-j'>+100原力</text>
+        </view>
+        <view class='aut-txt'>完成实名认证,平台免费为你出现投保</view>
+      </view>
+      <view class='aut-right-right'>
+        <image src='../../images/mypage/icon_return_left@3x.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='aut-box' catchtap='jumpSesame'>
+    <view class='aut-left'>
+      <image src='../../images/mypage/home_icon_sign_shezhu2@2x.png'></image>
+    </view>
+    <view class='aut-right'>
+      <view class='aut-right-left'>
+        <view class='aut-txt1'>
+          <text>芝麻信用</text>
+          <text class='aut-txt1-j'>+100原力</text>
+        </view>
+        <view class='aut-txt'>完成芝麻信用认证,拼车出行更高效哦~</view>
+      </view>
+      <view class='aut-right-right'>
+        <image src='../../images/mypage/icon_return_left@3x.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,565 @@
+@charset "UTF-8";
+
+Page {
+  height: 100%;
+}
+.body{
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+swiper {
+  height: 100%;
+  z-index: 1
+}
+
+.body .index_conter {
+  width: 100%;
+  overflow: hidden;
+}
+
+.index-conter-image {
+  width: 100%;
+  height: 300rpx;
+}
+.body .index_conter1 {
+  width: 100%;
+  overflow: hidden;
+}
+.index-conter1-image{
+  width: 100%;
+  height: 350rpx;
+}
+.index-conter-txt1{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 100rpx;
+  width: 80%;
+  text-align: center;
+  color: white;
+  font-size: 24rpx;
+}
+.index-conter-txt2{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 136rpx;
+  width: 80%;
+  text-align: center;
+  color: white;
+  font-size: 80rpx;
+}
+.index-conter-txt {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 40rpx;
+  width: 80%;
+  text-align: center;
+  color: white;
+  font-size: 32rpx;
+}
+
+.index-conter-btn {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 120rpx;
+  width: 30%;
+  height: 80rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  background: white;
+  color: #ff9c00;
+  border-radius: 20rpx;
+  text-align: center;
+}
+.index-conter-box{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 240rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.index-conter-box-left{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: white;
+}
+.index-conter-left-img{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 4rpx;
+}
+.index-conter-xian{
+  width: 2rpx;
+  height: 46rpx;
+  background: white;
+  opacity:0.6;
+}
+.body .beijing {
+  background-color: #f5f5f7;
+  border-radius: 24rpx;
+  height: 1564rpx;
+  margin-top: -20rpx;
+  overflow: hidden;
+  /*发布*//*待完成行程*//*常用线路样式*/
+}
+
+.body .beijing .swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.body .beijing .swiper-tab .swiper-tab-item {
+  display: inline-block;
+  width: 76rpx;
+  color: #939499;
+  font-size: 28rpx;
+}
+
+.body .beijing .swiper-tab .active {
+  color: #232426;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-bottom: 6rpx solid #435bff;
+}
+
+.body .beijing .history_icon, .body .beijing .loc_icon {
+  width: 36rpx;
+  height: 36rpx;
+  display: block;
+}
+
+.body .beijing .header {
+  width: 96%;
+  height: 200rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 30rpx auto 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.passenger-bg {
+  width: 96%;
+  height: 180rpx;
+  border-radius: 16rpx;
+  margin: 20rpx auto 0;
+  overflow: hidden;
+}
+
+.body .beijing .header .location {
+  width: 85%;
+  height: 100%;
+}
+
+.body .beijing .header .location .locationTop {
+  height: 100rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.body .beijing .header .location .locationTop .loc_icon {
+  margin: 0 40rpx 0 -70rpx;
+}
+
+.body .beijing .header .location .locationTop > button::after {
+  border: none;
+}
+
+.body .beijing .header .location .locationTop > button {
+  width: 144rpx;
+  height: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+  font-size: 22rpx;
+  color: #fff;
+  border-radius: 16rpx;
+  background: #ff9800;
+}
+
+.body .beijing .header .location .locationTop > input {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.body .beijing .header .location .locationTop:last-child {
+  border-top: 2rpx solid #e8e8eb;
+}
+
+.body .beijing .one {
+  width: 96%;
+  height: 384rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  margin: 20rpx auto 0;
+}
+
+.body .beijing .one .one_header_0 {
+  width: 100%;
+  height: 88rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #e8e8eb;
+}
+
+.body .beijing .one .one_header_0 .one_header_0left {
+  margin: 0 30rpx;
+}
+
+.body .beijing .one .one_header_0 .one_headerLleft {
+  margin: 0 30rpx;
+  color: #939499;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.body .beijing .one .one_header_0 .one_header_0left_text {
+  font-size: 12px;
+}
+
+.body .beijing .one .one_header {
+  width: 100%;
+  height: 146rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.body .beijing .one .one_header .one_header_top {
+  width: 15.3%;
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.body .beijing .one .one_header .one_header_top > view {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 auto;
+}
+
+.body .beijing .one .one_header .one_header_center {
+  width: 84.7%;
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-right:30rpx;
+  border-bottom: 1rpx solid #e8e8eb;
+}
+
+.body .beijing .one .one_header .one_header_center .centerLeft {
+  width: 440rpx;
+  height: 100%;
+}
+
+.body .beijing .one .one_header .one_header_center .centerLeft .centerLeftTop {
+  width: 100%;
+  height: 50%;
+  line-height: 100rpx;
+}
+
+.body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom {
+  width: 100%;
+  /*height: 50%;*/
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom .centerLeftBottomQ {
+  width: 200rpx;
+  height: 48rpx;
+}
+
+.body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom .centerLeftBottomQ > input {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.body .beijing .one .one_header .one_header_center .centerLeft .centerLeftBottom .centerLeftBottomW {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.body .beijing .one .one_header .one_header_center .centerRight {
+}
+
+.body .beijing .one .one_header .one_header_centerNo {
+  border-bottom: 0rpx solid #e8e8eb;
+}
+
+.body .beijing .Line {
+  width: 96%;
+  height: 384rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  margin: 20rpx auto 0;
+}
+
+.body .beijing .Line .LineHeader {
+  width: 100%;
+  height: 88rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #e8e8eb;
+}
+
+.body .beijing .Line .LineHeader .LineHeaderText {
+  margin: 0 30rpx;
+  color: #616266;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.body .beijing .Line .LineHeader .LineHeaderTextRight {
+  margin: 0 30rpx;
+  font-size: 12px;
+  color: #939499;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.body .beijing .Line .GotoWork {
+  width: 96%;
+  height: 296rpx;
+  margin-left: 4%;
+}
+
+.body .beijing .Line .GotoWork .GotoWorkTop {
+  height: 144rpx;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #e8e8eb;
+}
+
+.body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textTop {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textTop > view {
+  width: 70rpx;
+  height: 28rpx;
+  background: #6c7180;
+  color: #fff;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  margin-right: 16rpx;
+}
+
+.body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textBottom {
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10rpx;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.body .beijing .Line .GotoWork .GotoWorkTop .GotoWorkTop_one .textBottom .textBottom_Left {
+  width: 200rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  color: #616266;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.body .beijing .Line .GotoWork .GotoWorkTop .loc_icon {
+  margin-right: 32rpx;
+}
+
+.body .beijing .Line .GotoWork .GotoWorkTopNo {
+  border-bottom: 0rpx solid #e8e8eb;
+}
+
+.body .beijing .Line .LineCenter {
+  width: 100%;
+}
+
+.body .beijing .Line .LineCenter .LineCenter_top {
+  width: 100%;
+  height: 70rpx;
+  margin-top: 70rpx;
+  font-size: 16px;
+  color: #616266;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.body .beijing .Line .LineCenter .LineCenter_top .loc_icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 16rpx;
+}
+
+.body .beijing .Line .LineCenter .LineCenter_Bottom {
+  width: 100%;
+  height: 60rpx;
+  margin-top: 20rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.body .beijing .Line .LineCenter .LineCenter_Bottom .tianjia {
+  width: 240rpx;
+  height: 56rpx;
+}
+
+.body .beijing .Line .LineCenter .LineCenter_Bottom .tianjia > button {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 56rpx;
+  background: #fff;
+  border: 2rpx solid #c8c9cc;
+  border-radius: 16rpx;
+}
+
+.body .beijing .Line .LineCenter .LineCenter_Bottom .yuanli {
+  width: 144rpx;
+  height: 32rpx;
+  margin: 0 30rpx 0 70rpx;
+}
+
+.body .beijing .Line .LineCenter .LineCenter_Bottom .yuanli > button {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 32rpx;
+  font-size: 22rpx;
+  color: #fff;
+  border-radius: 16rpx;
+  background: #ff9800;
+}
+
+/* 未登录车主页 */
+
+.dirver-bg {
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: relative;
+}
+
+.dirver-bg image {
+  width: 100%;
+  height: 770rpx;
+}
+
+.dirver-txt1 {
+  position: absolute;
+  width: 75%;
+  font-size: 52rpx;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%);
+  top: 300rpx;
+  color: #000;
+  font-weight: 600;
+}
+
+.dirver-txt2 {
+  position: absolute;
+  font-size: 34rpx;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%);
+  top: 400rpx;
+  color: #939499;
+}
+
+.dirver-txt3 {
+  position: absolute;
+  width: 70%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background: linear-gradient(to right, #50d1ff, #4374ff);
+  font-size: 36rpx;
+  left: 50%;
+  transform: translate(-50%);
+  top: 500rpx;
+  color: white;
+}

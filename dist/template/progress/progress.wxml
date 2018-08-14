@@ -1,0 +1,62 @@
+<template name="progress1">
+<!-- 进度条 -->
+<view class='pros-box'>
+  <view class='pros'>
+    <view class='pros-rau' style=' background: #4186E7;'>1</view>
+    <view class='pros-x'></view>
+    <view class='pros-rau' style=' background: #C3C3C3;'>2</view>
+    <view class='pros-x'></view>
+    <view class='pros-rau' style=' background: #C3C3C3;'>3</view>
+    <view class='pros-x'></view>
+    <view class='pros-rau' style=' background: #C3C3C3;'>4</view>
+  </view>
+    <view class='pros-vi'>
+      <text>身份认证</text>
+      <text>提交车辆证件信息</text>
+      <text style='margin-right:40rpx;'>后台审核</text>
+      <text>短信通知</text>
+    </view>
+</view>
+</template>
+
+<template name="progress2">
+<!-- 进度条 -->
+<view class='pros-box'>
+  <view class='pros'>
+    <view class='pros-rau' style=' background: #4186E7;'>1</view>
+    <view class='pros-x' style=' background: #4186E7;'></view>
+    <view class='pros-rau' style=' background: #4186E7;'>2</view>
+    <view class='pros-x'></view>
+    <view class='pros-rau' style=' background: #C3C3C3;'>3</view>
+    <view class='pros-x'></view>
+    <view class='pros-rau' style=' background: #C3C3C3;'>4</view>
+  </view>
+    <view class='pros-vi'>
+      <text>身份认证</text>
+      <text>提交车辆证件信息</text>
+      <text style='margin-right:40rpx;'>后台审核</text>
+      <text>短信通知</text>
+    </view>
+</view>
+</template>
+
+<template name="progress3">
+<!-- 进度条 -->
+<view class='pros-box'>
+  <view class='pros'>
+    <view class='pros-rau' style=' background: #4186E7;'>1</view>
+    <view class='pros-x' style=' background: #4186E7;'></view>
+    <view class='pros-rau' style=' background: #4186E7;'>2</view>
+    <view class='pros-x' style=' background: #4186E7;'></view>
+    <view class='pros-rau' style=' background: #4186E7;'>3</view>
+    <view class='pros-x'></view>
+    <view class='pros-rau' style=' background: #C3C3C3;'>4</view>
+  </view>
+    <view class='pros-vi'>
+      <text>身份认证</text>
+      <text>提交车辆证件信息</text>
+      <text style='margin-right:40rpx;'>后台审核</text>
+      <text>短信通知</text>
+    </view>
+</view>
+</template>

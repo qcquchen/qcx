@@ -1,0 +1,17 @@
+<!--pages/mypage/realaut/realautok.wxml-->
+<view class='sm-suc'>
+  <view class='sm-img'>
+    <image src='../../../images/mypage/icon_pop_confirm copy@2x.png'></image>
+  </view>
+  <view class='sm-txt'>
+    已通过认证,每次出行将获赠30万意外险.
+  </view>
+</view>
+<view class='name1'>
+  <view class='name1-txt0'>真实姓名</view>
+  <view class='name1-txt'>张**</view>
+</view>
+<view class='name1'>
+  <view class='name1-txt0'>身份证号</view>
+  <view class='name1-txt'>139************245</view>
+</view>

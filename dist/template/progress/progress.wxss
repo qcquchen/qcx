@@ -1,0 +1,37 @@
+/* 进度条 */
+.pros-box{
+  width: 100%;
+  background:#F5F5F7;
+  overflow: hidden;
+  padding:40rpx 0rpx;
+}
+.pros{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pros-rau{
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+}
+.pros-vi{
+  width: 96%;
+  margin: 0 auto;
+  display: flex;
+  font-size: 24rpx;
+  color: #616266;
+  justify-content: space-between;
+  align-items: center;
+   margin-top: 20rpx;
+}
+.pros-x{
+  width: 170rpx;
+  height: 12rpx;
+  background: #DADDE2;
+}

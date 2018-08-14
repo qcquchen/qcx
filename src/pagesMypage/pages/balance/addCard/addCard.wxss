@@ -1,0 +1,46 @@
+/* pages/mypage/balance/addCard/addCard.wxss */
+page{
+  background: #F5F5F7;
+}
+.addCard{
+  width: 100%;
+  background: white;
+  margin-top: 20rpx;
+}
+.addCard-box{
+  width: 94%;
+  height: 150rpx;
+  border-bottom: 1rpx solid #F2F2F6;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  justify-content: space-between;
+}
+.addCard-box-box{
+  display: flex;
+  align-items: center;
+}
+.addCard-box image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+}
+.addCard-txt{
+  font-size: 28rpx;
+  color: #9E9FA3;
+  margin-top: 10rpx;
+}
+.addCard-btn{
+  width: 90%;
+  margin: 60rpx auto;
+  border-radius: 24rpx;
+  overflow: hidden;
+  border: 1rpx solid #DADDE3;
+}
+.btn-btn{
+  background: white;
+}
+.btn-btn:after{
+  border: none;
+}

@@ -1,0 +1,32 @@
+<!--pages/mypage/realaut/realaut.wxml-->
+<!-- 顶部蓝色区域 -->
+<view class='carTop-bg'>
+  <view>完成认证+100原力</view>
+  <view class='carTop-img'>
+    <image src='../../../images/mypage/icon_explain@2x.png'></image>
+  </view>
+</view>
+<!-- 认证区 -->
+<view class='info'>
+  <view class='info-txt1'>身份实名认证</view>
+  <view class='info-txt2'>请填写真实姓名及身份证号码，每次出行将获赠30万意外险.</view>
+  <view class='info-txt3'>
+   	<input bindinput="getName" placeholder="请输入姓名" value='{{carName}}'/>
+  </view>
+  <view class='info-txt3'>
+    <input type='idcard' placeholder="请输入真实身份证" confirm-type="完成" bindinput="getId" value='{{carID}}'></input>
+  </view>
+  <view class='info-btn'>
+    <button class="{{carName&&carID!==''?'other-button-hover-1':'other-button-hover'}}" catchtap='jumpRealautOk'> 提交 </button>
+  </view>
+</view>
+<!-- 实名认证成功加原力 -->
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-dialogCenter">
+    <view class="modal-title">发布成功</view>
+    <view class="modal-footer">
+      <image src="/images/index/icon_yuanli@3x.png"></image>
+    </view>
+    <view class="btn-confirm">原力+50</view>
+  </view>
+</view>

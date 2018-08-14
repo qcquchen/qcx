@@ -1,0 +1,72 @@
+<!--pages/mypage/carowner/carinfo.wxml-->
+<!-- 顶部蓝色区域 -->
+<view class='carTop-bg'>
+  <view>完成车主认证+100原力</view>
+  <view class='carTop-img'>
+    <image src='../../../images/mypage/icon_explain@2x.png'></image>
+  </view>
+</view>
+<!-- 进度条 -->
+<import src="../../../template/progress/progress.wxml" />
+<template is="progress2" data="{{...item}}" />
+<!-- 车辆信息 -->
+<view class='carIno'>
+  车辆信息认证
+</view>
+<!-- <view class='carIno-box' catchtap='jumpCarType'>
+  <view>请选择车辆信息</view>
+  <view class='carIno-img'>
+    <image src='../../../images/mypage/icon_return_left@3x.png'></image>
+  </view>
+</view> -->
+<view class='CarCode'><input placeholder='输入车牌号码' bindinput="getCarCode"></input></view>
+<view class='CarInfo-box'>
+  <view class='CarModel'><input placeholder='输入车型' bindinput="getCarModel" ></input></view>
+  <view class='CarModel'><input placeholder='输入颜色' bindinput="getCarColor"></input></view>
+</view>
+<!-- 证件信息 -->
+<view class='info-id'>上传证件(驾驶证和行驶证)</view>
+<view class='zhengjian'>
+  <view class='zhengjianO' catchtap='isShow'>
+    <image src="{{driver_licence==''?'../../../images/mypage/img_jiashizheng@2x.png':driver_licence}}" mode='aspectFill'></image>
+  </view>
+  <view class='zhengjianO' catchtap='isShowTime'>
+    <image src="{{driver_licences==''?'../../../images/mypage/820686034968186295.png':driver_licences}}" mode='aspectFill'></image>
+  </view>
+</view>
+<view class='info-btn'>
+  <button class="{{CarCode&&CarModel&&CarColor&&driver_licence&&driver_licences!==''?'other-button-hover-1':'other-button-hover'}}" catchtap='jumpCarAudit'> 提交 </button>
+</view>
+<!-- 驾驶证/行驶证图片区 -->
+<!-- 01 -->
+<view class='geay-box' hidden='{{show}}' >
+  <view class='up-box'>
+    <view class='up-box-top'>
+    <view class='up-box-x' bindtap='upShow'>取消</view>
+    <view>本人驾驶证正面图</view>
+    </view>
+    <view class='up-box-img'>
+    <image src='../../../images/mypage/@4xGroup 5.png'></image>
+    </view>
+    <view class='up-box-txt'>1、请按照示例图上传</view>
+    <view class='up-box-txt'>2、四角对齐，信息完整。确保文字清晰、无反光、无遮挡。</view>
+    <view class='info-btn3'><button  type='default' bindtap="getDriverLicenseCamera">拍照上传</button></view>
+    <view class='info-btn2'><button  type='default' bindtap="getDriverLicenseAlbum">从相册选取</button></view>
+  </view>
+</view>
+<!-- 02 -->
+<view class='geay-box' hidden='{{showtime}}' >
+  <view class='up-box'>
+    <view class='up-box-top'>
+    <view class='up-box-x' bindtap='upShowTime'>取消</view>
+    <view>本人(或他人)行驶证正面图</view>
+    </view>
+    <view class='up-box-img'>
+    <image src='../../../images/mypage/@3xGroup 16.png'></image>
+    </view>
+    <view class='up-box-txt'>1、请按照示例图上传</view>
+    <view class='up-box-txt'>2、四角对齐，信息完整。确保文字清晰、无反光、无遮挡。</view>
+    <view class='info-btn3'><button  type='default' bindtap="getDriverLicenseCameras">拍照上传</button></view>
+    <view class='info-btn2'><button  type='default' bindtap="getDriverLicenseAlbums">从相册选取</button></view>
+  </view>
+</view>

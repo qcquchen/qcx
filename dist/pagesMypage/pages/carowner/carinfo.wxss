@@ -1,0 +1,176 @@
+/* pages/mypage/carowner/carinfo.wxss */
+@import '../../../template/progress/progress.wxss';
+/* 顶部蓝色区域 */
+.carTop-bg {
+  width: 100%;
+  height: 64rpx;
+  background: #64b5f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 22rpx;
+  color: white;
+  line-height: 42rpx;
+}
+
+.carTop-img {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 10rpx;
+}
+
+/* 车辆信息 */
+
+.carIno {
+  width: 96%;
+  margin: 20rpx auto;
+  font-size: 32rpx;
+  color: #232426;
+}
+.CarCode{
+  width: 96%;
+  margin: 40rpx auto;
+  font-size: 34rpx;
+  color: #737373;
+  border-bottom: 1rpx solid #f2f2f5;  
+  padding: 20rpx 0;  
+}
+.CarInfo-box{
+  width: 96%;
+  margin: 40rpx auto;
+  font-size: 34rpx;
+  color: #737373;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.CarModel{
+  width:48%;
+  border-bottom: 1rpx solid #f2f2f5; 
+  padding: 20rpx 0;  
+}
+.carIno-box {
+  width: 96%;
+  margin: 0 auto;
+  border-bottom: 1rpx solid #f2f2f5;
+  font-size: 34rpx;
+  color: #737373;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+
+.carIno-img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/* 证件信息 */
+
+.info-id {
+  width: 96%;
+  margin: 40rpx auto;
+  font-size: 24rpx;
+  color: #232426;
+}
+
+.zhengjian {
+  width: 96%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.zhengjianO {
+  width: 350rpx;
+  height: 240rpx;
+}
+
+.info-btn {
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+  bottom: 20rpx;
+  width: 94%;
+  background: #f6f6f6;
+  border-radius: 22rpx;
+  overflow: hidden;
+}
+
+.other-button-hover {
+  color: #fff;
+}
+
+/* 驾驶证/行驶证图片区 */
+
+.geay-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #8b8c8e;
+  z-index: 100;
+}
+
+.up-box {
+  width: 100%;
+  height: 82%;
+  position: absolute;
+  bottom: 0;
+  background: white;
+}
+
+.up-box-top {
+  width: 96%;
+  margin: 20rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 34rpx;
+  border-bottom: 1rpx solid #f5f5f6;
+  height: 80rpx;
+}
+
+.up-box-x {
+  position: absolute;
+  left: 0rpx;
+  top: 20rpx;
+  color: #bfc4cc;
+  font-size: 34rpx;
+}
+
+.up-box-img {
+  width: 96%;
+  height: 460rpx;
+  margin: 20rpx auto;
+}
+
+.up-box-txt {
+  width: 96%;
+  margin: 10rpx auto;
+  color: #bfc4cc;
+  font-size: 28rpx;
+}
+
+.info-btn3 {
+  width: 96%;
+  margin: 0 auto;
+  background: #f6f6f6;
+}
+
+.info-btn2 {
+  width: 96%;
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+}
+.other-button-hover{
+  color: #fff;
+}
+.other-button-hover-1{
+  background: linear-gradient(to right,#50D1FF , #4374FF);
+  color: #fff;
+}

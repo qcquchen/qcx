@@ -1,0 +1,21 @@
+<!--pages/mypage/login/login.wxml-->
+<view class="header">欢迎回来</view>
+
+<view class="form_login">
+	<view class="section {{ phone_false ? 'border_No' : '' }}">
+	  <input type="number" bindinput="inPhone" placeholder="输入手机号" maxlength='11' confirm-type="完成" />
+	</view>
+	<view class="section verification_code {{ code_false ? 'border_No' : '' }}">
+		<input type="number" bindinput="inCode" placeholder="输入验证码" confirm-type="完成" />
+		<button class="{{ countdown != '获取验证码' ? 'code_font_color' : '' }}" bindtap="getCode" disabled="{{disabled}}">{{ countdown }}{{disabled?"秒":""}}</button>
+	</view>
+</view>
+
+<view class="submit">
+	<block wx:if="{{ code_type === 'yes' && phone_type === 'yes' }}">
+		<button bindtap="submit_login" class="button_active_over">登录 / 注册</button>
+	</block>
+	<block wx:else>
+		<button class="button_active_none">登录 / 注册</button>
+	</block>
+</view>

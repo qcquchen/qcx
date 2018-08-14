@@ -1,0 +1,58 @@
+/* pages/mypage/balance/bankCard/bankCard.wxss */
+page{
+  background: #F5F5F7;
+}
+
+.bankCard-txt{
+  font-size: 28rpx;
+  color: #616266;
+  margin: 40rpx auto;
+   width: 94%;
+}
+.bankCard-info{
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  overflow: hidden;
+}
+.bankCard-info1{
+  width: 94%;
+  height: 100rpx;
+  margin: 0rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content:  space-between;
+  font-size: 34rpx;
+  border-bottom: 1rpx solid #F2F2F6;
+}
+.bankCard-info1-input{
+  width: 477rpx;
+}
+.bankCard-info1-img{
+  width: 40rpx;
+  height: 40rpx;
+}
+.bankCard-l{
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  color: #98999F;
+}
+/* 按钮 */
+.bank-info-btn {
+  width: 94%;
+  margin: 40rpx auto;
+  border-radius: 22rpx;
+  overflow: hidden;
+}
+.bank-other-button-hover::after{
+  border: none;
+}
+.bank-other-button-hover {
+  background: #F6F6F6;
+  color: #fff;
+}
+.bank-other-button-hover-1 {
+  background: linear-gradient(to right, #50d1ff, #4374ff);
+  color: #fff;
+}

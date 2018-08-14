@@ -1,0 +1,140 @@
+/* 顶部头像 */
+.top-img{
+  width: 100%;
+  position: relative;
+  height: 400rpx;
+}
+.box-top{
+  width: 90%;
+  height: 200rpx;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.box-header{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.header-rg{
+  margin-left: 20rpx;
+}
+.rg-txt1{
+  font-size: 34rpx;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.rg-txt2{
+  font-size: 22rpx;
+  color: #FFFFFF;
+  width: 306rpx;
+  height: 32rpx;
+  background: #FF9800;
+  border-radius: 16rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+/* 内容区 */
+.box-conter{
+  width: 100%;
+  height: 76%;
+  position: absolute;
+  bottom: 0rpx;
+  background: white;
+  border-radius: 15rpx;
+}
+.conter-nav{
+  width: 74%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24rpx;
+  margin-bottom: 24rpx;
+}
+.nav-bk{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ font-size: 28rpx;
+}
+.nav-txt{
+  font-size: 40rpx;
+}
+.xian{
+  width: 100%;
+  height: 1rpx;
+  border-top: 1rpx solid #E8E8EB;
+}
+/* 认证区 */
+.conter-aut{
+  width: 90%;
+  margin: 0 auto;
+  height: 94rpx;
+  line-height: 94rpx;
+  font-size: 32rpx; 
+  color: #232426;
+  font-weight: 600;
+}
+.aut-box{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin-top:20rpx;
+}
+.aut-left{
+  margin-left: 32rpx;
+}
+.aut-left image{
+  width: 50rpx;
+  height: 45rpx;
+}
+.aut-txt{
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #939499;
+}
+.aut-txt1{
+  font-size: 32rpx;
+  color: #232426;
+  margin-top: 10rpx;
+}
+.aut-txt1-j{
+  font-size: 24rpx;
+  border-radius: 18rpx;
+  background: #FF9800;
+  color: white;
+  text-align: center;
+  padding:2rpx 20rpx;
+  margin-left: 20rpx;
+}
+.aut-txt1-j-ok{
+   font-size: 24rpx;
+  border-radius: 18rpx;
+  background: white;
+  color: #00B241;
+  border: 1rpx solid #00B241;
+  text-align: center;
+  padding:2rpx 20rpx;
+  margin-left: 20rpx;
+}
+.aut-right{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30rpx;
+  border-bottom: 1rpx solid #E8E8EB;
+}
+.aut-right-right image{
+  width: 28rpx;
+  height: 28rpx;
+}

@@ -1,0 +1,75 @@
+<!--pages/mypage/myqc/Billboard/Billboard.wxml-->
+<view class='billboard-vie'>
+  <view class='billboard-top'>
+    <view class='billboard-le'>
+      <view>
+        <image src='/images/mypage/icon_bangdan@2x.png'></image>
+      </view>
+      <view>QC实时富豪榜</view>
+    </view>
+    <view class='billboard-ri'>我的排名12789</view>
+  </view>
+  <!-- 内容区 1-->
+  <view class='bi-con'>
+    <view class='bi-con-le'>
+      <view class='bi-con-img1'>
+        <image src='/images/mypage/icon_noone@2x_1.png'></image>
+      </view>
+      <view class='bi-con-img2'>
+        <image></image>
+      </view>
+      <view class='bi-con-pho'>
+        <view class='bi-com-txt'>
+          <view>韩梅梅lily</view>
+          <view class='bi-com-txt-img'>
+            <image src='/images/mypage/img_women_white@2x.png'></image>
+          </view>
+        </view>
+        <view class='bi-com-txt1'>距你900m 1小时前在线</view>
+      </view>
+    </view>
+    <view class='bi-con-ri'>1002.12</view>
+  </view>
+  <!-- 内容区 2-->
+  <view class='bi-con'>
+    <view class='bi-con-le'>
+      <view class='bi-con-img1'>
+        <image src='/images/mypage/icon_noone@2x.png'></image>
+      </view>
+      <view class='bi-con-img2'>
+        <image></image>
+      </view>
+      <view class='bi-con-pho'>
+        <view class='bi-com-txt'>
+          <view>韩梅梅lily</view>
+          <view class='bi-com-txt-img'>
+            <image src='/images/mypage/img_women_white@2x.png'></image>
+          </view>
+        </view>
+        <view class='bi-com-txt1'>距你900m 1小时前在线</view>
+      </view>
+    </view>
+    <view class='bi-con-ri'>999.32</view>
+  </view>
+  <!-- 内容区 3-->
+  <view class='bi-con'>
+    <view class='bi-con-le'>
+      <view class='bi-con-img1'>
+        <image src='/images/mypage/icon_noone@2x_2.png'></image>
+      </view>
+      <view class='bi-con-img2'>
+        <image></image>
+      </view>
+      <view class='bi-con-pho'>
+        <view class='bi-com-txt'>
+          <view>韩梅梅lily</view>
+          <view class='bi-com-txt-img'>
+            <image src='/images/mypage/img_women_white@2x.png'></image>
+          </view>
+        </view>
+        <view class='bi-com-txt1'>距你900m 1小时前在线</view>
+      </view>
+    </view>
+    <view class='bi-con-ri'>996.12</view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<!--pages/mypage/carowner/caraudit.wxml-->
+<!-- 顶部蓝色区域 -->
+<view class='carTop-bg'>
+  <view>完成车主认证+100原力</view>
+  <view class='carTop-img'>
+    <image src='../../../images/mypage/icon_explain@2x.png'></image>
+  </view>
+</view>
+<!-- 进度条 -->
+<import src="../../../template/progress/progress.wxml" />
+<template is="progress3" data="{{...item}}" />
+<!-- 审核提示 -->
+<view class='examine'>
+  <view class='examine-img'>
+    <image src='../../../images/mypage/shalou.png'></image>
+  </view>
+  <view class='examine-txt1'>资料提交成功,后台审核中</view>
+  <view class='examine-txt2'>审核周期1~3个工作日,结果将以短信形式告知 认证成功后奖励100原力,将自动发放至账户</view>
+</view>
+
+<button class="other-button-hover" catchtap='jumpAuditOk'> 提交 </button>

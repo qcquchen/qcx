@@ -1,0 +1,80 @@
+<!--pages/index/passengerSearch/passengerSearch.wxml-->
+<!-- 起始点位置挑选 -->
+<view class="header">
+  <view class="header_left">
+    <view class="location">
+      <image class="loc_icon" src="/images/index/icon_map_star@3x.png"></image>
+      <view class="locationInp">
+        <input style="width: 100%" value="{{value}}" type="text" placeholder="{{address}}" bindinput='searchStart' data-id='1' placeholder-style='color:#000'/>
+      </view>
+    </view>
+    <view class="location">
+      <image class="loc_icon" src="/images/index/icon_map_end@3x.png"></image>
+      <view class="locationInp locationInpTop">
+        <input style="width: 100%" value="{{values}}" type="text" placeholder="请输入目的地" bindinput='searchEnd' data-id='2' placeholder-style='color:#000'/>
+      </view>
+    </view>
+  </view>
+  <view class="header_right">
+    <image bindtap="" class="exchange" src="/images/index/btn_exchange@3x.png"></image>
+  </view>
+</view>
+<!-- 家,公司 -->
+<!-- <view  class="home">
+  <view  class="home_one" bindtap="" data-id="">
+    <view class="img">
+      <image class="loc_icon_img" src="/images/icon_homemini@2x.png"  style="width: 12px;height: 12px"></image>
+    </view>
+    <view class="home_two">
+      <view class="home_two_top">
+       家
+      </view>
+      <view class="home_two_top">
+          <input style="width: 100%;color:#939499;font-size: 12px;" value="{{ home }}" type="text" placeholder="请设置家地址" disabled="true"/>
+      </view>
+    </view>
+  </view>
+  <view  class="home_one" bindtap="" data-id="">
+    <view class="img">
+      <image class="loc_icon_img" src="/images/icon_companymini@2x.png" style="width: 12px;height: 12px"></image>
+    </view>
+    <view  class="home_two"> 
+      <view class="home_two_top">
+       公司
+      </view>
+      <view class="home_two_top">
+        <input style="width: 100%;color:#939499;font-size: 12px;" value="" type="text" placeholder="请设置公司地址" />
+      </view>
+    </view>
+  </view>
+</view> -->
+<!--暂无匹配行程  -->
+<view class="none_dataOne">
+  <view class="none_dataTop">暂无匹配行程</view>
+  <view class="none_dataTop">去发布自己的行程吧</view>
+  <button bindtap="">发布行程得原力</button>
+</view>
+<!-- 顺风车主信息 -->
+<!-- <import src="../template/travelCode/travelCode.wxml" />
+<template is="travelcode" data="{{...demoItem}}"/>  -->
+<!-- 底部提示原力框 -->
+<view class="submit">
+  <view class="submit_number">
+    <view class="submit_Text">
+      顺路行程不合适
+    </view>
+    <view class="submit_Text">
+      去发布行程等车主抢单吧
+    </view>
+  </view>
+  <button bindtap="submit">发布行程得原力</button>
+</view>
+<!-- 关键词提示 -->
+<view class='keyWord-box' hidden='{{keyShow}}'>
+ <view bindtap="navTo" data-item="{{item}}" class='keyWord'  wx:for="{{resData}}" wx:key="shop">
+    <view class='keyWord-img'><image src='/images/index/icon_time@3x.png'></image></view>
+     <view class="weui-media-box__desc">{{item.address}}</view>
+</view>
+</view>
+
+

@@ -1,0 +1,150 @@
+<!--pages/mypage/journey/journey.wxml-->
+<!-- 顶部TAB切换 -->
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected?'red':'default'}}" bindtap="selected">我是乘客</view>
+    <view class="{{selected1?'red':'default'}}" bindtap="selected1">我是车主</view>
+  </view>
+  <!-- 乘客行程***************************************************** -->
+  <view class="{{selected?'show':'hidden'}}">
+    <view class='passengerTxt'>历史行程</view>
+    <view class='contener-box-1' catchtap='jumpHistorical'>
+      <view class='time-box-1'>
+        <view class='time-box-2'>
+          <view class='time-img'>
+            <image src='/images/index/icon_time@3x.png'></image>
+          </view>
+          <view class='time-txt'>5月4日18：20</view>
+        </view>
+        <view>已完成</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_start@3x.png'></image>
+        </view>
+        <view class='time-txt'>九龙山(地铁站)</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_end@3x.png'></image>
+        </view>
+        <view class='time-txt'>上地三街东口(公交站)</view>
+      </view>
+      <view class='conterner-bottom-z'><text class='conterner-bottom-yuan'>实付款</text>16.0 <text class='conterner-bottom-yuan'>元</text></view>
+    </view>
+    <view class='jour-no'>没有更多行程了</view>
+  </view>
+  <!-- 车主行程************************************************************* -->
+  <view class="{{selected1?'show':'hidden'}}">
+    <view class='passengerTxt'>待完成行程</view>
+    <view class='contener-box'>
+      <view class='contener-txt'>抢单成功,乘客未支付</view>
+      <view class='conterner-photo'>
+        <view class='conterner-left'>
+          <view class='photo-img'>
+            <image></image>
+          </view>
+          <view class='photo-txt'>韩梅梅·女</view>
+        </view>
+        <view class='photo-img-ri'>
+          <image src='/images/index/btn_follow_mini@3x.png'></image>
+        </view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_time@3x.png'></image>
+        </view>
+        <view class='time-txt'>5月4日18：20</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_start@3x.png'></image>
+        </view>
+        <view class='time-txt'>九龙山(地铁站)</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_end@3x.png'></image>
+        </view>
+        <view class='time-txt'>上地三街东口(公交站)</view>
+      </view>
+      <view class='conterner-bottom'>
+        <view>人数2</view>
+        <view class='conterner-bottom-pic'>16.0 <text class='conterner-bottom-yuan'>元</text> </view>
+      </view>
+    </view>
+    <!-- ********************************************************************** -->
+    <view class='contener-box-box'>
+      <view class='contener-txt'>等待乘客接单</view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_time@3x.png'></image>
+        </view>
+        <view class='time-txt'>5月4日18：20</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_start@3x.png'></image>
+        </view>
+        <view class='time-txt'>九龙山(地铁站)</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_end@3x.png'></image>
+        </view>
+        <view class='time-txt'>上地三街东口(公交站)</view>
+      </view>
+      <view class='conterner-bottom'>
+        <view class='conterner-bottom-img'>
+          <image src='/images/index/img_haveseat@3x.png'></image>
+          <image src='/images/index/img_haveseat@3x.png'></image>
+          <image src='/images/index/img_haveseat@3x.png'></image>
+          <image src='/images/index/img_haveseat@3x.png'></image>
+        </view>
+        <view class='conterner-bottom-pic'>16.0 <text class='conterner-bottom-yuan'>元/座</text></view>
+      </view>
+      <view class='conterner-zan'>
+        <view class='zan-img'>
+          <image src='/images/index/btn_good_mini@3x.png'></image>
+          <view>2</view>
+        </view>
+        <view class='zan-img'>
+          <image src='/images/index/btn_msg_mini@3x.png'></image>
+          <view>16</view>
+        </view>
+        <view class='zan-img'>
+          <image src='/images/index/btn_share_mini@3x.png'></image>
+          <view>232</view>
+        </view>
+      </view>
+    </view>
+    <!-- 历史行程*********************************** -->
+    <view class='passengerTxt'>历史行程</view>
+    <view class='contener-box-1'>
+      <view class='time-box-1'>
+        <view class='time-box-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_time@3x.png'></image>
+        </view>
+        <view class='time-txt'>5月4日18：20</view>
+        </view>
+        <view>已完成</view>
+        <!-- <view>已关闭</view> -->
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_start@3x.png'></image>
+        </view>
+        <view class='time-txt'>九龙山(地铁站)</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_end@3x.png'></image>
+        </view>
+        <view class='time-txt'>上地三街东口(公交站)</view>
+      </view>
+      <view class='conterner-bottom-z'><text class='conterner-bottom-yuan'>总收入</text>16.0 <text class='conterner-bottom-yuan'>元</text></view>
+    </view>
+    <view class='jour-no'>没有更多行程了</view>
+  </view>
+</view>

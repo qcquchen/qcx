@@ -1,0 +1,70 @@
+/* pages/mypage/myqc/Billboard/Billboard.wxss */
+.billboard-vie{
+  width: 94%;
+  margin: 0 auto;
+}
+.billboard-top{
+  height: 96rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  border-top: 1rpx solid #F2F2F5;
+  border-bottom: 1rpx solid #F2F2F5;
+}
+.billboard-le{
+  font-size: 34rpx;
+  color: #232426;
+  display: flex;
+  align-items: center;
+}
+.billboard-le image{
+  width: 40rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+.billboard-ri{
+  font-size: 30rpx;
+  color: #FFA100;
+}
+/* 内容区 */
+.bi-con{
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bi-con-le{
+  display: flex;
+  align-items: center;
+}
+.bi-con-img1{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.bi-con-img2{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: red;
+  margin-right: 20rpx;
+}
+.bi-com-txt{
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  color: #232426;
+  margin-bottom:10rpx;
+}
+.bi-com-txt-img{
+  width: 28rpx;
+  height: 28rpx;
+}
+.bi-com-txt1{
+  font-size: 24rpx;
+  color: #939499;
+}
+.bi-con-ri{
+  font-size: 48rpx;
+  color: #616266;
+}

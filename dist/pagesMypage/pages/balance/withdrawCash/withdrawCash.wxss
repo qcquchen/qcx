@@ -1,0 +1,105 @@
+/* pages/mypage/balance/withdrawCash/withdrawCash.wxss */
+
+page {
+  background: #f5f5f7;
+}
+
+.withdrawCash {
+  width: 100%;
+  background: white;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.withdrawCashTop {
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  justify-content: center;
+  margin: 10rpx auto;
+}
+
+.withdrawCashTop-txt {
+  color: #2e94ea;
+  margin-left: 20rpx;
+}
+
+.withdrawCashTop-input {
+  width: 100%;
+  margin: 20rpx auto;
+  font-size: 47rpx;
+  text-align: center;
+}
+
+.withdrawCashTop-input input {
+  height: 82rpx;
+}
+
+.withdrawCashTop-max {
+  text-align: center;
+  font-size: 24rpx;
+  color: #cbcccf;
+  margin-bottom: 20rpx;
+}
+
+/* 提现账号 */
+
+.bankCard-txt {
+  font-size: 32rpx;
+  color: #79797c;
+  margin: 40rpx auto;
+  width: 94%;
+}
+
+.bankCard-info {
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  overflow: hidden;
+}
+
+.bankCard-info1 {
+  width: 94%;
+  height: 100rpx;
+  margin: 0rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 34rpx;
+  border-bottom: 1rpx solid #f2f2f6;
+}
+
+.bankCard-info1-input {
+  width: 477rpx;
+}
+
+.bankCard-info1-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.bankCard-l {
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  color: #98999f;
+}
+
+/* 按钮 */
+
+.addCard-btn {
+  width: 90%;
+  margin: 60rpx auto;
+  border-radius: 24rpx;
+  overflow: hidden;
+  border: 1rpx solid #dadde3;
+}
+
+.btn-btn {
+  background: #00baff;
+  color: white;
+}
+
+.btn-btn:after {
+  border: none;
+}

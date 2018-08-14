@@ -1,0 +1,61 @@
+/* pages/mypage/carowner/auditok.wxss */
+/* 提示 */
+.suc{
+  width: 100%;
+  border-bottom: 20rpx solid #F5F5F7;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #696B6F;
+  justify-content: center;
+  line-height:114rpx;
+}
+.suc-img{
+  width: 88rpx;
+  height: 88rpx;
+}
+/* 车主信息区 */
+.myCar{
+  width: 96%;
+  margin: 0 auto;
+}
+.myCar-txt1{
+  font-size: 28rpx;
+  color: #232427;
+  margin-top: 20rpx;
+}
+.myCar-img{
+  display: flex;
+  justify-content: space-between;  
+}
+.myCar-img-left{
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+  color: #98999E;
+  margin-top: 20rpx;
+  
+}
+.myCar-img-left image{
+  width: 350rpx;
+  height: 242rpx;
+}
+.myCar-txt2{
+  color:#3999EA;
+  font-size: 26rpx;
+  margin-top: 30rpx;
+}
+.name{
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #B3B4B7;
+  margin-top: 54rpx;
+}
+.name-txt0{
+  width: 200rpx;
+}
+.name-txt{
+  margin-left: 112rpx;
+  color:#76777A;
+}

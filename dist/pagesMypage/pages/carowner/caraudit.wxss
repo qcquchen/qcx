@@ -1,0 +1,55 @@
+/* pages/mypage/carowner/caraudit.wxss */
+@import '../../../template/progress/progress.wxss';
+
+/* 顶部蓝色区域 */
+
+.carTop-bg {
+  width: 100%;
+  height: 64rpx;
+  background: #64b5f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 22rpx;
+  color: white;
+  line-height: 42rpx;
+}
+
+.carTop-img {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 10rpx;
+}
+
+/* 审核提示 */
+
+.examine {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140rpx;
+}
+
+.examine-img {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 40rpx;
+}
+
+.examine-txt1 {
+  color: #686a6e;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.examine-txt2 {
+  width: 60%;
+  margin: 0 auto;
+  color: #aaabb0;
+  margin-top: 20rpx;
+  font-size: 22rpx;
+  line-height: 40rpx;
+}

@@ -1,0 +1,109 @@
+<!--pages/mypage/myqc/myqc.wxml-->
+<view class='billboard' catchtap='jumpBillboard'>排行榜</view>
+<!-- 当前QC -->
+<view class='presentQc'>
+  <view class='presentQc-box'>
+    <view class='presentQc-box-txt1'>当前QC</view>
+    <view class='presentQc-box1'>
+      <text class='presentQc-box-txt2'>19.08</text>
+      <text class='presentQc-box-txt3'>市值≈￥20.03</text>
+    </view>
+    <view class='presentQc-box-txt4'>
+      <view>今日原力300</view>
+      <view>预计可获QC 16.48</view>
+    </view>
+    <view class='sell-offs' catchtap='sell'>售出</view>
+  </view>
+</view>
+<!-- 走势图 -->
+<view class="container">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+<!-- QC明细 -->
+<view class='details-box'>
+  <view class='details-txt'>QC明细</view>
+  <view class='details-dui'>
+    <view class='details-left'>
+      <view>原力兑换QC</view>
+      <view class='details-left-txt'>2018.07.09 00:05</view>
+    </view>
+    <view class='details-right'>+2.08</view>
+  </view>
+  <view class='details-dui'>
+    <view class='details-left'>
+      <view>原力兑换QC</view>
+      <view class='details-left-txt'>2018.07.09 00:05</view>
+    </view>
+    <view class='details-right'>+2.08</view>
+  </view>
+  <view class='details-dui'>
+    <view class='details-left'>
+      <view>QC交易矿工费</view>
+      <view class='details-left-txt'>2018.07.09 00:05</view>
+    </view>
+    <view class='details-right'>+2.08</view>
+  </view>
+  <view class='details-dui'>
+    <view class='details-left'>
+      <view>售出QC</view>
+      <view class='details-left-txt'>2018.07.09 00:05</view>
+    </view>
+    <view class='details-right'>+2.08</view>
+  </view>
+</view>
+
+<!-- 售出交易 -->
+<view class='sellTrade' hidden='{{sellShow}}'>
+  <view class='sellTrade-top'>
+    <view class='sellTrade-img' catchtap='hiddX'>
+      <image src='/images/mypage/icon_delete@2x.png'></image>
+    </view>
+    <view>售出QC</view>
+  </view>
+  <view class='toda'>
+    <view>今日市值</view>
+    <view class='toda-txt'>￥1.05</view>
+  </view>
+  <view class='se-sum'>
+    <view class='se-sum-le'>
+      <view>售出数量</view>
+      <view class='toda-txt1'>
+        <input placeholder='可用18.61QC'></input>
+      </view>
+    </view>
+    <view class='se-sum-ri'>全部</view>
+  </view>
+  <view class='kugo'>
+    <view>旷工费</view>
+    <view class='kugo-txt1'>0.00QC</view>
+    <view class='kugo-txt2'>(售出数量的2.5%）</view>
+  </view>
+  <view class='tijiao-btn' catchtap='showInputLayer'>
+    提交
+  </view>
+</view>
+
+<!-- 输入交易密码 -->
+<view wx:if='{{showPayPwdInput}}'>
+  <view class='bg_layer'></view>
+  <view class='input_main'>
+    <view class='input_title'>
+      <view class='input_back' catchtap='hidePayLayer'>
+        <text></text>
+      </view>
+      <text>输入支付密码</text>
+    </view>
+    <view class='input_tip'>
+      <text>10.25QC</text>
+      <view class='input_tip-txt'>其中0.25QC为交易矿工费</view>
+      <view><text class='input_tip-txt1'>到账金额</text><text class='input_tip-txt2'>￥10.50</text></view>
+    </view>
+    <view class='input_row' catchtap='getFocus'>
+      <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+        <text wx:if='{{pwdVal.length>i}}'></text>
+      </view>
+    </view>
+    <view class='forget_pwd' catchtap='hidePayLayer'>忘记密码?</view>
+    <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6' />
+  </view>
+</view>

@@ -1,0 +1,38 @@
+/* pages/mypage/realaut/realautok.wxss */
+
+.sm-suc {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sm-img {
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 40rpx;
+}
+
+.sm-txt {
+  font-size: 22rpx;
+  color: #bbbbbf;
+  margin-top: 20rpx;
+}
+
+.name1 {
+  width: 66%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  color: #b3b4b7;
+  margin-top: 54rpx;
+}
+
+.name1-txt0 {
+  width: 150rpx;
+}
+
+.name1-txt {
+  color: #76777a;
+}

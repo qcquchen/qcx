@@ -1,0 +1,54 @@
+<!--pages/mypage/balance/addCard/addCard.wxml-->
+<radio-group>
+<view class='addCard'>
+  <view class='addCard-box'>
+    <view class='addCard-box-box'>
+      <view>
+        <image src='/images/mypage/icon_bank_gongshang_large@3x.png'></image>
+      </view>
+      <view>
+        <view>工商银行</view>
+        <view class='addCard-txt'>尾号4694 储蓄卡</view>
+      </view>
+    </view>
+    <view>
+        <radio></radio>
+    </view>
+  </view>
+
+
+  <view class='addCard-box'>
+    <view class='addCard-box-box'>
+      <view>
+        <image src='/images/mypage/icon_bank_gongshang_large@3x.png'></image>
+      </view>
+      <view>
+        <view>工商银行</view>
+        <view class='addCard-txt'>尾号4694 储蓄卡</view>
+      </view>
+    </view>
+    <view>
+      <radio ></radio>
+    </view>
+  </view>
+
+  <view class='addCard-box'>
+    <view class='addCard-box-box'>
+      <view>
+        <image src='/images/mypage/icon_bank_gongshang_large@3x.png'></image>
+      </view>
+      <view>
+        <view>工商银行</view>
+        <view class='addCard-txt'>尾号4694 储蓄卡</view>
+      </view>
+    </view>
+    <view>
+      <radio></radio>
+    </view>
+  </view>
+
+</view>
+<view class='addCard-btn'>
+  <button class='btn-btn'>添加新账号</button>
+</view>
+</radio-group>

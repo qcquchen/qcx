@@ -1,0 +1,55 @@
+<!--pages/mypage/carowner/auditok.wxml-->
+<!-- 提示 -->
+<view class='suc'>
+  <view class='suc-img'>
+    <image src='../../../images/mypage/icon_pop_confirm copy@2x.png'></image>
+  </view>
+  <view>已完成车主认证</view>
+</view>
+<!-- 车主信息区 -->
+<view class='myCar'>
+  <view class='myCar-txt1'>车主信息</view>
+  <view class='myCar-img'>
+    <view class='myCar-img-left'>
+      <view>本人驾驶证</view>
+      <view>
+        <image src='../../../images/mypage/Group 5@2x.png'></image>
+      </view>
+    </view>
+    <view class='myCar-img-left'>
+      <view>本人(或他人)行驶证</view>
+      <view>
+        <image src='../../../images/mypage/Group 27@2x.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='myCar-txt2'>为保护你的隐私,你的证件信息已经过安全处理</view>
+  <view class='name'>
+    <view class='name-txt0'>真实姓名</view>
+    <view class='name-txt'>张**</view>
+  </view>
+  <view class='name'>
+    <view class='name-txt0'>身份证号</view>
+    <view class='name-txt'>139************245</view>
+  </view>
+  <view class='name'>
+    <view class='name-txt0'>驾照领证日期</view>
+    <view class='name-txt'>2015-01-01</view>
+  </view>
+  <view class='name'>
+    <view class='name-txt0'>车辆号牌</view>
+    <view class='name-txt'>京N***82</view>
+  </view>
+  <view class='name'>
+    <view class='name-txt0'>车辆所有人</view>
+    <view class='name-txt'>张**</view>
+  </view>
+  <view class='name'>
+    <view class='name-txt0'>行程证注册日期</view>
+    <view class='name-txt'>2013-01-01</view>
+  </view>
+  <view class='name'>
+    <view class='name-txt0'>车辆信息</view>
+    <view class='name-txt'>别克 GL8 银色</view>
+  </view>
+</view>

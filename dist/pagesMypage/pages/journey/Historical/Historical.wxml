@@ -1,0 +1,51 @@
+<!--pages/mypage/journey/Historical/Historical.wxml-->
+    <view class='contener-box'>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_time@3x.png'></image>
+        </view>
+        <view class='time-txt'>5月4日18：20</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_start@3x.png'></image>
+        </view>
+        <view class='time-txt'>九龙山(地铁站)</view>
+      </view>
+      <view class='time-box'>
+        <view class='time-img'>
+          <image src='/images/index/icon_end@3x.png'></image>
+        </view>
+        <view class='time-txt'>上地三街东口(公交站)</view>
+      </view>
+      <view class='conterner-bottom'>
+        <view>人数2</view>
+      </view>
+    </view>
+    <!-- 车主信息 -->
+   <view class='histInfo'>
+      <view class='histInfo-txt'>
+        车主信息
+      </view>
+      <view class='histInfo-img'>
+        <view class='histInfo-img-left'>
+          <view class='img-left-img'><image></image></view>
+          <view class='histInfo-name'>
+              <view class='name-top'>韩梅梅lily</view>
+              <view class='name-bottom'>
+                <view class='name-bottom-txt'>京A24EW5</view>
+                <view>银色奥迪</view>
+              </view>
+          </view>
+        </view>
+         <view class='histInfo-img-right'><image src='/images/index/btn_followed_mini.png'></image></view>
+      </view>
+   </view>
+   <!-- 价格 -->
+   <view class='histPic'>
+     实付款12.20元
+   </view>
+
+   <view class='info-btn'>
+   <button class="other-button-hover-1"> 重新预约 </button>
+   </view>

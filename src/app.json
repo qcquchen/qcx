@@ -1,113 +1,114 @@
 {
   "pages": [
-    "src/index",
-    "src/findTravel/findTravel",
-    "src/travelList/travelList",
-    "src/travelList/myTravelInfo",
-    "src/demo/demo",
-    "src/WaitCarowner/WaitCarowner",
-    "src/WaitCarowner/WaitingPassengers",
-    "src/CarOwnerReleased/CarOwnerReleased",
-    "src/DrivingRoute/DrivingrRoute",
-    "src/CarOwner/CarOwner",
-    "src/login/login",
-    "src/login/setLocation",
-    "src/CarOwner/CommonCarOwners",
-    "src/ownersSelectLine/ownersSelectLine",
-    "src/MyusualRoute/MyusualRoute",
-    "src/PassengerRoute/PassengerRoute",
-    "src/PassengerRoute/PassengertTerminal"
-  ],
-  "subPackages":[
-    {
-        "root": "src/lineInfo",
-        "pages": [
-            "lineInfo",
-            "linePeopleList"
-        ]
-    },{
-        "root": "src/auditTheOwner",
-        "pages": [
-            "auditTheOwner",
-            "auditInfo"
-        ]
-    },{
-        "root": "src/ownersCertification",
-        "pages": [
-            "ownersCertification"
-        ]
-    },{
-        "root": "src/submitorder",
-        "pages": [
-            "submitorder",
-            "confirmOrder"
-        ]
-    },{
-        "root": "src/search",
-        "pages": [
-            "search"
-        ]
-    },{
-        "root": "src/travelInfo",
-        "pages": [
-            "travelInfo"
-        ]
-    },{
-        "root": "src/groupList",
-        "pages": [
-            "groupList"
-        ]
-    },{
-        "root": "src/matchTravel",
-        "pages": [
-            "matchTravel"
-        ]
-    },{
-        "root": "src/authorized",
-        "pages": [
-            "authorized"
-        ]
-    }
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mypage/mypage",
+    "pages/find/find",
+    "pages/force/force",
+    "pages/follow/follow"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "趣出行",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "backgroundColor": "#eeeeee",
-    "enablePullDownRefresh" : false
+    "backgroundColor": "#FFFFFF",
+    "enablePullDownRefresh": false
   },
-  "networkTimeout": {
-    "request": 30000,
-    "connectSocket": 30000,
-    "uploadFile": 30000,
-    "downloadFile": 30000 
+  "tabBar": {
+    "color": "#cccccc",
+    "selectedColor": "#666666",
+    "backgroundColor": "#FFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/tabBar/btn_home@3x.png",
+        "selectedIconPath": "/images/tabBar/btn_home_on@3x.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "iconPath": "/images/tabBar/btn_find_copy@3x.png",
+        "selectedIconPath": "/images/tabBar/btn_find_on_copy@3x.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/force/force",
+        "iconPath": "/images/tabBar/btn_tab_start.png",
+        "selectedIconPath": "/images/tabBar/btn_tab_start_on.png",
+        "text": "原力"
+      },
+      {
+        "pagePath": "pages/follow/follow",
+        "iconPath": "/images/tabBar/btn_follow@3x.png",
+        "selectedIconPath": "/images/tabBar/btn_follow_on copy@3x.png",
+        "text": "关注"
+      }
+      ,
+      {
+        "pagePath": "pages/mypage/mypage",
+        "iconPath": "/images/tabBar/btn_me@3x.png",
+        "selectedIconPath": "/images/tabBar/btn_me_on@3x.png",
+        "text": "我的"
+      }
+    ]
   },
-  "tabBar" : {
-    "color" : "#cccccc",
-    "selectedColor" : "#666666",
-    "backgroundColor" : "#FFF",
-    "borderStyle" : "white",
-    "list" : [{
-        "pagePath" : "src/index",
-        "iconPath" : "images/zhuye/btn_home@3x.png",
-        "selectedIconPath" : "images/zhuye/btn_home_on@3x.png",
-        "text" : "主页"
-    },{
-        "pagePath" : "src/findTravel/findTravel",
-        "iconPath" : "images/zhuye/btn_find_copy@3x.png",
-        "selectedIconPath" : "images/zhuye/btn_find_on_copy@3x.png",
-        "text" : "发现"
-    },{
-        "pagePath" : "src/findTravel/findTravel",
-        "iconPath" : "images/zhuye/btn_follow@3x.png",
-        "selectedIconPath" : "images/zhuye/btn_follow_on copy@3x.png",
-        "text" : "关注"
-    },{
-        "pagePath" : "src/travelList/travelList",
-        "iconPath" : "images/zhuye/btn_me@3x.png",
-        "selectedIconPath" : "images/zhuye/btn_me_on@3x.png",
-        "text" : "我"
-    }]
-  },
-  "debug": true
+  "subPackages": [
+    {
+      "root": "pagesIndex",
+      "pages": [
+        "pages/CarOwnerReleased/CarOwnerReleased",
+        "pages/CommonCarOwners/CommonCarOwners",
+        "pages/DrivingRoute/DrivingRoute",
+        "pages/MyusualRoute/MyusualRoute",
+        "pages/PassengerRoute/PassengerRoute",
+        "pages/WaitCarowner/WaitCarowner",
+        "pages/WaitingPassengers/WaitingPassengers",
+        "pages/driverOwner/driverOwner",
+        "pages/passengerIssue/passengerIssue",
+        "pages/passengerSearch/passengerSearch"
+      ]
+    },
+    {
+      "root": "pagesMypage",
+      "pages": [
+        "pages/balance/addCard/addCard",
+        "pages/balance/bankCard/bankCard",
+        "pages/balance/bringSuccess/bringSuccess",
+        "pages/balance/withdrawCash/withdrawCash",
+        "pages/balance/balance",
+        "pages/carowner/cartype",
+        "pages/carowner/carowner",
+        "pages/carowner/carinfo",
+        "pages/carowner/caraudit",
+        "pages/carowner/auditok",
+        "pages/journey/Historical/Historical",
+        "pages/journey/journey",
+        "pages/login/login",
+        "pages/myqc/Billboard/Billboard",
+        "pages/myqc/myqc",
+        "pages/realaut/realautok",
+        "pages/realaut/realaut",
+        "pages/sesame/sesame"
+      ]
+    },
+    {
+      "root": "pagesForce",
+      "pages": [
+        "pages/force/force"
+      ]
+    },
+    {
+      "root": "pagesFind",
+      "pages": [
+        "pages/find/find"
+      ]
+    },
+    {
+      "root": "pagesFollow",
+      "pages": [
+        "pages/follow/follow"
+      ]
+    }
+  ]
 }

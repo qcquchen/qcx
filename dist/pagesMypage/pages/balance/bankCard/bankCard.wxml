@@ -1,0 +1,35 @@
+<!--pages/mypage/balance/bankCard/bankCard.wxml-->
+<view class='bankCard-txt'>请绑定认证用户本人的银行卡</view>
+<view class='bankCard-info'>
+  <view class='bankCard-info1'>
+    <view>持卡人</view>
+    <view class='bankCard-info1-input'>
+      <input placeholder='张三峰'></input>
+    </view>
+    <view class='bankCard-info1-img'>
+      <image src='/images/mypage/btn_infor@3x.png'></image>
+    </view>
+  </view>
+  <view class='bankCard-info1'>
+    <view>卡号</view>
+    <view class='bankCard-info1-input'>
+      <input placeholder='请输入银行卡号'></input>
+    </view>
+    <view class='bankCard-info1-img'>
+      <image src='/images/mypage/btn_infor@3x.png'></image>
+    </view>
+  </view>
+  <view class='bankCard-info1'>
+    <view>开户行</view>
+    <view class='bankCard-l'>
+      <view>开户银行</view>
+      <!-- <view class='bankCard-info1-img'>
+        <image src='/images/mypage/icon_return_left@3x.png'></image>
+      </view> -->
+    </view>
+  </view>
+</view>
+<!-- 按钮 -->
+<view class='bank-info-btn'>
+  <button class="bank-other-button-hover"> 提交 </button>
+</view>

@@ -1,0 +1,187 @@
+<view class="body">
+<!-- 未登录时顶部背景 -->
+  <view class="index_conter" wx:if='{{isToken}}'>
+    <view class='index-conter-image'><image src='/images/mypage/bg.png'></image></view>
+    <view class='index-conter-txt'>基于区块链技术连接每位拼车人</view>
+    <view class='index-conter-btn' bindtap='gotoMakingMoney'>赚钱秘籍</view>
+  </view>
+  <!-- 未登录时顶部背景结束 -->
+  <!-- 已登录时顶部背景 -->
+   <view class="index_conter1" wx:else>
+    <view class='index-conter1-image'><image src='/images/mypage/bg.png'></image></view>
+    <view class='index-conter-txt'>基于区块链技术连接每位拼车人</view>
+    <view class='index-conter-txt1'>今日原力</view>
+    <view class='index-conter-txt2'>460</view>
+    <view class='index-conter-box'>
+        <view class='index-conter-box-left'>
+          <view class='index-conter-left-img'><image src='/images/index/home_btn_info@3x.png'></image></view>
+          <view>规则介绍</view>
+        </view>
+        <view class='index-conter-xian'></view>
+         <view class='index-conter-box-left'>
+          <view class='index-conter-left-img'><image src='/images/index/home_btn_exalt@3x.png'></image></view>
+          <view>去赚原力</view>
+        </view>
+    </view>
+  </view>
+  <!-- 已登录时顶部背景结束 -->
+
+  <view class="beijing">
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">乘客</view>
+      <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">车主</view>
+      <!-- <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">原力</view> -->
+    </view>
+    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+
+      <!-- 乘客页 -->
+      <swiper-item>
+        <!-- 获取当前位置 -->
+        <view class="header" catchtap="gotoSearch">
+          <view class="location">
+            <view class="locationTop">
+              <image class="loc_icon" src="../../images/index/icon_start@3x.png"></image>
+              <input style="width:70%" value="" type="text" placeholder="{{address}}" disabled="true" bindtap="" data-id="" />
+            </view>
+            <view class="locationTop">
+              <image class="loc_icon" src="../../images/index/icon_end@3x.png"></image>
+              <input style="width:70%" value="" type="text" placeholder="你要去哪儿" placeholder-style="color:#FF9800;" disabled="true" bindtap="" data-id="" />
+              <button>+20原力</button>
+            </view>
+          </view>
+        </view>
+        <view class='passenger-bg'><image src='/images/index/img_chezhurenzheng@3x.gif' mode='aspectFill'></image></view>
+        <!-- 登录时显示待完成行程 -->
+        <view class="one" hidden='{{isShow}}'>
+          <view class="one_header_0">
+            <view class="one_header_0left">待完成行程</view>
+            <view class="one_headerLleft one_header_0left_text">全部
+              <!-- <image class="loc_icon" src="../../images/index/icon_return_left_mini@3x.png"></image> -->
+            </view>
+          </view>
+          <view class="one_header">
+            <view class="one_header_top">
+              <view>
+                <image src='../../images/index/home_icon_doing@3x.png'></image>
+              </view>
+            </view>
+            <view class="one_header_center">
+              <view class="centerLeft">
+                <view class="centerLeftTop">{{ textTop }}</view>
+                <view class="centerLeftBottom">
+                  <view class="centerLeftBottomQ">
+                    <input style="width:100%" value="" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="" data-id="" />
+                  </view>
+                  <view class="centerLeftBottomW">
+                    <image src='../../images/index/icon_arrow_black@3x.png'></image>
+                  </view>
+                  <view class="centerLeftBottomQ">
+                    <input style="width:100%" value="" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="" data-id="" />
+                  </view>
+                </view>
+              </view>
+              <view class="centerRight">
+                <image class="loc_icon" src="../../images/index/icon_return_left_mini@3x.png"></image>
+              </view>
+            </view>
+          </view>
+          <!-- 登录时显示待完成行程2 -->
+          <view class="one_header">
+            <view class="one_header_top">
+              <view>
+                <image src='../../images/mypage/shalou.png'></image>
+              </view>
+            </view>
+            <view class="one_header_center one_header_centerNo">
+              <view class="centerLeft">
+                <view class="centerLeftTop">{{ textTop }}</view>
+                <view class="centerLeftBottom">
+                  <view class="centerLeftBottomQ">
+                    <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start" />
+                  </view>
+                  <view class="centerLeftBottomW">
+                    <image src='../../images/index/icon_arrow_black@3x.png'></image>
+                  </view>
+                  <view class="centerLeftBottomQ">
+                    <input style="width:100%" value="{{ start_addr }}" type="text" placeholder="正在获取当前的位置" disabled="true" bindtap="getLocation" data-id="start" />
+                  </view>
+                </view>
+              </view>
+              <view class="centerRight">
+                <image class="loc_icon" src="../../images/index/icon_return_left_mini@3x.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--常用线路 -->
+        <view class="Line" >
+          <view class="LineHeader">
+            <view class="LineHeaderText">常用线路</view>
+            <view class="LineHeaderTextRight" bindtap="gotoPassengerRoute">管理
+              <!-- <image class="loc_icon" src="../../images/index/icon_return_left_mini@3x.png"></image> -->
+            </view>
+          </view>
+             <view class="LineCenter" wx:if='{{isToken}}'>
+            <view class="LineCenter_top">
+              <image class="loc_icon" src="/images/index/s.png"></image>
+              <text class="LineCenter_topText">添加常用路线可以快速匹配和发布行程</text>
+            </view>
+            <view class="LineCenter_Bottom">
+              <view class="tianjia">
+                <button bindtap="gotoPassengerRoute">添加</button>
+              </view>
+              <view class="yuanli">
+                <button>+50原力</button>
+              </view>
+            </view>
+          </view>
+          <view class="GotoWork" wx:else>
+            <view class="GotoWorkTop">
+              <view class="GotoWorkTop_one">
+                <view class="textTop">
+                  <view>上班</view>09:35</view>
+                <view class="textBottom">
+                  <view class="textBottom_Left">上地十四街海淀创业园</view>
+                  <view class="textBottom_center">
+                    <image src='../../images/index/icon_arrow_black@3x.png'></image>
+                  </view>
+                  <view class="textBottom_Left">生命科学园地铁站昌平区</view>
+                </view>
+              </view>
+              <image class="loc_icon" src="../../images/index/icon_return_left_mini@3x.png"></image>
+            </view>
+            <view class="GotoWorkTop GotoWorkTopNo">
+              <view class="GotoWorkTop_one">
+                <view class="textTop">
+                  <view>上班</view>09:35</view>
+                <view class="textBottom">
+                  <view class="textBottom_Left">上地十四街海淀创业园</view>
+                  <view class="textBottom_center">
+                    <image src='../../images/index/icon_arrow_black@3x.png'></image>
+                  </view>
+                  <view class="textBottom_Left">生命科学园地铁站昌平区</view>
+                </view>
+              </view>
+              <image class="loc_icon" src="../../images/index/icon_return_left_mini@3x.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class='passenger-bg'><image src='/images/index/img_chezhurenzheng@3x.gif' mode='aspectFill'></image></view>
+      </swiper-item>
+      <!-- 车主页 -->
+      <swiper-item>
+        <!-- 未登录车主页 -->
+        <view class='dirver-bg'>
+          <view><image src='/images/index/img_chezhurenzheng@3x.gif' mode='aspectFill'></image></view>
+          <view class='dirver-txt1'>区块链拼车,出行新概念</view>
+          <view  class='dirver-txt2'>让每一次出行都有价值</view>
+          <view  class='dirver-txt3' catchtap='gotoCarowner'>注册车主+200原力</view>
+        </view>
+      </swiper-item>
+      <!-- 原力页 -->
+      <!-- <swiper-item>
+        <view>第三屏</view>
+      </swiper-item> -->
+    </swiper>
+  </view>
+</view>
